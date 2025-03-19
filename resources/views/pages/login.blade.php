@@ -1,109 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/64d58efce2.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="{{asset('assets/css/stylelogin.css') }}" />
-    <title> Login / Register</title>
-  </head>
-  <body class="bg-dark">
-    <div class="container">
-      <div class="forms-container">
-        <div class="signin-signup">
-          <form action="#" class="sign-in-form">
-            <h2 class="title">Log In</h2>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/stylelg.css') }}">
+    <title>Login</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="form-header">
+            <div class="titles">
+                <div class="title-login">Login</div>
             </div>
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
-            </div>
-            <input type="submit" value="Login" class="btn solid" />
-            <p class="social-text">Or Sign in with social platforms</p>
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
-          </form>
-          <form action="#" class="sign-up-form">
-            <h2 class="title">Register</h2>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
-            </div>
-            <input type="submit" class="btn" value="Sign up" />
-            <p class="social-text">Or Sign up with social platforms</p>
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
-          </form>
         </div>
-      </div>
-
-      <div class="panels-container" >
-        <div class="panel left-panel">
-          <div class="content">
-            <h3>New here ?</h3>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-              ex ratione. Aliquid!
-            </p>
-            <button class="btn transparent" id="sign-up-btn">
-              Log In
-            </button>
-          </div>
-          <img src="{{asset('assets/images/login.svg') }}" class="image" alt="" />
-        </div>
-        <div class="panel right-panel">
-          <div class="content">
-            <h3>One of us ?</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-              laboriosam ad deleniti.
-            </p>
-            <button class="btn transparent" id="sign-in-btn">
-              Register
-            </button>
-          </div>
-          <img src="{{asset('assets/images/reg.svg') }}" class="image" alt="" />
-        </div>
-      </div>
+       <!-- LOGIN FORM -->
+<form action="#" class="login-form" autocomplete="off">
+    <div class="input-box">
+        <input type="text" class="input-field" id="log-email" required>
+        <label for="log-email" class="label">Email</label>
+        <i class='bx bx-envelope icon'></i>
     </div>
-    <script src="{{asset('assets/js/jslogin.js') }}"></script>
-  </body>
+    <div class="input-box">
+        <input type="password" class="input-field" id="log-pass" required>
+        <label for="log-pass" class="label">Password</label>
+        <i class='bx bx-lock-alt icon'></i>
+    </div>
+    <div class="form-cols">
+        <div class="col-1"></div>
+        <div class="col-2">
+            <a href="#">Forgot password?</a>
+        </div>
+    </div>
+    <div class="input-box">
+        <button class="btn-submit" id="SignInBtn">Sign In <i class='bx bx-log-in'></i></button>
+    </div>
+    <div class="switch-form">
+        <span>Don't have an account? <a href="/register" >Register</a></span>
+    </div>
+</form>
+    </div>
+    <script src="{{ asset('assets/js/jslogin.js') }}"></script>
+</body>
 </html>

@@ -16,13 +16,3 @@ Route::get('/login', function () {
     return view('pages.login');
 });
 
-Route::get('/contact', function () {
-    return view('pages.contact');
-})->name('contact');
-
-// Cart routes
-Route::get('/cart', [CartController::class, 'index'])->name('cart');
-Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
-Route::delete('/cart/{id}', [CartController::class, 'remove'])->name('cart.remove');
-Route::put('/cart/{id}', [CartController::class, 'update'])->name('cart.update');
-Route::delete('/cart', [CartController::class, 'clear'])->name('cart.clear');

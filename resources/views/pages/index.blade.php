@@ -1,10 +1,3 @@
-<!-- /*
-* Bootstrap 5
-* Template Name: Furni
-* Template Author: Untree.co
-* Template URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/ -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -30,7 +23,7 @@
 		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
 			<div class="container">
-				<a class="navbar-brand" href="index.html">TechMart<span>.vn</span></a>
+				<a class="navbar-brand" href="/">TechMart<span>.vn</span></a>
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -39,13 +32,13 @@
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
 						<li class="nav-item active">
-							<a class="nav-link" href="index.html">Home</a>
+							<a class="nav-link" href="/">Trang chủ</a>
 						</li>
-						<li><a class="nav-link" href="shop.html">Shop</a></li>
-						<li><a class="nav-link" href="about.html">About us</a></li>
-						<li><a class="nav-link" href="services.html">Services</a></li>
-						<li><a class="nav-link" href="blog.html">Blog</a></li>
-						<li><a class="nav-link" href="contact.html">Contact us</a></li>
+						<li><a class="nav-link" href="/shop">Cửa hàng</a></li>
+						<li><a class="nav-link" href="/about">Về chúng tôi</a></li>
+						<li><a class="nav-link" href="/services">Dịch vụ</a></li>
+						<li><a class="nav-link" href="/blog">Blog</a></li>
+						<li><a class="nav-link" href="/contact">Liên hệ</a></li>
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
@@ -64,9 +57,9 @@
 					<div class="row justify-content-between">
 						<div class="col-lg-5">
 							<div class="intro-excerpt">
-								<h1>Modern Interior <span clsas="d-block">Design Studio</span></h1>
-								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-								<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+								<h1>Thiết bị điện tử <span class="d-block">Chính hãng</span></h1>
+								<p class="mb-4">Chuyên cung cấp các sản phẩm điện tử chính hãng với giá tốt nhất thị trường. Cam kết bảo hành chính hãng, giao hàng nhanh chóng.</p>
+								<p><a href="/shop" class="btn btn-secondary me-2">Mua sắm ngay</a><a href="/about" class="btn btn-white-outline">Tìm hiểu thêm</a></p>
 							</div>
 						</div>
 						<div class="col-lg-7">
@@ -86,9 +79,9 @@
 
 					<!-- Start Column 1 -->
 					<div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
-						<h2 class="mb-4 section-title">Crafted with excellent material.</h2>
-						<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. </p>
-						<p><a href="shop.html" class="btn">Explore</a></p>
+						<h2 class="mb-4 section-title">Sản phẩm chất lượng cao</h2>
+						<p class="mb-4">Chúng tôi cung cấp các sản phẩm điện tử chính hãng từ các thương hiệu uy tín trên thế giới. Cam kết chất lượng và giá tốt nhất thị trường.</p>
+						<p><a href="/shop" class="btn">Xem tất cả</a></p>
 					</div> 
 					<!-- End Column 1 -->
 
@@ -96,8 +89,8 @@
 					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
 						<a class="product-item" href="cart.html">
 							<img src="{{asset('assets/images/product-1.png')}}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Nordic Chair</h3>
-							<strong class="product-price">$50.00</strong>
+							<h3 class="product-title">Laptop Dell XPS 13</h3>
+							<strong class="product-price">25.990.000đ</strong>
 
 							<span class="icon-cross">
 								<img src="{{asset('assets/images/cross.svg')}}" class="img-fluid">
@@ -110,8 +103,8 @@
 					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
 						<a class="product-item" href="cart.html">
 							<img src="{{asset('assets/images/product-2.png')}}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Kruzo Aero Chair</h3>
-							<strong class="product-price">$78.00</strong>
+							<h3 class="product-title">iPhone 15 Pro Max</h3>
+							<strong class="product-price">34.990.000đ</strong>
 
 							<span class="icon-cross">
 								<img src="{{asset('assets/images/cross.svg')}}" class="img-fluid">
@@ -124,8 +117,8 @@
 					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
 						<a class="product-item" href="cart.html">
 							<img src="{{asset('assets/images/product-3.png')}}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Ergonomic Chair</h3>
-							<strong class="product-price">$43.00</strong>
+							<h3 class="product-title">iPad Pro M2</h3>
+							<strong class="product-price">29.990.000đ</strong>
 
 							<span class="icon-cross">
 								<img src="{{asset('assets/images/cross.svg')}}" class="img-fluid">
@@ -144,8 +137,8 @@
 			<div class="container">
 				<div class="row justify-content-between">
 					<div class="col-lg-6">
-						<h2 class="section-title">Why Choose Us</h2>
-						<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+						<h2 class="section-title">Tại sao chọn chúng tôi</h2>
+						<p>Với hơn 10 năm kinh nghiệm trong lĩnh vực bán lẻ điện tử, chúng tôi tự hào mang đến cho khách hàng những sản phẩm chất lượng với dịch vụ tốt nhất.</p>
 
 						<div class="row my-5">
 							<div class="col-6 col-md-6">
@@ -153,8 +146,8 @@
 									<div class="icon">
 										<img src="{{asset('assets/images/truck.svg')}}" alt="Image" class="imf-fluid">
 									</div>
-									<h3>Fast &amp; Free Shipping</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+									<h3>Giao hàng nhanh chóng</h3>
+									<p>Cam kết giao hàng trong vòng 24h cho khu vực nội thành.</p>
 								</div>
 							</div>
 
@@ -163,8 +156,8 @@
 									<div class="icon">
 										<img src="{{asset('assets/images/bag.svg')}}" alt="Image" class="imf-fluid">
 									</div>
-									<h3>Easy to Shop</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+									<h3>Dễ dàng mua sắm</h3>
+									<p>Giao diện thân thiện, thanh toán đa dạng, hỗ trợ trả góp 0%.</p>
 								</div>
 							</div>
 
@@ -173,8 +166,8 @@
 									<div class="icon">
 										<img src="{{asset('assets/images/support.svg')}}" alt="Image" class="imf-fluid">
 									</div>
-									<h3>24/7 Support</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+									<h3>Hỗ trợ 24/7</h3>
+									<p>Đội ngũ tư vấn viên luôn sẵn sàng hỗ trợ mọi lúc.</p>
 								</div>
 							</div>
 
@@ -183,8 +176,8 @@
 									<div class="icon">
 										<img src="{{asset('assets/images/return.svg')}}" alt="Image" class="imf-fluid">
 									</div>
-									<h3>Hassle Free Returns</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+									<h3>Đổi trả dễ dàng</h3>
+									<p>Chính sách đổi trả trong 30 ngày nếu sản phẩm có lỗi.</p>
 								</div>
 							</div>
 
@@ -214,8 +207,8 @@
 						</div>
 					</div>
 					<div class="col-lg-5 ps-lg-5">
-						<h2 class="section-title mb-4">We Help You Make Modern Interior Design</h2>
-						<p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+						<h2 class="section-title mb-4">Chúng tôi giúp bạn lựa chọn sản phẩm phù hợp</h2>
+						<p>Với đội ngũ tư vấn viên giàu kinh nghiệm, chúng tôi sẽ giúp bạn lựa chọn sản phẩm phù hợp với nhu cầu và ngân sách của bạn.</p>
 
 						<ul class="list-unstyled custom-list my-4">
 							<li>Donec vitae odio quis nisl dapibus malesuada</li>
@@ -241,7 +234,7 @@
 								<img src="{{asset('assets/images/product-1.png')}}" alt="Image" class="img-fluid">
 							</div>
 							<div class="pt-3">
-								<h3>Nordic Chair</h3>
+								<h3>Laptop Dell XPS 13</h3>
 								<p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio </p>
 								<p><a href="#">Read More</a></p>
 							</div>
@@ -254,7 +247,7 @@
 								<img src="{{asset('assets/images/product-2.png')}}" alt="Image" class="img-fluid">
 							</div>
 							<div class="pt-3">
-								<h3>Kruzo Aero Chair</h3>
+								<h3>iPhone 15 Pro Max</h3>
 								<p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio </p>
 								<p><a href="#">Read More</a></p>
 							</div>
@@ -267,7 +260,7 @@
 								<img src="{{asset('assets/images/product-3.png')}}" alt="Image" class="img-fluid">
 							</div>
 							<div class="pt-3">
-								<h3>Ergonomic Chair</h3>
+								<h3>iPad Pro M2</h3>
 								<p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio </p>
 								<p><a href="#">Read More</a></p>
 							</div>
@@ -465,8 +458,8 @@
 
 				<div class="row g-5 mb-5">
 					<div class="col-lg-4">
-						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Furni<span>.</span></a></div>
-						<p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant</p>
+						<div class="mb-4 footer-logo-wrap"><a href="/" class="footer-logo">TechMart<span>.vn</span></a></div>
+						<p class="mb-4">Chuyên cung cấp các sản phẩm điện tử chính hãng với giá tốt nhất thị trường. Cam kết bảo hành chính hãng, giao hàng nhanh chóng.</p>
 
 						<ul class="list-unstyled custom-social">
 							<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
@@ -504,13 +497,7 @@
 								</ul>
 							</div>
 
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Nordic Chair</a></li>
-									<li><a href="#">Kruzo Aero</a></li>
-									<li><a href="#">Ergonomic Chair</a></li>
-								</ul>
-							</div>
+							
 						</div>
 					</div>
 

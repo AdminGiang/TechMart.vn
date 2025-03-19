@@ -35,7 +35,7 @@
 							<a class="nav-link" href="/">Home</a>
 						</li>
 						<li><a class="nav-link" href="/shop">Shop</a></li>
-						<li><a class="nav-link" href="/about">About Us</a></li>
+						<li><a class="nav-link" href="/about">About</a></li>
 						<li><a class="nav-link" href="/services">Services</a></li>
 						<li><a class="nav-link" href="/blog">Blog</a></li>
 						<li><a class="nav-link" href="/contact">Contact</a></li>
@@ -57,8 +57,8 @@
 					<div class="row justify-content-between">
 						<div class="col-lg-5">
 							<div class="intro-excerpt">
-								<h1>Original <span class="d-block">Electronic Devices</span></h1>
-								<p class="mb-4">Providing genuine electronic products at the best market prices. Committed to official warranty and fast delivery.</p>
+								<h1>Electronic Devices <span class="d-block">Authentic</span></h1>
+								<p class="mb-4">Specializing in providing authentic electronic products at the best market prices. Committed to authentic warranty and fast delivery.</p>
 								<p><a href="/shop" class="btn btn-secondary me-2">Shop Now</a><a href="/about" class="btn btn-white-outline">Learn More</a></p>
 							</div>
 						</div>
@@ -80,7 +80,7 @@
 					<!-- Start Column 1 -->
 					<div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
 						<h2 class="mb-4 section-title">High Quality Products</h2>
-						<p class="mb-4">We provide genuine electronic products from world-renowned brands. Committed to quality and best market prices.</p>
+						<p class="mb-4">We provide authentic electronic products from reputable brands worldwide. Committed to quality and best market prices.</p>
 						<p><a href="/shop" class="btn">View All</a></p>
 					</div> 
 					<!-- End Column 1 -->
@@ -89,8 +89,8 @@
 					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
 						<a class="product-item" href="cart.html">
 							<img src="{{asset('assets/images/product-1.png')}}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Dell XPS 13</h3>
-							<strong class="product-price">$1,299.99</strong>
+							<h3 class="product-title">Dell XPS 13 Laptop</h3>
+							<strong class="product-price">$25,990</strong>
 
 							<span class="icon-cross">
 								<img src="{{asset('assets/images/cross.svg')}}" class="img-fluid">
@@ -104,7 +104,7 @@
 						<a class="product-item" href="cart.html">
 							<img src="{{asset('assets/images/product-2.png')}}" class="img-fluid product-thumbnail">
 							<h3 class="product-title">iPhone 15 Pro Max</h3>
-							<strong class="product-price">$1,499.99</strong>
+							<strong class="product-price">$34,990</strong>
 
 							<span class="icon-cross">
 								<img src="{{asset('assets/images/cross.svg')}}" class="img-fluid">
@@ -118,7 +118,7 @@
 						<a class="product-item" href="cart.html">
 							<img src="{{asset('assets/images/product-3.png')}}" class="img-fluid product-thumbnail">
 							<h3 class="product-title">iPad Pro M2</h3>
-							<strong class="product-price">$1,099.99</strong>
+							<strong class="product-price">$29,990</strong>
 
 							<span class="icon-cross">
 								<img src="{{asset('assets/images/cross.svg')}}" class="img-fluid">
@@ -138,7 +138,7 @@
 				<div class="row justify-content-between">
 					<div class="col-lg-6">
 						<h2 class="section-title">Why Choose Us</h2>
-						<p>With over 10 years of experience in electronics retail, we pride ourselves on providing customers with quality products and the best service.</p>
+						<p>With over 10 years of experience in electronic retail, we are proud to bring customers quality products with the best service.</p>
 
 						<div class="row my-5">
 							<div class="col-6 col-md-6">
@@ -147,7 +147,7 @@
 										<img src="{{asset('assets/images/truck.svg')}}" alt="Image" class="imf-fluid">
 									</div>
 									<h3>Fast Delivery</h3>
-									<p>Guaranteed delivery within 24 hours for urban areas.</p>
+									<p>Commitment to deliver within 24 hours for inner city areas.</p>
 								</div>
 							</div>
 
@@ -167,7 +167,7 @@
 										<img src="{{asset('assets/images/support.svg')}}" alt="Image" class="imf-fluid">
 									</div>
 									<h3>24/7 Support</h3>
-									<p>Our support team is always ready to help anytime.</p>
+									<p>Consultant team always ready to assist at any time.</p>
 								</div>
 							</div>
 
@@ -177,7 +177,7 @@
 										<img src="{{asset('assets/images/return.svg')}}" alt="Image" class="imf-fluid">
 									</div>
 									<h3>Easy Returns</h3>
-									<p>30-day return policy for defective products.</p>
+									<p>30-day return policy if product has defects.</p>
 								</div>
 							</div>
 
@@ -207,14 +207,14 @@
 						</div>
 					</div>
 					<div class="col-lg-5 ps-lg-5">
-						<h2 class="section-title mb-4">We Help You Choose The Right Product</h2>
-						<p>With our experienced team of consultants, we will help you choose products that suit your needs and budget.</p>
+						<h2 class="section-title mb-4">We Help You Choose the Right Product</h2>
+						<p>With our experienced consultant team, we will help you choose products that suit your needs and budget.</p>
 
 						<ul class="list-unstyled custom-list my-4">
-							<li>Expert product knowledge</li>
-							<li>Personalized recommendations</li>
-							<li>Competitive pricing</li>
-							<li>After-sales support</li>
+							<li>Professional product consultation</li>
+							<li>Price comparison and analysis</li>
+							<li>Technical specifications explanation</li>
+							<li>After-sales service commitment</li>
 						</ul>
 						<p><a href="#" class="btn">Explore</a></p>
 					</div>
@@ -234,8 +234,8 @@
 								<img src="{{asset('assets/images/product-1.png')}}" alt="Image" class="img-fluid">
 							</div>
 							<div class="pt-3">
-								<h3>Laptop Dell XPS 13</h3>
-								<p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio </p>
+								<h3>Dell XPS 13 Laptop</h3>
+								<p>Premium laptop with high performance and elegant design</p>
 								<p><a href="#">Read More</a></p>
 							</div>
 						</div>
@@ -248,7 +248,7 @@
 							</div>
 							<div class="pt-3">
 								<h3>iPhone 15 Pro Max</h3>
-								<p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio </p>
+								<p>Latest iPhone with advanced features and powerful performance</p>
 								<p><a href="#">Read More</a></p>
 							</div>
 						</div>
@@ -261,7 +261,7 @@
 							</div>
 							<div class="pt-3">
 								<h3>iPad Pro M2</h3>
-								<p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio </p>
+								<p>Professional tablet with M2 chip and stunning display</p>
 								<p><a href="#">Read More</a></p>
 							</div>
 						</div>
@@ -298,30 +298,7 @@
 
 											<div class="testimonial-block text-center">
 												<blockquote class="mb-5">
-													<p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
-												</blockquote>
-
-												<div class="author-info">
-													<div class="author-pic">
-														<img src="{{asset('assetsimages/person-1.png')}}" alt="Maria Jones" class="img-fluid">
-													</div>
-													<h3 class="font-weight-bold">Maria Jones</h3>
-													<span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div> 
-								<!-- END item -->
-
-								<div class="item">
-									<div class="row justify-content-center">
-										<div class="col-lg-8 mx-auto">
-
-											<div class="testimonial-block text-center">
-												<blockquote class="mb-5">
-													<p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
+													<p>&ldquo;Excellent service and product quality. The staff is very professional and helpful. I highly recommend this store for electronic products.&rdquo;</p>
 												</blockquote>
 
 												<div class="author-info">
@@ -344,15 +321,38 @@
 
 											<div class="testimonial-block text-center">
 												<blockquote class="mb-5">
-													<p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
+													<p>&ldquo;The best place to buy electronic products. Authentic products, competitive prices, and excellent customer service.&rdquo;</p>
 												</blockquote>
 
 												<div class="author-info">
 													<div class="author-pic">
-														<img src="{{asset('assets/images/person-1.png')}}" alt="Maria Jones" class="img-fluid">
+														<img src="{{asset('assets/images/person-1.png')}}" alt="John Smith" class="img-fluid">
 													</div>
-													<h3 class="font-weight-bold">Maria Jones</h3>
-													<span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
+													<h3 class="font-weight-bold">John Smith</h3>
+													<span class="position d-block mb-3">Tech Enthusiast</span>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div> 
+								<!-- END item -->
+
+								<div class="item">
+									<div class="row justify-content-center">
+										<div class="col-lg-8 mx-auto">
+
+											<div class="testimonial-block text-center">
+												<blockquote class="mb-5">
+													<p>&ldquo;Fast delivery, authentic products, and great after-sales service. I'm very satisfied with my purchase.&rdquo;</p>
+												</blockquote>
+
+												<div class="author-info">
+													<div class="author-pic">
+														<img src="{{asset('assets/images/person-1.png')}}" alt="Sarah Wilson" class="img-fluid">
+													</div>
+													<h3 class="font-weight-bold">Sarah Wilson</h3>
+													<span class="position d-block mb-3">Regular Customer</span>
 												</div>
 											</div>
 
@@ -388,7 +388,7 @@
 						<div class="post-entry">
 							<a href="#" class="post-thumbnail"><img src="{{asset('assets/images/post-1.jpg')}}" alt="Image" class="img-fluid"></a>
 							<div class="post-content-entry">
-								<h3><a href="#">First Time Home Owner Ideas</a></h3>
+								<h3><a href="#">Latest Technology Trends</a></h3>
 								<div class="meta">
 									<span>by <a href="#">Kristin Watson</a></span> <span>on <a href="#">Dec 19, 2021</a></span>
 								</div>
@@ -400,7 +400,7 @@
 						<div class="post-entry">
 							<a href="#" class="post-thumbnail"><img src="{{asset('assets/images/post-2.jpg')}}" alt="Image" class="img-fluid"></a>
 							<div class="post-content-entry">
-								<h3><a href="#">How To Keep Your Furniture Clean</a></h3>
+								<h3><a href="#">Product Care Guide</a></h3>
 								<div class="meta">
 									<span>by <a href="#">Robert Fox</a></span> <span>on <a href="#">Dec 15, 2021</a></span>
 								</div>
@@ -412,7 +412,7 @@
 						<div class="post-entry">
 							<a href="#" class="post-thumbnail"><img src="{{asset('assets/images/post-3.jpg')}}" alt="Image" class="img-fluid"></a>
 							<div class="post-content-entry">
-								<h3><a href="#">Small Space Furniture Apartment Ideas</a></h3>
+								<h3><a href="#">Shopping Tips</a></h3>
 								<div class="meta">
 									<span>by <a href="#">Kristin Watson</a></span> <span>on <a href="#">Dec 12, 2021</a></span>
 								</div>
@@ -459,7 +459,7 @@
 				<div class="row g-5 mb-5">
 					<div class="col-lg-4">
 						<div class="mb-4 footer-logo-wrap"><a href="/" class="footer-logo">TechMart<span>.vn</span></a></div>
-						<p class="mb-4">Providing genuine electronic products at the best market prices. Committed to official warranty and fast delivery.</p>
+						<p class="mb-4">Specializing in providing authentic electronic products at the best market prices. Committed to authentic warranty and fast delivery.</p>
 
 						<ul class="list-unstyled custom-social">
 							<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
@@ -496,8 +496,6 @@
 									<li><a href="#">Privacy Policy</a></li>
 								</ul>
 							</div>
-
-							
 						</div>
 					</div>
 
@@ -506,8 +504,7 @@
 				<div class="border-top copyright">
 					<div class="row pt-4">
 						<div class="col-lg-6">
-							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a> Distributed By <a hreff="https://themewagon.com">ThemeWagon</a>  <!-- License information: https://untree.co/license/ -->
-            </p>
+							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a> Distributed By <a hreff="https://themewagon.com">ThemeWagon</a></p>
 						</div>
 
 						<div class="col-lg-6 text-center text-lg-end">
@@ -523,7 +520,6 @@
 			</div>
 		</footer>
 		<!-- End Footer Section -->	
-
 
 		<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 		<script src="{{asset('assets/js/tiny-slider.js')}}"></script>

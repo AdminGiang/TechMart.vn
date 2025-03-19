@@ -76,7 +76,7 @@
                     <option value="default" {{ request('sort') == 'default' ? 'selected' : '' }}>Default sorting</option>
                     <option value="price_asc" {{ request('sort') == 'price_asc' ? 'selected' : '' }}>Price: Low to High</option>
                     <option value="price_desc" {{ request('sort') == 'price_desc' ? 'selected' : '' }}>Price: High to Low</option>
-                    <option value="newest" {{ request('sort') == 'newest' ? 'selected' : '' }}>Newest</option>
+                    <option value="newest" {{ request('sort') == 'newest' ? 'selected' : '' }}>Newest First</option>
                 </select>
             </div>
         </div>
@@ -187,8 +187,8 @@
     });
 
     function updateFilters() {
-            const url = new URL(window.location.href);
-            
+        const url = new URL(window.location.href);
+        
         // Update price range
         url.searchParams.set('min_price', minPriceInput.value);
         url.searchParams.set('max_price', maxPriceInput.value);
@@ -205,15 +205,15 @@
         // Update sort
         const sortValue = document.getElementById('sortSelect').value;
         if (sortValue !== 'default') {
-                url.searchParams.set('sort', sortValue);
-            } else {
-                url.searchParams.delete('sort');
-            }
-            
+            url.searchParams.set('sort', sortValue);
+        } else {
+            url.searchParams.delete('sort');
+        }
+        
         // Reset to first page
         url.searchParams.set('page', '1');
         
-            window.location.href = url.toString();
-        }
+        window.location.href = url.toString();
+    }
     </script>
-@endpush
+

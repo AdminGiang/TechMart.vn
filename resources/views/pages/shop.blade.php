@@ -76,7 +76,7 @@
                     <option value="default" {{ request('sort') == 'default' ? 'selected' : '' }}>Default sorting</option>
                     <option value="price_asc" {{ request('sort') == 'price_asc' ? 'selected' : '' }}>Price: Low to High</option>
                     <option value="price_desc" {{ request('sort') == 'price_desc' ? 'selected' : '' }}>Price: High to Low</option>
-                    <option value="newest" {{ request('sort') == 'newest' ? 'selected' : '' }}>Newest First</option>
+                
                 </select>
             </div>
         </div>

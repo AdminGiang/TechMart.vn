@@ -8,14 +8,14 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="{{asset('assets/css/stylelogin.css') }}" />
-    <title>Đăng kí / Đăng nhập</title>
+    <title> Login / Register</title>
   </head>
   <body class="bg-dark">
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
           <form action="#" class="sign-in-form">
-            <h2 class="title">Đăng nhập</h2>
+            <h2 class="title">Log In</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
               <input type="text" placeholder="Username" />
@@ -42,7 +42,7 @@
             </div>
           </form>
           <form action="#" class="sign-up-form">
-            <h2 class="title">Đăng kí</h2>
+            <h2 class="title">Register</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
               <input type="text" placeholder="Username" />
@@ -84,7 +84,7 @@
               ex ratione. Aliquid!
             </p>
             <button class="btn transparent" id="sign-up-btn">
-              Đăng Kí
+              Log In
             </button>
           </div>
           <img src="{{asset('assets/images/login.svg') }}" class="image" alt="" />
@@ -97,7 +97,7 @@
               laboriosam ad deleniti.
             </p>
             <button class="btn transparent" id="sign-in-btn">
-              Đăng Nhập
+              Register
             </button>
           </div>
           <img src="{{asset('assets/images/reg.svg') }}" class="image" alt="" />

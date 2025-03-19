@@ -1,0 +1,72 @@
+[33mcommit 4ff12ce619e82f25a8db05ab36612455b2194198[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mFuture[m[33m, [m[1;31morigin/Future[m[33m)[m
+Author: TG <truonggiangvu231023@gmail.com>
+Date:   Wed Mar 19 11:48:33 2025 +0700
+
+    Footer
+
+[33mcommit 43c7898df7eeb5fff331bd11ecb3e7ef25e0f064[m
+Author: TG <truonggiangvu231023@gmail.com>
+Date:   Wed Mar 19 11:35:13 2025 +0700
+
+    Update Folder Resousce/Views/...
+
+[33mcommit f7926ee55e873d888b0f46192406358f3f53fe4a[m
+Merge: fa1bca7 4a4f78b
+Author: TG <truonggiangvu231023@gmail.com>
+Date:   Wed Mar 19 11:22:55 2025 +0700
+
+    update cấu trúc chuẩn trong resousce/views
+
+[33mcommit 4a4f78b63495051ba032f6558962b03fd85d592f[m
+Author: Nhân Nguyễn <nhanhoctot1234@gmail.com>
+Date:   Tue Mar 18 18:21:56 2025 +0700
+
+    fix code
+
+[33mcommit fa1bca7402561b3b4c7dca8279e802e403d46c9e[m
+Author: TG <truonggiangvu231023@gmail.com>
+Date:   Tue Mar 18 16:05:14 2025 +0700
+
+    delete
+
+[33mcommit 1729a29edd377d9efdf3b036a977d2dcaa5aae5f[m
+Author: TG <truonggiangvu231023@gmail.com>
+Date:   Tue Mar 18 15:52:41 2025 +0700
+
+    push test.php
+
+[33mcommit 9375feca0fc0340e43912f55ef5b4bae2166e38c[m
+Author: TG <truonggiangvu231023@gmail.com>
+Date:   Tue Mar 18 15:50:14 2025 +0700
+
+    Truonggiangtes
+
+[33mcommit 3af9c6e9d255179a74d6337b3b95bb25689b3d13[m
+Author: Nhân Nguyễn <nhanhoctot1234@gmail.com>
+Date:   Tue Mar 18 15:48:53 2025 +0700
+
+    xóa file test
+
+[33mcommit 830c1f86c77a04eeb8e31c6aefa349ff1eab71dd[m
+Author: Nhân Nguyễn <nhanhoctot1234@gmail.com>
+Date:   Tue Mar 18 15:45:08 2025 +0700
+
+    test file 1
+
+[33mcommit 004ffb8f66dc4ee064a75db3010aebb48121bc6e[m
+Author: Nhân Nguyễn <nhanhoctot1234@gmail.com>
+Date:   Tue Mar 18 15:41:41 2025 +0700
+
+    test file
+
+[33mcommit d524b3e0fb2444a50b2ab580361089f93593cb05[m
+Author: Nhân Nguyễn <nhanhoctot1234@gmail.com>
+Date:   Tue Mar 18 15:39:11 2025 +0700
+
+    test
+
+[33mcommit 84b3d6971844c46d9a14db6cd16d7d3f13061c70[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;31morigin/Dev[m[33m)[m
+Author: TG <truonggiangvu231023@gmail.com>
+Date:   Tue Mar 18 14:59:56 2025 +0700
+
+    Initial commit

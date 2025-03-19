@@ -8,15 +8,12 @@ Route::get('/', function () {
 })->name('home');
 
 
-
- Route::get('/shop', [ProductController::class, 'index'])->name('shop');
-
-
-
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/shop', [ProductController::class, 'index'])->name('shop');
 
 Route::get('/login', function () {
     return view('pages.login');
 });
+
+Route::get('/contact', function () {
+    return view('pages.contact');
+})->name('contact');

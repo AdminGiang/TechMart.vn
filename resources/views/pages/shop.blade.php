@@ -78,7 +78,7 @@
                     <option value="price_desc" {{ request('sort') == 'price_desc' ? 'selected' : '' }}>Giá giảm dần</option>
                     <option value="newest" {{ request('sort') == 'newest' ? 'selected' : '' }}>Mới nhất</option>
                 </select>
-            </div>
+                </div>
             </div>
 
         <!-- Products Grid -->
@@ -88,22 +88,36 @@
                 <div class="product-image">
                     <img src="{{ asset('images/' . $product->Image) }}" alt="{{ $product->Name }}">
                     @php
-                        $discountPercentage = $product->getDiscountPercentage();
+                        $discount = $product->discounts()
+                            ->where('is_active', true)
+                            ->where(function($query) {
+                                $now = now();
+                                $query->where(function($q) use ($now) {
+                                    $q->whereNull('start_date')
+                                      ->orWhere('start_date', '<=', $now);
+                                })
+                                ->where(function($q) use ($now) {
+                                    $q->whereNull('end_date')
+                                      ->orWhere('end_date', '>=', $now);
+                                });
+                            })
+                            ->latest()
+                            ->first();
                     @endphp
-                    @if($discountPercentage > 0)
-                        <div class="discount-badge">-{{ round($discountPercentage) }}%</div>
+                    @if($discount)
+                        <div class="discount-badge">-{{ round($discount->discount_percentage) }}%</div>
                     @endif
                 </div>
                 <div class="product-info">
                     <h3 class="product-title">{{ $product->Name }}</h3>
                     <div class="price-section">
-                        @if($discountPercentage > 0)
+                        @if($discount)
                             <span class="original-price">{{ number_format($product->Price) }}₫</span>
-                            <span class="current-price">{{ number_format($product->getDiscountedPrice()) }}₫</span>
+                            <span class="current-price">{{ number_format($discount->final_price) }}₫</span>
                         @else
                             <span class="current-price">{{ number_format($product->Price) }}₫</span>
                         @endif
-                    </div>
+                        </div>
                     <div class="product-meta">
                         <div class="rating">
                             @php
@@ -118,18 +132,18 @@
                             <i class="fas fa-fire"></i> Đã bán: {{ $product->SoldCount ?? 0 }}
                         </div>
                     </div>
-                    <button class="add-to-cart" data-product-id="{{ $product->ProductID }}">
+                    <button class="add-to-cart" data-product-id="{{ $product->Id }}">
                         <i class="fas fa-shopping-cart me-2"></i>Thêm vào giỏ
                     </button>
                 </div>
             </div>
             @endforeach
-        </div>
+                    </div>
 
         <!-- Pagination -->
         {{ $products->withQueryString()->links('vendor.pagination.custom') }}
-    </div>
-</div>
+                    </div>
+                </div>
 @endsection
 
 @push('scripts')

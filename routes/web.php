@@ -4,11 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
-    return view('index');
+    return view('pages.index');
 });
 
 Route::get('/shop', [ProductController::class, 'index'])->name('shop');
 
-Route::get('/index.html', function () {
-    return redirect('/Home');
+Route::get('/Home', function () {
+    return view('pages.index');
 });

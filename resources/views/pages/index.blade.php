@@ -497,13 +497,7 @@
 								</ul>
 							</div>
 
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Laptop Dell XPS 13</a></li>
-									<li><a href="#">iPhone 15 Pro Max</a></li>
-									<li><a href="#">iPad Pro M2</a></li>
-								</ul>
-							</div>
+							
 						</div>
 					</div>
 

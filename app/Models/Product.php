@@ -34,4 +34,49 @@ class Product extends Model
         'Sale' => 'float',
         'Count' => 'integer'
     ];
+
+    public function discounts()
+    {
+        return $this->hasMany(Discount::class);
+    }
+
+    public function getActiveDiscount()
+    {
+        return $this->discounts()
+                    ->where('is_active', true)
+                    ->where(function($query) {
+                        $now = now();
+                        $query->where(function($q) use ($now) {
+                            $q->whereNull('start_date')
+                              ->orWhere('start_date', '<=', $now);
+                        })
+                        ->where(function($q) use ($now) {
+                            $q->whereNull('end_date')
+                              ->orWhere('end_date', '>=', $now);
+                        });
+                    })
+                    ->latest()
+                    ->first();
+    }
+
+    public function getDiscountedPrice()
+    {
+        $discount = $this->getActiveDiscount();
+        if ($discount) {
+            return $discount->calculateFinalPrice($this->price);
+        }
+        return $this->price;
+    }
+
+    public function getDiscountPercentage()
+    {
+        $discount = $this->getActiveDiscount();
+        if ($discount && $discount->discount_type === 'percentage') {
+            return $discount->discount_percentage;
+        }
+        if ($discount && $discount->discount_type === 'fixed') {
+            return round(($discount->discount_amount / $this->price) * 100, 2);
+        }
+        return 0;
+    }
 } 

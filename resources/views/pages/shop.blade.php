@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 {{-- @extends('layout.app')
+=======
+@extends('layout.app')
+>>>>>>> 1107accedf32bd087465e611aa6fd5ed3e1ace1d
 
 @section('title', 'Cửa hàng')
 
@@ -216,4 +220,8 @@
             window.location.href = url.toString();
         }
     </script>
+<<<<<<< HEAD
 @endpush  --}}
+=======
+@endpush 
+>>>>>>> 1107accedf32bd087465e611aa6fd5ed3e1ace1d

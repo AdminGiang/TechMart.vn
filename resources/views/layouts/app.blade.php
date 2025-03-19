@@ -1,4 +1,8 @@
+<<<<<<< HEAD:resources/views/layouts/app.blade.php
 {{-- <!doctype html>
+=======
+<!doctype html>
+>>>>>>> 1107accedf32bd087465e611aa6fd5ed3e1ace1d:resources/views/layout/app.blade.php
 <html lang="vi">
 <head>
     <meta charset="utf-8">
@@ -131,4 +135,8 @@
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     @yield('scripts')
 </body>
+<<<<<<< HEAD:resources/views/layouts/app.blade.php
 </html>  --}}
+=======
+</html> 
+>>>>>>> 1107accedf32bd087465e611aa6fd5ed3e1ace1d:resources/views/layout/app.blade.php

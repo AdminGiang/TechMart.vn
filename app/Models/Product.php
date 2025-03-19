@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Discount;
 
 class Product extends Model
 {
@@ -16,15 +17,13 @@ class Product extends Model
     protected $fillable = [
         'Name',
         'Description',
-        'CategoryId',
-        'UserId',
         'Price',
-        'IsPublish',
-        'Sale',
         'Image',
-        'Tag',
-        'IsTagBlog',
-        'Count'
+        'CategoryId',
+        'BrandId',
+        'Rating',
+        'ReviewCount',
+        'SoldCount'
     ];
 
     protected $casts = [
@@ -37,7 +36,7 @@ class Product extends Model
 
     public function discounts()
     {
-        return $this->hasMany(Discount::class);
+        return $this->hasMany(Discount::class, 'product_id', 'Id');
     }
 
     public function getActiveDiscount()
@@ -62,10 +61,7 @@ class Product extends Model
     public function getDiscountedPrice()
     {
         $discount = $this->getActiveDiscount();
-        if ($discount) {
-            return $discount->calculateFinalPrice($this->price);
-        }
-        return $this->price;
+        return $discount ? $discount->final_price : $this->Price;
     }
 
     public function getDiscountPercentage()

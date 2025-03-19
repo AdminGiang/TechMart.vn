@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('description')->nullable(); // Mô tả về đợt giảm giá
             $table->timestamps();
 
-            // Khóa ngoại liên kết với bảng products, sử dụng Id thay vì id
+            // Khóa ngoại liên kết với bảng products
             $table->foreign('product_id')
                   ->references('Id')
                   ->on('products')

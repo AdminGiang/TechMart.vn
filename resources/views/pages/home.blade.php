@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Home')
+@section('title', 'Trang chủ')
 @section('content')
 		<!-- Start Hero Section -->
 			<div class="hero">

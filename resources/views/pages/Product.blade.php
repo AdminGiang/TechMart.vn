@@ -8,8 +8,11 @@
         <div class="row justify-content-between">
             <div class="col-lg-5">
                 <div class="intro-excerpt">
-                    <h1>Mới nhất <span clsas="d-block">Hôm nay!!!</span></h1>
-                    <p class="mb-4">Mô tả trang sản phẩm</p>
+                    <h1>Công nghệ<br> <span clsas="d-block"> hôm nay!!!</span></h1>
+                    <p class="mb-4">Khám phá bộ sưu tập sản phẩm công nghệ mới nhất với thiết kế hiện đại,
+                         hiệu suất mạnh mẽ và tính năng đột phá.<br>
+                          Từ điện thoại thông minh, laptop đến thiết bị thông minh, 
+                          chúng tôi mang đến cho bạn những giải pháp công nghệ tối ưu nhất.</p>
                     <p><a href="" class="btn btn-secondary me-2">Mua ngay</a><a href="#" class="btn btn-white-outline">Khám phá</a></p>
                 </div>
             </div>

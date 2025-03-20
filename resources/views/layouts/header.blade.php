@@ -11,13 +11,13 @@
         <div class="collapse navbar-collapse" id="navbarsFurni">
             <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('home') }}">Home</a>
+                    <a class="nav-link" href="{{ route('home') }}">Trang chủ</a>
                 </li>
-                {{-- <li><a class="nav-link" href="{{ route('about') }}">About us</a></li>
-                <li><a class="nav-link" href="{{ route('services') }}">Services</a></li>
-                <li><a class="nav-link" href="{{ route('blog') }}">Blog</a></li> --}}
-                <li><a class="nav-link" href="{{ route('contact') }}">Contact us</a></li>
-            </ul>
+                {{-- <li><a class="nav-link" href="{{ route('about') }}">About us</a></li> --}}
+                <li><a class="nav-link" href="{{ route('product') }}">Sản phẩm</a></li>
+                <li><a class="nav-link" href="{{ route('blog') }}">Chúng tôi</a></li>
+                <li><a class="nav-link" href="{{ route('contact') }}">Liên hệ</a></li>
+            </ul> 
 
             <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
                 <li><a class="nav-link" href="#"><img src="{{asset('assets/images/user.svg')}}"></a></li>

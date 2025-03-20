@@ -13,8 +13,8 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('home') }}">Trang chủ</a>
                 </li>
-                {{-- <li><a class="nav-link" href="{{ route('about') }}">About us</a></li>
-                <li><a class="nav-link" href="{{ route('services') }}">Services</a></li> --}}
+                {{-- <li><a class="nav-link" href="{{ route('about') }}">About us</a></li> --}}
+                <li><a class="nav-link" href="{{ route('product') }}">Sản phẩm</a></li>
                 <li><a class="nav-link" href="{{ route('blog') }}">Chúng tôi</a></li>
                 <li><a class="nav-link" href="{{ route('contact') }}">Liên hệ</a></li>
             </ul>

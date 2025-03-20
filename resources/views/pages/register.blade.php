@@ -1,8 +1,7 @@
-
 @extends('layouts.master')
-
-@section('title', 'login')
+@section('title', 'Register')
 @section('content')
+<div class="daylaregister">
     <div class="tocenter">
         <div class="wrapperregister">
             <div class="form-header">
@@ -43,4 +42,5 @@
             </form>
         </div>
     </div>
+</div>
 @endsection

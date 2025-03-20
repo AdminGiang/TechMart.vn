@@ -45,7 +45,7 @@ body{
 
 .wrapper{
     position: relative;
-
+}
 .tocenter{
     margin-top: 30px;
     margin-bottom: 30px;
@@ -89,24 +89,7 @@ body{
     background-color: var(--primary-color);
     border-radius: 0 0 20px 20px;
 }
-/* .form-header::before, .form-header::after{
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 30px;
-    height: 30px;
-}
-.form-header::before{
-    left: -30px;
-    border-top-right-radius: 50%;
-    box-shadow: 15px 0 0 var(--primary-color);
-}
-.form-header::after{
-    right: -30px;
-    border-top-left-radius: 50%;
-    box-shadow: -15px 0 0 var(--primary-color);
-} */
-/* TITLES */
+
 .titles{
     position: relative;
 }
@@ -247,6 +230,4 @@ body{
     .wrapper{
         margin: 20px;
     }
-}
-
 }

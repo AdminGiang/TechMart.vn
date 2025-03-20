@@ -10,10 +10,10 @@
 						<div class="col-lg-5">
 							<div class="intro-excerpt">
 								<h1>Công nghệ <br><span clsas="d-block"> Dẫn đầu xu hướng</span></h1>
-								<p class="mb-4">Hiện đại – Tiện ích – Đột phá. <br>
+								<p class="mb-4">Hiện đại – Tiện ích – Đột phá <br>
 									Công nghệ tiên tiến giúp nâng tầm cuộc sống. 
 									Sở hữu ngay những thiết bị hiện đại, thông minh và tiện ích nhất tại TechMart.</p>
-								<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+								<p><a href="" class="btn btn-secondary me-2">Mua ngay</a><a href="{{route('product')}}" class="btn btn-white-outline">Khám phá</a></p>
 							</div>
 						</div>
 						<div class="col-lg-7">

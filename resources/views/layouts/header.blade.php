@@ -25,7 +25,7 @@
                 <li><a class="nav-link" href="{{ route('cart') }}"><img src="{{asset('assets/images/cart.svg')}}"></a></li>
 
                 <li><a class="nav-link" href="{{ route('login') }}"><img src="{{asset('assets/images/user.svg')}}"></a></li>
-                <li><a class="nav-link" href="cart.html"><img src="{{asset('assets/images/cart.svg')}}"></a></li>
+                <li><a class="nav-link" href="{{ route('cart') }}"><img src="{{asset('assets/images/cart.svg')}}"></a></li>
 
             </ul>
         </div>

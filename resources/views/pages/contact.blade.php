@@ -58,28 +58,28 @@
             <div class="row">
               <div class="col-6">
                 <div class="form-group">
-                  <label class="text-black" for="fname">First name</label>
+                  <label class="text-black" for="fname">Tên </label>
                   <input type="text" class="form-control" id="fname" placeholder=" Anh">
                 </div>
               </div>
               <div class="col-6">
                 <div class="form-group">
-                  <label class="text-black" for="lname" >Last name</label>
+                  <label class="text-black" for="lname" >Họ</label>
                   <input type="text" class="form-control" id="lname" placeholder=" Nguyễn">
                 </div>
               </div>
             </div>
             <div class="form-group">
-              <label class="text-black" for="email">Email address</label>
+              <label class="text-black" for="email">Địa chỉ email</label>
               <input type="email" class="form-control" id="email" placeholder="nguyenvana@gmai.com">
             </div>
 
             <div class="form-group mb-5">
-              <label class="text-black" for="message">Message</label>
-              <textarea name="" class="form-control" id="message" cols="30" rows="5" placeholder=" Support "></textarea>
+              <label class="text-black" for="message">Nôi dung</label>
+              <textarea name="" class="form-control" id="message" cols="30" rows="5" placeholder=" Nội dung "></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary-hover-outline">Send Message</button>
+            <button type="submit" class="btn btn-primary-hover-outline">Gửi</button>
           </form>
 
         </div>

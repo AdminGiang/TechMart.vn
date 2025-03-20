@@ -9,8 +9,10 @@
 					<div class="row justify-content-between">
 						<div class="col-lg-5">
 							<div class="intro-excerpt">
-								<h1>Modern Interior <span clsas="d-block">Design Studio</span></h1>
-								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+								<h1>Công nghệ <br><span clsas="d-block"> Dẫn đầu xu hướng</span></h1>
+								<p class="mb-4">Hiện đại – Tiện ích – Đột phá. <br>
+									Công nghệ tiên tiến giúp nâng tầm cuộc sống. 
+									Sở hữu ngay những thiết bị hiện đại, thông minh và tiện ích nhất tại TechMart.</p>
 								<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
 							</div>
 						</div>
@@ -32,8 +34,8 @@
 					<!-- Start Column 1 -->
 					<div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
 						<h2 class="mb-4 section-title">Sản phẩm mới</h2>
-						<p class="mb-4">mô tả</p>
-						<p><a href="shop.html" class="btn">Khám phá</a></p>
+						<p class="mb-4">Cập nhật xu hướng công nghệ với các sản phẩm mới nhất tại TechMart.</p>
+						<p><a href="{{route('product')}}" class="btn">Khám phá</a></p>
 					</div> 
 					<!-- End Column 1 -->
 

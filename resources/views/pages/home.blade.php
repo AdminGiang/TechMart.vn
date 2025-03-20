@@ -6,19 +6,23 @@
 		<!-- Start Hero Section -->
 			<div class="hero">
 				<div class="container">
-					<div class="row justify-content-between">
+					<div class="row justify-content-between align-items-center">
 						<div class="col-lg-5">
 							<div class="intro-excerpt">
-								<h1>Công nghệ <br><span clsas="d-block"> Dẫn đầu xu hướng</span></h1>
-								<p class="mb-4">Hiện đại – Tiện ích – Đột phá <br>
-									Công nghệ tiên tiến giúp nâng tầm cuộc sống. 
-									Sở hữu ngay những thiết bị hiện đại, thông minh và tiện ích nhất tại TechMart.</p>
-								<p><a href="" class="btn btn-secondary me-2">Mua ngay</a><a href="{{route('product')}}" class="btn btn-white-outline">Khám phá</a></p>
+								<h1>Công nghệ<br>Dẫn đầu xu<br>hướng</h1>
+								<p>Hiện đại – Tiện ích – Đột phá<br>
+									Công nghệ tiên tiến giúp nâng tầm cuộc sống. Sở hữu ngay<br>những thiết bị hiện đại, thông minh và tiện ích nhất tại TechMart.</p>
+								<p>
+									<a href="{{ route('product') }}" class="btn btn-warning">Mua ngay</a>
+									<a href="{{ route('product') }}" class="btn btn-outline-light">Khám phá</a>
+								</p>
 							</div>
 						</div>
 						<div class="col-lg-7">
 							<div class="hero-img-wrap">
+								<div class="dots-pattern top-right"></div>
 								<img src="{{asset('assets/images/couch.png')}}" class="img-fluid">
+								<div class="dots-pattern bottom-left"></div>
 							</div>
 						</div>
 					</div>

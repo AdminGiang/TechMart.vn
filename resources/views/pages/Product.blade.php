@@ -42,7 +42,7 @@
     <div class="mb-3">
         <div class="d-flex mb-2">
             <div class="flex-shrink-0">
-                <img src="https://via.placeholder.com/50" alt="User" class="rounded-circle">
+                <img src="{{asset('assets/images/person_3.jpg')}}" alt="User" class="rounded-circle" width="40" height="40">
             </div>
             <div class="flex-grow-1 ms-3">
                 <h6 class="mb-0">John Doe</h6>
@@ -52,7 +52,7 @@
         </div>
         <div class="d-flex mb-2">
             <div class="flex-shrink-0">
-                <img src="https://via.placeholder.com/50" alt="User" class="rounded-circle">
+                <img src="{{asset('assets/images/person_3.jpg')}}" alt="User" class="rounded-circle" width="40" height="40">
             </div>
             <div class="flex-grow-1 ms-3">
                 <h6 class="mb-0">Jane Smith</h6>
@@ -70,7 +70,5 @@
     </form>
 </div>
 <!-- End Comments Section -->
-
-
 
 @endsection

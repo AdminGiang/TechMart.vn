@@ -17,6 +17,15 @@ Route::get('/blog', function () {
     return view('pages.blog');
 })->name('blog');
 
+Route::get('/login', function () {
+    return view('pages.login');
+})->name('login');
+
+Route::get('/register', function () {
+    return view('pages.register');
+})->name('register');
+
+
 Route::get('/product', function () {
     return view('pages.product');
 })->name('product');
@@ -24,6 +33,10 @@ Route::get('/product', function () {
 Route::get('/productdetail', function () {
     return view('pages.productdetail');
 })->name('productdetail');
+// cart
+Route::get('/cart', function () {
+    return view('pages.cart');
+})->name('cart');
 
 
 

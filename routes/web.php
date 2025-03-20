@@ -21,5 +21,9 @@ Route::get('/product', function () {
 Route::get('/productdetail', function () {
     return view('pages.productdetail');
 })->name('productdetail');
+// cart
+Route::get('/cart', function () {
+    return view('pages.cart');
+})->name('cart');
 
 

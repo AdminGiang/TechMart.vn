@@ -18,7 +18,7 @@
     <!-- BOXICONS LOGIN-REGISTER -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- CSS LOGIN-REGISTER-->
-	<link href="{{ asset('assets/css/lgstyle.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/lgstyle.css') }}" rel="stylesheet">
 
     <title> TechMart.vn </title>
 </head>
@@ -33,7 +33,10 @@
         @yield('content')
     </div>
 
-    @include('layouts.footer')
+    {{-- Chỉ hiển thị footer nếu không phải trang login --}}
+    @if (!isset($isLoginPage) || !$isLoginPage)
+        @include('layouts.footer')
+    @endif
 
 
 

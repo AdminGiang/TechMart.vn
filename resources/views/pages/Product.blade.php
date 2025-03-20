@@ -8,9 +8,15 @@
         <div class="row justify-content-between">
             <div class="col-lg-5">
                 <div class="intro-excerpt">
+<<<<<<< HEAD
                     <h1>Modern Interior <span clsas="d-block">Design Studio</span></h1>
                     <p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
                     <p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+=======
+                    <h1>Mới nhất <span clsas="d-block">Hôm nay!!!</span></h1>
+                    <p class="mb-4">Mô tả trang sản phẩm</p>
+                    <p><a href="" class="btn btn-secondary me-2">Mua ngay</a><a href="#" class="btn btn-white-outline">Khám phá</a></p>
+>>>>>>> 207589b054b5ab8fb412005e15352a82bec3e38a
                 </div>
             </div>
             <div class="col-lg-7">
@@ -27,6 +33,7 @@
     <div class="container">
           <div class="row">
 
+<<<<<<< HEAD
               <!-- Start Column 1 -->
             <div class="col-12 col-md-4 col-lg-3 mb-5">
                 <a class="product-item" href="{{ route('productdetail')}}">
@@ -140,6 +147,11 @@
             </div>
             <!-- End Column 4 -->
 
+=======
+            <!-- Start Column 1 -->
+            <x-product-item/>
+            <!-- End Column 1 -->
+>>>>>>> 207589b054b5ab8fb412005e15352a82bec3e38a
           </div>
     </div>
 </div>

@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+<<<<<<< HEAD
 use App\Http\Controllers\ProductController;
+=======
+>>>>>>> 207589b054b5ab8fb412005e15352a82bec3e38a
 
 Route::get('/', function () {
     return view('pages.home');
@@ -10,6 +13,7 @@ Route::get('/', function () {
 Route::get('/contact', function () {
     return view('pages.contact');
 })->name('contact');
+<<<<<<< HEAD
 
 Route::get('/blog', function () {
     return view('pages.blog');
@@ -53,3 +57,32 @@ Route::get('/checkout', function () {
     return view('pages.checkout');
 })->name('checkout');
 
+=======
+
+Route::get('/blog', function () {
+    return view('pages.blog');
+})->name('blog');
+
+Route::get('/login', function () {
+    return view('pages.login');
+})->name('login');
+
+Route::get('/register', function () {
+    return view('pages.register');
+})->name('register');
+
+
+Route::get('/product', function () {
+    return view('pages.product');
+})->name('product');
+
+Route::get('/productdetail', function () {
+    return view('pages.productdetail');
+})->name('productdetail');
+// cart
+Route::get('/cart', function () {
+    return view('pages.cart');
+})->name('cart');
+
+
+>>>>>>> 207589b054b5ab8fb412005e15352a82bec3e38a

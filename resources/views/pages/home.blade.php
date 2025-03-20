@@ -43,7 +43,7 @@
 						<a class="product-item" href="{{ route('productdetail')}}">
 							<img src="{{$product->Image}}"  class="img-fluid product-thumbnail">
 							<h3 class="product-title">{{ $product->Name }}</h3>
-							<strong class="product-price">{{ $product->Price }}</strong>
+							<strong class="product-price">{{ number_format($product->Price) }} VND</strong>
 					
 							<span class="icon-cross">
 								<img src="{{asset('assets/images/cross.svg')}}" class="img-fluid">

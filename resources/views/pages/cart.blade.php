@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Shopping Cart')
+@section('title', 'Giỏ hàng')
 @section('content')
 
 <div class="untree_co-section">
@@ -10,7 +10,7 @@
         <div class="col-md-12 col-lg-12 pb-4">
           <div class="row mb-5">
             <div class="col-lg-12">
-              <h2 class="h3 mb-4 text-black">Your Shopping Cart</h2>
+              <h2 class="h3 mb-4 text-black">Giỏ hàng của bạn</h2>
             </div>
           </div>
 
@@ -18,12 +18,12 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th>Image</th>
-                  <th>Product</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Total</th>
-                  
+                  <th>Hình ảnh</th>
+                  <th>Sản phẩm</th>
+                  <th>Giá</th>
+                  <th>Số lượng</th>
+                  <th>Tổng</th>
+                  <th>Xóa</th>
                 </tr>
               </thead>
               <tbody>
@@ -36,7 +36,7 @@
                     <td class="product-name">
                       <h2 class="h5 text-black">{{ $item->product->name }}</h2>
                     </td>
-                    <td>${{ number_format($item->product->price) }}</td>
+                    <td>{{ number_format($item->product->price) }}đ</td>
                     <td>
                       <div class="input-group" style="max-width: 120px;">
                         <span class="input-group-btn">
@@ -52,7 +52,7 @@
                         </span>
                       </div>
                     </td>
-                    <td class="product-subtotal">${{ number_format($item->product->price * $item->quantity) }}</td>
+                    <td class="product-subtotal">{{ number_format($item->product->price * $item->quantity) }}đ</td>
                     <td>
                       <button class="btn btn-black btn-sm remove-item" data-id="{{ $item->id }}">
                         <span class="icon-trash"></span>
@@ -62,7 +62,7 @@
                   @endforeach
                 @else
                   <tr>
-                    <td colspan="6" class="text-center">Your cart is empty</td>
+                    <td colspan="6" class="text-center">Giỏ hàng trống</td>
                   </tr>
                 @endif
               </tbody>
@@ -74,18 +74,18 @@
               <div class="row mb-5">
                 <div class="col-md-12">
                   <div class="p-4 border rounded">
-                    <h3 class="h4 text-black mb-3">Cart Total</h3>
-                    <p class="mb-2">Subtotal <span class="float-end">${{ isset($subtotal) ? number_format($subtotal) : 0 }}</span></p>
-                    <p class="mb-2">Shipping <span class="float-end">${{ isset($shipping) ? number_format($shipping) : 0 }}</span></p>
+                    <h3 class="h4 text-black mb-3">Tổng giỏ hàng</h3>
+                    <p class="mb-2">Tạm tính <span class="float-end">{{ isset($subtotal) ? number_format($subtotal) : 0 }}đ</span></p>
+                    <p class="mb-2">Phí vận chuyển <span class="float-end">{{ isset($shipping) ? number_format($shipping) : 0 }}đ</span></p>
                     <hr>
-                    <p class="mb-2"><strong>Total <span class="float-end">${{ isset($total) ? number_format($total) : 0 }}</span></strong></p>
+                    <p class="mb-2"><strong>Tổng cộng <span class="float-end">{{ isset($total) ? number_format($total) : 0 }}đ</span></strong></p>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12">
                   <button class="btn btn-black btn-lg py-3 btn-block">
-                    Proceed to Checkout
+                    Tiến hành thanh toán
                   </button>
                 </div>
               </div>
@@ -102,7 +102,7 @@
 @section('scripts')
 <script>
 $(document).ready(function() {
-  // Increase quantity
+  // Tăng số lượng
   $('.increase').click(function() {
     var input = $(this).closest('.input-group').find('.quantity-input');
     var value = parseInt(input.val()) + 1;
@@ -110,7 +110,7 @@ $(document).ready(function() {
     updateQuantity(input.data('id'), value);
   });
 
-  // Decrease quantity
+  // Giảm số lượng
   $('.decrease').click(function() {
     var input = $(this).closest('.input-group').find('.quantity-input');
     var value = parseInt(input.val());
@@ -121,10 +121,10 @@ $(document).ready(function() {
     }
   });
 
-  // Remove item
+  // Xóa sản phẩm
   $('.remove-item').click(function() {
     var id = $(this).data('id');
-    if (confirm('Are you sure you want to remove this item?')) {
+    if (confirm('Bạn có chắc muốn xóa sản phẩm này?')) {
       $.ajax({
         url: '/cart/' + id,
         type: 'DELETE',
@@ -138,7 +138,7 @@ $(document).ready(function() {
     }
   });
 
-  // Update quantity
+  // Cập nhật số lượng
   function updateQuantity(id, quantity) {
     $.ajax({
       url: '/cart/' + id,

@@ -1,10 +1,4 @@
-<!-- /*
-* Bootstrap 5
-* Template Name: Furni
-* Template Author: Untree.co
-* Template URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/ -->
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -24,7 +18,7 @@
 		    <!-- BOXICONS -->
 			<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 			<!-- CSS -->
-			<link rel="stylesheet" href="{{ asset('assets/css/stylelg.css') }}">
+			{{-- <link rel="stylesheet" href="{{ asset('assets/css/stylelg.css') }}"> --}}
 		<title> TechMart.vn </title>
 	</head>
 
@@ -32,9 +26,8 @@
 
 		@include('layouts.header') 
 
-		@include('layouts.section')
+		{{-- @include('layouts.section') --}}
 
-		
 		<div class="container">
 			@yield('content')
 		</div>
@@ -46,7 +39,7 @@
 		<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 		<script src="{{asset('assets/js/tiny-slider.js')}}"></script>
 		<script src="{{asset('assets/js/custom.js')}}"></script>
-		<script src="{{ asset('assets/js/jslogin.js') }}"></script>
+		{{-- <script src="{{ asset('assets/js/jslogin.js') }}"></script> --}}
 	</body>
 
 </html>

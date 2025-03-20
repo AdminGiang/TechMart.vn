@@ -22,7 +22,7 @@
                   </svg>
                 </div> <!-- /.icon -->
                 <div class="service-contents">
-                  <p>43 Raymouth Rd. Baltemoer, London 3910</p>
+                  <p>22 Lý Thường Kiệt - P9 - Đà Lạt - Lâm Đồng</p>
                 </div> <!-- /.service-contents-->
               </div> <!-- /.service -->
             </div>
@@ -35,7 +35,7 @@
                   </svg>
                 </div> <!-- /.icon -->
                 <div class="service-contents">
-                  <p>info@yourdomain.com</p>
+                  <p>TechMart@gmail.com</p>
                 </div> <!-- /.service-contents-->
               </div> <!-- /.service -->
             </div>
@@ -48,7 +48,7 @@
                   </svg>
                 </div> <!-- /.icon -->
                 <div class="service-contents">
-                  <p>+1 294 3925 3939</p>
+                  <p>84+ 353.694.869</p>
                 </div> <!-- /.service-contents-->
               </div> <!-- /.service -->
             </div>
@@ -59,24 +59,24 @@
               <div class="col-6">
                 <div class="form-group">
                   <label class="text-black" for="fname">First name</label>
-                  <input type="text" class="form-control" id="fname">
+                  <input type="text" class="form-control" id="fname" placeholder=" Anh">
                 </div>
               </div>
               <div class="col-6">
                 <div class="form-group">
-                  <label class="text-black" for="lname">Last name</label>
-                  <input type="text" class="form-control" id="lname">
+                  <label class="text-black" for="lname" >Last name</label>
+                  <input type="text" class="form-control" id="lname" placeholder=" Nguyễn">
                 </div>
               </div>
             </div>
             <div class="form-group">
               <label class="text-black" for="email">Email address</label>
-              <input type="email" class="form-control" id="email">
+              <input type="email" class="form-control" id="email" placeholder="nguyenvana@gmai.com">
             </div>
 
             <div class="form-group mb-5">
               <label class="text-black" for="message">Message</label>
-              <textarea name="" class="form-control" id="message" cols="30" rows="5"></textarea>
+              <textarea name="" class="form-control" id="message" cols="30" rows="5" placeholder=" Support "></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary-hover-outline">Send Message</button>

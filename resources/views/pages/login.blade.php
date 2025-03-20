@@ -1,7 +1,29 @@
-@extends('layouts.master')
+{{-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Bootstrap CSS -->
+		<link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+		<link href="{{asset('assets/css/tiny-slider.css')}}" rel="stylesheet">
+		<link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+    <!-- BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/stylelg.css') }}">
+    <title>Login</title>
+</head>
+
+<body> --}}
+
+    {{-- @include('layouts.header')  --}}
+
+    @extends('layouts.master')
 
 @section('title', 'login')
-@section('content')
+@section('content')	
 
     <div class="">
         <div class="tocenter">
@@ -39,4 +61,9 @@
         </div>
     </div>
 
-@endsection
+    @endsection
+    {{-- @include('layouts.footer')  --}}
+    {{-- <script src="{{ asset('assets/js/jslogin.js') }}"></script>
+</body>
+
+</html> --}}

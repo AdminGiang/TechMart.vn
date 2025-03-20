@@ -4,25 +4,26 @@
 @section('content')	
 
 		<!-- Start Hero Section -->
-		<div class="hero">
-			<div class="container">
-				<div class="row justify-content-between">
-					<div class="col-lg-5">
-						<div class="intro-excerpt">
-							<h1>Bán <span clsas="d-block">chạy nhất</span></h1>
-							<p class="mb-4">Mô tả</p>
-							<p><a class="btn btn-secondary me-2" href="{{ route('product')}}">Mua ngay</a><a href="{{ route('product')}}" class="btn btn-white-outline">Explore</a></p>
+			<div class="hero">
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-lg-5">
+							<div class="intro-excerpt">
+								<h1>Modern Interior <span clsas="d-block">Design Studio</span></h1>
+								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+								<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+							</div>
 						</div>
-					</div>
-					<div class="col-lg-7">
-						<div class="hero-img-wrap">
-							<img src="{{asset('assets/images/couch.png')}}" class="img-fluid">
+						<div class="col-lg-7">
+							<div class="hero-img-wrap">
+								<img src="{{asset('assets/images/couch.png')}}" class="img-fluid">
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	<!-- End Hero Section -->
+		<!-- End Hero Section -->
+
 		<!-- Start Product Section -->
 		<div class="product-section">
 			<div class="container">
@@ -37,7 +38,19 @@
 					<!-- End Column 1 -->
 
 					<!-- Start Column 2 -->
-					<x-product-item/>
+					 @foreach($products as $product)					
+					<div class="col-12 col-md-4 col-lg-3 mb-5">
+						<a class="product-item" href="{{ route('productdetail')}}">
+							<img src="{{asset('assets/images/product-3.png')}}" class="img-fluid product-thumbnail">
+							<h3 class="product-title">{{ $product->name }}</h3>
+							<strong class="product-price">{{ $product->price }}</strong>
+					
+							<span class="icon-cross">
+								<img src="{{asset('assets/images/cross.svg')}}" class="img-fluid">
+							</span>
+						</a>
+					</div>
+					@endforeach
 					<!-- End Column 2 -->
 
 				</div>

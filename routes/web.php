@@ -3,10 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
-// Route::get('/', function () {
-//     return view('pages.home');
-// })->name('home');
-
 Route::get('/', [ProductController::class, 'home'])->name('home'); 
 
 Route::get('/contact', function () {
@@ -38,6 +34,6 @@ Route::get('/cart', function () {
     return view('pages.cart');
 })->name('cart');
 
-
-
-
+Route::get('/checkout', function () {
+    return view('pages.checkout');
+})->name('checkout');

@@ -54,7 +54,7 @@ body{
 .wrapperregister{
     position:relative;
     width: 430px;
-    height: 550px;
+    height: 700px;
     background-color: var(--white-color);
     border-radius: 15px;
     padding: 120px 32px 64px;
@@ -84,7 +84,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 140px;
+    width: 160px;
     height: 70px;
     background-color: var(--primary-color);
     border-radius: 0 0 20px 20px;
@@ -94,7 +94,8 @@ body{
     position: relative;
 }
 .title-login, .title-register{
-    position: absolute;
+    position: relative;
+    margin-top: 20%;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);

@@ -33,7 +33,10 @@
         @yield('content')
     </div>
 
-    @include('layouts.footer')
+    {{-- Chỉ hiển thị footer nếu không phải trang login --}}
+    @if (!isset($isLoginPage) || !$isLoginPage)
+        @include('layouts.footer')
+    @endif
 
 
 

@@ -1,14 +1,16 @@
 @extends('layouts.master')
 
 @section('title', 'login')
-
+@php
+    $isLoginPage = true;
+@endphp
 
 @section('content')
     <div class="tocenter">
         <div class="wrapperlogin">
             <div class="form-header">
                 <div class="titles">
-                    <div class="title-login">Login</div>
+                    <div class="title-login">Đăng Nhập</div>
                 </div>
             </div>
             <!-- LOGIN FORM -->
@@ -20,19 +22,19 @@
                 </div>
                 <div class="input-box">
                     <input type="password" class="input-field" id="log-pass" required>
-                    <label for="log-pass" class="label">Password</label>
+                    <label for="log-pass" class="label">Mật Khẩu</label>
                     <i class='bx bx-lock-alt icon'></i>
                 </div>
                 <div class="form-cols">
                     <div class="col-2">
-                        <a href="#">Forgot password?</a>
+                        <a href="#">Quên Mật Khẩu?</a>
                     </div>
                 </div>
                 <div class="input-box">
-                    <button class="btn-submit" id="SignInBtn">Sign In <i class='bx bx-log-in'></i></button>
+                    <button class="btn-submit" id="SignInBtn">Đăng Nhập<i class='bx bx-log-in'></i></button>
                 </div>
                 <div class="switch-form">
-                    <span>Don't have an account? <a href="{{ route('register') }}">Register</a></span>
+                    <span>Bạn chưa có tài khoản ? <a href="{{ route('register') }}">Đăng Ký</a></span>
                 </div>
             </form>
         </div>

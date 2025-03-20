@@ -40,7 +40,7 @@
 					<!-- End Column 1 -->
 
 					<!-- Start Column 2 -->
-					 @foreach($products as $product)					
+					@foreach($products as $product)					
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
 						<a class="product-item" href="{{ route('productdetail')}}">
 							<img src="{{$product->Image}}"  class="img-fluid product-thumbnail">

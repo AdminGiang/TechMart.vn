@@ -1,9 +1,15 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
-Route::get('/', [ProductController::class, 'home'])->name('home'); 
+
+
+// Route::get('/', function () {
+//     return view('pages.home');
+// })->name('home');
+Route::get('/', [HomeController::class, 'home'])->name('home'); 
 
 Route::get('/contact', function () {
     return view('pages.contact');
@@ -21,10 +27,10 @@ Route::get('/register', function () {
     return view('pages.register');
 })->name('register');
 
-
-Route::get('/product', function () {
-    return view('pages.product');
-})->name('product');
+Route::get('/product', [ProductController::class, 'product'])->name('product'); 
+// Route::get('/product', function () {
+//     return view('pages.product');
+// })->name('product');
 
 Route::get('/productdetail', function () {
     return view('pages.productdetail');

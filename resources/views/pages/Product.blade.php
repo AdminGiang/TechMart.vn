@@ -26,16 +26,27 @@
 </div>
 <!-- End Hero Section -->
 
+<!-- Start Column 2 -->
 <div class="untree_co-section product-section before-footer-section">
     <div class="container">
           <div class="row">
-            <!-- Start Column 1 -->
-            <x-product-item/>
+            @foreach($products as $product)
+              <!-- Start Column 1 -->
+            <div class="col-12 col-md-4 col-lg-3 mb-5">
+                <a class="product-item" href="#">
+                    <img src="{{$product->Image}}" class="img-fluid product-thumbnail">
+                    <h3 class="product-title">{{ $product->Name }}</h3>
+                    <strong class="product-price">{{ number_format($product->Price) }} VND</strong>
+
+                    <span class="icon-cross">
+                        <img src="{{asset('assets/images/cross.svg')}}" class="img-fluid">
+                    </span>
+                </a>
+            </div> 
             <!-- End Column 1 -->
+            @endforeach		
           </div>
     </div>
 </div>
-
-
 
 @endsection

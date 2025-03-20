@@ -65,8 +65,8 @@
 			<div class="container">
 				<div class="row justify-content-between">
 					<div class="col-lg-6">
-						<h2 class="section-title">Why Choose Us</h2>
-						<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+						<h2 class="section-title">Tại sao chọn chúng tôi?</h2>
+						<p>Chúng tôi cam kết mang đến trải nghiệm mua sắm tốt nhất với dịch vụ chuyên nghiệp và tận tâm.</p>
 
 						<div class="row my-5">
 							<div class="col-6 col-md-6">
@@ -74,8 +74,8 @@
 									<div class="icon">
 										<img src="{{asset('assets/images/truck.svg')}}" alt="Image" class="imf-fluid">
 									</div>
-									<h3>Fast &amp; Free Shipping</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+									<h3>Miễn phí &amp; Giao hàng nhanh chóng</h3>
+									<p>Giao hàng nhanh trên toàn quốc, giúp bạn nhận được sản phẩm một cách tiện lợi nhất.</p>
 								</div>
 							</div>
 
@@ -84,8 +84,8 @@
 									<div class="icon">
 										<img src="{{asset('assets/images/bag.svg')}}" alt="Image" class="imf-fluid">
 									</div>
-									<h3>Easy to Shop</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+									<h3>Mua sắm dễ dàng</h3>
+									<p>Giao diện thân thiện, quy trình đơn giản, hỗ trợ khách hàng tận tình.</p>
 								</div>
 							</div>
 
@@ -94,8 +94,8 @@
 									<div class="icon">
 										<img src="{{asset('assets/images/support.svg')}}" alt="Image" class="imf-fluid">
 									</div>
-									<h3>24/7 Support</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+									<h3>Hỗ trợ 24/7</h3>
+									<p>Đội ngũ tư vấn viên luôn sẵn sàng giúp đỡ bạn bất cứ lúc nào.</p>
 								</div>
 							</div>
 
@@ -104,8 +104,8 @@
 									<div class="icon">
 										<img src="{{asset('assets/images/return.svg')}}" alt="Image" class="imf-fluid">
 									</div>
-									<h3>Hassle Free Returns</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+									<h3>Đổi trả dễ dàng</h3>
+									<p>Chính sách đổi trả linh hoạt, giúp bạn an tâm khi mua sắm.</p>
 								</div>
 							</div>
 
@@ -135,16 +135,16 @@
 						</div>
 					</div>
 					<div class="col-lg-5 ps-lg-5">
-						<h2 class="section-title mb-4">We Help You Make Modern Interior Design</h2>
-						<p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+						<h2 class="section-title mb-4">Giúp bạn tiếp cận công nghệ hiện đại</h2>
+						<p>Chúng tôi mang đến những giải pháp công nghệ tiên tiến, giúp bạn tối ưu hóa công việc và nâng cao trải nghiệm người dùng. Với sản phẩm chất lượng và dịch vụ chuyên nghiệp, bạn sẽ luôn đi đầu trong xu hướng công nghệ.</p>
 
 						<ul class="list-unstyled custom-list my-4">
-							<li>Donec vitae odio quis nisl dapibus malesuada</li>
-							<li>Donec vitae odio quis nisl dapibus malesuada</li>
-							<li>Donec vitae odio quis nisl dapibus malesuada</li>
-							<li>Donec vitae odio quis nisl dapibus malesuada</li>
+							<li>Cập nhật công nghệ mới nhất</li>
+							<li>Giải pháp tối ưu cho mọi nhu cầu</li>
+							<li>Bảo hành và hỗ trợ tận tâm</li>
+							<li>Mua sắm dễ dàng, thanh toán linh hoạt</li>
 						</ul>
-						<p><a herf="#" class="btn">Explore</a></p>
+						<p><a herf="{{route('product')}}" class="btn">Khám phá</a></p>
 					</div>
 				</div>
 			</div>

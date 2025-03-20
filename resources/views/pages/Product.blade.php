@@ -47,11 +47,8 @@
             @endforeach		
           </div>
     </div>
-</div>
 
-<<<<<<< HEAD
-=======
-<!-- Start Comments Section -->
+    <!-- Start Comments Section -->
 <div class="container mt-5">
     <h2>Bình luận</h2>
     <div class="mb-3">
@@ -65,16 +62,6 @@
                 <p class="mt-2">Sản phẩm tuyệt vời! Rất đáng mua.</p>
             </div>
         </div>
-        <div class="d-flex mb-2">
-            <div class="flex-shrink-0">
-                <img src="{{asset('assets/images/person_3.jpg')}}" alt="User" class="rounded-circle" width="40" height="40">
-            </div>
-            <div class="flex-grow-1 ms-3">
-                <h6 class="mb-0">Jane Smith</h6>
-                <small class="text-muted">5 ngày trước</small>
-                <p class="mt-2">Chất lượng tốt nhưng giá hơi cao.</p>
-            </div>
-        </div>
     </div>
     <form>
         <div class="mb-3">
@@ -85,6 +72,6 @@
     </form>
 </div>
 <!-- End Comments Section -->
+</div>
 
->>>>>>> 9a61abe9594c8872de43b0037d513c9a299aaa14
 @endsection

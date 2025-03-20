@@ -1,14 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-<<<<<<< HEAD
-use App\Http\Controllers\ProductController;
-=======
->>>>>>> 207589b054b5ab8fb412005e15352a82bec3e38a
 
-Route::get('/', function () {
-    return view('pages.home');
-})->name('home');
+Route::get('/', [ProductController::class, 'home'])->name('home'); 
 
 Route::get('/contact', function () {
     return view('pages.contact');
@@ -83,6 +77,8 @@ Route::get('/productdetail', function () {
 Route::get('/cart', function () {
     return view('pages.cart');
 })->name('cart');
+
+
 
 
 >>>>>>> 207589b054b5ab8fb412005e15352a82bec3e38a

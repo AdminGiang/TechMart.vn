@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 /* COLOR VARIABLES */
 :root {
-    --primary-color: #0D1936;
+    --primary-color: #3b5d50;
     --secondary-color: #535354;
     --background-color: #EFEFEF;
     --shadow-color: rgba(0, 0, 0, 0.1);
@@ -44,7 +44,7 @@ body{
 .wrapperregister{
     position:relative;
     width: 430px;
-    height: 600px;
+    height: 550px;
     background-color: var(--white-color);
     border-radius: 15px;
     padding: 120px 32px 64px;
@@ -182,22 +182,18 @@ body{
 }
 .col-1{
     display:block;
-    /* align-items:inherit; */
     text-align: left;
     margin-left: auto; 
     white-space: nowrap;
     width: 100%;
-    
     gap: 0;
 }
 .col-2{
     display:block;
-    /* align-items:inherit; */
     text-align: right;
     margin-left: auto; 
     white-space: nowrap;
     width: 100%;
-    
     gap: 0;
 }
 /* SUBMIT BUTTON */

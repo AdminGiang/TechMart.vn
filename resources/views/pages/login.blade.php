@@ -46,7 +46,6 @@
                         <i class='bx bx-lock-alt icon'></i>
                     </div>
                     <div class="form-cols">
-                        <div class="col-1"></div>
                         <div class="col-2">
                             <a href="#">Forgot password?</a>
                         </div>

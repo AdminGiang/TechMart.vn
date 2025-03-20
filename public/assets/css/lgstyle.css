@@ -54,7 +54,7 @@ body{
 .wrapperregister{
     position:relative;
     width: 430px;
-    height: 700px;
+    height: 650px;
     background-color: var(--white-color);
     border-radius: 15px;
     padding: 120px 32px 64px;
@@ -66,7 +66,7 @@ body{
 .wrapperlogin{
     position:relative;
     width: 430px;
-    height: 500px;
+    height: 450px;
     background-color: var(--white-color);
     border-radius: 15px;
     padding: 120px 32px 64px;
@@ -103,9 +103,7 @@ body{
     font-size: 24px;
     transition: var(--transition-3s);
 }
-/* .title-register{
-    top: 50px;
-} */
+
 /* FORMS */
 .login-form, .register-form{
     position: absolute;
@@ -114,9 +112,12 @@ body{
     width: 85%;
     transition: var(--transition-3s);
 }
-/* .register-form{
-    left: 150%;
-} */
+.register-form{
+    margin-top: -40px;
+} 
+.login-form{
+    margin-top: -30px;
+} 
 /* INPUT FIELDS */
 .input-box{
     position: relative;

@@ -42,7 +42,8 @@
                 <div class="form-cols">
                     <div class="col-1">
                         <input type="checkbox" id="agree">
-                        <label for="agree"> Tôi đồng ý với điều khoản và Chính sách bảo mật</label>
+                        <label for="agree"> Tôi đồng ý với <b><a href="">Điều khoản</a></b> và 
+                                        <strong><a href="">Chính sách Bảo Mật</a></strong></label>
                     </div>
                     <div class="col-2"></div>
                 </div>

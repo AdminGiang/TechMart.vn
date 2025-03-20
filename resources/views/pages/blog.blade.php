@@ -10,7 +10,7 @@
                 <div class="intro-excerpt">
                     <h1>Chúng tôi</h1>
                     <p class="mb-4">Luôn mang lại cho bạn những trải nghiệm tốt nhất.</p>
-                    <p><a href="" class="btn btn-secondary me-2">Mua ngay</a></p>
+                    <p><a href="" class="btn btn-secondary me-2">Mua sắm ngay</a></p>
                 </div>
             </div>
             <div class="col-lg-7">
@@ -33,112 +33,15 @@
 
         <div class="col-12 col-sm-6 col-md-4 mb-5">
             <div class="post-entry">
-                <a href="#" class="post-thumbnail"><img src="{{asset('assets/images/post-1.jpg')}}" alt="Image" class="img-fluid"></a>
+                <a href="{{ route('productdetail')}}" class="post-thumbnail"><img src="{{asset('assets/images/post-1.jpg')}}" alt="Image" class="img-fluid"></a>
                 <div class="post-content-entry">
-                    <h3><a href="#">First Time Home Owner Ideas</a></h3>
+                    <h3><a href="#">Tin tức công nghệ mới nhất</a></h3>
                     <div class="meta">
-                        <span>by <a href="#">Kristin Watson</a></span> <span>on <a href="#">Dec 19, 2021</a></span>
+                        <span>by <a>Kristin Watson</a></span> <span>on <a href="#">Dec 19, 2021</a></span>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="col-12 col-sm-6 col-md-4 mb-5">
-            <div class="post-entry">
-                <a href="#" class="post-thumbnail"><img src="{{asset('assets/images/post-2.jpg')}}" alt="Image" class="img-fluid"></a>
-                <div class="post-content-entry">
-                    <h3><a href="#">How To Keep Your Furniture Clean</a></h3>
-                    <div class="meta">
-                        <span>by <a href="#">Robert Fox</a></span> <span>on <a href="#">Dec 15, 2021</a></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-4 mb-5">
-            <div class="post-entry">
-                <a href="#" class="post-thumbnail"><img src="{{asset('assets/images/post-3.jpg')}}" alt="Image" class="img-fluid"></a>
-                <div class="post-content-entry">
-                    <h3><a href="#">Small Space Furniture Apartment Ideas</a></h3>
-                    <div class="meta">
-                        <span>by <a href="#">Kristin Watson</a></span> <span>on <a href="#">Dec 12, 2021</a></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-4 mb-5">
-            <div class="post-entry">
-                <a href="#" class="post-thumbnail"><img src="{{asset('assets/images/post-1.jpg')}}" alt="Image" class="img-fluid"></a>
-                <div class="post-content-entry">
-                    <h3><a href="#">First Time Home Owner Ideas</a></h3>
-                    <div class="meta">
-                        <span>by <a href="#">Kristin Watson</a></span> <span>on <a href="#">Dec 19, 2021</a></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-4 mb-5">
-            <div class="post-entry">
-                <a href="#" class="post-thumbnail"><img src="{{asset('assets/images/post-2.jpg')}}" alt="Image" class="img-fluid"></a>
-                <div class="post-content-entry">
-                    <h3><a href="#">How To Keep Your Furniture Clean</a></h3>
-                    <div class="meta">
-                        <span>by <a href="#">Robert Fox</a></span> <span>on <a href="#">Dec 15, 2021</a></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-4 mb-5">
-            <div class="post-entry">
-                <a href="#" class="post-thumbnail"><img src="{{asset('assets/images/post-3.jpg')}}" alt="Image" class="img-fluid"></a>
-                <div class="post-content-entry">
-                    <h3><a href="#">Small Space Furniture Apartment Ideas</a></h3>
-                    <div class="meta">
-                        <span>by <a href="#">Kristin Watson</a></span> <span>on <a href="#">Dec 12, 2021</a></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-4 mb-5">
-            <div class="post-entry">
-                <a href="#" class="post-thumbnail"><img src="{{asset('assets/images/post-1.jpg')}}" alt="Image" class="img-fluid"></a>
-                <div class="post-content-entry">
-                    <h3><a href="#">First Time Home Owner Ideas</a></h3>
-                    <div class="meta">
-                        <span>by <a href="#">Kristin Watson</a></span> <span>on <a href="#">Dec 19, 2021</a></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-4 mb-5">
-            <div class="post-entry">
-                <a href="#" class="post-thumbnail"><img src="{{asset('assets/images/post-2.jpg')}}" alt="Image" class="img-fluid"></a>
-                <div class="post-content-entry">
-                    <h3><a href="#">How To Keep Your Furniture Clean</a></h3>
-                    <div class="meta">
-                        <span>by <a href="#">Robert Fox</a></span> <span>on <a href="#">Dec 15, 2021</a></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-4 mb-5">
-            <div class="post-entry">
-                <a href="#" class="post-thumbnail"><img src="{{asset('assets/images/post-3.jpg')}}" alt="Image" class="img-fluid"></a>
-                <div class="post-content-entry">
-                    <h3><a href="#">Small Space Furniture Apartment Ideas</a></h3>
-                    <div class="meta">
-                        <span>by <a href="#">Kristin Watson</a></span> <span>on <a href="#">Dec 12, 2021</a></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </div>
 </div>
@@ -165,7 +68,6 @@
                 </div>
 
                 <div class="testimonial-slider">
-                    
                     <div class="item">
                         <div class="row justify-content-center">
                             <div class="col-lg-8 mx-auto">
@@ -188,53 +90,6 @@
                         </div>
                     </div> 
                     <!-- END item -->
-
-                    <div class="item">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8 mx-auto">
-
-                                <div class="testimonial-block text-center">
-                                    <blockquote class="mb-5">
-                                        <p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
-                                    </blockquote>
-
-                                    <div class="author-info">
-                                        <div class="author-pic">
-                                            <img src="{{asset('assets/images/person-1.png')}}" alt="Maria Jones" class="img-fluid">
-                                        </div>
-                                        <h3 class="font-weight-bold">Maria Jones</h3>
-                                        <span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div> 
-                    <!-- END item -->
-
-                    <div class="item">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8 mx-auto">
-
-                                <div class="testimonial-block text-center">
-                                    <blockquote class="mb-5">
-                                        <p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
-                                    </blockquote>
-
-                                    <div class="author-info">
-                                        <div class="author-pic">
-                                            <img src="{{asset('assets/images/person-1.png')}}" alt="Maria Jones" class="img-fluid">
-                                        </div>
-                                        <h3 class="font-weight-bold">Maria Jones</h3>
-                                        <span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div> 
-                    <!-- END item -->
-
                 </div>
 
             </div>

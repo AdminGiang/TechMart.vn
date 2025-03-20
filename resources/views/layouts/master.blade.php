@@ -18,7 +18,7 @@
 		    <!-- BOXICONS -->
 			<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 			<!-- CSS -->
-			{{-- <link rel="stylesheet" href="{{ asset('assets/css/stylelg.css') }}"> --}}
+			<link rel="stylesheet" href="{{ asset('assets/css/stylelg.css') }}">
 		<title> TechMart.vn </title>
 	</head>
 

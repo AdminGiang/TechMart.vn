@@ -28,15 +28,33 @@ a:hover{
     text-decoration: underline;
 }
 body{
-    display: flex;
+    display:block;
     justify-content: center;
     align-items: center;
+    
     height: 100vh;
     background-color: var(--background-color);
 }
 /* WRAPPER */
-.wrapper{
-    position: relative;
+.tocenter{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 33%;
+}
+.wrapperregister{
+    position:relative;
+    width: 430px;
+    height: 600px;
+    background-color: var(--white-color);
+    border-radius: 15px;
+    padding: 120px 32px 64px;
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 8px 15px var(--shadow-color);
+    transition: var(--transition-3s);
+    overflow: hidden;
+}
+.wrapperlogin{
+    position:relative;
     width: 430px;
     height: 500px;
     background-color: var(--white-color);
@@ -159,12 +177,28 @@ body{
 .form-cols{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 14px;
 }
 .col-1{
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    display:block;
+    /* align-items:inherit; */
+    text-align: left;
+    margin-left: auto; 
+    white-space: nowrap;
+    width: 100%;
+    
+    gap: 0;
+}
+.col-2{
+    display:block;
+    /* align-items:inherit; */
+    text-align: right;
+    margin-left: auto; 
+    white-space: nowrap;
+    width: 100%;
+    
+    gap: 0;
 }
 /* SUBMIT BUTTON */
 .btn-submit{

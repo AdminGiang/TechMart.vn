@@ -14,6 +14,15 @@ Route::get('/blog', function () {
     return view('pages.blog');
 })->name('blog');
 
+Route::get('/login', function () {
+    return view('pages.login');
+})->name('login');
+
+Route::get('/register', function () {
+    return view('pages.register');
+})->name('register');
+
+
 Route::get('/product', function () {
     return view('pages.product');
 })->name('product');

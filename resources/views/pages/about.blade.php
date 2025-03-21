@@ -159,9 +159,7 @@
                             </div>
                         </div> 
                         <!-- END item -->
-
                     </div>
-
                 </div>
             </div>
         </div>

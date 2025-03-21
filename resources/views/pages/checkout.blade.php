@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+@section('title', 'Thanh Toán')
 @section('content')
 <div class="container">
     <h1>Thanh Toán</h1>

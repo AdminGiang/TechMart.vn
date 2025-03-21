@@ -15,6 +15,7 @@
                     <a class="nav-link" href="{{ route('home') }}">Trang chủ</a>
                 </li>
                 <li><a class="nav-link" href="{{ route('product') }}">Sản phẩm</a></li>
+                <li><a class="nav-link" href="{{ route('service') }}">Dịch vụ</a></li>
                 <li><a class="nav-link" href="{{ route('blog') }}">Chúng tôi</a></li>
                 <li><a class="nav-link" href="{{ route('contact') }}">Liên hệ</a></li>
             </ul> 

@@ -8,7 +8,7 @@
         <div class="row justify-content-between">
             <div class="col-lg-5">
                 <div class="intro-excerpt">
-                    <h1>Công nghệ<br> <span clsas="d-block"> hôm nay!!!</span></h1>
+                    <h1>Trải nghiệm<br> <span clsas="d-block">Iphone </span></h1>
                     <p class="mb-4">Khám phá bộ sưu tập sản phẩm công nghệ mới nhất với thiết kế hiện đại,
                          hiệu suất mạnh mẽ và tính năng đột phá.<br>
                           Từ điện thoại thông minh, laptop đến thiết bị thông minh, 
@@ -18,7 +18,7 @@
             </div>
             <div class="col-lg-7">
                 <div class="hero-img-wrap">
-                    <img src="{{asset('assets/images/couch.png')}}" class="img-fluid">
+                    <img src="{{('assets/images/img-iphone-banner.png')}}" class="img-fluid">
                 </div>
             </div>
         </div>

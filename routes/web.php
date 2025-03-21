@@ -28,9 +28,10 @@ Route::get('/register', function () {
 })->name('register');
 
 Route::get('/product', [ProductController::class, 'product'])->name('product'); 
-// Route::get('/product', function () {
-//     return view('pages.product');
-// })->name('product');
+
+Route::get('/about', function () {
+    return view('pages.about');
+})->name('about');
 
 Route::get('/productdetail', function () {
     return view('pages.productdetail');
@@ -43,3 +44,7 @@ Route::get('/cart', function () {
 Route::get('/checkout', function () {
     return view('pages.checkout');
 })->name('checkout');
+
+Route::get('/services', function () {
+    return view('pages.services');
+})->name('services');

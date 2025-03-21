@@ -46,6 +46,8 @@
             <!-- End Column 1 -->
             @endforeach		
           </div>
+          {{-- {{ $product->links() }} --}}
+          {{ $products->links('pagination::bootstrap-4') }}
     </div>
 
     <!-- Start Comments Section -->

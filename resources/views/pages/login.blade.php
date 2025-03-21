@@ -1,9 +1,9 @@
 @extends('layouts.master')
 
-@section('title', 'login')
-@php
+@section('title', 'Đăng Nhập')
+{{-- @php
     $isLoginPage = true;
-@endphp
+@endphp --}}
 
 @section('content')
     <div class="tocenter">

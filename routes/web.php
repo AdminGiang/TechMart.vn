@@ -9,7 +9,7 @@ use App\Http\Controllers\ProductController;
 // Route::get('/', function () {
 //     return view('pages.home');
 // })->name('home');
-Route::get('/', [HomeController::class, 'home'])->name('home'); 
+Route::get('/home', [HomeController::class, 'home'])->name('home'); 
 
 Route::get('/contact', function () {
     return view('pages.contact');
@@ -19,7 +19,7 @@ Route::get('/blog', function () {
     return view('pages.blog');
 })->name('blog');
 
-Route::get('/login', function () {
+Route::get('/', function () {
     return view('pages.login');
 })->name('login');
 

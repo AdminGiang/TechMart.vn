@@ -1,8 +1,8 @@
 @extends('layouts.master')
-@section('title', 'Register')
-@php
+@section('title', 'Đăng ký')
+{{-- @php
     $isLoginPage = true;
-@endphp
+@endphp --}}
 @section('content')
 <div class="daylaregister">
     <div class="tocenter">

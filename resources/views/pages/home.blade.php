@@ -21,7 +21,7 @@
 						<div class="col-lg-7">
 							<div class="hero-img-wrap">
 								<div class="dots-pattern top-right"></div>
-								<img src="{{asset('assets/images/couch.png')}}" class="img-fluid">
+								<img src="{{asset('assets/images/img-iphone-banner.png')}}" class="img-fluid">
 								<div class="dots-pattern bottom-left"></div>
 							</div>
 						</div>
@@ -118,7 +118,7 @@
 
 					<div class="col-lg-5">
 						<div class="img-wrap">
-							<img src="{{asset('assets/images/why-choose-us-img.jpg')}}" alt="Image" class="img-fluid">
+							<img src="{{asset('assets/images/we us.png!bw700')}}" alt="Image" class="img-fluid">
 						</div>
 					</div>
 
@@ -133,9 +133,9 @@
 				<div class="row justify-content-between">
 					<div class="col-lg-7 mb-5 mb-lg-0">
 						<div class="imgs-grid">
-							<div class="grid grid-1"><img src="{{asset("assets/images/img-grid-1.jpg")}}" alt="Untree.co"></div>
-							<div class="grid grid-2"><img src="{{asset("assets/images/img-grid-2.jpg")}}" alt="Untree.co"></div>
-							<div class="grid grid-3"><img src="{{asset("assets/images/img-grid-3.jpg")}}" alt="Untree.co"></div>
+							<div class="grid grid-1"><img src="{{asset("assets/images/image-grid-phone.jpg")}}" alt="Untree.co"></div>
+							<div class="grid grid-2"><img src="{{asset("assets/images/image-grid-Vivo.webp")}}" alt="Untree.co"></div>
+							<div class="grid grid-3"><img src="{{asset("assets/images/image-grid-phone.jpg")}}" alt="Untree.co"></div>
 						</div>
 					</div>
 					<div class="col-lg-5 ps-lg-5">

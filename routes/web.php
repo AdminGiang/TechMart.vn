@@ -29,6 +29,9 @@ Route::get('/register', function () {
 
 Route::get('/product', [ProductController::class, 'product'])->name('product'); 
 
+Route::get('/section-products', [ProductController::class, 'getProducts'])->name('products.section');
+
+
 Route::get('/about', function () {
     return view('pages.about');
 })->name('about');

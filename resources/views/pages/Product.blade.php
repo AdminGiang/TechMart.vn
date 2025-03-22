@@ -46,11 +46,13 @@
             <!-- End Column 1 -->
             @endforeach		
           </div>
-          {{-- {{ $product->links() }} --}}
+          {{-- Start phân trang --}}
           <div class="d-flex justify-content-center">
           {{ $products->links('pagination::bootstrap-4') }}
         </div>
+        {{-- End phân trang --}}
     </div>
+</div>
 
     <!-- Start Comments Section -->
 <div class="container mt-5">

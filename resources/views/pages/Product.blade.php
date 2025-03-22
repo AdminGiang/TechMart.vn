@@ -45,10 +45,12 @@
             </div> 
             <!-- End Column 1 -->
             @endforeach		
-          </div>
-          {{-- {{ $product->links() }} --}}
-          {{ $products->links('pagination::bootstrap-4') }}
+        </div>
     </div>
+        <div class="d-flex justify-content-center">
+          {{ $products->links('pagination::bootstrap-4') }}
+        </div>
+</div>
 
     <!-- Start Comments Section -->
 <div class="container mt-5">

@@ -137,14 +137,14 @@
 
                                     <div class="testimonial-block text-center">
                                         <blockquote class="mb-5">
-                                            <p>&ldquo; Nội dung phản hổi của khách hàng &rdquo;</p>
+                                            <p>&ldquo; thà bỏ con chứ không mua hàng. &rdquo;</p>
                                         </blockquote>
 
                                         <div class="author-info">
                                             <div class="author-pic">
-                                                <img src="{{asset('assets/images/person-1.png')}}" alt="Maria Jones" class="img-fluid">
+                                                <img src="{{asset('assets/images/bocon.jfif')}}" alt="Maria Jones" class="img-fluid">
                                             </div>
-                                            <h3 class="font-weight-bold">Tên khách hàng</h3>
+                                            <h3 class="font-weight-bold">Trịnh Trần Phương Tuấn</h3>
                                             <span class="position d-block mb-3">Thời gian mua sản phấm</span>
                                         </div>
                                     </div>

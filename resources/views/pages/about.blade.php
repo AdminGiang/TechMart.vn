@@ -13,7 +13,7 @@
                          hiệu năng mạnh mẽ và camera đẳng cấp. Trải nghiệm hệ điều hành iOS mượt mà, 
                          bảo mật tối ưu và hệ sinh thái Apple tiện lợi. 
                         Sở hữu ngay iPhone chính hãng với nhiều ưu đãi hấp dẫn!</p>
-                    <p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+                    <p><a href="" class="btn btn-secondary me-2">Xem ngay</a><a href="#" class="btn btn-white-outline">Mua ngay</a></p>
                 </div>
             </div>
             <div class="col-lg-7">

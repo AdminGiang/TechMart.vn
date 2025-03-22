@@ -13,12 +13,12 @@
                          hiệu năng mạnh mẽ và camera đẳng cấp. Trải nghiệm hệ điều hành iOS mượt mà, 
                          bảo mật tối ưu và hệ sinh thái Apple tiện lợi. 
                         Sở hữu ngay iPhone chính hãng với nhiều ưu đãi hấp dẫn!</p>
-                    <p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+                    <p><a href="" class="btn btn-secondary me-2">Xem ngay</a><a href="#" class="btn btn-white-outline">Mua ngay</a></p>
                 </div>
             </div>
             <div class="col-lg-7">
                 <div class="hero-img-wrap">
-                    <img src="{{('assets/images/img-iphone-banner.png')}}" class="img-fluid">
+                    <img src="{{asset('assets/images/img-iphone-banner.png')}}" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -32,9 +32,9 @@
         <div class="row justify-content-between">
             <div class="col-lg-7 mb-5 mb-lg-0">
                 <div class="imgs-grid">
-                    <div class="grid grid-1"><img src="{{asset("assets/images/image-grid-phone.jpg")}}" alt="Untree.co"></div>
-                    <div class="grid grid-2"><img src="{{asset("assets/images/image-grid-Vivo.webp")}}" alt="Untree.co"></div>
-                    <div class="grid grid-3"><img src="{{asset("assets/images/image-grid-phone.jpg")}}" alt="Untree.co"></div>
+                    <div class="grid grid-1"><img src="{{asset('assets/images/image-grid-phone.jpg')}}" alt="Untree.co"></div>
+                    <div class="grid grid-2"><img src="{{asset('assets/images/image-grid-Vivo.webp')}}" alt="Untree.co"></div>
+                    <div class="grid grid-3"><img src="{{asset('assets/images/image-grid-phone.jpg')}}" alt="Untree.co"></div>
                 </div>
             </div>
             <div class="col-lg-5 ps-lg-5">
@@ -47,7 +47,7 @@
                     <li>Bảo hành và hỗ trợ tận tâm</li>
                     <li>Mua sắm dễ dàng, thanh toán linh hoạt</li>
                 </ul>
-                <p><a herf="{{route('product')}}" class="btn">Khám phá</a></p>
+                <p><a href="{{route('product')}}" class="btn">Khám phá</a></p>
             </div>
         </div>
     </div>
@@ -68,55 +68,49 @@
 
             <!-- Start Column 1 -->
             <div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0">
-                <img src="images/person_1.jpg" class="img-fluid mb-5">
-                <h3 clas><a href="#"><span class="">Trường</span> Giang</a></h3>
-    <span class="d-block position mb-4">Đép lỏ</span>
-    <p>Mô tả.</p>
-    <p class="mb-0"><a href="#" class="more dark">Xem thêm <span class="icon-arrow_forward"></span></a></p>
+                <img src="{{asset('assets/images/person_1.jpg')}}" class="img-fluid mb-3" style="width: 150px; height: 150px;">
+                <h3><a href="#"><span class="">Trường</span> Giang</a></h3>
+                <span class="d-block position mb-4">Đép lỏ</span>
+                <p>Mô tả.</p>
+                <p class="mb-0"><a href="#" class="more dark">Xem thêm <span class="icon-arrow_forward"></span></a></p>
             </div> 
             <!-- End Column 1 -->
 
             <!-- Start Column 2 -->
             <div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0">
-                <img src="images/person_2.jpg" class="img-fluid mb-5">
-
-                <h3 clas><a href="#"><span class="">Thành</span> Nhân</a></h3>
-    <span class="d-block position mb-4">Leader</span>
-    <p>Mô tả.</p>
-    <p class="mb-0"><a href="#" class="more dark">Xem thêm <span class="icon-arrow_forward"></span></a></p>
-
+                <img src="{{asset('assets/images/person_2.jpg')}}" class="img-fluid mb-3" style="width: 150px; height: 150px;">
+                <h3><a href="#"><span class="">Thành</span> Nhân</a></h3>
+                <span class="d-block position mb-4">Leader</span>
+                <p>Mô tả.</p>
+                <p class="mb-0"><a href="#" class="more dark">Xem thêm <span class="icon-arrow_forward"></span></a></p>
             </div> 
             <!-- End Column 2 -->
 
             <!-- Start Column 3 -->
             <div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0">
-                <img src="images/person_3.jpg" class="img-fluid mb-5">
-                <h3 clas><a href="#"><span class="">Thành</span> Sứ</a></h3>
-    <span class="d-block position mb-4">Code lỏ</span>
-    <p>Mô tả. </p>
-    <p class="mb-0"><a href="#" class="more dark">Xem thêm <span class="icon-arrow_forward"></span></a></p>
+                <img src="{{asset('assets/images/person_3.jpg')}}" class="img-fluid mb-3" style="width: 150px; height: 150px;">
+                <h3><a href="#"><span class="">Thành</span> Sứ</a></h3>
+                <span class="d-block position mb-4">Code lỏ</span>
+                <p>Mô tả.</p>
+                <p class="mb-0"><a href="#" class="more dark">Xem thêm <span class="icon-arrow_forward"></span></a></p>
             </div> 
             <!-- End Column 3 -->
 
             <!-- Start Column 4 -->
             <div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0">
-                <img src="images/person_4.jpg" class="img-fluid mb-5">
-
-                <h3 clas><a href="#"><span class="">Thanh</span> Sang</a></h3>
-    <span class="d-block position mb-4">Cốt lỏ</span>
-    <p>Mô tả.</p>
-    <p class="mb-0"><a href="#" class="more dark">Xem thêm <span class="icon-arrow_forward"></span></a></p>
-
-  
+                <img src="{{asset('assets/images/person_4.jpg')}}" class="img-fluid mb-3" style="width: 150px; height: 150px;">
+                <h3><a href="#"><span class="">Thanh</span> Sang</a></h3>
+                <span class="d-block position mb-4">Cốt lỏ</span>
+                <p>Mô tả.</p>
+                <p class="mb-0"><a href="#" class="more dark">Xem thêm <span class="icon-arrow_forward"></span></a></p>
             </div> 
             <!-- End Column 4 -->
-
-            
 
         </div>
     </div>
 </div>
 <!-- End Team Section -->
+
 <!-- Start Testimonial Slider -->
 <div class="testimonial-section">
     <div class="container">

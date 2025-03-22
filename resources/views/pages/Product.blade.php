@@ -45,22 +45,12 @@
             </div> 
             <!-- End Column 1 -->
             @endforeach		
-<<<<<<< HEAD
-          </div>
-          {{-- Start phân trang --}}
-          <div class="d-flex justify-content-center">
-          {{ $products->links('pagination::bootstrap-4') }}
-=======
->>>>>>> 901c0f32270a42233f11199e1442835011b1711d
         </div>
         {{-- End phân trang --}}
     </div>
-<<<<<<< HEAD
-=======
         <div class="d-flex justify-content-center">
           {{ $products->links('pagination::bootstrap-4') }}
         </div>
->>>>>>> 901c0f32270a42233f11199e1442835011b1711d
 </div>
 
     <!-- Start Comments Section -->

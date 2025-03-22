@@ -31,19 +31,11 @@
 
         <div class="row g-5 mb-5">
             <div class="col-lg-4">
-<<<<<<< HEAD
-                <div class="mb-4 footer-logo-wrap"><a href="{{route('home')}}" class="footer-logo">TechMart<span>.vn</span></a></div>
-                <p class="mb-4">Chúng tôi sẽ luôn mang đến cho bạn những trải nghiệm tối nhất!</p>
-
-                <ul class="list-unstyled custom-social">
-                    <li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
-=======
                 <div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">TechMart<span>.vn</span></a></div>
                 <p class="mb-4">Chúng tôi sẽ luôn mang đến cho bạn những trải nghiệm tốt nhất!</p>
 
                 <ul class="list-unstyled custom-social">
                     <li><a href="https://facebook.com"><span class="fa fa-brands fa-facebook-f"></span></a></li>
->>>>>>> 901c0f32270a42233f11199e1442835011b1711d
                     <li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
                     <li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
                     <li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
@@ -85,13 +77,8 @@
 
         <div class="border-top copyright">
             <div class="row pt-4">
-<<<<<<< HEAD
                 <div class="d-flex justify-content-center">
                     <p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script> -by .TechMart.vn</p>
-=======
-                <div class="col-lg-6">
-                    <p class="mb-2 text-center text-lg-start">Bản quyền &copy;<script>document.write(new Date().getFullYear());</script> bởi TechMart.vn</p>
->>>>>>> 901c0f32270a42233f11199e1442835011b1711d
                 </div>
             </div>
         </div>

@@ -45,26 +45,13 @@
             </div> 
             <!-- End Column 1 -->
             @endforeach		
-<<<<<<< HEAD
           </div>
+          {{-- start phan trang --}}
           <div class="d-flex justify-content-center">
             {{ $products->links('pagination::bootstrap-5') }}
         </div>
-        {{-- <div class="d-flex justify-content-center">
-            <p class="me-3">
-                Hiển thị từ {{ $products->firstItem() }} đến {{ $products->lastItem() }} trong tổng số {{ $products->total() }} kết quả
-            </p>
-            {{ $products->links('pagination::bootstrap-5') }}
-        </div>         --}}
-=======
         </div>
         {{-- End phân trang --}}
->>>>>>> 13307ea57f60cd5f09b74a8a00880031b0b795ee
-    </div>
-        <div class="d-flex justify-content-center">
-          {{ $products->links('pagination::bootstrap-4') }}
-        </div>
-</div>
 
     <!-- Start Comments Section -->
 <div class="container mt-5">

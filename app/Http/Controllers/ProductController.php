@@ -9,7 +9,8 @@ class ProductController extends Controller
 {
     public function product()
     {
-        $products = Products::inRandomOrder()->take(8)->get(); // Lấy 6 sản phẩm bất kỳ từ database // Lấy tất cả sản phẩm từ database
+        //$products = Products::inRandomOrder()->take(8)->get();
+        $products = Products::inRandomOrder()->paginate(8);
         return view('pages.product', compact('products'));
     }
 }

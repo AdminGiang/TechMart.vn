@@ -19,7 +19,7 @@
             </div>
             <div class="col-lg-7">
                 <div class="hero-img-wrap">
-                    <img src="{{('assets/images/img-iphone-banner.png')}}" class="img-fluid">
+                    <img src="{{ asset('assets/images/img-iphone-banner.png') }}" class="img-fluid">
                 </div>
             </div>
         </div>

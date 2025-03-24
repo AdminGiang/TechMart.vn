@@ -6,20 +6,16 @@
      <div class="card p-4">
          <div class=" image d-flex flex-column justify-content-center align-items-center">
              <button class="btn btn-secondary">
-                 <img src="{{ 'https://i.imgur.com/wvxPV9S.png' }}" height="100" width="100" />
+                 <img src="#" alt="User Avatar" height="100" width="100"/>
                 </button>
                  <span class="name mt-3">{{ $user->name }}</span>
                  <span>{{ substr($user->phonenumber, 0, 4) }} {{ substr($user->phonenumber, 4, 3) }} {{ substr($user->phonenumber, 7) }}</span>
                   <div class="d-flex flex-row justify-content-center align-items-center gap-2"> 
                     <span class="idd1">{{ $user->email }}</span>
-                     <span><i class="fa fa-copy"></i></span> 
                     </div>
                      <div class="d-flex flex-row justify-content-center align-items-center mt-3">
                          <span class="number">10 <span class="follow">Đơn hàng đã mua</span></span>
                          </div> 
-                         <div class=" d-flex mt-2"> 
-                            <button class="btn1 btn-dark">Edit Profile</button> 
-                            </div>
                                 <div class=" px-2 rounded mt-4 date "> 
                                     <span class="join">Ngày tạo {{ $created_at }}</span> 
                                 </div> 

@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/home', [HomeController::class, 'home'])->name('home')->middleware('auth'); // Trang chủ
@@ -47,7 +48,6 @@ Route::get('/profile', function () {
     ]);
 })->name('profile')->middleware('auth');
 
-
 Route::get('/', [RegisterController::class, 'showRegisterForm'])->name('register'); // Trang đăng ký
 Route::post('/', [RegisterController::class, 'register']); // Xử lý đăng ký
 
@@ -55,3 +55,4 @@ Route::get('/login', [LoginController::class, 'showloginForm'])->name('login'); 
 Route::post('/login', [LoginController::class, 'login']); // Xử lý đăng nhập
 
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout'); 
+

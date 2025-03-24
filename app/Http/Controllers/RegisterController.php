@@ -32,8 +32,7 @@ class RegisterController extends Controller
             'phonenumber' => $request->phonenumber,
             'address' => $request->address,
         ]);
-        //session(['registered_email' => $request->email]); // Lưu email vào session để hiển thị ở trang login
-        Auth::login($user); // Đăng nhập người dùng ngay sau khi đăng ký
+        session(['registered_email' => $request->email]); // Lưu email vào session để hiển thị ở trang login
         return redirect()->route('login');
     }
 

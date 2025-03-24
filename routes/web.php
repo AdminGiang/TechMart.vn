@@ -21,7 +21,17 @@ Route::get('/blog', function () { // Trang blog
 
 Route::get('/product', [ProductController::class, 'product'])->name('product'); // Trang sản phẩm
 
-Route::get('/about', function () { // Trang giới thiệu
+Route::get('/register', function () {
+    return view('pages.register');
+})->name('register');
+
+Route::get('/product', [ProductController::class, 'product'])->name('product'); 
+
+Route::get('/section-products', [ProductController::class, 'getProducts'])->name('products.section');
+
+Route::get('/products/filter', [ProductController::class, 'filter'])->name('products.filter');
+
+Route::get('/about', function () {
     return view('pages.about');
 })->name('about');
 

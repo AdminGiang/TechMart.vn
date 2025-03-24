@@ -9,32 +9,29 @@
                  <img src="{{ 'https://i.imgur.com/wvxPV9S.png' }}" height="100" width="100" />
                 </button>
                  <span class="name mt-3">{{ $user->name }}</span>
-                  <span class="idd"> Phone Number</span> 
+                 <span>{{ substr($user->phonenumber, 0, 4) }} {{ substr($user->phonenumber, 4, 3) }} {{ substr($user->phonenumber, 7) }}</span>
                   <div class="d-flex flex-row justify-content-center align-items-center gap-2"> 
                     <span class="idd1">{{ $user->email }}</span>
                      <span><i class="fa fa-copy"></i></span> 
                     </div>
                      <div class="d-flex flex-row justify-content-center align-items-center mt-3">
-                         <span class="number">1069 <span class="follow">Đơn hàng</span></span>
+                         <span class="number">10 <span class="follow">Đơn hàng đã mua</span></span>
                          </div> 
                          <div class=" d-flex mt-2"> 
                             <button class="btn1 btn-dark">Edit Profile</button> 
-                        </div>
-                         <div class="text mt-3">
-                             <span>Tiểu sử.<br>
-                                <br> Null </span> 
-                            </div> 
-                            <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> 
-                                <span><i class="fa fa-twitter"></i></span>
-                                 <span><i class="fa fa-facebook-f"></i></span>
-                                  <span><i class="fa fa-instagram"></i></span> 
-                                  <span><i class="fa fa-linkedin"></i></span> 
-                                </div> 
+                            </div>
                                 <div class=" px-2 rounded mt-4 date "> 
                                     <span class="join">Ngày tạo {{ $created_at }}</span> 
                                 </div> 
                             </div>
+                            <div class="d-flex flex-row justify-content-center align-items-center mt-4"> 
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" >Đăng xuất</button>
+                            </form>
+                            </div>
                          </div>
+                       
 </div>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">

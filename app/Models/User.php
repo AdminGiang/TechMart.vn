@@ -13,6 +13,16 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $fillable = ['name', 'email', 'password'];
-    protected $hidden = ['password'];
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'phonenumber',  // Thêm số điện thoại
+        'address',      // Thêm địa chỉ
+    ];
+
+    protected $hidden = [
+        'password',
+        'remember_token', // Thêm remember_token
+    ];
 }

@@ -30,24 +30,24 @@
                     <label for="password" class="label">Mật Khẩu</label>
                     <i class='bx bx-lock-alt icon'></i>
                 </div>
-                {{-- <div class="input-box">
-                    <input type="Address" class="input-field" id="reg-address" required>
-                    <label for="reg-address" class="label">Địa Chỉ</label>
+                <div class="input-box">
+                    <input type="text" class="input-field" name="address" required>
+                    <label for="address" class="label">Địa Chỉ</label>
                     <i class='bx bx-lock-alt icon'></i>
-                </div> --}}
-                {{-- <div class="input-box">
-                    <input type="Address" class="input-field" id="reg-address" required>
-                    <label for="reg-address" class="label">Số Điện Thoại</label>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" name="phonenumber" required>
+                    <label for="phonenumber" class="label">Số Điện Thoại</label>
                     <i class='bx bx-lock-alt icon'></i>
-                </div> --}}
-                <div class="form-cols">
+                </div>
+                {{-- <div class="form-cols">
                     <div class="col-1">
                         <input type="checkbox" id="agree">
                         <label for="agree"> Tôi đồng ý với <b><a href="">Điều khoản</a></b> và 
                                         <strong><a href="">Chính sách Bảo Mật</a></strong></label>
                     </div>
                     <div class="col-2"></div>
-                </div>
+                </div> --}}
                 <div class="input-box">
                     <button class="btn-submit" id="submit">Đăng Ký <i class='bx bx-user-plus'></i></button>
                 </div>

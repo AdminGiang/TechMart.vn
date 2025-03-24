@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/home', [HomeController::class, 'home'])->name('home')->middleware('auth'); // Trang chủ
@@ -52,3 +53,5 @@ Route::post('/', [RegisterController::class, 'register']); // Xử lý đăng k�
 
 Route::get('/login', [LoginController::class, 'showloginForm'])->name('login'); // Trang đăng nhập
 Route::post('/login', [LoginController::class, 'login']); // Xử lý đăng nhập
+
+Route::post('/logout', [LogoutController::class, 'logout'])->name('logout'); 

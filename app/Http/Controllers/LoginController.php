@@ -26,6 +26,6 @@ class LoginController extends Controller
             return redirect()->route('home'); // Nếu khớp thì chuyển hướng về trang chủ
         }
 
-        return response()->json(['message' => 'Sai thông tin đăng nhập'], 401);
+        return redirect()->route('error')->with('error'); /// Nếu không khớp thì hiển thị thông báo lỗi
     }
 }

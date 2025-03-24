@@ -35,7 +35,7 @@ class ProductController extends Controller
             $query->whereBetween('Price', [$min, $max]);
         }
 
-        $products = $query->paginate(12); 
+        $products = $query->paginate(6); 
         
         return view('pages.Product', compact('products'));
     }

@@ -2,6 +2,7 @@
 @section('title', 'Sản phẩm')
 @section('content')
 
+@if(request()->get('page') <= 1 || !request()->has('page'))
 <!-- Start Hero Section -->
 <div class="hero">
     <div class="container">
@@ -25,35 +26,94 @@
     </div>
 </div>
 <!-- End Hero Section -->
+@endif
 
-<!-- Start Column 2 -->
+<!-- Start Product Section -->
 <div class="untree_co-section product-section before-footer-section">
     <div class="container">
-          <div class="row">
-            @foreach($products as $product)
-              <!-- Start Column 1 -->
-            <div class="col-12 col-md-4 col-lg-3 mb-5">
-                <a class="product-item" href="#">
-                    <img src="{{$product->Image}}" class="img-fluid product-thumbnail">
-                    <h3 class="product-title">{{ $product->Name }}</h3>
-                    <strong class="product-price">{{ number_format($product->Price) }} VND</strong>
+        <div class="row">
+            <!-- Start Filter Sidebar -->
+            <div class="col-lg-3">
+                <div class="filter-sidebar">
+                    <h4 class="mb-4">Bộ lọc sản phẩm</h4>
+                    
+                    <!-- Danh mục -->
+                    <div class="filter-section mb-4">
+                        <h5>Danh mục</h5>
+                        @foreach($categories as $category)
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="category" value="{{ $category->id }}" id="category{{ $category->id }}">
+                            <label class="form-check-label" for="category{{ $category->id }}">{{ $category->name }}</label>
+                        </div>
+                        @endforeach
+                    </div>
 
-                    <span class="icon-cross">
-                        <img src="{{asset('assets/images/cross.svg')}}" class="img-fluid">
-                    </span>
-                </a>
-            </div> 
-            <!-- End Column 1 -->
-            @endforeach		
-          </div>
-          {{-- start phan trang --}}
-          <div class="d-flex justify-content-center">
-            {{ $products->links('pagination::bootstrap-5') }}
-        </div>
-        </div>
-        {{-- End phân trang --}}
+                    <!-- Hãng sản xuất -->
+                    <div class="filter-section mb-4">
+                        <h5>Hãng sản xuất</h5>
+                        @foreach($brands as $brand)
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="brand" value="{{ $brand }}" id="brand{{ $loop->index }}">
+                            <label class="form-check-label" for="brand{{ $loop->index }}">{{ $brand }}</label>
+                        </div>
+                        @endforeach
+                    </div>
 
-    <!-- Start Comments Section -->
+                    <!-- Khoảng giá -->
+                    <div class="filter-section mb-4">
+                        <h5>Khoảng giá</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="price" value="0-10000000" id="price1">
+                            <label class="form-check-label" for="price1">Dưới 10 triệu</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="price" value="10000000-20000000" id="price2">
+                            <label class="form-check-label" for="price2">10 - 20 triệu</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="price" value="20000000-30000000" id="price3">
+                            <label class="form-check-label" for="price3">20 - 30 triệu</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="price" value="30000000-999999999" id="price4">
+                            <label class="form-check-label" for="price4">Trên 30 triệu</label>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary w-100" id="applyFilter">Áp dụng bộ lọc</button>
+                </div>
+            </div>
+            <!-- End Filter Sidebar -->
+
+            <!-- Start Product Grid -->
+            <div class="col-lg-9">
+                <div class="row">
+                    @foreach($products as $product)
+                    <div class="col-12 col-md-4 col-lg-4 mb-5">
+                        <a class="product-item" href="#">
+                            <img src="{{$product->Image}}" class="img-fluid product-thumbnail">
+                            <h3 class="product-title">{{ $product->Name }}</h3>
+                            <strong class="product-price">{{ number_format($product->Price) }} VND</strong>
+                            <span class="icon-cross">
+                                <img src="{{asset('assets/images/cross.svg')}}" class="img-fluid">
+                            </span>
+                        </a>
+                    </div>
+                    @endforeach
+                </div>
+
+                <!-- Pagination -->
+                <div class="d-flex justify-content-center mt-4">
+                    {{ $products->links('pagination::bootstrap-5') }}
+                </div>
+            </div>
+            <!-- End Product Grid -->
+        </div>
+    </div>
+</div>
+<!-- End Product Section -->
+
+<!-- Start Comments Section -->
 <div class="container mt-5">
     <h2>Bình luận</h2>
     <div class="mb-3">
@@ -77,6 +137,5 @@
     </form>
 </div>
 <!-- End Comments Section -->
-</div>
 
 @endsection

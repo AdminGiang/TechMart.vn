@@ -7,6 +7,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Container\Attributes\Auth;
+use App\Models\User;
 
 Route::get('/home', [HomeController::class, 'home'])->name('home')->middleware('auth'); // Trang chủ
 
@@ -40,9 +42,9 @@ Route::get('/services', function () { // Trang dịch vụ
     return view('pages.services');
 })->name('services');
 
-Route::get('/profile', function () { // Trang cá nhân
-    return view('pages.profile');
-})->name('profile');
+Route::get('/profile', function () {
+    return view('profile', ['user' => Auth::user()]); 
+})->name('profile')->middleware('auth');
 
 Route::get('/', [RegisterController::class, 'showRegisterForm'])->name('register'); // Trang đăng ký
 Route::post('/', [RegisterController::class, 'register']); // Xử lý đăng ký

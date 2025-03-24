@@ -17,8 +17,14 @@
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <!-- BOXICONS LOGIN-REGISTER -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
     <!-- CSS LOGIN-REGISTER-->
     <link href="{{ asset('assets/css/lgstyle.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/profile.css') }}" rel="stylesheet">
 
     <title> TechMart.vn </title>
 </head>

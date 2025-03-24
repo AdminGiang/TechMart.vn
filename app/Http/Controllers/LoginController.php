@@ -38,8 +38,8 @@ class LoginController extends Controller
 
         $remember = $request->has('remember'); // Kiểm tra checkbox Remember Me
 
-        if (Auth::attempt($credentials, $remember)) {
-            return redirect()->route('home');
+        if (Auth::attempt($credentials, $remember)) { // Kiểm tra mật khẩu có khớp với mật khẩu đã hash trong database không
+            return redirect()->route('home'); // Nếu khớp thì chuyển hướng về trang chủ
         }
 
         return response()->json(['message' => 'Sai thông tin đăng nhập'], 401);

@@ -13,23 +13,7 @@ class LoginController extends Controller
     {
         return view('pages.login'); 
     }
-    // public function login(Request $request) 
-    // {
-    //     $credentials = $request->validate([
-    //         'email' => 'required|email',
-    //         'password' => 'required|string',
-    //     ]);
-
-    //     $credentials = $request->only('email', 'password');
-    //     $remember = $request->has('remember'); // Kiểm tra checkbox Remember Me
-
-    //     if (Auth::attempt()($credentials)) { // Kiểm tra mật khẩu có khớp với mật khẩu đã hash trong database không
-    //         $user = Auth::user();
-    //         return redirect()->route('home');
-    //     }
-    //     return response()->json(['message' => 'Sai thông tin đăng nhập'], 401);
-    // }
-    public function login(Request $request)
+        public function login(Request $request)
     {
         $credentials = $request->validate([
             'email' => 'required|email',

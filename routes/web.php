@@ -3,12 +3,9 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ProfileController;
-use Illuminate\Container\Attributes\Auth;
-use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/home', [HomeController::class, 'home'])->name('home')->middleware('auth'); // Trang chủ
 
@@ -43,8 +40,12 @@ Route::get('/services', function () { // Trang dịch vụ
 })->name('services');
 
 Route::get('/profile', function () {
-    return view('profile', ['user' => Auth::user()]); 
+    return view('pages.profile', [
+        'user' => Auth::user(),
+        'created_at' => Auth::user()->created_at->format('d/m/Y') // Định dạng ngày
+    ]);
 })->name('profile')->middleware('auth');
+
 
 Route::get('/', [RegisterController::class, 'showRegisterForm'])->name('register'); // Trang đăng ký
 Route::post('/', [RegisterController::class, 'register']); // Xử lý đăng ký

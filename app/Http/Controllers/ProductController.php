@@ -11,7 +11,7 @@ class ProductController extends Controller
     public function product()
     {
         //$products = Products::inRandomOrder()->take(8)->get();
-        $products = Products::inRandomOrder()->paginate(8);
+        $products = Products::inRandomOrder()->paginate(6);
         return view('pages.product', compact('products'));
     }
 
@@ -35,7 +35,7 @@ class ProductController extends Controller
             $query->whereBetween('Price', [$min, $max]);
         }
 
-        $products = $query->paginate(12);
+        $products = $query->paginate(12); 
         
         return view('pages.Product', compact('products'));
     }

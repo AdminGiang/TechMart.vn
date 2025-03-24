@@ -140,7 +140,6 @@
                     </form>
                 </div>
             </div>
-            
             <div class="col-md-9">
                 <div class="row">
                     @foreach($products as $product)
@@ -158,7 +157,6 @@
                     <!-- End Column 1 -->
                     @endforeach		
                 </div>
-                
                 {{-- start phan trang --}}
                 <div class="d-flex justify-content-center">
                     {{ $products->links('pagination::bootstrap-5') }}
@@ -167,6 +165,7 @@
             </div>
         </div>
     </div>
+    
 </div>
 <!-- End Filter Section -->
 

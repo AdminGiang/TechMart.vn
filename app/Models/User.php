@@ -11,18 +11,18 @@ use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable; 
 
     protected $fillable = [
         'name',
         'email',
-        'password',
+        'password', 
         'phonenumber',  // Thêm số điện thoại
         'address',      // Thêm địa chỉ
     ];
 
-    protected $hidden = [
-        'password',
+    protected $hidden = [ 
+        'password', // Ẩn password
         'remember_token', // Thêm remember_token
     ];
 }

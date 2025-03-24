@@ -15,9 +15,9 @@ class LoginController extends Controller
     }
         public function login(Request $request)
     {
-        $credentials = $request->validate([
+        $credentials = $request->validate([ // Kiểm tra dữ liệu nhập vào
             'email' => 'required|email',
-            'password' => 'required|string',
+            'password' => 'required|string', 
         ]);
 
         $remember = $request->has('remember'); // Kiểm tra checkbox Remember Me

@@ -34,8 +34,8 @@ class ProductController extends Controller
             list($min, $max) = explode('-', $request->price_range);
             $query->whereBetween('Price', [$min, $max]);
         }
-
-        $products = $query->paginate(12);
+        //hiển thị 6 sản phẩm trên mỗi trang khi lọc
+        $products = $query->paginate(6);
         
         return view('pages.Product', compact('products'));
     }

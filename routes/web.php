@@ -52,7 +52,7 @@ Route::get('/profile', function () {
     return view('pages.profile', [
         'user' => Auth::user(), // Thông tin user
         'created_at' => Auth::user()->created_at->format('d/m/Y') // Định dạng ngày
-        ]); 
+        ]);
 })->name('profile')->middleware('auth'); // Trang cá nhân
 
 Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register'); // Trang đăng ký
@@ -63,8 +63,3 @@ Route::post('/', [LoginController::class, 'login']); // Xử lý đăng nhập
 
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
-
-Route::prefix('admin')->group(function () {
-    // Route::get('/', [AdminController::class, 'home'])->name('admin');
-    Route::get('/admin', [AdminController::class, 'home'])->name('admin');
-});

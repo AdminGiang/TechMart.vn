@@ -24,13 +24,6 @@ document.querySelectorAll(".dropdown-toggle").forEach(dropdownToggle => {
     });
 });
 
-
-// document.querySelector(".sidebar-toggler").addEventListener("click", () => {
-
-//     closeAllDropdowns();
-
-//     document.querySelector(".sidebar").classList.toggle("collapsed");
-// });
 document.querySelectorAll(".sidebar-toggler,.sidebar-menu-button").forEach(button => {
     button.addEventListener("click", () => {
         closeAllDropdowns();

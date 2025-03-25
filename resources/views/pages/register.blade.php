@@ -36,8 +36,8 @@
                     <i class='bx bx-lock-alt icon'></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" class="input-field" name="phonenumber" required>
-                    <label for="phonenumber" class="label">Số Điện Thoại</label>
+                    <input type="text" class="input-field" name="phone" required>
+                    <label for="phone" class="label">Số Điện Thoại</label>
                     <i class='bx bx-lock-alt icon'></i>
                 </div>
                 {{-- <div class="form-cols">

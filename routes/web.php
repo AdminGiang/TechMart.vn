@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ProductDetailController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,9 +30,8 @@ Route::get('/about', function () {
     return view('pages.about');
 })->name('about');
 
-Route::get('/productdetail', function () { // Trang chi tiết sản phẩm
-    return view('pages.productdetail');
-})->name('productdetail');
+//Route::get('/product/{id}', [ProductDetailController::class, 'show'])->name('productdetail'); // Trang chi tiết sản phẩm
+
 // cart
 Route::get('/cart', function () { // Trang giỏ hàng
     return view('pages.cart');

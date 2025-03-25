@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+
 
 class LoginController extends Controller
 {
@@ -28,4 +28,5 @@ class LoginController extends Controller
 
         return redirect()->route('error')->with('error'); /// Nếu không khớp thì hiển thị thông báo lỗi
     }
+    
 }

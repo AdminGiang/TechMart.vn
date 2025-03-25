@@ -17,7 +17,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password', 
-        'phonenumber',  // Thêm số điện thoại
+        'phone',  // Thêm số điện thoại
         'address',      // Thêm địa chỉ
     ];
 

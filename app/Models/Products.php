@@ -15,4 +15,8 @@ class Products extends Model
         'name', 'description', 'categoryId', 'userId', 'price', 
         'isPublish', 'sale', 'image', 'tag', 'isTagBlog', 'saleId', 'count'
     ];
+    public function details()
+    {
+        return $this->hasMany(ProductDetail::class, 'product_id');
+    }
 }

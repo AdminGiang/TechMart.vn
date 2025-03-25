@@ -53,4 +53,5 @@ class ProductController extends Controller
        
            return view('pages.Product', compact('products'));
        }
+
 }

@@ -54,6 +54,78 @@
 </div>
 <!-- End We Help Section -->
 
+<!-- Start Why Choose Us Section -->
+<div class="why-choose-section">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-6">
+                <h2 class="section-title">Tại sao chọn chúng tôi?</h2>
+                <p>Chúng tôi cam kết mang đến trải nghiệm mua sắm tốt nhất với dịch vụ chuyên nghiệp và tận tâm.</p>
+
+                <div class="row my-5">
+                    <div class="col-6 col-md-6">
+                        <div class="feature">
+                            <div class="icon">
+                                <img src="{{asset('assets/images/truck.svg')}}" alt="Image" class="imf-fluid">
+                            </div>
+                            <h3>Miễn phí &amp; Giao hàng nhanh chóng</h3>
+                            <p>Giao hàng nhanh trên toàn quốc, giúp bạn nhận được sản phẩm một cách tiện lợi nhất.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-6">
+                        <div class="feature">
+                            <div class="icon">
+                                <img src="{{asset('assets/images/bag.svg')}}" alt="Image" class="imf-fluid">
+                            </div>
+                            <h3>Mua sắm dễ dàng</h3>
+                            <p>Giao diện thân thiện, quy trình đơn giản, hỗ trợ khách hàng tận tình.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-6">
+                        <div class="feature">
+                            <div class="icon">
+                                <img src="{{asset('assets/images/support.svg')}}" alt="Image" class="imf-fluid">
+                            </div>
+                            <h3>Hỗ trợ 24/7</h3>
+                            <p>Đội ngũ tư vấn viên luôn sẵn sàng giúp đỡ bạn bất cứ lúc nào.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-6">
+                        <div class="feature">
+                            <div class="icon">
+                                <img src="{{asset('assets/images/return.svg')}}" alt="Image" class="imf-fluid">
+                            </div>
+                            <h3>Đổi trả dễ dàng</h3>
+                            <p>Chính sách đổi trả linh hoạt, giúp bạn an tâm khi mua sắm.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="img-wrap">
+                    <img src="{{asset('assets/images/we us.png!bw700')}}" alt="Image" class="img-fluid">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Why Choose Us Section -->  
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Testimonial Slider -->
+
 <!-- Start Team Section -->
 <div class="untree_co-section">
     <div class="container">

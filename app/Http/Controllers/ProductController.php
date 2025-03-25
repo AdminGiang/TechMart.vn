@@ -38,4 +38,23 @@ class ProductController extends Controller
         $products = $query->paginate(6);        
         return view('pages.Product', compact('products'));
     }
+
+// Search sản phẩm
+       // Hiển thị trang danh sách sản phẩm
+    public function index()
+    {
+        return view('pages.product');
+    }
+
+    // Xử lý tìm kiếm AJAX
+    public function search(Request $request)
+    {
+        $keyword = $request->input('keyword');
+
+        $products = Products::where('name', 'like', "%$keyword%")
+            ->limit(9) // Giới hạn 9 sản phẩm
+            ->get();
+
+        return response()->json($products);
+    }
 }

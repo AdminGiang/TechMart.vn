@@ -43,14 +43,19 @@ a {
     .custom-navbar .custom-navbar-nav li {
       margin-left: 15px;
       margin-right: 15px; } }
-  .custom-navbar .custom-navbar-nav li a {
-    font-weight: 500;
+  .custom-navbar .custom-navbar-nav li a.active {
+    /* font-weight: 500;
     color: #ffffff !important;
     opacity: .5;
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
-    transition: .3s all ease;
-    position: relative; }
+    transition: .3s all ease; */
+    background-color: rgba(255, 255, 255, 0.2); /* Màu nền nhẹ */
+    padding: 8px 12px;
+    border-radius: 20px; /* Bo tròn */
+    font-weight: bold;
+    text-decoration: none;
+     }
     @media (min-width: 768px) {
       .custom-navbar .custom-navbar-nav li a:before {
         content: "";
@@ -58,8 +63,8 @@ a {
         bottom: 0;
         left: 8px;
         right: 8px;
-        background: #f9bf29;
-        height: 5px;
+        background: #ffbe1b;
+        height: 1px;
         opacity: 1;
         visibility: visible;
         width: 0;

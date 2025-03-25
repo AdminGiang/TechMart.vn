@@ -15,14 +15,14 @@
                     <a class="nav-link" href="{{ route('home') }}">Trang chủ</a>
                 </li>
                 <li><a class="nav-link" href="{{ route('product') }}">Sản phẩm</a></li>
-                <li><a class="nav-link" href="{{ route('services') }}">Dịch vụ</a></li>
+                {{-- <li><a class="nav-link" href="{{ route('services') }}">Dịch vụ</a></li> --}}
                 <li><a class="nav-link" href="{{ route('about') }}">Chúng tôi</a></li>
                 <li><a class="nav-link" href="{{ route('contact') }}">Liên hệ</a></li>
-                <li><a class="nav-link" href="{{ route('profile') }}">Cá nhân</a></li>
+                {{-- <li><a class="nav-link" href="{{ route('profile') }}">Cá nhân</a></li> --}}
             </ul> 
 
             <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-                <li><a class="nav-link" href="{{ route('login') }}"><img src="{{asset('assets/images/user.svg')}}"></a></li>
+                <li><a href="{{ Auth::check() ? route('profile') : route('login') }}" class="nav-link"><img src="{{asset('assets/images/user.svg')}}"></a></li>
                 <li><a class="nav-link" href="{{ route('cart') }}"><img src="{{asset('assets/images/cart.svg')}}"></a></li>
 
             </ul>

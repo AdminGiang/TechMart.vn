@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
@@ -25,7 +26,7 @@ Route::get('/register', function () {
     return view('pages.register');
 })->name('register');
 
-Route::get('/product', [ProductController::class, 'product'])->name('product'); 
+Route::get('/product', [ProductController::class, 'product'])->name('product');
 
 Route::get('/section-products', [ProductController::class, 'getProducts'])->name('products.section');
 
@@ -64,5 +65,9 @@ Route::post('/', [RegisterController::class, 'register']); // Xử lý đăng k�
 Route::get('/login', [LoginController::class, 'showloginForm'])->name('login'); // Trang đăng nhập
 Route::post('/login', [LoginController::class, 'login']); // Xử lý đăng nhập
 
-Route::post('/logout', [LogoutController::class, 'logout'])->name('logout'); 
+Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
+Route::prefix('admin')->group(function () {
+    // Route::get('/', [AdminController::class, 'home'])->name('admin');
+    Route::get('/admin', [AdminController::class, 'home'])->name('admin');
+});

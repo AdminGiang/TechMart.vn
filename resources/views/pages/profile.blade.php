@@ -11,7 +11,7 @@
                 </div>
             </div>
                  <span class="name mt-3">{{ $user->name }}</span>
-                 <span>{{ substr($user->phonenumber, 0, 4) }} {{ substr($user->phonenumber, 4, 3) }} {{ substr($user->phonenumber, 7) }}</span>
+                 <span>{{ substr($user->phone, 0, 4) }} {{ substr($user->phone, 4, 3) }} {{ substr($user->phone, 7) }}</span>
                   <div class="d-flex flex-row justify-content-center align-items-center gap-2"> 
                     <span class="idd1">{{ $user->email }}</span>
                     </div>

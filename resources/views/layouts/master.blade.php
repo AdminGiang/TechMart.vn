@@ -9,6 +9,8 @@
 
     <meta name="description" content="" />
     <meta name="keywords" content="bootstrap, bootstrap4" />
+    {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
+
 
     <!-- Bootstrap CSS -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">

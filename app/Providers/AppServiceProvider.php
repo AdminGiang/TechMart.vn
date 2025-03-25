@@ -14,13 +14,4 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
-    /**
-     * Bootstrap any application services.
-     */
-    public function boot(): void
-    {
-        //
-        $this->loadRoutesFrom(base_path('routes/adminroute.php'));
-
-    }
 }

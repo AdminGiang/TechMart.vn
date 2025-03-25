@@ -45,14 +45,14 @@
 
 					<!-- Start Column 2 -->
 					@foreach($products as $product)					
-					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="{{ route('productdetail')}}">
-							<img src="{{$product->Image}}"  class="img-fluid product-thumbnail">
-							<h3 class="product-title">{{ $product->Name }}</h3>
-							<strong class="product-price">{{ number_format($product->Price) }} VND</strong>
+					<div class="col-12 col-md-4 col-lg-3 mb-5" action="{{ route('cart') }}" method="POST">
+						<a class="product-item" href="{{ route('product.show', $product->id) }}">
+							<img src="{{$product->image}}"  class="img-fluid product-thumbnail">
+							<h3 class="product-title">{{ $product->name }}</h3>
+							<strong class="product-price">{{ number_format($product->price) }} VND</strong>
 					
 							<span class="icon-cross">
-								<img src="{{asset('assets/images/cross.svg')}}" class="img-fluid">
+								<img class="add-to-cart" data-id="{{ $product->id }}" src="{{asset('assets/images/cart.svg')}}" alt="Add to cart">
 							</span>
 						</a>
 					</div>
@@ -160,19 +160,20 @@
 			<div class="container">
 				<div class="row">
 
+					@foreach($brands as $brand)
 					<div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
 						<div class="product-item-sm d-flex">
 							<div class="thumbnail">
-								<img src="{{asset('assets/images/product-1.png')}}" alt="Image" class="img-fluid">
+								<img src="{{ $brand->logo }}" alt="{{ $brand->name }}" alt="Image" class="img-fluid">
 							</div>
 							<div class="pt-3">
-								<h3>Tên sản phẩm</h3>
-								<p> Chi tiết sản phẩm </p>
-								<p><a href="#">Xem thêm</a></p>
+								<h3>{{ $brand->name }}</h3>
+								{{-- <p> {{ $new->description }} </p> --}}
+								<p><a href="{{route('product')}}">Xem thêm</a></p>
 							</div>
 						</div>
 					</div>
-
+					@endforeach
 				</div>
 			</div>
 		</div>
@@ -259,5 +260,4 @@
 			</div>
 		</div>
 		<!-- End Blog Section -->	
-
         @endsection

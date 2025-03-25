@@ -36,14 +36,14 @@
                     <td class="product-name">
                       <h2 class="h5 text-black">{{ $item->product->name }}</h2>
                     </td>
-                    <td>{{ number_format($item->product->price) }}đ</td>
+                    <td>{{ number_format($item->price, 0, ',', '.') }} VND</td>
                     <td>
                       <div class="input-group" style="max-width: 120px;">
                         <span class="input-group-btn">
                           <button class="btn btn-outline-black decrease" type="button">&minus;</button>
                         </span>
                         <input type="text" class="form-control text-center quantity-input" 
-                               value="{{ $item->quantity }}" 
+                               value="{{ number_format($item->quantity * $item->price, 0, ',', '.') }} VND" 
                                data-id="{{ $item->id }}"
                                aria-label="Example text with button addon" 
                                aria-describedby="button-addon1">
@@ -97,63 +97,7 @@
   </div>
 </div>
 
+
+
 @endsection
 
-@section('scripts')
-<script>
-$(document).ready(function() {
-  // Tăng số lượng
-  $('.increase').click(function() {
-    var input = $(this).closest('.input-group').find('.quantity-input');
-    var value = parseInt(input.val()) + 1;
-    input.val(value);
-    updateQuantity(input.data('id'), value);
-  });
-
-  // Giảm số lượng
-  $('.decrease').click(function() {
-    var input = $(this).closest('.input-group').find('.quantity-input');
-    var value = parseInt(input.val());
-    if (value > 1) {
-      value--;
-      input.val(value);
-      updateQuantity(input.data('id'), value);
-    }
-  });
-
-  // Xóa sản phẩm
-  $('.remove-item').click(function() {
-    var id = $(this).data('id');
-    if (confirm('Bạn có chắc muốn xóa sản phẩm này?')) {
-      $.ajax({
-        url: '/cart/' + id,
-        type: 'DELETE',
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        success: function(response) {
-          location.reload();
-        }
-      });
-    }
-  });
-
-  // Cập nhật số lượng
-  function updateQuantity(id, quantity) {
-    $.ajax({
-      url: '/cart/' + id,
-      type: 'PUT',
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      },
-      data: {
-        quantity: quantity
-      },
-      success: function(response) {
-        location.reload();
-      }
-    });
-  }
-});
-</script>
-@endsection

@@ -7,8 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\ProductDetailController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/home', [HomeController::class, 'home'])->name('home')->middleware('auth'); // Trang chủ
@@ -24,16 +23,19 @@ Route::get('/blog', function () { // Trang blog
 Route::get('/product', [ProductController::class, 'product'])->name('product');  // Trang sản phẩm
 Route::get('/section-products', [ProductController::class, 'getProducts'])->name('products.section'); // Lấy sản phẩm theo danh mục
 Route::get('/products/filter', [ProductController::class, 'filter'])->name('products.filter'); // Lọc sản phẩm
-//Route::get('/products', [ProductController::class, 'search'])->name('pages.search'); // Route xử lý AJAX search sản phẩm
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
 
 Route::get('/about', function () {
     return view('pages.about');
 })->name('about');
 
-//Route::get('/product/{id}', [ProductDetailController::class, 'show'])->name('productdetail'); // Trang chi tiết sản phẩm
 
-// cart
-Route::get('/cart', function () { // Trang giỏ hàng
+// Route::middleware(['auth'])->group(function () {
+//     //Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+//     Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
+//     Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
+// });
+Route::get('/cart', function () { // Trang thanh toán
     return view('pages.cart');
 })->name('cart');
 

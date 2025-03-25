@@ -22,6 +22,7 @@ class RegisterController extends Controller
             'password' => 'required|string|min:3',
             'phone' => 'required|string|max:15|unique:users', // Số điện thoại không trùng
             'address' => 'required|string|max:500',
+            //'created_at' => now(), // Lưu thời gian hiện tại
         ]);
 
         $user = User::create([
@@ -30,6 +31,7 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
             'phone' => $request->phone,
             'address' => $request->address,
+            'created_at' => now(), // Lưu thời gian hiện tại
         ]);
         session(['registered_email' => $request->email]); // Lưu email vào session để hiển thị ở trang login
         return redirect()->route('login');

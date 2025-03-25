@@ -7,16 +7,43 @@ use Illuminate\Database\Eloquent\Model;
 
 class Products extends Model
 {
+    // use HasFactory;
+
+    // protected $table = 'products'; // Bảng trong database
+
+    // protected $fillable = [
+    //     'name', 'description', 'categoryId', 'userId', 'price', 
+    //     'isPublish', 'sale', 'image', 'tag', 'isTagBlog', 'saleId', 'count'
+    // ];
+    // public function details() {
+    //     return $this->hasOne(ProductDetail::class, 'product_id');
+    // }
     use HasFactory;
 
-    protected $table = 'products'; // Bảng trong database
+    protected $table = 'products';
 
     protected $fillable = [
-        'name', 'description', 'categoryId', 'userId', 'price', 
-        'isPublish', 'sale', 'image', 'tag', 'isTagBlog', 'saleId', 'count'
+        'name', 
+        'description', 
+        'category_id', 
+        'brand_id', 
+        'price', 
+        'discount', 
+        'stock', 
+        'image', 
+        'warranty_period', 
+        'stock_status'
     ];
-    public function details()
-    {
-        return $this->hasMany(ProductDetail::class, 'product_id');
+
+    public function details() {
+        return $this->hasOne(ProductDetail::class, 'product_id');
+    }
+
+    public function category() {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function brand() {
+        return $this->belongsTo(Brand::class, 'brand_id');
     }
 }

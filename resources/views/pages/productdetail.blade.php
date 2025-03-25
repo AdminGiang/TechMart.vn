@@ -8,10 +8,10 @@
         <aside class="col-lg-6">
           <div class="border rounded-4 mb-3 d-flex justify-content-center">
             <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image" href="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big.webp">
-              <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big.webp" />
+              <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src="{{ $product->image }}" />
             </a>
           </div>
-          <div class="d-flex justify-content-center mb-3">
+          {{-- <div class="d-flex justify-content-center mb-3">
             <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" href="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big1.webp" class="item-thumb">
               <img width="60" height="60" class="rounded-2" src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big1.webp" />
             </a>
@@ -27,14 +27,14 @@
             <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" href="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big.webp" class="item-thumb">
               <img width="60" height="60" class="rounded-2" src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big.webp" />
             </a>
-          </div>
+          </div> --}}
           <!-- thumbs-wrap.// -->
           <!-- gallery-wrap .end// -->
         </aside>
         <main class="col-lg-6">
           <div class="ps-lg-3">
             <h4 class="title text-dark">
-              {{ $productDetail->name }}
+              {{ $product->name }}
             </h4>
             <div class="d-flex flex-row my-3">
               <div class="text-warning mb-1 me-2">
@@ -52,8 +52,8 @@
             </div>
   
             <div class="mb-3">
-              <span class="h5">{{ number_format($productDetail->Price) }}</span>
-              <span class="text-muted">/per box</span>
+              <span class="h5">{{ number_format($product->price) }}</span>
+              <span class="text-muted"></span>
             </div>
   
             <p>
@@ -61,22 +61,22 @@
             </p>
   
             <div class="row">
-              <dt class="col-3">Type:</dt>
-              <dd class="col-9">Regular</dd>
+              <dt class="col-3">Camera:</dt>
+              <dd class="col-9">{{ $product->details->camera ?? 'Không có' }}</dd>
   
-              <dt class="col-3">Color</dt>
-              <dd class="col-9">Brown</dd>
+              <dt class="col-3">Dung lượng</dt>
+              <dd class="col-9">{{ $product->details->storage_capacity ?? 'Không có' }} GB</dd>
   
-              <dt class="col-3">Material</dt>
-              <dd class="col-9">Cotton, Jeans</dd>
+              <dt class="col-3">Màu</dt>
+              <dd class="col-9">{{ $product->details->color ?? 'Không có' }}</dd>
   
               <dt class="col-3">Brand</dt>
-              <dd class="col-9">Reebook</dd>
+              <dd class="col-9">{{ $product->brand->name ?? 'Không xác định' }}</dd>
             </div>
   
             <hr />
   
-            <div class="row mb-4">
+            {{-- <div class="row mb-4">
               <div class="col-md-4 col-6">
                 <label class="mb-2">Size</label>
                 <select class="form-select border border-secondary" style="height: 35px;">
@@ -84,7 +84,7 @@
                   <option>Medium</option>
                   <option>Large</option>
                 </select>
-              </div>
+              </div> --}}
               <!-- col.// -->
               <div class="col-md-4 col-6 mb-3">
                 <label class="mb-2 d-block">Quantity</label>
@@ -92,7 +92,7 @@
                   <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon1" data-mdb-ripple-color="dark">
                     <i class="fas fa-minus"></i>
                   </button>
-                  <input type="text" class="form-control text-center border border-secondary" placeholder="14" aria-label="Example text with button addon" aria-describedby="button-addon1" />
+                  <input type="text" class="form-control text-center border border-secondary"  aria-label="Example text with button addon" aria-describedby="button-addon1" />
                   <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon2" data-mdb-ripple-color="dark">
                     <i class="fas fa-plus"></i>
                   </button>

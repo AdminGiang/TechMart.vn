@@ -15,6 +15,12 @@ class ProductController extends Controller
         return view('pages.product', compact('products'));
     }
 
+    public function show($id) {
+        $product = Products::with('details')->findOrFail($id); // Lấy sản phẩm theo id
+        return view('pages.productdetail', compact('product'));
+    }
+    
+
     public function filter(Request $request)
     {
         $query = Products::query();
@@ -53,5 +59,6 @@ class ProductController extends Controller
        
            return view('pages.Product', compact('products'));
        }
+
 
 }

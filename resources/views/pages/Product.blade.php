@@ -150,9 +150,9 @@
                     <!-- Start Column 1 -->
                     <div class="col-12 col-md-4 col-lg-4 mb-5">
                         <a class="product-item" href="#">
-                            <img src="{{$product->Image}}" class="img-fluid product-thumbnail">
-                            <h3 class="product-title">{{ $product->Name }}</h3>
-                            <strong class="product-price">{{ number_format($product->Price) }} VND</strong>
+                            <img src="{{$product->image}}" class="img-fluid product-thumbnail">
+                            <h3 class="product-title">{{ $product->name }}</h3>
+                            <strong class="product-price">{{ number_format($product->price) }} VND</strong>
                             <span class="icon-cross">
                                 <img src="{{asset('assets/images/cross.svg')}}" class="img-fluid">
                             </span>

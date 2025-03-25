@@ -149,7 +149,7 @@
                     @foreach($products as $product)
                     <!-- Start Column 1 -->
                     <div class="col-12 col-md-4 col-lg-4 mb-5">
-                        <a class="product-item" href="#">
+                        <a class="product-item" href="{{ route('product.show', $product->id) }}">
                             <img src="{{$product->image}}" class="img-fluid product-thumbnail">
                             <h3 class="product-title">{{ $product->name }}</h3>
                             <strong class="product-price">{{ number_format($product->price) }} VND</strong>

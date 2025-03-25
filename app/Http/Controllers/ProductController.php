@@ -17,7 +17,10 @@ class ProductController extends Controller
 
     public function show($id) {
         $product = Products::with('details')->findOrFail($id); // Lấy sản phẩm theo id
-        return view('pages.productdetail', compact('product'));
+
+        $relatedProducts = Products::inRandomOrder()->take(3)->get(); // Lấy 4 sản phẩm bất kỳ
+    
+        return view('pages.productdetail', compact('product', 'relatedProducts'));
     }
     
 

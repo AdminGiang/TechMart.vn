@@ -19,7 +19,7 @@
             </div>
             <div class="col-lg-7">
                 <div class="hero-img-wrap">
-                    <img src="{{('assets/images/img-iphone-banner.png')}}" class="img-fluid">
+                    <img src="{{ asset('assets/images/img-iphone-banner.png') }}" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -140,7 +140,6 @@
                     </form>
                 </div>
             </div>
-            
             <div class="col-md-9">
                 <div class="row">
                     @foreach($products as $product)
@@ -158,7 +157,6 @@
                     <!-- End Column 1 -->
                     @endforeach		
                 </div>
-                
                 {{-- start phan trang --}}
                 <div class="d-flex justify-content-center">
                     {{ $products->links('pagination::bootstrap-5') }}
@@ -167,6 +165,7 @@
             </div>
         </div>
     </div>
+    
 </div>
 <!-- End Filter Section -->
 

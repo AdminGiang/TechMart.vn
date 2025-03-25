@@ -35,5 +35,4 @@ class RegisterController extends Controller
         session(['registered_email' => $request->email]); // Lưu email vào session để hiển thị ở trang login
         return redirect()->route('login');
     }
-
 }

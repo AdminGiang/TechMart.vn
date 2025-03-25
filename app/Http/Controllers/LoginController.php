@@ -15,9 +15,9 @@ class LoginController extends Controller
     }
         public function login(Request $request)
     {
-        $credentials = $request->validate([
+        $credentials = $request->validate([ // Kiểm tra dữ liệu nhập vào
             'email' => 'required|email',
-            'password' => 'required|string',
+            'password' => 'required|string', 
         ]);
 
         $remember = $request->has('remember'); // Kiểm tra checkbox Remember Me
@@ -26,6 +26,6 @@ class LoginController extends Controller
             return redirect()->route('home'); // Nếu khớp thì chuyển hướng về trang chủ
         }
 
-        return response()->json(['message' => 'Sai thông tin đăng nhập'], 401);
+        return redirect()->route('error')->with('error'); /// Nếu không khớp thì hiển thị thông báo lỗi
     }
 }

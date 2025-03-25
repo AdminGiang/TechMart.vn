@@ -18,14 +18,8 @@
                 {{-- <li><a class="nav-link" href="{{ route('services') }}">Dịch vụ</a></li> --}}
                 <li><a class="nav-link" href="{{ route('about') }}">Chúng tôi</a></li>
                 <li><a class="nav-link" href="{{ route('contact') }}">Liên hệ</a></li>
-<<<<<<< HEAD
-                {{-- <li><a class="nav-link" href="{{ route('profile') }}">Cá nhân</a></li> --}}
-            </ul> 
-=======
-                <li><a class="nav-link" href="{{ route('profile') }}">Cá nhân</a></li>
-                <li><a class="nav-link" href="{{ route('admin') }}">ad</a></li>
+                <li><a class="nav-link" href="{{ route('admin') }}">admin</a></li>
             </ul>
->>>>>>> 18d20e0d4032a5771f05d93bb0bb65c9b49d2816
 
             <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
                 <li><a href="{{ Auth::check() ? route('profile') : route('login') }}" class="nav-link"><img src="{{asset('assets/images/user.svg')}}"></a></li>

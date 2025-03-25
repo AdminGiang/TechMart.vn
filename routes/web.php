@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
@@ -25,10 +26,14 @@ Route::get('/register', function () {
     return view('pages.register');
 })->name('register');
 
+<<<<<<< HEAD
 Route::get('/product', [ProductController::class, 'product'])->name('product');  // Trang sản phẩm
 Route::get('/section-products', [ProductController::class, 'getProducts'])->name('products.section'); // Lấy sản phẩm theo danh mục
 Route::get('/products/filter', [ProductController::class, 'filter'])->name('products.filter'); // Lọc sản phẩm
 //Route::get('/products/search', [ProductController::class, 'search'])->name('products.search'); // Route xử lý AJAX search sản phẩm
+=======
+Route::get('/product', [ProductController::class, 'product'])->name('product');
+>>>>>>> 18d20e0d4032a5771f05d93bb0bb65c9b49d2816
 
 
 Route::get('/about', function () {
@@ -67,7 +72,14 @@ Route::post('/register', [RegisterController::class, 'register']); // Xử lý �
 Route::get('/', [LoginController::class, 'showloginForm'])->name('login');
 Route::post('/', [LoginController::class, 'login']); // Xử lý đăng nhập
 
-Route::post('/logout', [LogoutController::class, 'logout'])->name('logout'); 
+Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
+<<<<<<< HEAD
  // Tìm kiếm sản phẩm
 
+=======
+Route::prefix('admin')->group(function () {
+    // Route::get('/', [AdminController::class, 'home'])->name('admin');
+    Route::get('/admin', [AdminController::class, 'home'])->name('admin');
+});
+>>>>>>> 18d20e0d4032a5771f05d93bb0bb65c9b49d2816

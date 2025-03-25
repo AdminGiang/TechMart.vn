@@ -141,6 +141,10 @@
                 </div>
             </div>
             <div class="col-md-9">
+                <form action="#" method="GET">
+                    <input type="text" name="search" value="#" placeholder="Tìm kiếm sản phẩm...">
+                    <button type="submit">Tìm kiếm</button>
+                </form>
                 <div class="row">
                     @foreach($products as $product)
                     <!-- Start Column 1 -->
@@ -193,5 +197,6 @@
     </form>
 </div>
 <!-- End Comments Section -->
+
 
 @endsection

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('tag')->nullable();
             $table->boolean('isTagBlog')->default(0);
+            $table->unsignedBigInteger('saleId')->nullable();
             $table->integer('count')->default(0);
             $table->timestamps();
         });

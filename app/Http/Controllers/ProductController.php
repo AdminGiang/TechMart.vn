@@ -38,4 +38,19 @@ class ProductController extends Controller
         $products = $query->paginate(6);        
         return view('pages.Product', compact('products'));
     }
+
+        // Search sản phẩm
+       // Hiển thị trang danh sách sản phẩm
+       public function search(Request $request)
+       {
+           $query = Products::query();
+       
+           if ($request->has('search')) {
+               $query->where('name', 'like', '%' . $request->search . '%');
+           }
+       
+           $products = $query->paginate(6); // Phân trang
+       
+           return view('pages.Product', compact('products'));
+       }
 }

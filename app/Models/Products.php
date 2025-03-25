@@ -13,6 +13,6 @@ class Products extends Model
 
     protected $fillable = [
         'name', 'description', 'categoryId', 'userId', 'price', 
-        'isPublish', 'sale', 'image', 'tag', 'isTagBlog', 'count'
+        'isPublish', 'sale', 'image', 'tag', 'isTagBlog', 'saleId', 'count'
     ];
 }

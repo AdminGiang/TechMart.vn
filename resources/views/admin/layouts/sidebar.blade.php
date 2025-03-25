@@ -35,7 +35,7 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li class="nav-item"><a href="" class="nav-link dropdown-link">Danh Mục</a></li>
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link">Sản Phẩm</a></li>
+                    <li class="nav-item"><a href="{{ route('Product')}}" class="nav-link dropdown-link">Sản Phẩm</a></li>
                     <li class="nav-item"><a href="" class="nav-link dropdown-link">Màu Sắc</a></li>
                     <li class="nav-item"><a href="" class="nav-link dropdown-link">aaa</a></li>
                     <li class="nav-item"><a href="" class="nav-link dropdown-link">aaa</a></li>

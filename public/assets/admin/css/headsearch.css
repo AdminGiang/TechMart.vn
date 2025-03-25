@@ -1,0 +1,79 @@
+/* .headersearch{
+    background-color: rgb(68, 87, 87);
+    position:relative;
+} */
+
+/* Nội dung chính */
+.content {
+    margin-left: 260px;
+    /* Khoảng cách mặc định khi sidebar mở */
+    transition: margin-left 0.4s ease, ;
+    padding: 20px;
+}
+
+.sidebar.collapsed+.content {
+    margin-left: 85px;
+    /* Khi sidebar thu gọn */
+}
+
+/* Định dạng bảng */
+.table-container {
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.product-table th,
+.product-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.product-table th {
+    background: #151A2E;
+    color: #fff;
+}
+
+.product-table tbody tr:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+.product-table tbody tr:nth-child(even) {
+    background: #fff;
+}
+
+.product-table img {
+    width: 50px;
+    border-radius: 5px;
+}
+
+.edit-btn,
+.delete-btn,.detail-btn {
+    padding: 5px 10px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background: #4CAF50;
+    /* Màu xanh */
+}
+
+.delete-btn {
+    background: #F44336;
+    /* Màu đỏ */
+}
+.detail-btn {
+    background: #1b5ce7;
+    /* Màu đỏ */
+}

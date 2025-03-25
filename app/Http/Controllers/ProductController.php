@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Products;
-
+use App\Models\Review;
 
 class ProductController extends Controller
 {
@@ -16,11 +16,26 @@ class ProductController extends Controller
     }
 
     public function show($id) {
-        $product = Products::with('details')->findOrFail($id); // Lấy sản phẩm theo id
-
-        $relatedProducts = Products::inRandomOrder()->take(3)->get(); // Lấy 4 sản phẩm bất kỳ
-    
-        return view('pages.productdetail', compact('product', 'relatedProducts'));
+        $product = Products::with(['details', 'brand'])->findOrFail($id);
+        $relatedProducts = Products::where('category_id', $product->category_id)
+            ->where('id', '!=', $id)
+            ->inRandomOrder()
+            ->take(3)
+            ->get();
+        
+        // Lấy tổng số đánh giá
+        $totalReviews = Review::where('product_id', $id)->count();
+        
+        // Lấy đánh giá của sản phẩm với phân trang
+        $reviews = Review::with('user')
+            ->where('product_id', $id)
+            ->orderBy('created_at', 'desc')
+            ->paginate(4);
+        
+        // Tính điểm đánh giá trung bình từ tất cả đánh giá
+        $averageRating = Review::where('product_id', $id)->avg('rating') ?? 0;
+        
+        return view('pages.productdetail', compact('product', 'relatedProducts', 'reviews', 'averageRating', 'totalReviews'));
     }
     
 

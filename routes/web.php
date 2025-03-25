@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ReviewController;
 
 Route::get('/home', [HomeController::class, 'home'])->name('home')->middleware('auth'); // Trang chủ
 
@@ -24,6 +25,7 @@ Route::get('/product', [ProductController::class, 'product'])->name('product'); 
 Route::get('/section-products', [ProductController::class, 'getProducts'])->name('products.section'); // Lấy sản phẩm theo danh mục
 Route::get('/products/filter', [ProductController::class, 'filter'])->name('products.filter'); // Lọc sản phẩm
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+Route::post('/review/store', [ReviewController::class, 'store'])->name('review.store')->middleware('auth');
 
 Route::get('/about', function () {
     return view('pages.about');

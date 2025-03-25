@@ -38,16 +38,21 @@
             </h4>
             <div class="d-flex flex-row my-3">
               <div class="text-warning mb-1 me-2">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
+                @for($i = 1; $i <= 5; $i++)
+                  @if($i <= $averageRating)
+                    <i class="fa fa-star"></i>
+                  @elseif($i - 0.5 <= $averageRating)
+                    <i class="fas fa-star-half-alt"></i>
+                  @else
+                    <i class="far fa-star"></i>
+                  @endif
+                @endfor
                 <span class="ms-1">
-                  4.5
+                  {{ number_format($averageRating, 1) }}
                 </span>
               </div>
-              <span class="text-muted"><i class="fas fa-shopping-basket fa-sm mx-1"></i>Đã bán: 0</span>
+              <span class="text-muted"><i class="fas fa-comment fa-sm mx-1"></i>{{ $totalReviews }} đánh giá</span>
+              <span class="text-muted ms-2"><i class="fas fa-shopping-basket fa-sm mx-1"></i>Đã bán: 0</span>
             </div>
   
             <div class="mb-3">
@@ -59,7 +64,7 @@
               {{ $product->description }}
             </p>
             <span class="text-success ms-2">Khuyến mãi: {{ $product->discount }}</br> </span>
-            <span class="text-success ms-2">Kho còn : {{ $product->stock }}_Sản phẩm</span>
+            <span class="text-success ms-2">Kho còn : {{ $product->stock }} Sản phẩm</span>
 
   
             {{-- <div class="row">
@@ -176,4 +181,77 @@
     </div>
   </div>
   <!-- End Blog Section -->	
+
+  <!-- Start Review Section -->
+  <div class="review-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="review-title">Đánh giá sản phẩm</h2>
+          
+          <!-- Review Form -->
+          <div class="review-form">
+            <form action="{{ route('review.store') }}" method="POST">
+              @csrf
+              <input type="hidden" name="product_id" value="{{ $product->id }}">
+              <div class="mb-4">
+                <div class="rating-label">Đánh giá của bạn</div>
+                <div class="rating-stars">
+                  <input type="radio" id="star5" name="rating" value="5" />
+                  <label for="star5" title="5 sao"><i class="fa fa-star"></i></label>
+                  <input type="radio" id="star4" name="rating" value="4" />
+                  <label for="star4" title="4 sao"><i class="fa fa-star"></i></label>
+                  <input type="radio" id="star3" name="rating" value="3" />
+                  <label for="star3" title="3 sao"><i class="fa fa-star"></i></label>
+                  <input type="radio" id="star2" name="rating" value="2" />
+                  <label for="star2" title="2 sao"><i class="fa fa-star"></i></label>
+                  <input type="radio" id="star1" name="rating" value="1" />
+                  <label for="star1" title="1 sao"><i class="fa fa-star"></i></label>
+                </div>
+              </div>
+              <div class="mb-4">
+                <label for="comment" class="form-label">Nhận xét của bạn</label>
+                <textarea class="form-control" id="comment" name="comment" rows="4" placeholder="Chia sẻ trải nghiệm của bạn về sản phẩm..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Gửi đánh giá</button>
+            </form>
+          </div>
+
+          <!-- Review List -->
+          <div class="review-list">
+            @foreach($reviews as $review)
+            <div class="review-item">
+              <div class="d-flex align-items-center">
+                <span class="user-name">{{ $review->user->name }}</span>
+                <div class="rating">
+                  @for($i = 1; $i <= 5; $i++)
+                    @if($i <= $review->rating)
+                      <i class="fa fa-star"></i>
+                    @else
+                      <i class="far fa-star"></i>
+                    @endif
+                  @endfor
+                </div>
+                <span class="date">{{ $review->created_at->format('d/m/Y') }}</span>
+              </div>
+              <p class="comment">{{ $review->comment }}</p>
+            </div>
+            @endforeach
+
+            <!-- Pagination -->
+            @if($reviews->hasPages())
+            <div class="mt-4">
+                {{ $reviews->links('vendor.pagination.custom') }}
+            </div>
+            @endif
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Review Section -->
+
+  @push('styles')
+  <link rel="stylesheet" href="{{ asset('assets/css/review.css') }}">
+  @endpush
 @endsection

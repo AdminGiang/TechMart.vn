@@ -15,7 +15,12 @@
     {{-- CSS HEADERSEARCH --}}
 
     {{-- CSS SIDEBAR --}}
-    <link href="{{ asset('assets/admin/css/sidebar.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/sidebar.css') }}">
+
+    {{-- CSS MAIN --}}
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/main.css') }}">
+    {{-- CSS MAIN --}}
+
     {{-- icon --}}
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -27,11 +32,11 @@
 
     @include('admin.layouts.sidebar')
 
-    {{-- @include('admin.layouts.header')
+    @include('admin.layouts.header')
 
     <div class="container">
         @yield('content')
-    </div> --}}
+    </div>
 
     <!--   Core JS Files   -->
 

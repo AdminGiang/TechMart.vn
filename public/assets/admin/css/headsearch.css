@@ -5,11 +5,23 @@
 
 /* Nội dung chính */
 .content {
-    margin-left: 260px;
+    margin-left: 85px;
     /* Khoảng cách mặc định khi sidebar mở */
     transition: margin-left 0.4s ease, ;
     padding: 20px;
+
+    z-index: 1; /* Nằm dưới sidebar khi mở */
 }
+
+/* Khi sidebar mở rộng, nội dung vẫn ở vị trí mặc định */
+.sidebar:not(.collapsed) + .content {
+    margin-left: 85px; /* Không thay đổi, nhưng đảm bảo nằm cạnh sidebar */
+  }
+
+  .sidebar:not(.collapsed).overlay + .content {
+    margin-left: 0; /* Nội dung không dịch chuyển vì bị sidebar đè */
+  }
+
 
 .sidebar.collapsed+.content {
     margin-left: 85px;

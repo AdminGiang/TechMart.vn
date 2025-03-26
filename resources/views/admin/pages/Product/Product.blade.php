@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="content" id="content">
-    <h1>Danh sách sản phẩm</h1>
+    <h1>Danh Sách Sản Phẩm</h1>
     <div class="table-container">
         <table class="product-table">
             <thead>
@@ -30,12 +30,11 @@
                     <td>24/03/2025</td>
                     <td>Hiển thị</td>
                     <td>
-                        <button class="edit-btn">Sửa</button>
-                        <button class="delete-btn">Xóa</button>
-                        <button class="detail-btn">Chi Tiết</button>
+                        <a href="{{ route('admin.Product.Edit') }}"><button class="edit-btn">Sửa</button></a>
+                        <a href=""><button class="delete-btn">Xóa</button></a>
+                        <a href="{{ route('admin.Product.Detail') }}"><button class="detail-btn">Chi Tiết</button></a>
                     </td>
                 </tr>
-                <!-- Thêm các dòng sản phẩm khác tại đây -->
             </tbody>
         </table>
     </div>

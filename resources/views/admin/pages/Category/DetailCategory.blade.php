@@ -3,23 +3,15 @@
 @section('content')
 
     <div class="content" id="content">
-        <h1>Chi Tiết Sản Phẩm</h1>
+        <h1>Chi Tiết Danh Mục</h1>
 
         <div class="product-detail-container">
-            <!-- Hình ảnh sản phẩm -->
-            <div class="product-image">
-                <img src="{{ asset('assets/images/img-iphone-banner.png') }}" alt="">
-            </div>
 
             <div class="product-info">
-                <h2>ID</h2>
-                <h2>Iphoen 14 Promax Giá trị SIêu Cao</h2>
-                <h2>Thương Hiệu : Apple</h2>
-                <h2>Danh Mục : SmartPhone</h2>
-                <p class="price">Giá : 28,000,000 </p>
+                <h2>ID - 1</h2>
+                <h2>SmảtPhone</h2>
                 <p class="quantity">Ngày Tạo :  21/12/2121 </p>
                 <p class="quantity">Ngày Cập Nhật : 12/21/1212 </p>
-                <p class="quantity">Số lượng trong kho : 18</p>
                 <p class="status">
                     Trạng thái:
                     <span class="">
@@ -30,8 +22,8 @@
 
                 <!-- Nút hành động -->
                 <div class="action-buttons">
-                    <a href="{{ route('admin.Product.Edit') }}" class="btn btn-edit">Chỉnh sửa sản phẩm</a>
-                    <a href="{{ route('admin.Product') }}" class="btn btn-back">Quay lại danh sách</a>
+                    <a href="{{ route('admin.Category.Edit') }}" class="btn btn-edit">Chỉnh sửa Danh Mục</a>
+                    <a href="{{ route('admin.Category') }}" class="btn btn-back">Quay lại danh sách</a>
                 </div>
             </div>
         </div>

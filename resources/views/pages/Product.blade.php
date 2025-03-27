@@ -188,13 +188,6 @@
             </div>
         </div>
     </div>
-    <form>
-        <div class="mb-3">
-            <label for="comment" class="form-label">Để lại bình luận</label>
-            <textarea class="form-control" id="comment" rows="3"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Gửi</button>
-    </form>
 </div>
 <!-- End Comments Section -->
 

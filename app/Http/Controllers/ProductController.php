@@ -17,6 +17,7 @@ class ProductController extends Controller
 
     public function show($id) {
         $product = Products::with(['details', 'brand'])->findOrFail($id);
+        
         $relatedProducts = Products::where('category_id', $product->category_id)
             ->where('id', '!=', $id)
             ->inRandomOrder()
@@ -30,7 +31,7 @@ class ProductController extends Controller
         $reviews = Review::with('user')
             ->where('product_id', $id)
             ->orderBy('created_at', 'desc')
-            ->paginate(4);
+            ->paginate(1);
         
         // Tính điểm đánh giá trung bình từ tất cả đánh giá
         $averageRating = Review::where('product_id', $id)->avg('rating') ?? 0;

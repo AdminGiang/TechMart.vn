@@ -21,10 +21,14 @@ Route::get('/blog', function () { // Trang blog
     return view('pages.blog');
 })->name('blog');
 
-Route::get('/product', [ProductController::class, 'product'])->name('product');  // Trang sản phẩm
-Route::get('/section-products', [ProductController::class, 'getProducts'])->name('products.section'); // Lấy sản phẩm theo danh mục
-Route::get('/products/filter', [ProductController::class, 'filter'])->name('products.filter'); // Lọc sản phẩm
+Route::get('/product', [ProductController::class, 'product'])->name('product');
+  // Trang sản phẩm
+Route::get('/section-products', [ProductController::class, 'getProducts'])->name('products.section');
+ // Lấy sản phẩm theo danh mục
+Route::get('/products/filter', [ProductController::class, 'filter'])->name('products.filter'); 
+// Lọc sản phẩm
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+
 Route::post('/review/store', [ReviewController::class, 'store'])->name('review.store')->middleware('auth');
 
 Route::get('/about', function () {

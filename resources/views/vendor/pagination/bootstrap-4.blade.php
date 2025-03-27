@@ -3,7 +3,7 @@
         <ul class="pagination">
             {{-- Hiển thị phần tiếng Việt --}}
             <p class="me-3">
-                Hiển thị {{ $paginator->lastItem() }} trong tổng số {{ $paginator->total() }} sản phẩm
+                 {{ $paginator->lastItem() }} / {{ $paginator->total() }} Bình luận
             </p>
 
             {{-- Phần nút phân trang --}}

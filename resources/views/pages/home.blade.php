@@ -67,6 +67,80 @@
 		</div>
 		<!-- End Product Section -->
 
+		<!-- Start Popular Product -->
+		<div class="popular-product">
+			<div class="container">
+				<div class="row">
+
+					@foreach($brands as $brand)
+					<div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
+						<div class="product-item-sm d-flex">
+							<div class="thumbnail">
+								<img src="{{ $brand->logo }}" alt="{{ $brand->name }}" alt="Image" class="img-fluid">
+							</div>
+							<div class="pt-3">
+								<h3>{{ $brand->name }}</h3>
+								{{-- <p> {{ $new->description }} </p> --}}
+								<p><a href="{{route('product')}}">Xem thêm</a></p>
+							</div>
+						</div>
+					</div>
+					@endforeach
+				</div>
+			</div>
+		</div>
+		<!-- End Popular Product -->
+		<!-- Start Blog Section -->
+		<div class="blog-section">
+			<div class="container">
+				<div class="row mb-5">
+					<div class="col-md-6">
+						<h2 class="section-title">Sản phẩm của chúng tôi</h2>
+					</div>
+					<div class="col-md-6 text-start text-md-end">
+						<a href="#" class="more">Xem tất cả sản phẩm</a>
+					</div>
+				</div>
+
+				<div class="row">
+
+					<div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
+						<div class="post-entry">
+							<a href="#" class="post-thumbnail"><img src="{{asset('assets/images/post-1.jpg')}}" alt="Image" class="img-fluid"></a>
+							<div class="post-content-entry">
+								<h3><a href="#">Tên sản phẩm</a></h3>
+								<div class="meta">
+									<span>của <a href="#">Hãng sản phẩm</a></span> <span>Giá: <a href="#">Giá sản phẩm</a></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Blog Section -->
+		
+
+		<!-- Start Testimonial Slider -->
+		<div class="testimonial-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-7 mx-auto text-center">
+						<h2 class="section-title"> Đánh giá của khách hàng </h2>
+					</div>
+				</div>
+			<hr style="width: 50%; margin: 20px auto; border: 1px solid #ccc;">
+
+			<div id="reviewSection">
+				@include('pages.partials.reviews')
+			</div>
+			
+			
+			
+	</div>
+</div>
+		<!-- End Testimonial Slider -->
+
 		<!-- Start Why Choose Us Section -->
 		<div class="why-choose-section">
 			<div class="container">
@@ -262,38 +336,5 @@
 				</div>
 			</div>
 		</div>
-		<!-- End Blog Section -->
-		 
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).on('click', '.add-to-cart', function (e) {
-        e.preventDefault();
-
-        let productId = $(this).data('id');
-        let productName = $(this).data('name');
-        let productPrice = $(this).data('price');
-		let productImage = $(this).data('image'); // Lấy hình ảnh từ data attribute
-
-
-        $.ajax({
-            url: "{{ route('cart.add') }}",
-            method: "POST",
-            data: {
-                _token: "{{ csrf_token() }}",
-                id: productId,
-                name: productName,
-				price: productPrice,
-				image: productImage // Gửi hình ảnh đến server
-
-            },
-            // success: function (response) {
-            //     alert(response.message);
-            // },
-            // error: function (xhr) {
-            //     alert('Đã xảy ra lỗi, vui lòng thử lại!');
-            // }
-        });
-    });
-</script>
-
-@endsection
+		<!-- End Blog Section -->	
+        @endsection

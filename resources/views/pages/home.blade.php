@@ -52,7 +52,10 @@
 							<strong class="product-price">{{ number_format($product->price) }} VND</strong>
 					
 							<span class="icon-cross">
-								<img class="add-to-cart" data-id="{{ $product->id }}" src="{{asset('assets/images/cart.svg')}}" alt="Add to cart">
+							<img class="add-to-cart" data-id="{{ $product->id }}" 
+								data-name="{{ $product->name }}" data-price="{{ $product->price }}"
+								data-image="{{ $product->image }}"
+								src="{{asset('assets/images/cart.svg')}}" alt="Add to cart">
 							</span>
 						</a>
 					</div>
@@ -259,5 +262,38 @@
 				</div>
 			</div>
 		</div>
-		<!-- End Blog Section -->	
-        @endsection
+		<!-- End Blog Section -->
+		 
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).on('click', '.add-to-cart', function (e) {
+        e.preventDefault();
+
+        let productId = $(this).data('id');
+        let productName = $(this).data('name');
+        let productPrice = $(this).data('price');
+		let productImage = $(this).data('image'); // Lấy hình ảnh từ data attribute
+
+
+        $.ajax({
+            url: "{{ route('cart.add') }}",
+            method: "POST",
+            data: {
+                _token: "{{ csrf_token() }}",
+                id: productId,
+                name: productName,
+				price: productPrice,
+				image: productImage // Gửi hình ảnh đến server
+
+            },
+            // success: function (response) {
+            //     alert(response.message);
+            // },
+            // error: function (xhr) {
+            //     alert('Đã xảy ra lỗi, vui lòng thử lại!');
+            // }
+        });
+    });
+</script>
+
+@endsection

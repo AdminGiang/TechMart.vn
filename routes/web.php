@@ -37,9 +37,9 @@ Route::get('/about', function () {
 //     Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
 //     Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
 // });
-Route::get('/cart', function () { // Trang thanh toán
-    return view('pages.cart');
-})->name('cart');
+
+Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add'); // Thêm sản phẩm vào giỏ hàng
+Route::get('/cart', [CartController::class, 'showCart'])->name('cart'); // Xem giỏ hàng
 
 Route::get('/checkout', function () { // Trang thanh toán
     return view('pages.checkout');

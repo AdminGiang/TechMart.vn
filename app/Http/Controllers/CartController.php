@@ -6,9 +6,55 @@ use Illuminate\Http\Request;
 use App\Models\Products;
 use App\Models\CartItem;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
+    public function addToCart(Request $request)
+    {
+        $cart = Session::get('cart', []);
+
+        $productId = $request->input('id');
+        $productName = $request->input('name');
+        $productPrice = $request->input('price');
+        $productImage = $request->input('image'); // Lấy hình ảnh từ request
+
+
+        // Kiểm tra nếu sản phẩm đã tồn tại trong giỏ hàng
+        if (isset($cart[$productId])) {
+            $cart[$productId]['quantity']++;
+        } else {
+            $cart[$productId] = [
+                'name' => $productName,
+                'price' => $productPrice,
+                'image' => $productImage, // Lưu hình ảnh vào session
+                'quantity' => 1,
+            ];
+        }
+
+        Session::put('cart', $cart);
+    }
+
+    public function showCart()
+    {
+        // Lấy giỏ hàng từ session
+        $cart = Session::get('cart', []);
+
+        // Tính tổng tiền
+        $totalPrice = array_reduce($cart, function ($sum, $item) {
+            return $sum + ($item['price'] * $item['quantity']);
+        }, 0);
+        // Đặt phí vận chuyển (ví dụ: 30,000 VND)
+         $shipping = 30000;
+
+         // Tính tổng cộng (tạm tính + phí vận chuyển)
+        $total = $totalPrice + $shipping;
+
+        // Trả về view với dữ liệu giỏ hàng
+        return view('pages.cart', compact('cart', 'totalPrice', 'shipping', 'total'));
+    }
+
+    
     // Thêm sản phẩm vào giỏ hàng
    // public function addToCart(Request $request)
     //{

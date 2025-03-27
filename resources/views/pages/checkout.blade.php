@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('title', 'Thanh Toán')
 @section('content')
-<<<<<<< HEAD
 <!-- Start Hero Section -->
 <div class="hero">
     <div class="container">
@@ -13,7 +12,6 @@
             </div>
             <div class="col-lg-7">
                 
-=======
 <div class="checkout-container">
     <div class="checkout-header">
         <h1>Thanh Toán</h1>
@@ -155,12 +153,10 @@
                 </div>
 
                 <button type="submit" class="btn-place-order">Đặt Hàng</button>
->>>>>>> 1757ac59bcc19b652268e69dff340c21c494c88f
             </div>
         </div>
     </div>
 </div>
-<<<<<<< HEAD
 <!-- End Hero Section -->
 
 <div class="untree_co-section">
@@ -425,10 +421,8 @@
 </div>
 </div>
 @endsection
-=======
 @endsection
 
 @push('styles')
 <link rel="stylesheet" href="{{asset('assets/css/checkout.css')}}">
 @endpush
->>>>>>> 1757ac59bcc19b652268e69dff340c21c494c88f

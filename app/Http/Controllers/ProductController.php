@@ -31,7 +31,7 @@ class ProductController extends Controller
         $reviews = Review::with('user')
             ->where('product_id', $id)
             ->orderBy('created_at', 'desc')
-            ->paginate(1);
+            ->paginate(4);
         
         // Tính điểm đánh giá trung bình từ tất cả đánh giá
         $averageRating = Review::where('product_id', $id)->avg('rating') ?? 0;

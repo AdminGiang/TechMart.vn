@@ -51,7 +51,7 @@
 							<h3 class="product-title">{{ $product->name }}</h3>
 							<strong class="product-price">{{ number_format($product->price) }} VND</strong>
 					
-							<span class="icon-cross" height="30px" width="30px">
+							<span class="icon-cross" height="30px" width="30px" href="{{route('cart')}}">
 							<img class="add-to-cart" data-id="{{ $product->id }}" 
 								data-name="{{ $product->name }}" data-price="{{ $product->price }}"
 								data-image="{{ $product->image }}"

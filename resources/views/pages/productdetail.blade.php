@@ -80,7 +80,7 @@
               
             </div>
             <a href="#" class="btn btn-warning shadow-0">Mua ngay {{ number_format($product->price, 0, ',', '.') }} VNĐ </a>
-            <a href="#" class="btn btn-primary shadow-0"> <i class="fa-solid fa-cart-plus fa-2xl" style="color: #ffffff;"></i></a>
+            <a href="{{ route('cart') }}" class="btn btn-primary shadow-0" action="{{ route('cart') }}" method="POST"> <i class="fa-solid fa-cart-plus fa-2xl" style="color: #ffffff;"></i></a>
           </div>
         </main>
       </div>

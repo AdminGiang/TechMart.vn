@@ -5,25 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Products;
 use App\Models\Brand;
+use App\Models\Review;
 
 class HomeController extends Controller
 {
-    public function home()
+    public function home(Request $request)
     {
-        $products = Products::inRandomOrder()->take(3)->get();
+        $products = Products::inRandomOrder()->take(3)->get(); //
+
         $brands = Brand::where('status', 1)
         ->orderBy('id', 'asc') // Sắp xếp theo ID tăng dần
         ->take(3) // Giới hạn 3 thương hiệu đầu tiên
         ->get();
-    // return view('pages.home', compact('brands')); // Lấy 3 sản phẩm bất kỳ từ database // Lấy tất cả sản phẩm từ database
-        return view('pages.home', compact('products','brands'));
+
+        $randomReviews = Review::with('user:id,name')
+        ->inRandomOrder()
+        ->paginate(1); 
+        // phân trang load lại mỗi cmt 
+        if ($request->ajax()) {
+            return view('pages.partials.reviews', compact('randomReviews'))->render();
+        }
+    
+        return view('pages.home', compact('products', 'brands', 'randomReviews'));
     }
-//     public function brands()
-// {
-    // $brands = Brand::where('status', 1)
-    // ->orderBy('id', 'asc') // Sắp xếp theo ID tăng dần
-    // ->take(3) // Giới hạn 3 thương hiệu đầu tiên
-    // ->get();
-    // return view('pages.home', compact('brands'));
-// }
 }

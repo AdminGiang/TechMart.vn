@@ -1,8 +1,8 @@
-<button class="sidebar-menu-button">
+{{-- <button class="sidebar-menu-button">
     <span class="material-symbols-rounded">
         menu
     </span>
-</button>
+</button> --}}
 
 <aside class="sidebar">
     <header class="sidebar-header">
@@ -34,11 +34,14 @@
                     <span class="dropdown-icon material-symbols-rounded">keyboard_arrow_down</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link">Danh Mục</a></li>
-                    <li class="nav-item"><a href="{{ route('Product')}}" class="nav-link dropdown-link">Sản Phẩm</a></li>
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link">Màu Sắc</a></li>
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link">aaa</a></li>
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link">aaa</a></li>
+                    <li class="nav-item"><a href="{{ route('admin.Category') }}" class="nav-link dropdown-link">Danh
+                            Mục</a></li>
+                    <li class="nav-item"><a href="{{ route('admin.Product') }}" class="nav-link dropdown-link">Sản
+                            Phẩm</a></li>
+                    <li class="nav-item"><a href="{{ route('admin.Brand') }}" class="nav-link dropdown-link">Thuơng
+                            Hiệu</a></li>
+                    <li class="nav-item"><a href="" class="nav-link dropdown-link"></a></li>
+                    <li class="nav-item"><a href="" class="nav-link dropdown-link"></a></li>
                 </ul>
             </li>
 
@@ -50,10 +53,10 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li class="nav-item"><a href="" class="nav-link dropdown-link">Blog</a></li>
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link">aaa</a></li>
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link">aaa</a></li>
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link">aaa</a></li>
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link">aaa</a></li>
+                    <li class="nav-item"><a href="" class="nav-link dropdown-link"></a></li>
+                    <li class="nav-item"><a href="" class="nav-link dropdown-link"></a></li>
+                    <li class="nav-item"><a href="" class="nav-link dropdown-link"></a></li>
+                    <li class="nav-item"><a href="" class="nav-link dropdown-link"></a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown-container">
@@ -78,7 +81,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{ route('admin.Order') }}" class="nav-link">
                     <span class="material-symbols-rounded">shopping_cart_checkout</span>
                     <span class="nav-label">Đơn Hàng</span>
                 </a>
@@ -89,24 +92,24 @@
                     <span class="nav-label">Kho Hàng</span>
                 </a>
             </li>
-        <li class="nav-item">
-            <a href="" class="nav-link">
-                <span class="material-symbols-rounded">local_shipping</span>
-                <span class="nav-label">Vận Chuyển</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="" class="nav-link">
-                <span class="material-symbols-rounded">extension</span>
-                <span class="nav-label">Extension</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="" class="nav-link">
-                <span class="material-symbols-rounded">settings</span>
-                <span class="nav-label">Settings</span>
-            </a>
-        </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">
+                    <span class="material-symbols-rounded">local_shipping</span>
+                    <span class="nav-label">Vận Chuyển</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">
+                    <span class="material-symbols-rounded">extension</span>
+                    <span class="nav-label">Extension</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">
+                    <span class="material-symbols-rounded">settings</span>
+                    <span class="nav-label">Settings</span>
+                </a>
+            </li>
         </ul>
 
         <ul class="nav-list secondary-nav">

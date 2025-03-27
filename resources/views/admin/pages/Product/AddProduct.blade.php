@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="content" id="content">
-        <h1>Chỉnh Sửa Sản Phẩm</h1>
+        <h1>Chỉnh sửa sản phẩm</h1>
         <div >
             <form action="" method="" enctype="multipart/form-data">
                 @csrf
@@ -75,7 +75,7 @@
 
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
-                    <a href="{{ route('admin.Product') }}" class="btn btn-secondary">Hủy</a>
+                    <a href="" class="btn btn-secondary">Hủy</a>
                 </div>
             </form>
         </div>

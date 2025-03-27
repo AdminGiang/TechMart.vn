@@ -1,10 +1,13 @@
 // Truy xuất sidebar và bảng sản phẩm
-const sidebar = document.querySelector(".sidebar");
-const content = document.querySelector(".content");
-const sidebarToggler = document.querySelector(".sidebar-toggler");
-
 sidebarToggler.addEventListener("click", () => {
-  sidebar.classList.toggle("collapsed");
+    sidebar.classList.toggle("collapsed");
+    content.classList.toggle("collapsed");
+
+    if (!sidebar.classList.contains("collapsed")) {
+        sidebar.classList.add("overlay"); // Đè lên bảng sản phẩm khi mở rộng
+    } else {
+        sidebar.classList.remove("overlay"); // Bỏ trạng thái overlay khi thu gọn
+    }
 });
 
 // Xử lý sự kiện nhấn nút sidebar-toggler

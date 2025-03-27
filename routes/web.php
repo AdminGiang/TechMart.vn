@@ -70,4 +70,3 @@ Route::get('/', [LoginController::class, 'showloginForm'])->name('login');
 Route::post('/', [LoginController::class, 'login']); // Xử lý đăng nhập
 
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
-

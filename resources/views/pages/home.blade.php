@@ -53,6 +53,7 @@
 					
 							<span class="icon-cross" height="30px" width="30px" >
 							<img class="add-to-cart"
+								href="{{route('cart')}}"
 								data-id="{{ $product->id }}" 
 								data-name="{{ $product->name }}" 
 								data-price="{{ $product->price }}"
@@ -82,7 +83,6 @@
 							</div>
 							<div class="pt-3">
 								<h3>{{ $brand->name }}</h3>
-								{{-- <p> {{ $new->description }} </p> --}}
 								<p><a href="{{route('product')}}">Xem thêm</a></p>
 							</div>
 						</div>
@@ -338,7 +338,8 @@
 				</div>
 			</div>
 		</div>
-		<!-- End Blog Section -->	
+		<!-- End Blog Section -->
+		
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).on('click', '.add-to-cart', function (e) {

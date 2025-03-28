@@ -80,11 +80,7 @@
               
             </div>
             <a href="#" class="btn btn-warning shadow-0">Mua ngay {{ number_format($product->price, 0, ',', '.') }} VNĐ </a>
-            <!-- <a href="#" 
-               class="btn btn-primary shadow-0 add-to-cart" 
-               data-id="{{ $product->id }}" alt="Add to cart">
-               <i class="fa-solid fa-cart-plus fa-2xl" style="color: #ffffff;"></i>
-            </a> -->
+            <a href="#" class="btn btn-primary shadow-0"> <i class="fa-solid fa-cart-plus fa-2xl" style="color: #ffffff;"></i></a>
           </div>
         </main>
       </div>

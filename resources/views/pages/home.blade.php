@@ -51,9 +51,11 @@
 							<h3 class="product-title">{{ $product->name }}</h3>
 							<strong class="product-price">{{ number_format($product->price) }} VND</strong>
 					
-							<span class="icon-cross" height="30px" width="30px">
-							<img class="add-to-cart" data-id="{{ $product->id }}" 
-								data-name="{{ $product->name }}" data-price="{{ $product->price }}"
+							<span class="icon-cross" height="30px" width="30px" >
+							<img class="add-to-cart"
+								data-id="{{ $product->id }}" 
+								data-name="{{ $product->name }}" 
+								data-price="{{ $product->price }}"
 								data-image="{{ $product->image }}"
 								src="{{asset('assets/images/cart.svg')}}" alt="Add to cart">
 							</span>
@@ -344,7 +346,7 @@
 
         let productId = $(this).data('id');
         let productName = $(this).data('name');
-        let productPrice = $(this).data('price');
+        let productPrice = $(this).data('price'); 
         let productImage = $(this).data('image'); // Lấy hình ảnh từ data attribute
 
         $.ajax({
@@ -357,6 +359,9 @@
                 price: productPrice,
                 image: productImage // Gửi hình ảnh đến server
             },
+			item.addEventListener('click', function () {
+        window.location.href = "/cart"; // Chuyển đến trang giỏ hàng
+    	});
         });
     });
 </script>

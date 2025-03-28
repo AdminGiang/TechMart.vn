@@ -22,10 +22,15 @@
 
             <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
                 <li><a href="{{ Auth::check() ? route('profile') : route('login') }}" class="nav-link"><img src="{{asset('assets/images/user.svg')}}"></a></li>
-                <li><a class="nav-link" href="{{ route('cart') }}"><img src="{{asset('assets/images/cart.svg')}}"></a></li>
+                <li><a class="nav-link" href="{{ route('cart') }}"><img src="{{asset('assets/images/cart.svg')}}">
+                    <span class="cart-count" style="{{ session('cart') && count(session('cart')) > 0 ? 'display: inline-block;' : 'display: none;' }}">
+                        {{ session('cart') ? count(session('cart')) : 0 }}
+                    </span>
+                    </a></li>
 
             </ul>
         </div>
     </div>
 </nav>
 <!-- End Header/Navigation -->
+

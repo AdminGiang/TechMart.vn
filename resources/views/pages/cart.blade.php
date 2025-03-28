@@ -148,13 +148,13 @@
                 // Xóa dòng sản phẩm khỏi bảng
                 $(`button[data-id="${productId}"]`).closest('tr').remove();
 
-                // Cập nhật tổng tiền giỏ hàng
-                $('.float-end:contains("Tạm tính")').text(
+                // Cập nhật tạm tính
+                $('#subtotal').text(
                     new Intl.NumberFormat().format(response.totalPrice) + ' VND'
                 );
 
                 // Cập nhật tổng cộng
-                $('.float-end:contains("Tổng cộng")').text(
+                $('#total').text(
                     new Intl.NumberFormat().format(response.total) + ' VND'
                 );
 

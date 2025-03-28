@@ -80,7 +80,7 @@ class CartController extends Controller
             $total = $totalPrice + $shipping;
 
             return response()->json([
-                'message' => 'Số lượng sản phẩm đã được cập nhật!',
+                // 'message' => 'Số lượng sản phẩm đã được cập nhật!',
                 'itemTotal' => $itemTotal,
                 'totalPrice' => $totalPrice,
                 'shipping' => $shipping,
@@ -111,7 +111,7 @@ class CartController extends Controller
             $total = $totalPrice + $shipping;
 
             return response()->json([
-                'message' => 'Sản phẩm đã được xóa khỏi giỏ hàng!',
+                // 'message' => 'Sản phẩm đã được xóa khỏi giỏ hàng!',
                 'totalPrice' => $totalPrice,
                 'shipping' => $shipping,
                 'total' => $total,

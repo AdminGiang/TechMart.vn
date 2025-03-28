@@ -359,9 +359,8 @@
                 price: productPrice,
                 image: productImage // Gửi hình ảnh đến server
             },
-			item.addEventListener('click', function () {
-        window.location.href = "/cart"; // Chuyển đến trang giỏ hàng
-    	});
+		// 	item.addEventListener('click', function () {
+        // window.location.href = "/cart"; // Chuyển đến trang giỏ hàng
         });
     });
 </script>

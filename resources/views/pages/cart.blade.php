@@ -106,7 +106,7 @@
                 quantity: quantity
             },
             success: function (response) {
-                alert(response.message);
+                // alert(response.message);
 
                   // Cập nhật tổng tiền cho sản phẩm
                   $(`input[data-id="${productId}"]`).closest('tr').find('.item-total').text(
@@ -143,7 +143,7 @@
                 id: productId
             },
             success: function (response) {
-                alert(response.message);
+                // alert(response.message);
 
                 // Xóa dòng sản phẩm khỏi bảng
                 $(`button[data-id="${productId}"]`).closest('tr').remove();

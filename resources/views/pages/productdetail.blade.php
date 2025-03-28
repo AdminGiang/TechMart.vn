@@ -80,7 +80,7 @@
               
             </div>
             <a href="#" class="btn btn-warning shadow-0">Mua ngay {{ number_format($product->price, 0, ',', '.') }} VNĐ </a>
-            <a href="{{route('cart')}}" class="btn btn-primary shadow-0" action="{{route('cart')}}" method="POST"> <i class="fa-solid fa-cart-plus fa-2xl" style="color: #ffffff;"></i></a>
+            <a href="#" class="btn btn-primary shadow-0"> <i class="fa-solid fa-cart-plus fa-2xl" style="color: #ffffff;"></i></a>
           </div>
         </main>
       </div>
@@ -241,14 +241,14 @@
   <link rel="stylesheet" href="{{ asset('assets/css/review.css') }}">
   @endpush
 @endsection
-
+                
 @section('scripts')
-    <script>
+<script>  
 let currentPage = 1;
-    let productId = {{ $product->id }}; // Lấy ID sản phẩm từ backend
+    let productId = "{{ $product->Id }}"; // Lấy ID sản phẩm từ backend
 
     function loadReviews(page = 1) {
-        fetch(`/reviews/${productId}?page=${page}`)
+        fetch(`/reviews/${c}?page=${page}`)
         .then(response => response.json())
         .then(data => {
             let reviewList = document.getElementById("review-list");
@@ -277,11 +277,33 @@ let currentPage = 1;
     document.getElementById("nextPage").addEventListener("click", () => loadReviews(currentPage + 1));
 
     loadReviews(); // Gọi API khi trang tải
-</script>
-    @endsection
 
-    @section('content')
-    <style>
+//     // Thêm sản phẩm vào giỏ hàng
+//     $(document).on('click', '.add-to-cart', function (e) {
+//         e.preventDefault();
+
+//         let productId = $(this).data('id');
+//         let productName = $(this).data('name');
+//         let productPrice = $(this).data('price');
+//         let productImage = $(this).data('image'); // Lấy hình ảnh từ data attribute
+
+//         $.ajax({
+//             url: "{{ route('cart.add') }}",
+//             method: "POST",
+//             data: {
+//                 _token: "{{ csrf_token() }}",
+//                 id: productId,
+//                 name: productName,
+//                 price: productPrice,
+//                 image: productImage // Gửi hình ảnh đến server
+//             },
+//         });
+//     });
+
+</script>
+<!-- // <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    
+  <style>
          /* ProductDetail */
          .color-container {
             display: flex;

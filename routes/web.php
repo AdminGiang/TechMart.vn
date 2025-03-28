@@ -35,15 +35,11 @@ Route::get('/about', function () {
     return view('pages.about');
 })->name('about');
 
-
-// Route::middleware(['auth'])->group(function () {
-//     //Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
-//     Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
-//     Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
-// });
-
 Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add'); // Thêm sản phẩm vào giỏ hàng
 Route::get('/cart', [CartController::class, 'showCart'])->name('cart'); // Xem giỏ hàng
+Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.update');
+Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove'); // Xóa sản phẩm khỏi giỏ hàng
+
 
 
 Route::get('/checkout', function () { // Trang thanh toán

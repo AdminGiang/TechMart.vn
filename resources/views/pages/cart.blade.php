@@ -15,25 +15,23 @@
           </div>
 
           <div class="site-blocks-table">
-            <table class="table">
+            <table class="table table-bordered">
               @if(!empty($cart) && count($cart) > 0)
-            <table class="table">
-                <thead>
+                <thead class="thead-light">
                     <tr>
-                        <th>Hình ảnh Sản Phẩm</th>
+                        <th>Hình ảnh</th>
                         <th>Tên sản phẩm</th>
                         <th>Giá</th>
                         <th>Số lượng</th>
                         <th>Tổng</th>
-                        <th></th>
+                        <th>Hành động</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($cart as $productId => $item)
                         <tr>
                             <td>
-                                <img src="{{ $item['image'] }}"
-                                    style="width: 100px; height: auto;">
+                                <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}" style="width: 100px; height: auto; border-radius: 8px;">
                             </td>
                             <td>{{ $item['name'] }}</td>
                             <td>{{ number_format($item['price']) }} VND</td>
@@ -45,8 +43,8 @@
                             </td>
                             <td class="item-total">
                                 <span id="product-total-{{ $productId }}">
-                                    {{number_format( $item['price'] * $item['quantity']) }} VND
-                                </span>  <!-- Hiển thị tổng tiền của sản phẩm -->
+                                    {{ number_format($item['price'] * $item['quantity']) }} VND
+                                </span>
                             </td>                            
                             <td>
                                 <button class="btn btn-danger btn-sm remove-from-cart" 
@@ -57,31 +55,21 @@
                         </tr>
                     @endforeach
                 </tbody>
+              @else
+                <p class="text-center">Giỏ hàng của bạn đang trống.</p>
+              @endif
             </table>
-        @else
-            <p>Giỏ hàng của bạn đang trống.</p>
-        @endif
-        </div>
+          </div>
 
           <div class="row justify-content-end mt-5">
             <div class="col-md-4">
-              <div class="row mb-5">
-                <div class="col-md-12">
-                  <div class="p-4 border rounded">
-                    <h3 class="h4 text-black mb-3">Tổng giỏ hàng</h3>
-                    <p class="mb-2">Tạm tính <span class="float-end" id="subtotal">{{ number_format($totalPrice) }} VND</span></p>
-                    <p class="mb-2">Phí vận chuyển <span class="float-end" id="shipping">{{ number_format($shipping) }} VND</span></p>
-                    <hr>
-                    <p class="mb-2"><strong>Tổng cộng <span class="float-end" id="total">{{ number_format($total) }} VND</span></strong></p>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <button class="btn btn-black btn-lg py-3 btn-block">
-                    Tiến hành thanh toán
-                  </button>
-                </div>
+              <div class="p-4 border rounded bg-light">
+                <h3 class="h4 text-black mb-3">Tổng giỏ hàng</h3>
+                <p class="mb-2">Tạm tính: <span class="float-end" id="subtotal">{{ number_format($totalPrice) }} VND</span></p>
+                <p class="mb-2">Phí vận chuyển: <span class="float-end" id="shipping">{{ number_format($shipping) }} VND</span></p>
+                <hr>
+                <p class="mb-2"><strong>Tổng cộng: <span class="float-end" id="total">{{ number_format($total) }} VND</span></strong></p>
+                <button class="btn btn-success btn-lg py-3 btn-block">Tiến hành thanh toán</button>
               </div>
             </div>
           </div>
@@ -161,7 +149,7 @@
                 // Kiểm tra nếu giỏ hàng trống
                 if ($('tbody tr').length === 0) {
                     $('table').remove();
-                    $('.site-blocks-table').html('<p>Giỏ hàng của bạn đang trống.</p>');
+                    $('.site-blocks-table').html('<p class="text-center">Giỏ hàng của bạn đang trống.</p>');
                 }
             },
         });

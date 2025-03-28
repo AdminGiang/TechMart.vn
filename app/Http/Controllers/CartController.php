@@ -54,6 +54,70 @@ class CartController extends Controller
         return view('pages.cart', compact('cart', 'totalPrice', 'shipping', 'total'));
     }
 
+    public function updateCart(Request $request)
+    {
+        $cart = Session::get('cart', []);
+
+        $productId = $request->input('id');
+        $quantity = $request->input('quantity');
+
+        if (isset($cart[$productId]) && $quantity > 0) {
+            $cart[$productId]['quantity'] = $quantity;
+            Session::put('cart', $cart);
+
+            // Tính lại tổng tiền cho sản phẩm
+            $itemTotal = $cart[$productId]['price'] * $cart[$productId]['quantity'];
+
+            // Tính tổng tiền giỏ hàng
+            $totalPrice = array_reduce($cart, function ($sum, $item) {
+                return $sum + ($item['price'] * $item['quantity']);
+            }, 0);
+
+            // Phí vận chuyển
+            $shipping = 30000;
+
+            // Tổng cộng
+            $total = $totalPrice + $shipping;
+
+            return response()->json([
+                'message' => 'Số lượng sản phẩm đã được cập nhật!',
+                'itemTotal' => $itemTotal,
+                'totalPrice' => $totalPrice,
+                'shipping' => $shipping,
+                'total' => $total,
+            ]);
+        }
+    }        
+
+    public function removeFromCart(Request $request)
+    {
+        $cart = Session::get('cart', []);
+
+        $productId = $request->input('id');
+
+        if (isset($cart[$productId])) {
+            unset($cart[$productId]);
+            Session::put('cart', $cart);
+
+            // Tính lại tổng tiền giỏ hàng
+            $totalPrice = array_reduce($cart, function ($sum, $item) {
+                return $sum + ($item['price'] * $item['quantity']);
+            }, 0);
+
+            // Phí vận chuyển
+            $shipping = 30000;
+
+            // Tổng cộng
+            $total = $totalPrice + $shipping;
+
+            return response()->json([
+                'message' => 'Sản phẩm đã được xóa khỏi giỏ hàng!',
+                'totalPrice' => $totalPrice,
+                'shipping' => $shipping,
+                'total' => $total,
+            ]);
+        }
+    }
     
     // Thêm sản phẩm vào giỏ hàng
    // public function addToCart(Request $request)

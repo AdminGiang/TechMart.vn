@@ -38,12 +38,16 @@
                             <td>{{ $item['name'] }}</td>
                             <td>{{ number_format($item['price']) }} VND</td>
                             <td>
-                                <input type="number" class="form-control update-quantity" 
-                                      data-id="{{ $productId }}" 
-                                      value="{{ $item['quantity'] }}" 
-                                      min="1">
+                              <input type="number" class="form-control update-quantity" 
+                                    data-id="{{ $productId }}" 
+                                    value="{{ $item['quantity'] }}" 
+                                    min="1">
                             </td>
-                            <td>{{ number_format($item['price'] * $item['quantity']) }} VND</td>
+                            <td class="item-total">
+                                <span id="product-total-{{ $productId }}">
+                                    {{number_format( $item['price'] * $item['quantity']) }} VND
+                                </span>  <!-- Hiển thị tổng tiền của sản phẩm -->
+                            </td>                            
                             <td>
                                 <button class="btn btn-danger btn-sm remove-from-cart" 
                                         data-id="{{ $productId }}">
@@ -87,6 +91,82 @@
   </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+   $(document).on('change', '.update-quantity', function () {
+        let productId = $(this).data('id');
+        let quantity = $(this).val();
+
+        $.ajax({
+            url: "{{ route('cart.update') }}",
+            method: "POST",
+            data: {
+                _token: "{{ csrf_token() }}",
+                id: productId,
+                quantity: quantity
+            },
+            success: function (response) {
+                alert(response.message);
+
+                  // Cập nhật tổng tiền cho sản phẩm
+                  $(`input[data-id="${productId}"]`).closest('tr').find('.item-total').text(
+                    new Intl.NumberFormat().format(response.itemTotal) + ' VND'
+                );
+
+                // Cập nhật tổng tiền giỏ hàng
+                $('.float-end:contains("Tạm tính")').text(
+                    new Intl.NumberFormat().format(response.totalPrice) + ' VND'
+                );
+
+                // Cập nhật tạm tính
+                $('#subtotal').text(
+                  new Intl.NumberFormat().format(response.totalPrice) + ' VND'
+                );
+
+                 // Cập nhật tổng cộng
+                 $('#total').text(
+                    new Intl.NumberFormat().format(response.total) + ' VND'
+                );
+            },
+        });
+    });
+    $(document).on('click', '.remove-from-cart', function (e) {
+        e.preventDefault();
+
+        let productId = $(this).data('id');
+
+        $.ajax({
+            url: "{{ route('cart.remove') }}",
+            method: "POST",
+            data: {
+                _token: "{{ csrf_token() }}",
+                id: productId
+            },
+            success: function (response) {
+                alert(response.message);
+
+                // Xóa dòng sản phẩm khỏi bảng
+                $(`button[data-id="${productId}"]`).closest('tr').remove();
+
+                // Cập nhật tổng tiền giỏ hàng
+                $('.float-end:contains("Tạm tính")').text(
+                    new Intl.NumberFormat().format(response.totalPrice) + ' VND'
+                );
+
+                // Cập nhật tổng cộng
+                $('.float-end:contains("Tổng cộng")').text(
+                    new Intl.NumberFormat().format(response.total) + ' VND'
+                );
+
+                // Kiểm tra nếu giỏ hàng trống
+                if ($('tbody tr').length === 0) {
+                    $('table').remove();
+                    $('.site-blocks-table').html('<p>Giỏ hàng của bạn đang trống.</p>');
+                }
+            },
+        });
+    });
+</script>
 
 @endsection
 

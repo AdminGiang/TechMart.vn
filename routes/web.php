@@ -45,6 +45,7 @@ Route::get('/about', function () {
 Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add'); // Thêm sản phẩm vào giỏ hàng
 Route::get('/cart', [CartController::class, 'showCart'])->name('cart'); // Xem giỏ hàng
 
+
 Route::get('/checkout', function () { // Trang thanh toán
     return view('pages.checkout');
 })->name('checkout');

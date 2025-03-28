@@ -41,6 +41,7 @@ Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.u
 Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove'); // Xóa sản phẩm khỏi giỏ hàng
 
 
+
 Route::get('/checkout', function () { // Trang thanh toán
     return view('pages.checkout');
 })->name('checkout');

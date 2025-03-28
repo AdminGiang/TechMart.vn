@@ -63,14 +63,7 @@
                   @endif
                 </select>
               </div>
-              {{-- <div class="container mt-3">
-                <label class="fw-bold">Màu Sắc</label>
-                <div class="d-flex">
-                        <div class="color-option">
-                            <span>{{ $product->details->color }}</span>
-                        </div>
-                </div>
-            </div> --}}
+              
             <div class="container mt-3">
               <label class="fw-bold">Màu Sắc</label>
               <div class="d-flex">
@@ -80,7 +73,7 @@
               
             </div>
             <a href="#" class="btn btn-warning shadow-0">Mua ngay {{ number_format($product->price, 0, ',', '.') }} VNĐ </a>
-            <a href="#" class="btn btn-primary shadow-0"> <i class="fa-solid fa-cart-plus fa-2xl" style="color: #ffffff;"></i></a>
+            <a href="{{route('cart')}}" action="{{route('cart')}}" class="btn btn-primary shadow-0"> <i class="fa-solid fa-cart-plus fa-2xl" style="color: #ffffff;"></i></a>
           </div>
         </main>
       </div>
@@ -276,33 +269,11 @@ let currentPage = 1;
     document.getElementById("prevPage").addEventListener("click", () => loadReviews(currentPage - 1));
     document.getElementById("nextPage").addEventListener("click", () => loadReviews(currentPage + 1));
 
-    loadReviews(); // Gọi API khi trang tải
-
-//     // Thêm sản phẩm vào giỏ hàng
-//     $(document).on('click', '.add-to-cart', function (e) {
-//         e.preventDefault();
-
-//         let productId = $(this).data('id');
-//         let productName = $(this).data('name');
-//         let productPrice = $(this).data('price');
-//         let productImage = $(this).data('image'); // Lấy hình ảnh từ data attribute
-
-//         $.ajax({
-//             url: "{{ route('cart.add') }}",
-//             method: "POST",
-//             data: {
-//                 _token: "{{ csrf_token() }}",
-//                 id: productId,
-//                 name: productName,
-//                 price: productPrice,
-//                 image: productImage // Gửi hình ảnh đến server
-//             },
-//         });
-//     });
-
+    loadReviews(); 
 </script>
+
+
 <!-- // <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-    
   <style>
          /* ProductDetail */
          .color-container {

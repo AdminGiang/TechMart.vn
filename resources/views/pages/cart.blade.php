@@ -69,10 +69,10 @@
                 <div class="col-md-12">
                   <div class="p-4 border rounded">
                     <h3 class="h4 text-black mb-3">Tổng giỏ hàng</h3>
-                    <p class="mb-2">Tạm tính <span class="float-end">{{ number_format($totalPrice) }} VND</span></p>
-                    <p class="mb-2">Phí vận chuyển <span class="float-end">{{ number_format($shipping) }} VND</span></p>
+                    <p class="mb-2">Tạm tính <span class="float-end" id="subtotal">{{ number_format($totalPrice) }} VND</span></p>
+                    <p class="mb-2">Phí vận chuyển <span class="float-end" id="shipping">{{ number_format($shipping) }} VND</span></p>
                     <hr>
-                    <p class="mb-2"><strong>Tổng cộng <span class="float-end">{{ number_format($total) }} VND</span></strong></p>
+                    <p class="mb-2"><strong>Tổng cộng <span class="float-end" id="total">{{ number_format($total) }} VND</span></strong></p>
                   </div>
                 </div>
               </div>

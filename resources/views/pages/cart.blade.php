@@ -31,7 +31,7 @@
                     @foreach($cart as $productId => $item)
                         <tr>
                             <td>
-                                <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}" style="width: 100px; height: auto; border-radius: 8px;">
+                                <img src="{{ $item['image'] }}" style="width: 100px; height: auto; border-radius: 8px;">
                             </td>
                             <td>{{ $item['name'] }}</td>
                             <td>{{ number_format($item['price']) }} VND</td>

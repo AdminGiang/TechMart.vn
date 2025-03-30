@@ -24,7 +24,7 @@
     <!-- CSS LOGIN-REGISTER-->
     <link href="{{ asset('assets/css/lgstyle.css') }}" rel="stylesheet">
 
-    <title>@yield('title', 'TechMart')</title>
+    <title>@yield('title')</title>
 </head>
 
 <body>

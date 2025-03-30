@@ -47,6 +47,7 @@
 					@foreach($products as $product)					
 					<div class="col-12 col-md-4 col-lg-3 mb-5" action="{{ route('cart') }}" method="POST">
 						<a class="product-item" href="{{ route('product.show', $product->id) }}">
+							<span class="badge-news">NEW</span>
 							<img src="{{$product->image}}"  class="img-fluid product-thumbnail">
 							<h3 class="product-title">{{ $product->name }}</h3>
 							<strong class="product-price">{{ number_format($product->price) }} VND</strong>
@@ -93,29 +94,43 @@
 		</div>
 		<!-- End Popular Product -->
 		<!-- Start Blog Section -->
+		<!-- Start Blog Section -->
 		<div class="blog-section">
 			<div class="container">
 				<div class="row mb-5">
 					<div class="col-md-6">
-						<h2 class="section-title">Sản phẩm của chúng tôi</h2>
+						<h2 class="section-title">Gợi ý cho bạn </h2>
 					</div>
 					<div class="col-md-6 text-start text-md-end">
-						<a href="#" class="more">Xem tất cả sản phẩm</a>
+						<a href="{{route('product')}}" class="more">Xem thêm</a>
 					</div>
 				</div>
 
-				<div class="row">
-
-					<div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
-						<div class="post-entry">
-							<a href="#" class="post-thumbnail"><img src="{{asset('assets/images/post-1.jpg')}}" alt="Image" class="img-fluid"></a>
-							<div class="post-content-entry">
-								<h3><a href="#">Tên sản phẩm</a></h3>
-								<div class="meta">
-									<span>của <a href="#">Hãng sản phẩm</a></span> <span>Giá: <a href="#">Giá sản phẩm</a></span>
+				<div class="container">
+					<div class="row">
+						@foreach($products as $product)
+							<div class="col-md-4">
+								<div class="product-card">
+									<span class="badge-sale"> -10%</span>
+									<img src="{{$product->image}}" class="product-image" >
+									<h4 style="color: #3b5d50;  text-size: 10px;">{{ number_format($product->price) }} VND</h4>
+									<p>{{ $product->name }}</p>
+									<p>{{ $brand->name}}.</p>
+									<div class="icons">
+										<a href="{{ route('product.show', $product->id) }}"><span>&#128269;</span></a>
+										<a href="#"><span>&#9829;</span></a>
+										<a 
+										class="add-to-cart"
+										href="{{route('cart')}}"
+										data-id="{{ $product->id }}" 
+										data-name="{{ $product->name }}" 
+										data-price="{{ $product->price }}"
+										data-image="{{ $product->image }}"
+										alt="Add to cart"><span>&#128722;</span></a>
+									</div>
 								</div>
 							</div>
-						</div>
+						@endforeach
 					</div>
 				</div>
 			</div>
@@ -310,35 +325,7 @@
 		</div>
 		<!-- End Testimonial Slider -->
 
-		<!-- Start Blog Section -->
-		<div class="blog-section">
-			<div class="container">
-				<div class="row mb-5">
-					<div class="col-md-6">
-						<h2 class="section-title">Sản phẩm của chúng tôi</h2>
-					</div>
-					<div class="col-md-6 text-start text-md-end">
-						<a href="#" class="more">Xem tất cả sản phẩm</a>
-					</div>
-				</div>
-
-				<div class="row">
-
-					<div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
-						<div class="post-entry">
-							<a href="#" class="post-thumbnail"><img src="{{asset('assets/images/post-1.jpg')}}" alt="Image" class="img-fluid"></a>
-							<div class="post-content-entry">
-								<h3><a href="#">Tên sản phẩm</a></h3>
-								<div class="meta">
-									<span>của <a href="#">Hãng sản phẩm</a></span> <span>Giá: <a href="#">Giá sản phẩm</a></span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End Blog Section -->
+		
 		
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -365,4 +352,41 @@
         });
     });
 </script>
+
+<style>
+	.product-card {
+		border: 1px solid #ddd;
+		border-radius: 10px;
+		overflow: hidden;
+		text-align: center;
+		background: #f9f9f9;
+		padding: 15px;
+		margin: 10px;
+	}
+	.product-image {
+		width: 100%;
+		height: 200px;
+		margin: 10px;
+		object-fit: contain;
+	}
+	.badge-news {
+		background: #880E4F;
+		color: white; 
+		padding: 5px; 
+		border-radius: 5px; 
+	}
+	.badge-sale { 
+		background: #2196F3;
+		color: white; 
+		padding: 5px; 
+		border-radius: 5px; 
+	}
+	.icons {
+		display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 10px;
+        font-size: 24px;
+		 }
+</style>
         @endsection

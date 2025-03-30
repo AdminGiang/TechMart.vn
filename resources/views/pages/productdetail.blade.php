@@ -73,7 +73,15 @@
               
             </div>
             <a href="#" class="btn btn-warning shadow-0">Mua ngay {{ number_format($product->price, 0, ',', '.') }} VNĐ </a>
-            <a href="{{route('cart')}}" action="{{route('cart')}}" class="btn btn-primary shadow-0"> <i class="fa-solid fa-cart-plus fa-2xl" style="color: #ffffff;"></i></a>
+            <a href="#" 
+              id="addToCartButton" 
+              class="btn btn-primary shadow-0 add-to-cart" 
+              data-id="{{ $product->id }}" 
+              data-name="{{ $product->name }}" 
+              data-price="{{ $product->price }}" 
+              data-image="{{ $product->image }}">
+              <i class="fa-solid fa-cart-plus fa-2xl" style="color: #ffffff;"></i>
+            </a>          
           </div>
         </main>
       </div>
@@ -269,11 +277,38 @@ let currentPage = 1;
     document.getElementById("prevPage").addEventListener("click", () => loadReviews(currentPage - 1));
     document.getElementById("nextPage").addEventListener("click", () => loadReviews(currentPage + 1));
 
-    loadReviews(); 
+    loadReviews();
+    
+    document.getElementById('addToCartButton').addEventListener('click', function (e) {
+      e.preventDefault();
+
+      let productId = this.dataset.id;
+        let productName = this.dataset.name;
+        let productPrice = this.dataset.price;
+        let productImage = this.dataset.image; // Lấy hình ảnh từ data attribute
+
+        console.log(productId, productName, productPrice, productImage); // Debug dữ liệu
+
+        $.ajax({
+            url: "{{ route('cart.add') }}", // Đường dẫn đến route thêm sản phẩm vào giỏ hàng
+            method: "POST",
+            data: {
+                _token: "{{ csrf_token() }}", // CSRF token
+                id: productId,
+                name: productName,
+                price: productPrice,
+                image: productImage // Gửi hình ảnh đến server
+            },
+		// 	item.addEventListener('click', function () {
+        // window.location.href = "/cart"; // Chuyển đến trang giỏ hàng
+        });
+    });
 </script>
 
 
-<!-- // <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  
   <style>
          /* ProductDetail */
          .color-container {

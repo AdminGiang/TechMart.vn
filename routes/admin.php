@@ -1,7 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\AdminController;
+
+
 
 
 
@@ -25,4 +31,9 @@ use App\Http\Controllers\AdminController;
 //     Route::get('/oder/detail', function () { return view('admin.pages.Order.OrderItem'); })->name('admin.Order.Detail');
 
 // });
+
+
+
+
+
 

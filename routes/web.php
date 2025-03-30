@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
@@ -67,3 +66,5 @@ Route::get('/', [LoginController::class, 'showloginForm'])->name('login');
 Route::post('/', [LoginController::class, 'login']); // Xử lý đăng nhập
 
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+
+

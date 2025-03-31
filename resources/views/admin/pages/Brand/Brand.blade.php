@@ -4,6 +4,7 @@
 
 <div class="content" id="content">
     <h1>Thương Hiệu Sản Phẩm</h1>
+    <a href="{{ route('admin.Brand.Add') }}"><button class="addbtn">Thêm Thương Hiệu</button></a>
     <div class="table-container">
         <table class="product-table">
             <thead>

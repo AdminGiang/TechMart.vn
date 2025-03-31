@@ -48,19 +48,18 @@
                 </ul>
             </li>
 
-            {{-- BÀI VIẾT --}}
+            {{-- BÀI VIẾT - BANNER - ADVER - COUPON --}}
             <li class="nav-item dropdown-container">
                 <a href="" class="nav-link dropdown-toggle">
-                    <span class="material-symbols-rounded">calendar_today</span>
+                    <span class="material-symbols-rounded">menu_book</span>
                     <span class="nav-label">Bài Viết</span>
                     <span class="dropdown-icon material-symbols-rounded">keyboard_arrow_down</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link">Blog</a></li>
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link"></a></li>
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link"></a></li>
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link"></a></li>
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link"></a></li>
+                    <li class="nav-item"><a href="" class="nav-link dropdown-link">Bài Viết</a></li>
+                    <li class="nav-item"><a href="" class="nav-link dropdown-link">Banner</a></li>
+                    <li class="nav-item"><a href="" class="nav-link dropdown-link">Quảng Báo</a></li>
+                    <li class="nav-item"><a href="" class="nav-link dropdown-link">Mã Giảm Giá</a></li>
                 </ul>
             </li>
 
@@ -72,9 +71,9 @@
                     <span class="dropdown-icon material-symbols-rounded">keyboard_arrow_down</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link">Vai trò</a></li>
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link">Nhân Viên</a></li>
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link">Khách Hàng</a></li>
+                    <li class="nav-item"><a href="{{ route('admin.Role') }}" class="nav-link dropdown-link">Vai trò</a></li>
+                    <li class="nav-item"><a href="{{ route('admin.Staff') }}" class="nav-link dropdown-link">Nhân Viên</a></li>
+                    <li class="nav-item"><a href="{{ route('admin.User') }}" class="nav-link dropdown-link">Khách Hàng</a></li>
                     <li class="nav-item"><a href="" class="nav-link dropdown-link">aaa</a></li>
                 </ul>
             </li>
@@ -100,6 +99,9 @@
                     <span class="material-symbols-rounded">shopping_cart_checkout</span>
                     <span class="nav-label">Đơn Hàng</span>
                 </a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item"><a href="" class="nav-link dropdown-title">Đơn Hàng</a></li>
+                </ul>
             </li>
 
             {{-- KHO HÀNG --}}
@@ -108,6 +110,9 @@
                     <span class="material-symbols-rounded">warehouse</span>
                     <span class="nav-label">Kho Hàng</span>
                 </a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item"><a href="" class="nav-link dropdown-title">Kho Hàng</a></li>
+                </ul>
             </li>
 
             {{-- VẬN CHUYỂN --}}
@@ -116,6 +121,9 @@
                     <span class="material-symbols-rounded">local_shipping</span>
                     <span class="nav-label">Vận Chuyển</span>
                 </a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item"><a href="" class="nav-link dropdown-title">Vận Chuyển</a></li>
+                </ul>
             </li>
 
             {{-- EXTENSION --}}

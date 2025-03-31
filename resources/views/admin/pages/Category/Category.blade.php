@@ -4,6 +4,7 @@
 
 <div class="content" id="content">
     <h1>Danh Mục Sản Phẩm</h1>
+    <a href="{{ route('admin.Category.Add') }}"><button class="addbtn">Thêm Danh Mục</button></a>
     <div class="table-container">
         <table class="product-table">
             <thead>

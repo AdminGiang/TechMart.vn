@@ -115,7 +115,7 @@
 									<img src="{{$product->image}}" class="product-image" >
 									<h4 style="color: #3b5d50;  text-size: 10px;">{{ number_format($product->price) }} VND</h4>
 									<p>{{ $product->name }}</p>
-									<p>{{ $brand->name}}.</p>
+									<p>{{ $product->brand->name ?? 'Không có thương hiệu' }}</p>
 									<div class="icons">
 										<a href="{{ route('product.show', $product->id) }}"><span>&#128269;</span></a>
 										<a href="#"><span>&#9829;</span></a>

@@ -69,7 +69,7 @@
                 <p class="mb-2">Phí vận chuyển: <span class="float-end" id="shipping">{{ number_format($shipping) }} VND</span></p>
                 <hr>
                 <p class="mb-2"><strong>Tổng cộng: <span class="float-end" id="total">{{ number_format($total) }} VND</span></strong></p>
-                <button class="btn btn-success btn-lg py-3 btn-block">Tiến hành thanh toán</button>
+                <a href="{{ route('checkout') }}" class="btn btn-success btn-lg py-3 btn-block">Tiến hành thanh toán</a>
               </div>
             </div>
           </div>

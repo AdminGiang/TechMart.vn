@@ -9,6 +9,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\CheckoutController;
 
 Route::get('/home', [HomeController::class, 'home'])->name('home')->middleware('auth'); // Trang chủ
 
@@ -39,11 +40,9 @@ Route::get('/cart', [CartController::class, 'showCart'])->name('cart'); // Xem g
 Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.update');
 Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove'); // Xóa sản phẩm khỏi giỏ hàng
 
-
-
-Route::get('/checkout', function () { // Trang thanh toán
-    return view('pages.checkout');
-})->name('checkout');
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout')->middleware('auth');
+Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process')->middleware('auth');
+Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success')->middleware('auth');
 
 Route::get('/error', function () { // Trang lỗi
     return view('pages.error');

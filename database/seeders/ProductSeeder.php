@@ -14,13 +14,81 @@ class ProductSeeder extends Seeder
     public function run()
     {
         DB::table('products')->insert([
-            ['name' => 'iPhone 16 Pro Max', 'description' => 'Điện thoại cao cấp của Apple', 'category_id' => 1, 'brand_id' => 1, 'price' => 32990000, 'discount' => 5, 'image' => 'iphone15promax.jpg', 'stock' => 50, 'warranty_period' => '12 tháng', 'stock_status' => 'in_stock', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Samsung Galaxy S25 Ultra', 'description' => 'Flagship mạnh mẽ của Samsung', 'category_id' => 1, 'brand_id' => 2, 'price' => 28990000, 'discount' => 7, 'image' => 's23ultra.jpg', 'stock' => 40, 'warranty_period' => '12 tháng', 'stock_status' => 'in_stock', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Xiaomi 15 Pro', 'description' => 'Điện thoại camera Leica', 'category_id' => 1, 'brand_id' => 3, 'price' => 20990000, 'discount' => 10, 'image' => 'xiaomi13pro.jpg', 'stock' => 30, 'warranty_period' => '12 tháng', 'stock_status' => 'in_stock', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Google Pixel 1 Pro', 'description' => 'Sản phẩm từ Google', 'category_id' => 1, 'brand_id' => 4, 'price' => 24990000, 'discount' => 6, 'image' => 'pixel7pro.jpg', 'stock' => 20, 'warranty_period' => '12 tháng', 'stock_status' => 'in_stock', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'OnePlus 12', 'description' => 'Hiệu năng mạnh mẽ', 'category_id' => 1, 'brand_id' => 5, 'price' => 18990000, 'discount' => 8, 'image' => 'oneplus11.jpg', 'stock' => 25, 'warranty_period' => '12 tháng', 'stock_status' => 'in_stock', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Oppo Find X5 Pro', 'description' => 'Smartphone cao cấp từ Oppo', 'category_id' => 1, 'brand_id' => 6, 'price' => 22990000, 'discount' => 6, 'image' => 'oppofindx6pro.jpg', 'stock' => 35, 'warranty_period' => '12 tháng', 'stock_status' => 'in_stock', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Sony Xperia 3 V', 'description' => 'Điện thoại Sony cao cấp', 'category_id' => 1, 'brand_id' => 7, 'price' => 24990000, 'discount' => 5, 'image' => 'xperia1v.jpg', 'stock' => 15, 'warranty_period' => '12 tháng', 'stock_status' => 'in_stock', 'created_at' => now(), 'updated_at' => now()],
+            [
+                'id' => 1,
+                'name' => 'iPhone 15 Pro Max',
+                'description' => 'Flagship mạnh mẽ của Apple với chip A17 Pro.',
+                'category_id' => 1,
+                'brand_id' => 1,
+                'price' => 32990000,
+                'discount' => 5,
+                'image' => 'iphone15promax.jpg',
+                'stock' => 50,
+                'warranty_period' => '12 tháng',
+                'stock_status' => 'in_stock',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'id' => 2,
+                'name' => 'MacBook Pro M3',
+                'description' => 'Laptop mạnh mẽ với chip Apple M3.',
+                'category_id' => 2,
+                'brand_id' => 1,
+                'price' => 49990000,
+                'discount' => 10,
+                'image' => 'macbookprom3.jpg',
+                'stock' => 30,
+                'warranty_period' => '24 tháng',
+                'stock_status' => 'in_stock',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'id' => 3,
+                'name' => 'iPad Pro M2',
+                'description' => 'Máy tính bảng hiệu năng cao với màn hình Liquid Retina.',
+                'category_id' => 3,
+                'brand_id' => 1,
+                'price' => 29990000,
+                'discount' => 8,
+                'image' => 'ipadprom2.jpg',
+                'stock' => 20,
+                'warranty_period' => '12 tháng',
+                'stock_status' => 'in_stock',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'id' => 4,
+                'name' => 'AirPods Pro 2',
+                'description' => 'Tai nghe không dây chống ồn cao cấp của Apple.',
+                'category_id' => 4,
+                'brand_id' => 1,
+                'price' => 7990000,
+                'discount' => 5,
+                'image' => 'airpodspro2.jpg',
+                'stock' => 100,
+                'warranty_period' => '12 tháng',
+                'stock_status' => 'in_stock',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'id' => 5,
+                'name' => 'AirPods Pro 6',
+                'description' => 'Tai nghe không dây chống ồn cao cấp của Apple.',
+                'category_id' => 5,
+                'brand_id' => 1,
+                'price' => 7990000,
+                'discount' => 5,
+                'image' => 'airpodspro2.jpg',
+                'stock' => 100,
+                'warranty_period' => '12 tháng',
+                'stock_status' => 'in_stock',
+                'created_at' => now(),
+                'updated_at' => now()
+            ]
         ]);
     }
 }

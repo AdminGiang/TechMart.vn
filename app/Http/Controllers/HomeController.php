@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Products;
 use App\Models\Brand;
 use App\Models\Banner;
+use App\Models\Category;
 use App\Models\Review;
 
 class HomeController extends Controller
@@ -21,6 +22,8 @@ class HomeController extends Controller
         ->take(3) // Giới hạn 3 thương hiệu đầu tiên
         ->get();
 
+        $categories = Category::with('products')->get();
+
         $productsall = Products::limit(70)->paginate(12);
 
         $randomReviews = Review::with('user:id,name')
@@ -31,6 +34,6 @@ class HomeController extends Controller
             return view('pages.partials.reviews', compact('randomReviews'))->render();
         }
     
-        return view('pages.home', compact('products', 'brands', 'randomReviews', 'productsall', 'banners'));
+        return view('pages.home', compact('products', 'brands', 'randomReviews', 'productsall', 'banners', 'categories'));
     }
 }

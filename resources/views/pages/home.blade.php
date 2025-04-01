@@ -56,29 +56,7 @@
 		</div>
 		<!-- End Product Section -->
 
-		{{-- <!-- Start Popular Product -->
-		<div class="popular-product">
-			<div class="container">
-				<div class="row">
-
-					@foreach($brands as $brand)
-					<div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
-						<div class="product-item-sm d-flex">
-							<div class="thumbnail">
-								<img src="{{ $brand->logo }}" alt="{{ $brand->name }}" alt="Image" class="img-fluid">
-							</div>
-							<div class="pt-3">
-								<h3>{{ $brand->name }}</h3>
-								<p><a href="{{route('product')}}">Xem thêm</a></p>
-							</div>
-						</div>
-					</div>
-					@endforeach
-				</div>
-			</div>
-		</div>
-		<!-- End Popular Product --> --}}
-
+		{{-- Thương hiệu nổi bật --}}
 		<div class="max-w-6xl mx-auto">
 			<div class="flex justify-between items-center mb-4">
 				<h2 class="text-lg font-bold text-pink-500">THƯƠNG HIỆU NỔI BẬT</h2>
@@ -93,6 +71,12 @@
 				@endforeach
 			</div>			
 		</div>
+		{{-- Thương hiệu nổi bật  --}}
+
+		{{-- Danh mục  --}}
+		
+		{{-- Danh mục  --}}
+		
 		
 
 

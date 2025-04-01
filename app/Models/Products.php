@@ -7,17 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Products extends Model
 {
-    // use HasFactory;
-
-    // protected $table = 'products'; // Bảng trong database
-
-    // protected $fillable = [
-    //     'name', 'description', 'categoryId', 'userId', 'price', 
-    //     'isPublish', 'sale', 'image', 'tag', 'isTagBlog', 'saleId', 'count'
-    // ];
-    // public function details() {
-    //     return $this->hasOne(ProductDetail::class, 'product_id');
-    // }
     use HasFactory;
 
     protected $table = 'products';
@@ -40,7 +29,7 @@ class Products extends Model
     }
 
     public function category() {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->belongsTo(Category::class, 'category_id'); 
     }
 
     public function brand() {

@@ -10,6 +10,7 @@ use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\CouponsController;
 
 Route::get('/home', [HomeController::class, 'home'])->name('home')->middleware('auth'); // Trang chủ
 
@@ -36,12 +37,17 @@ Route::get('/about', function () {
 })->name('about');
 
 Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add'); // Thêm sản phẩm vào giỏ hàng
+
 Route::get('/cart', [CartController::class, 'showCart'])->name('cart'); // Xem giỏ hàng
+
 Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.update');
+
 Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove'); // Xóa sản phẩm khỏi giỏ hàng
 
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout')->middleware('auth');
+
 Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process')->middleware('auth');
+
 Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success')->middleware('auth');
 
 Route::get('/error', function () { // Trang lỗi

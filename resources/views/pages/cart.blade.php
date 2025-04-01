@@ -61,6 +61,11 @@
             </table>
           </div>
 
+          {{-- Mã giảm giá --}}
+          
+          {{-- Mã giảm giá --}}
+
+
           <div class="row justify-content-end mt-5">
             <div class="col-md-4">
               <div class="p-4 border rounded bg-light">

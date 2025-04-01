@@ -9,11 +9,9 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ReviewController;
-<<<<<<< HEAD
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CouponsController;
-=======
->>>>>>> 46ff922ee1d2f0bb67bb74738126863aea4a39e3
+
 
 Route::get('/home', [HomeController::class, 'home'])->name('home')->middleware('auth'); // Trang chủ
 
@@ -47,19 +45,19 @@ Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.u
 
 Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove'); // Xóa sản phẩm khỏi giỏ hàng
 
-<<<<<<< HEAD
+
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout')->middleware('auth');
 
 Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout.process')->middleware('auth');
 
 Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success')->middleware('auth');
-=======
+
 
 
 Route::get('/checkout', function () { // Trang thanh toán
     return view('pages.checkout');
 })->name('checkout');
->>>>>>> 46ff922ee1d2f0bb67bb74738126863aea4a39e3
+
 
 Route::get('/error', function () { // Trang lỗi
     return view('pages.error');

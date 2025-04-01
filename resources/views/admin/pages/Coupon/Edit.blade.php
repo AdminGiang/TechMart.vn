@@ -1,5 +1,5 @@
 @extends('admin.layouts.masterad')
-@section('title', 'Chỉnh Sửa Sản Phẩm')
+@section('title', 'Chỉnh Sửa Mã Giảm Giá')
 @section('content')
 
     <div class="content" id="content">
@@ -15,8 +15,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="">Tên Danh Mục</label>
-                    <input type="text" id="" name="" value="SmartPhone" placeholder="Nhập Danh Mục" required>
+                    <label for="">Mã </label>
+                    <input type="text" id="" name="" value="2ET456DD" placeholder="Nhập Danh Mục" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Ngày Hết Hạn</label>
+                    <input type="datetime-local" id="" name="" value="" placeholder="DD/MM/YYYY" required>
                 </div>
 
                 <div class="form-group">
@@ -30,10 +35,15 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="">Trạng thái</label>
+                    <label for="">Giá Trị</label>
+                    <input type="text" id="" name="" value="400.000" placeholder="Nhập Danh Mục" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Đươn Vị Áp Dụng</label>
                     <select id="" name="" required>
-                        <option value="1" {{--{{ $product->status == 1 ? 'selected' : '' }}--}}>*Hiển thị</option>
-                        <option value="0" {{--{{ $product->status == 0 ? 'selected' : '' }}--}}>Ẩn</option>
+                        <option value="1" {{--{{ $product->status == 1 ? 'selected' : '' }}--}}>VNĐ</option>
+                        <option value="0" {{--{{ $product->status == 0 ? 'selected' : '' }}--}}>%</option>
                     </select>
                 </div>
 
@@ -44,8 +54,9 @@
 
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
-                    <a href="{{ route('admin.Category') }}" class="btn btn-secondary">Hủy</a>
+                    <a href="{{ route('admin.Coupon') }}" class="btn btn-secondary">Hủy</a>
                 </div>
             </form>
         </div>
     </div>
+    @endsection

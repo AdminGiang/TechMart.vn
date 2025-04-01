@@ -7,7 +7,7 @@
     <form class="form-container">
         <div class="form-group">
             <label for="">Hình ảnh Sản Phẩm</label>
-            <input type="file" id="" name="">
+            <input type="file" id="file" name="">
             <img src=" " alt="Hình ảnh Thương Hiệu" class="preview-image">
 
         </div>
@@ -63,3 +63,4 @@
 
     </form>
 </div>
+@endsection

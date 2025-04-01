@@ -280,34 +280,29 @@ let currentPage = 1;
     loadReviews();
     
     document.getElementById('addToCartButton').addEventListener('click', function (e) {
-      e.preventDefault();
+        e.preventDefault();
 
-      let productId = this.dataset.id;
-        let productName = this.dataset.name;
-        let productPrice = this.dataset.price;
-        let productImage = this.dataset.image; // Lấy hình ảnh từ data attribute
+        // Lấy dữ liệu từ data-* attributes
+        let productId = this.dataset.id;
 
-        console.log(productId, productName, productPrice, productImage); // Debug dữ liệu
-
+        // Gửi yêu cầu AJAX để thêm sản phẩm vào giỏ hàng
         $.ajax({
-            url: "{{ route('cart.add') }}", // Đường dẫn đến route thêm sản phẩm vào giỏ hàng
+            url: "{{ route('product.addToCart') }}", // Route xử lý thêm vào giỏ hàng
             method: "POST",
             data: {
-                _token: "{{ csrf_token() }}", // CSRF token
-                id: productId,
-                name: productName,
-                price: productPrice,
-                image: productImage // Gửi hình ảnh đến server
+                _token: "{{ csrf_token() }}", // CSRF token để bảo mật
+                id: productId
             },
-		// 	item.addEventListener('click', function () {
-        // window.location.href = "/cart"; // Chuyển đến trang giỏ hàng
+            success: function (response) {
+                alert(response.message); // Hiển thị thông báo thành công
+            },
+            error: function (xhr, status, error) {
+                console.error(xhr.responseText); // Debug lỗi nếu có
+                alert('Đã xảy ra lỗi, vui lòng thử lại!');
+            }
         });
     });
-</script>
-
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  
+</script>  
   
   <style>
          /* ProductDetail */

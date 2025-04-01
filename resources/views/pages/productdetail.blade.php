@@ -287,7 +287,7 @@ let currentPage = 1;
 
         // Gửi yêu cầu AJAX để thêm sản phẩm vào giỏ hàng
         $.ajax({
-            url: "{{ route('product.addToCart') }}", // Route xử lý thêm vào giỏ hàng
+            url: "{{ route('cart.add') }}", // Route xử lý thêm vào giỏ hàng
             method: "POST",
             data: {
                 _token: "{{ csrf_token() }}", // CSRF token để bảo mật

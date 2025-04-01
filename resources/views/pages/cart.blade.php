@@ -66,10 +66,15 @@
               <div class="p-4 border rounded bg-light">
                 <h3 class="h4 text-black mb-3">Tổng giỏ hàng</h3>
                 <p class="mb-2">Tạm tính: <span class="float-end" id="subtotal">{{ number_format($totalPrice) }} VND</span></p>
-                <p class="mb-2">Phí vận chuyển: <span class="float-end" id="shipping">{{ number_format($shipping) }} VND</span></p>
-                <hr>
-                <p class="mb-2"><strong>Tổng cộng: <span class="float-end" id="total">{{ number_format($total) }} VND</span></strong></p>
-                <button class="btn btn-success btn-lg py-3 btn-block">Tiến hành thanh toán</button>
+                
+                @if(!empty($cart) && count($cart) > 0)
+                    <p class="mb-2">Phí vận chuyển: <span class="float-end" id="shipping">{{ number_format($shipping) }} VND</span></p>
+                    <hr>
+                    <p class="mb-2"><strong>Tổng cộng: <span class="float-end" id="total">{{ number_format($total) }} VND</span></strong></p>
+                    <button class="btn btn-success btn-lg py-3 btn-block">Tiến hành thanh toán</button>
+                @else
+                    <p class="text-center text-muted">Không có sản phẩm trong giỏ hàng.</p>
+                @endif
               </div>
             </div>
           </div>
@@ -94,36 +99,33 @@
                 quantity: quantity
             },
             success: function (response) {
-                // alert(response.message);
-
-                  // Cập nhật tổng tiền cho sản phẩm
-                  $(`input[data-id="${productId}"]`).closest('tr').find('.item-total').text(
+                // Cập nhật tổng tiền cho sản phẩm
+                $(`input[data-id="${productId}"]`).closest('tr').find('.item-total').text(
                     new Intl.NumberFormat().format(response.itemTotal) + ' VND'
-                );
-
-                // Cập nhật tổng tiền giỏ hàng
-                $('.float-end:contains("Tạm tính")').text(
-                    new Intl.NumberFormat().format(response.totalPrice) + ' VND'
                 );
 
                 // Cập nhật tạm tính
                 $('#subtotal').text(
-                  new Intl.NumberFormat().format(response.totalPrice) + ' VND'
+                    new Intl.NumberFormat().format(response.totalPrice) + ' VND'
                 );
 
-                 // Cập nhật tổng cộng
-                 $('#total').text(
+                // Cập nhật tổng cộng
+                $('#total').text(
                     new Intl.NumberFormat().format(response.total) + ' VND'
                 );
 
+                // Kiểm tra nếu giỏ hàng trống
                 if ($('tbody tr').length === 0) {
-                  $('#shipping').closest('p').hide(); // Ẩn phí vận chuyển
-                  $('#total').closest('p').hide(); // Ẩn tổng cộng
-              } else {
-                  $('#shipping').closest('p').show(); // Hiển thị phí vận chuyển
-                  $('#total').closest('p').show(); // Hiển thị tổng cộng
-              }
+                    $('#shipping').closest('p').hide(); // Ẩn phí vận chuyển
+                    $('#total').closest('p').hide(); // Ẩn tổng cộng
+                } else {
+                    $('#shipping').closest('p').show(); // Hiển thị phí vận chuyển
+                    $('#total').closest('p').show(); // Hiển thị tổng cộng
+                }
             },
+            error: function () {
+                alert('Đã xảy ra lỗi, vui lòng thử lại!');
+            }
         });
     });
     $(document).on('click', '.remove-from-cart', function (e) {
@@ -139,8 +141,6 @@
                 id: productId
             },
             success: function (response) {
-                // alert(response.message);
-
                 // Xóa dòng sản phẩm khỏi bảng
                 $(`button[data-id="${productId}"]`).closest('tr').remove();
 
@@ -155,7 +155,6 @@
                 );
 
                 // Kiểm tra nếu giỏ hàng trống
-                 // Kiểm tra nếu giỏ hàng trống
                 if ($('tbody tr').length === 0) {
                     $('table').remove();
                     $('.site-blocks-table').html('<p class="text-center">Giỏ hàng của bạn đang trống.</p>');
@@ -163,6 +162,9 @@
                     $('#total').closest('p').hide(); // Ẩn tổng cộng
                 }
             },
+            error: function () {
+                alert('Đã xảy ra lỗi, vui lòng thử lại!');
+            }
         });
     });
 </script>

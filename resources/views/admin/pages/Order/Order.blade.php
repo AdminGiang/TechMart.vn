@@ -10,8 +10,8 @@
                 <tr>
                     <th>ID</th>
                     <th>ID Nguời Dùng</th>
-                    <th>ID Sản Phẩm</th>
-                    <th>Số Lượng</th>
+                    <th>ID Vận Chuyển</th>
+                    <th>ID Mã Giảm Giá</th>
                     <th>Tổng Giá Trị</th>
                     <th>Thanh Toán</th>
                     <th>Trạng Thái Đơn</th>
@@ -24,8 +24,8 @@
                 <tr>
                     <td>1</td>
                     <td>12</td>
-                    <td>31</td>
-                    <td>2 cái</td>
+                    <td>EXPE1202</td>
+                    <td>2ET456DD</td>
                     <td>21,000,000</td>
                     <td>Đã Thanh Toán</td>  {{--    Chưa thanh toán  --}}
                     <td>Đã Xử lý </td>  {{--Đang Vận Chuyển - Đang Được Giao - Đã Giao Hàng --}}
@@ -41,3 +41,4 @@
         </table>
     </div>
 </div>
+@endsection

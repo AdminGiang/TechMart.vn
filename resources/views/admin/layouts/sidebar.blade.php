@@ -59,7 +59,7 @@
                     <li class="nav-item"><a href="" class="nav-link dropdown-link">Bài Viết</a></li>
                     <li class="nav-item"><a href="" class="nav-link dropdown-link">Banner</a></li>
                     <li class="nav-item"><a href="" class="nav-link dropdown-link">Quảng Báo</a></li>
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link">Mã Giảm Giá</a></li>
+                    <li class="nav-item"><a href="{{ route('admin.Coupon') }}" class="nav-link dropdown-link">Mã Giảm Giá</a></li>
                 </ul>
             </li>
 
@@ -74,7 +74,6 @@
                     <li class="nav-item"><a href="{{ route('admin.Role') }}" class="nav-link dropdown-link">Vai trò</a></li>
                     <li class="nav-item"><a href="{{ route('admin.Staff') }}" class="nav-link dropdown-link">Nhân Viên</a></li>
                     <li class="nav-item"><a href="{{ route('admin.User') }}" class="nav-link dropdown-link">Khách Hàng</a></li>
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link">aaa</a></li>
                 </ul>
             </li>
 
@@ -89,7 +88,6 @@
                     <li class="nav-item"><a href="" class="nav-link dropdown-link">Bình Luận</a></li>
                     <li class="nav-item"><a href="" class="nav-link dropdown-link">Đánh Giá</a></li>
                     <li class="nav-item"><a href="" class="nav-link dropdown-link">Liên Hệ</a></li>
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link">aaa</a></li>
                 </ul>
             </li>
 

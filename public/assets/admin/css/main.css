@@ -174,7 +174,8 @@ h1 {
 /*CSS-ADD-PAGES*/
 
 .form-container {
-    margin-left: 230px;
+    margin: 0 auto;
+    /*margin-left: 230px;*/
     align-items: center;
     background-color: #fff;
     padding: 20px;

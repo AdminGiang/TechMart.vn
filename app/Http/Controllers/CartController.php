@@ -113,14 +113,13 @@ class CartController extends Controller
                 return $sum + ($item['price'] * $item['quantity']);
             }, 0);
 
-            // Phí vận chuyển
-            $shipping = 30000;
+           // Phí vận chuyển
+            $shipping = count($cart) > 0 ? 30000 : 0; // Chỉ tính phí vận chuyển nếu có sản phẩm
 
             // Tổng cộng
             $total = $totalPrice + $shipping;
 
             return response()->json([
-                // 'message' => 'Sản phẩm đã được xóa khỏi giỏ hàng!',
                 'totalPrice' => $totalPrice,
                 'shipping' => $shipping,
                 'total' => $total,

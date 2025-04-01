@@ -1,3 +1,9 @@
+body{
+    justify-content: center;
+    align-items: center;
+    display: block;
+}
+
 h1 {
     font-size: 24px;
     color: #333;
@@ -52,6 +58,23 @@ h1 {
     justify-content: space-between;
 }
 
+.addbtn{
+    color: white;
+    font-size: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #1fb993;
+    border: none;
+    border-radius: 8px;
+    height: 30px;
+    width: 150px;
+    margin-bottom: 10px;
+    margin-left: 80px;
+}
+.addbtn:hover{
+    background-color: #447db9;
+    border: none;
+}
+
 .form-actions .btn {
     padding: 10px 20px;
     text-decoration: none;
@@ -100,6 +123,9 @@ h1 {
     margin: 0 auto;
 }
 
+.hyliketh{
+    background-color: #26d8df;
+}
 .product-image img {
     width: 300px;
     height: auto;
@@ -142,4 +168,76 @@ h1 {
     margin-top: 20px;
     display: flex;
     gap: 15px;
+}
+
+
+/*CSS-ADD-PAGES*/
+
+.form-container {
+    margin-left: 230px;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 800px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.submit-button-add {
+    font-size: 15px;
+    display: block;
+    margin-top: 10px;
+    margin-left: 10%;
+    width: 80%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+ .submit-button-destroy {
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+    margin-left: 10%;
+    width: 80%;
+    padding: 10px;
+    background-color: rgb(240, 26, 26);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
 }

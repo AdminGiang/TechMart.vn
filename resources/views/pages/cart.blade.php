@@ -66,15 +66,10 @@
               <div class="p-4 border rounded bg-light">
                 <h3 class="h4 text-black mb-3">Tổng giỏ hàng</h3>
                 <p class="mb-2">Tạm tính: <span class="float-end" id="subtotal">{{ number_format($totalPrice) }} VND</span></p>
-                
-                @if(!empty($cart) && count($cart) > 0)
-                    <p class="mb-2">Phí vận chuyển: <span class="float-end" id="shipping">{{ number_format($shipping) }} VND</span></p>
-                    <hr>
-                    <p class="mb-2"><strong>Tổng cộng: <span class="float-end" id="total">{{ number_format($total) }} VND</span></strong></p>
-                    <button class="btn btn-success btn-lg py-3 btn-block">Tiến hành thanh toán</button>
-                @else
-                    <p class="text-center text-muted">Không có sản phẩm trong giỏ hàng.</p>
-                @endif
+                <p class="mb-2">Phí vận chuyển: <span class="float-end" id="shipping">{{ number_format($shipping) }} VND</span></p>
+                <hr>
+                <p class="mb-2"><strong>Tổng cộng: <span class="float-end" id="total">{{ number_format($total) }} VND</span></strong></p>
+                <button class="btn btn-success btn-lg py-3 btn-block">Tiến hành thanh toán</button>
               </div>
             </div>
           </div>

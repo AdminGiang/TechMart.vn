@@ -4,30 +4,15 @@
 @section('content')	
 
 		<!-- Start Hero Section -->
-			<div class="hero">
-				<div class="container">
-					<div class="row justify-content-between align-items-center">
-						<div class="col-lg-5">
-							<div class="intro-excerpt">
-								<h1>Công nghệ<br>Dẫn đầu xu<br>hướng</h1>
-								<p>Hiện đại – Tiện ích – Đột phá<br>
-									Công nghệ tiên tiến giúp nâng tầm cuộc sống. Sở hữu ngay<br>những thiết bị hiện đại, thông minh và tiện ích nhất tại TechMart.</p>
-								<p>
-									<a href="{{ route('product') }}" class="btn btn-warning">Mua ngay</a>
-									<a href="{{ route('product') }}" class="btn btn-outline-light">Khám phá</a>
-								</p>
-							</div>
-						</div>
-						<div class="col-lg-7">
-							<div class="hero-img-wrap">
-								<div class="dots-pattern top-right"></div>
-								<img src="{{asset('assets/images/img-iphone-banner.png')}}" class="img-fluid">
-								<div class="dots-pattern bottom-left"></div>
-							</div>
-						</div>
-					</div>
+		<div class="owl-carousel owl-theme">
+			@foreach($banners as $banner)
+				<div class="item">
+					<a href="{{ $banner->link }}">
+						<img src="{{ asset($banner->image) }}" alt="{{ $banner->title }}" class="banner-img">
+					</a>
 				</div>
-			</div>
+			@endforeach
+		</div>		
 		<!-- End Hero Section -->
 
 		<!-- Start Product Section -->
@@ -71,7 +56,7 @@
 		</div>
 		<!-- End Product Section -->
 
-		<!-- Start Popular Product -->
+		{{-- <!-- Start Popular Product -->
 		<div class="popular-product">
 			<div class="container">
 				<div class="row">
@@ -92,8 +77,25 @@
 				</div>
 			</div>
 		</div>
-		<!-- End Popular Product -->
-		<!-- Start Blog Section -->
+		<!-- End Popular Product --> --}}
+
+		<div class="max-w-6xl mx-auto">
+			<div class="flex justify-between items-center mb-4">
+				<h2 class="text-lg font-bold text-pink-500">THƯƠNG HIỆU NỔI BẬT</h2>
+				<a href="{{route('product')}}" class="text-sm text-pink-500">Xem thêm ></a>
+			</div>
+			<div class="brand-container">
+				@foreach($brands as $brand)
+					<div>
+						<img src="{{ $brand->logo }}" alt="{{ $brand->name }}">
+						<p>{{ $brand->name }}</p>
+					</div>
+				@endforeach
+			</div>			
+		</div>
+		
+
+
 		<!-- Start Blog Section -->
 		<div class="blog-section">
 			<div class="container">
@@ -108,14 +110,14 @@
 
 				<div class="container">
 					<div class="row">
-						@foreach($products as $product)
+						@foreach($productsall as $productall)
 							<div class="col-md-4">
 								<div class="product-card">
 									<span class="badge-sale"> -10%</span>
-									<img src="{{$product->image}}" class="product-image" >
-									<h4 style="color: #3b5d50;  text-size: 10px;">{{ number_format($product->price) }} VND</h4>
-									<p>{{ $product->name }}</p>
-									<p>{{ $brand->name}}.</p>
+									<img src="{{$productall->image}}" class="product-image" >
+									<h4 style="color: #3b5d50;  text-size: 10px;">{{ number_format($productall->price) }} VND</h4>
+									<p>{{ $productall->name }}</p>
+									<p>{{ $productall->brand->name ?? 'Không có thương hiệu' }}</p>
 									<div class="icons">
 										<a href="{{ route('product.show', $product->id) }}"><span>&#128269;</span></a>
 										<a href="#"><span>&#9829;</span></a>
@@ -132,6 +134,11 @@
 							</div>
 						@endforeach
 					</div>
+					{{-- start phan trang --}}
+					<div class="d-flex justify-content-center">
+						{{ $productsall->links('pagination::bootstrap-5') }}
+					</div>
+					{{-- End phân trang --}}
 				</div>
 			</div>
 		</div>
@@ -249,85 +256,17 @@
 		</div>
 		<!-- End We Help Section -->
 
-		<!-- Start Popular Product -->
-		<div class="popular-product">
-			<div class="container">
-				<div class="row">
-
-					@foreach($brands as $brand)
-					<div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
-						<div class="product-item-sm d-flex">
-							<div class="thumbnail">
-								<img src="{{ $brand->logo }}" alt="{{ $brand->name }}" alt="Image" class="img-fluid">
-							</div>
-							<div class="pt-3">
-								<h3>{{ $brand->name }}</h3>
-								{{-- <p> {{ $new->description }} </p> --}}
-								<p><a href="{{route('product')}}">Xem thêm</a></p>
-							</div>
-						</div>
-					</div>
-					@endforeach
-				</div>
-			</div>
-		</div>
+		
 		<!-- End Popular Product -->
-
-		<!-- Start Testimonial Slider -->
-		<div class="testimonial-section">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-7 mx-auto text-center">
-						<h2 class="section-title"> Đánh giá của khách hàng </h2>
-					</div>
-				</div>
-
-				<div class="row justify-content-center">
-					<div class="col-lg-12">
-						<div class="testimonial-slider-wrap text-center">
-
-							<div id="testimonial-nav">
-								<span class="prev" data-controls="prev"><span class="fa fa-chevron-left"></span></span>
-								<span class="next" data-controls="next"><span class="fa fa-chevron-right"></span></span>
-							</div>
-
-							<div class="testimonial-slider">
-								
-								<div class="item">
-									<div class="row justify-content-center">
-										<div class="col-lg-8 mx-auto">
-
-											<div class="testimonial-block text-center">
-												<blockquote class="mb-5">
-													<p>&ldquo; Nội dung phản hổi của khách hàng &rdquo;</p>
-												</blockquote>
-
-												<div class="author-info">
-													<div class="author-pic">
-														<img src="{{asset('assets/images/person-1.png')}}" alt="Maria Jones" class="img-fluid">
-													</div>
-													<h3 class="font-weight-bold">Tên khách hàng</h3>
-													<span class="position d-block mb-3">Thời gian mua sản phấm</span>
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div> 
-								<!-- END item -->
-
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End Testimonial Slider -->
-
+@endsection
 		
-		
+@section('script')
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
 <script>
     $(document).on('click', '.add-to-cart', function (e) {
         e.preventDefault();
@@ -347,10 +286,31 @@
                 price: productPrice,
                 image: productImage // Gửi hình ảnh đến server
             },
-		// 	item.addEventListener('click', function () {
-        // window.location.href = "/cart"; // Chuyển đến trang giỏ hàng
         });
     });
+
+	var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 5,
+    spaceBetween: 10,
+    loop: true,
+    autoplay: { delay: 2000 }
+	});
+
+	$(document).ready(function(){
+        $(".owl-carousel").owlCarousel({
+			loop: true,
+			margin: 0, /* Loại bỏ khoảng cách */
+			nav: true,
+			dots: true,
+			autoplay: true,
+			autoplayTimeout: 1000,
+			autoplayHoverPause: true,
+			items: 1
+        });
+		// Đảm bảo slider không bị dư khoảng trống
+		$(".owl-carousel").css("height", "auto");
+    });
+
 </script>
 
 <style>
@@ -388,5 +348,76 @@
         margin-top: 10px;
         font-size: 24px;
 		 }
+
+	.brand-container {
+		display: flex;
+		justify-content: space-between; /* Trải đều các logo */
+		align-items: center;
+		flex-wrap: wrap; /* Nếu màn hình nhỏ, logo sẽ tự động xuống dòng */
+		gap: 20px; /* Khoảng cách giữa các logo */
+		padding: 10px;
+}
+
+	.brand-container img {
+		max-width: 120px; /* Điều chỉnh kích thước logo */
+		width: auto;
+}
+	.banner-section {
+		display: flex;
+		overflow: hidden;
+		gap: 20px;
+}
+
+	.banner-item {
+		position: relative;
+		text-align: center;
+		width: 100%;
+}
+
+	.banner-item img {
+		width: 100%;
+		border-radius: 10px;
+}
+
+	.banner-content {
+		position: absolute;
+		bottom: 20px;
+		left: 20px;
+		color: white;
+		background: rgba(0, 0, 0, 0.5);
+		padding: 10px;
+		border-radius: 5px;
+}
+	.owl-dots {
+		position: absolute;
+		bottom: 10px; /* Điều chỉnh khoảng cách từ bottom */
+		left: 50%;
+		transform: translateX(-50%);
+		background: rgba(0, 0, 0, 0.3); /* Nền mờ giúp hiển thị tốt hơn */
+		padding: 5px 10px;
+		border-radius: 15px;
+}
+
+/* Giảm khoảng cách dưới slider */
+	.owl-carousel {
+		margin-bottom: 0px !important; /* Loại bỏ khoảng trống bên dưới */
+		padding-bottom: 0px;
+}
+
+	.slider-container {
+		width: 100vw; /* Full chiều rộng viewport */
+		max-width: 100%;
+		margin: 0 auto; /* Căn giữa */
+		overflow: hidden;
+}
+
+/* Hình ảnh bên trong slider */
+	.slider-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Đảm bảo ảnh hiển thị đẹp */
+}
+
+
 </style>
-        @endsection
+@endsection

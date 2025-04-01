@@ -21,7 +21,7 @@
                 <p class="quantity">Ngày Cập Nhật : 12/21/1212 </p>
                 <p class="quantity">Số lượng trong kho : 18</p>
                 <p class="status">
-                    Trạng thái:
+                    Trạng thái: Hiển thị
                     <span class="">
 
                     </span>

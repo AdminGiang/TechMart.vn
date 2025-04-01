@@ -6,50 +6,48 @@
 
 .checkout-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .checkout-header h1 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 1.5rem;
 }
 
 .checkout-steps {
     display: flex;
     justify-content: center;
-    align-items: center;
+    gap: 2rem;
     margin-bottom: 2rem;
 }
 
 .step {
     display: flex;
     align-items: center;
-    margin: 0 1rem;
-    color: #999;
+    gap: 0.5rem;
+    color: #9ca3af;
 }
 
 .step.active {
-    color: #007bff;
+    color: #3b82f6;
 }
 
 .step-number {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: #fff;
-    border: 2px solid currentColor;
+    width: 2rem;
+    height: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 0.5rem;
-    font-weight: bold;
+    border-radius: 50%;
+    background-color: #e5e7eb;
+    font-weight: 600;
 }
 
 .step.active .step-number {
-    background-color: #007bff;
-    border-color: #007bff;
-    color: #fff;
+    background-color: #3b82f6;
+    color: white;
 }
 
 .checkout-content {
@@ -82,58 +80,85 @@
     gap: 1rem;
 }
 
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #374151;
+}
+
 .form-control {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    transition: border-color 0.2s;
 }
 
 .form-control:focus {
-    border-color: #007bff;
     outline: none;
-    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.is-invalid {
+    border-color: #ef4444;
+}
+
+.invalid-feedback {
+    color: #b91c1c;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
 }
 
 .payment-methods {
-    margin-top: 2rem;
+    margin: 2rem 0;
+}
+
+.payment-methods h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1f2937;
 }
 
 .payment-options {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
 }
 
 .payment-option {
-    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.payment-option:hover {
+    border-color: #3b82f6;
+    background-color: #f8fafc;
 }
 
 .payment-option input[type="radio"] {
-    display: none;
+    margin-right: 1rem;
 }
 
 .payment-option label {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    padding: 1rem;
-    border: 2px solid #ddd;
-    border-radius: 5px;
+    gap: 0.5rem;
+    margin: 0;
     cursor: pointer;
-    transition: all 0.3s;
-}
-
-.payment-option input[type="radio"]:checked + label {
-    border-color: #007bff;
-    background-color: #f8f9fa;
 }
 
 .payment-option img {
-    height: 40px;
-    margin-bottom: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
 }
 
 .checkout-sidebar {
@@ -146,49 +171,50 @@
 }
 
 .order-summary h2 {
-    font-size: 1.5rem;
-    color: #333;
+    font-size: 1.25rem;
+    font-weight: 600;
     margin-bottom: 1.5rem;
+    color: #1f2937;
 }
 
 .cart-items {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .cart-item {
     display: flex;
     align-items: center;
+    gap: 1rem;
     padding: 1rem 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
 }
 
 .cart-item img {
-    width: 80px;
-    height: 80px;
+    width: 4rem;
+    height: 4rem;
     object-fit: cover;
-    border-radius: 5px;
-    margin-right: 1rem;
-}
-
-.item-details {
-    flex: 1;
+    border-radius: 0.25rem;
 }
 
 .item-details h4 {
-    margin: 0;
-    font-size: 1rem;
-    color: #333;
+    font-weight: 500;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
 }
 
 .item-details p {
-    margin: 0.5rem 0 0;
-    color: #666;
-    font-size: 0.9rem;
+    color: #6b7280;
+    font-size: 0.875rem;
 }
 
 .item-price {
-    font-weight: bold;
-    color: #333;
+    margin-left: auto;
+    font-weight: 500;
+    color: #1f2937;
 }
 
 .coupon-section {
@@ -227,40 +253,40 @@
 }
 
 .order-totals {
-    margin-bottom: 2rem;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1rem;
 }
 
 .total-row {
     display: flex;
     justify-content: space-between;
-    padding: 0.5rem 0;
-    color: #666;
+    margin-bottom: 0.5rem;
+    color: #6b7280;
 }
 
 .grand-total {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #333;
-    border-top: 2px solid #eee;
-    padding-top: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+    font-size: 1.125rem;
     margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
 }
 
 .btn-place-order {
     width: 100%;
     padding: 1rem;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #3b82f6;
+    color: white;
     border: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    font-weight: bold;
+    border-radius: 0.5rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.2s;
 }
 
 .btn-place-order:hover {
-    background-color: #0056b3;
+    background-color: #2563eb;
 }
 
 @media (max-width: 768px) {
@@ -274,5 +300,36 @@
 
     .payment-options {
         grid-template-columns: 1fr;
+    }
+
+    .checkout-steps {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2rem;
+    height: 2rem;
+    margin: -1rem 0 0 -1rem;
+    border: 2px solid #3b82f6;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
     }
 } 

@@ -10,29 +10,47 @@ use App\Models\OrderItem;
 use App\Models\Products;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
+use App\Models\CartItem;
 
 class CheckoutController extends Controller
 {
     public function index()
     {
-        $cart = Session::get('cart', []);
+        // Lấy giỏ hàng từ database
+        $cartItems = CartItem::with('product')
+            ->where('user_id', Auth::id())
+            ->get();
         
-        if (empty($cart)) {
+        if ($cartItems->isEmpty()) {
             return redirect()->route('cart')->with('error', 'Giỏ hàng của bạn đang trống!');
         }
 
-        $totalPrice = array_reduce($cart, function ($sum, $item) {
-            return $sum + ($item['price'] * $item['quantity']);
-        }, 0);
+        // Tính tổng tiền
+        $totalPrice = $cartItems->sum(function($item) {
+            return $item->price * $item->quantity;
+        });
 
         $shipping = 30000;
         $total = $totalPrice + $shipping;
 
         // Lấy thông tin user
         $user = Auth::user();
+        
+        // Xử lý tên người dùng
         $nameParts = explode(' ', $user->name);
         $lastName = array_pop($nameParts);
         $firstName = implode(' ', $nameParts);
+
+        // Chuyển đổi cartItems thành định dạng cần thiết cho view
+        $cart = $cartItems->map(function($item) {
+            return [
+                'id' => $item->product_id,
+                'name' => $item->product->name,
+                'price' => $item->price,
+                'quantity' => $item->quantity,
+                'image' => $item->product->image
+            ];
+        })->toArray();
 
         return view('pages.checkout', compact('cart', 'totalPrice', 'shipping', 'total', 'user', 'firstName', 'lastName'));
     }
@@ -54,9 +72,12 @@ class CheckoutController extends Controller
 
             Log::info('Validation thành công');
 
-            $cart = Session::get('cart', []);
+            // Lấy giỏ hàng từ database
+            $cartItems = CartItem::with('product')
+                ->where('user_id', Auth::id())
+                ->get();
             
-            if (empty($cart)) {
+            if ($cartItems->isEmpty()) {
                 Log::warning('Giỏ hàng trống');
                 return redirect()->route('cart')->with('error', 'Giỏ hàng của bạn đang trống!');
             }
@@ -66,9 +87,9 @@ class CheckoutController extends Controller
 
             try {
                 // Tính tổng tiền
-                $totalPrice = array_reduce($cart, function ($sum, $item) {
-                    return $sum + ($item['price'] * $item['quantity']);
-                }, 0);
+                $totalPrice = $cartItems->sum(function($item) {
+                    return $item->price * $item->quantity;
+                });
 
                 $shipping = 30000;
                 $total = $totalPrice + $shipping;
@@ -89,33 +110,29 @@ class CheckoutController extends Controller
                 Log::info('Đã tạo đơn hàng với ID: ' . $order->id);
 
                 // Thêm các sản phẩm vào đơn hàng
-                foreach ($cart as $id => $item) {
+                foreach ($cartItems as $item) {
                     // Kiểm tra số lượng sản phẩm trong kho
-                    $product = Products::find($id);
-                    if (!$product) {
-                        throw new \Exception('Không tìm thấy sản phẩm với ID: ' . $id);
-                    }
-
-                    if ($product->stock < $item['quantity']) {
+                    $product = $item->product;
+                    if ($product->stock < $item->quantity) {
                         throw new \Exception('Sản phẩm ' . $product->name . ' không đủ số lượng trong kho');
                     }
 
                     OrderItem::create([
                         'order_id' => $order->id,
-                        'product_id' => $id,
-                        'quantity' => $item['quantity'],
-                        'price' => $item['price']
+                        'product_id' => $product->id,
+                        'quantity' => $item->quantity,
+                        'price' => $item->price
                     ]);
 
                     // Cập nhật số lượng sản phẩm trong kho
-                    $product->stock -= $item['quantity'];
+                    $product->stock -= $item->quantity;
                     $product->save();
                 }
 
                 Log::info('Đã thêm sản phẩm vào đơn hàng');
 
                 // Xóa giỏ hàng sau khi đặt hàng thành công
-                Session::forget('cart');
+                CartItem::where('user_id', Auth::id())->delete();
 
                 // Commit transaction
                 DB::commit();

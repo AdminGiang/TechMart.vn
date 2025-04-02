@@ -13,27 +13,52 @@ class HomeController extends Controller
 {
     public function home(Request $request)
     {
-        $banners = Banner::where('status', 'active')->orderBy('position')->get();
+        // Tối ưu truy vấn banners với eager loading
+        $banners = Banner::orderBy('created_at', 'desc')->get();
 
-        $products = Products::inRandomOrder()->take(3)->get(); //
+        // Tối ưu truy vấn sản phẩm mới với eager loading và random
+        $products = Products::with(['brand', 'category'])
+            ->inRandomOrder()
+            ->take(3)
+            ->get();
 
-        $brands = Brand::where('status', 1)
-        ->orderBy('id', 'asc') // Sắp xếp theo ID tăng dần
-        ->take(3) // Giới hạn 3 thương hiệu đầu tiên
-        ->get();
+        // Tối ưu truy vấn thương hiệu - chỉ lấy các cột tồn tại
+        $brands = Brand::select('id', 'name')
+            ->orderBy('name')
+            ->get();
+
+        // Tối ưu truy vấn sản phẩm tất cả với eager loading và phân trang
+        $productsall = Products::with(['brand', 'category'])
+            ->orderBy('created_at', 'desc')
+            ->paginate(6);
+
+        // Tối ưu truy vấn đánh giá
+        $reviews = Review::with(['user', 'product'])
+            ->orderBy('created_at', 'desc')
+            ->take(5)
+            ->get();
 
         $categories = Category::with('products')->get();
 
-        $productsall = Products::limit(70)->paginate(12);
-
+        // Lấy đánh giá ngẫu nhiên
         $randomReviews = Review::with('user:id,name')
-        ->inRandomOrder()
-        ->paginate(1); 
-        // phân trang load lại mỗi cmt 
+            ->inRandomOrder()
+            ->paginate(1); 
+
+        // Nếu là request AJAX, trả về partial view
         if ($request->ajax()) {
             return view('pages.partials.reviews', compact('randomReviews'))->render();
         }
     
-        return view('pages.home', compact('products', 'brands', 'randomReviews', 'productsall', 'banners', 'categories'));
+        // Trả về view chính với tất cả dữ liệu
+        return view('pages.home', compact(
+            'banners', 
+            'products', 
+            'brands', 
+            'productsall', 
+            'reviews', 
+            'categories',
+            'randomReviews'
+        ));
     }
 }

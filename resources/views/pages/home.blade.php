@@ -64,9 +64,8 @@
 			</div>
 			<div class="brand-container">
 				@foreach($brands as $brand)
-					<div>
-						<img src="{{ $brand->logo }}" alt="{{ $brand->name }}">
-						<p>{{ $brand->name }}</p>
+					<div class="brand-item">
+						<h3>{{ $brand->name }}</h3>
 					</div>
 				@endforeach
 			</div>			
@@ -85,7 +84,7 @@
 			<div class="container">
 				<div class="row mb-5">
 					<div class="col-md-6">
-						<h2 class="section-title">Gợi ý cho bạn </h2>
+						<h2 class="section-title">Gợi ý cho bạn</h2>
 					</div>
 					<div class="col-md-6 text-start text-md-end">
 						<a href="{{route('product')}}" class="more">Xem thêm</a>
@@ -94,29 +93,95 @@
 
 				<div class="container">
 					<div class="row">
-						@foreach($productsall as $productall)
-							<div class="col-md-4">
-								<div class="product-card">
-									<span class="badge-sale"> -10%</span>
-									<img src="{{$productall->image}}" class="product-image" >
-									<h4 style="color: #3b5d50;  text-size: 10px;">{{ number_format($productall->price) }} VND</h4>
-									<p>{{ $productall->name }}</p>
-									<p>{{ $productall->brand->name ?? 'Không có thương hiệu' }}</p>
-									<div class="icons">
-										<a href="{{ route('product.show', $product->id) }}"><span>&#128269;</span></a>
-										<a href="#"><span>&#9829;</span></a>
-										<a 
-										class="add-to-cart"
-										href="{{route('cart')}}"
-										data-id="{{ $product->id }}" 
-										data-name="{{ $product->name }}" 
-										data-price="{{ $product->price }}"
-										data-image="{{ $product->image }}"
-										alt="Add to cart"><span>&#128722;</span></a>
+						@if(Auth::check())
+							@php
+								// Tối ưu truy vấn gợi ý sản phẩm
+								$suggestedProducts = App\Models\Products::with(['brand'])
+									->whereIn('category_id', function($query) {
+										$query->select('category_id')
+											->from('cart_items')
+											->join('products', 'products.id', '=', 'cart_items.product_id')
+											->where('cart_items.user_id', Auth::id());
+									})
+									->whereNotIn('id', function($query) {
+										$query->select('product_id')
+											->from('cart_items')
+											->where('user_id', Auth::id());
+									})
+									->inRandomOrder()
+									->take(6)
+									->get();
+							@endphp
+
+							@forelse($suggestedProducts as $product)
+								<div class="col-md-4">
+									<div class="product-card">
+										<span class="badge-sale"> -10%</span>
+										<img src="{{$product->image}}" class="product-image" loading="lazy">
+										<h4 style="color: #3b5d50; text-size: 10px;">{{ number_format($product->price) }} VND</h4>
+										<p>{{ $product->name }}</p>
+										<p>{{ $product->brand->name ?? 'Không có thương hiệu' }}</p>
+										<div class="icons">
+											<a href="{{ route('product.show', $product->id) }}"><span>&#128269;</span></a>
+											<a href="#"><span>&#9829;</span></a>
+											<a class="add-to-cart"
+												href="{{route('cart')}}"
+												data-id="{{ $product->id }}" 
+												data-name="{{ $product->name }}" 
+												data-price="{{ $product->price }}"
+												data-image="{{ $product->image }}"
+												alt="Add to cart"><span>&#128722;</span></a>
+										</div>
 									</div>
 								</div>
-							</div>
-						@endforeach
+							@empty
+								@foreach($productsall->take(6) as $product)
+									<div class="col-md-4">
+										<div class="product-card">
+											<span class="badge-sale"> -10%</span>
+											<img src="{{$product->image}}" class="product-image" loading="lazy">
+											<h4 style="color: #3b5d50; text-size: 10px;">{{ number_format($product->price) }} VND</h4>
+											<p>{{ $product->name }}</p>
+											<p>{{ $product->brand->name ?? 'Không có thương hiệu' }}</p>
+											<div class="icons">
+												<a href="{{ route('product.show', $product->id) }}"><span>&#128269;</span></a>
+												<a href="#"><span>&#9829;</span></a>
+												<a class="add-to-cart"
+													href="{{route('cart')}}"
+													data-id="{{ $product->id }}" 
+													data-name="{{ $product->name }}" 
+													data-price="{{ $product->price }}"
+													data-image="{{ $product->image }}"
+													alt="Add to cart"><span>&#128722;</span></a>
+											</div>
+										</div>
+									</div>
+								@endforeach
+							@endforelse
+						@else
+							@foreach($productsall->take(6) as $product)
+								<div class="col-md-4">
+									<div class="product-card">
+										<span class="badge-sale"> -10%</span>
+										<img src="{{$product->image}}" class="product-image" loading="lazy">
+										<h4 style="color: #3b5d50; text-size: 10px;">{{ number_format($product->price) }} VND</h4>
+										<p>{{ $product->name }}</p>
+										<p>{{ $product->brand->name ?? 'Không có thương hiệu' }}</p>
+										<div class="icons">
+											<a href="{{ route('product.show', $product->id) }}"><span>&#128269;</span></a>
+											<a href="#"><span>&#9829;</span></a>
+											<a class="add-to-cart"
+												href="{{route('cart')}}"
+												data-id="{{ $product->id }}" 
+												data-name="{{ $product->name }}" 
+												data-price="{{ $product->price }}"
+												data-image="{{ $product->image }}"
+												alt="Add to cart"><span>&#128722;</span></a>
+										</div>
+									</div>
+								</div>
+							@endforeach
+						@endif
 					</div>
 					{{-- start phan trang --}}
 					<div class="d-flex justify-content-center">
@@ -258,7 +323,7 @@
         let productId = $(this).data('id');
         let productName = $(this).data('name');
         let productPrice = $(this).data('price'); 
-        let productImage = $(this).data('image'); // Lấy hình ảnh từ data attribute
+        let productImage = $(this).data('image');
 
         $.ajax({
             url: "{{ route('cart.add') }}",
@@ -268,8 +333,41 @@
                 id: productId,
                 name: productName,
                 price: productPrice,
-                image: productImage // Gửi hình ảnh đến server
+                image: productImage
             },
+            success: function(response) {
+                if(response.success) {
+                    // Cập nhật số lượng sản phẩm trong giỏ hàng
+                    $('.cart-count').text(response.cart_count);
+                    if(response.cart_count > 0) {
+                        $('.cart-count').show();
+                    } else {
+                        $('.cart-count').hide();
+                    }
+                    
+                    // Hiển thị thông báo thành công
+                    Swal.fire({
+                        title: 'Thành công!',
+                        text: 'Đã thêm sản phẩm vào giỏ hàng',
+                        icon: 'success',
+                        timer: 1500,
+                        showConfirmButton: false
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Lỗi!',
+                        text: response.message || 'Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng',
+                        icon: 'error'
+                    });
+                }
+            },
+            error: function() {
+                Swal.fire({
+                    title: 'Lỗi!',
+                    text: 'Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng',
+                    icon: 'error'
+                });
+            }
         });
     });
 
@@ -335,17 +433,33 @@
 
 	.brand-container {
 		display: flex;
-		justify-content: space-between; /* Trải đều các logo */
+		justify-content: space-between;
 		align-items: center;
-		flex-wrap: wrap; /* Nếu màn hình nhỏ, logo sẽ tự động xuống dòng */
-		gap: 20px; /* Khoảng cách giữa các logo */
-		padding: 10px;
-}
+		flex-wrap: wrap;
+		gap: 20px;
+		padding: 20px;
+	}
 
-	.brand-container img {
-		max-width: 120px; /* Điều chỉnh kích thước logo */
-		width: auto;
-}
+	.brand-item {
+		background: #f8f9fa;
+		padding: 15px 25px;
+		border-radius: 8px;
+		text-align: center;
+		transition: all 0.3s ease;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	}
+
+	.brand-item:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+	}
+
+	.brand-item h3 {
+		margin: 0;
+		color: #3b5d50;
+		font-size: 1.1rem;
+		font-weight: 600;
+	}
 	.banner-section {
 		display: flex;
 		overflow: hidden;

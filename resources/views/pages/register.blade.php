@@ -15,13 +15,27 @@
             <!-- REGISTER FORM -->
             <form method="POST" action="{{ route('register') }}" id="registerForm" class="register-form" autocomplete="off">
                 @csrf
+                @if(session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="input-box">
-                    <input type="text" class="input-field" name="name" required>
+                    <input type="text" class="input-field" name="name" value="{{ old('name') }}" required>
                     <label for="name" class="label">Tên Người Dùng</label>
                     <i class='bx bx-user icon'></i>
                 </div>
                 <div class="input-box">
-                    <input type="email" class="input-field" name="email" required>
+                    <input type="email" class="input-field" name="email" value="{{ old('email') }}" required>
                     <label for="email" class="label">Email</label>
                     <i class='bx bx-envelope icon'></i>
                 </div>
@@ -31,14 +45,14 @@
                     <i class='bx bx-lock-alt icon'></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" class="input-field" name="address" required>
+                    <input type="text" class="input-field" name="address" value="{{ old('address') }}" required>
                     <label for="address" class="label">Địa Chỉ</label>
-                    <i class='bx bx-lock-alt icon'></i>
+                    <i class='bx bx-map icon'></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" class="input-field" name="phone" required>
+                    <input type="text" class="input-field" name="phone" value="{{ old('phone') }}" required>
                     <label for="phone" class="label">Số Điện Thoại</label>
-                    <i class='bx bx-lock-alt icon'></i>
+                    <i class='bx bx-phone icon'></i>
                 </div>
                 {{-- <div class="form-cols">
                     <div class="col-1">

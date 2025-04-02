@@ -52,13 +52,6 @@ Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout
 
 Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success')->middleware('auth');
 
-
-
-Route::get('/checkout', function () { // Trang thanh toán
-    return view('pages.checkout');
-})->name('checkout');
-
-
 Route::get('/error', function () { // Trang lỗi
     return view('pages.error');
 })->name('error');
@@ -80,5 +73,8 @@ Route::get('/', [LoginController::class, 'showloginForm'])->name('login');
 Route::post('/', [LoginController::class, 'login']); // Xử lý đăng nhập
 
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+
+Route::get('/search-suggestions', [ProductController::class, 'searchSuggestions'])->name('search.suggestions');
+Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
 
 

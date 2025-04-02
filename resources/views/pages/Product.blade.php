@@ -50,50 +50,38 @@
                         <div class="mb-4">
                             <h5 class="mb-3" style="color: #2f2f2f;">Danh mục</h5>
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" name="category[]" value="phone" id="phone"
-                                    {{ in_array('phone', request()->get('category', [])) ? 'checked' : '' }}>
-                                <label class="form-check-label" for="phone" style="color: #6c757d;">
-                                    Điện thoại
+                                <input class="form-check-input" type="checkbox" name="category[]" value="iphone" id="iphone"
+                                    {{ in_array('iphone', request()->get('category', [])) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="iphone" style="color: #6c757d;">
+                                    iPhone
                                 </label>
                             </div>
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" name="category[]" value="laptop" id="laptop"
-                                    {{ in_array('laptop', request()->get('category', [])) ? 'checked' : '' }}>
-                                <label class="form-check-label" for="laptop" style="color: #6c757d;">
-                                    Laptop
+                                <input class="form-check-input" type="checkbox" name="category[]" value="macbook" id="macbook"
+                                    {{ in_array('macbook', request()->get('category', [])) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="macbook" style="color: #6c757d;">
+                                    MacBook
                                 </label>
                             </div>
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" name="category[]" value="tablet" id="tablet"
-                                    {{ in_array('tablet', request()->get('category', [])) ? 'checked' : '' }}>
-                                <label class="form-check-label" for="tablet" style="color: #6c757d;">
-                                    Máy tính bảng
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Hãng sản xuất -->
-                        <div class="mb-4">
-                            <h5 class="mb-3" style="color: #2f2f2f;">Hãng sản xuất</h5>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" name="brand[]" value="apple" id="apple"
-                                    {{ in_array('apple', request()->get('brand', [])) ? 'checked' : '' }}>
-                                <label class="form-check-label" for="apple" style="color: #6c757d;">
-                                    Apple
+                                <input class="form-check-input" type="checkbox" name="category[]" value="tai_nghe" id="tai_nghe"
+                                    {{ in_array('tai_nghe', request()->get('category', [])) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="tai_nghe" style="color: #6c757d;">
+                                    Tai nghe
                                 </label>
                             </div>
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" name="brand[]" value="samsung" id="samsung"
-                                    {{ in_array('samsung', request()->get('brand', [])) ? 'checked' : '' }}>
-                                <label class="form-check-label" for="samsung" style="color: #6c757d;">
-                                    Samsung
+                                <input class="form-check-input" type="checkbox" name="category[]" value="dong_ho" id="dong_ho"
+                                    {{ in_array('dong_ho', request()->get('category', [])) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="dong_ho" style="color: #6c757d;">
+                                    Đồng hồ
                                 </label>
                             </div>
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" name="brand[]" value="xiaomi" id="xiaomi"
-                                    {{ in_array('xiaomi', request()->get('brand', [])) ? 'checked' : '' }}>
-                                <label class="form-check-label" for="xiaomi" style="color: #6c757d;">
-                                    Xiaomi
+                                <input class="form-check-input" type="checkbox" name="category[]" value="phu_kien" id="phu_kien"
+                                    {{ in_array('phu_kien', request()->get('category', [])) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="phu_kien" style="color: #6c757d;">
+                                    Phụ kiện
                                 </label>
                             </div>
                         </div>

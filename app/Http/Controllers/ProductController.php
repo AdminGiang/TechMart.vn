@@ -64,20 +64,30 @@ class ProductController extends Controller
         return view('pages.Product', compact('products'));
     }
 
-        // Search sản phẩm
-       // Hiển thị trang danh sách sản phẩm
-       public function search(Request $request)
-       {
-           $query = Products::query();
-       
-           if ($request->has('search')) {
-               $query->where('name', 'like', '%' . $request->search . '%');
-           }
-       
-           $products = $query->paginate(6); // Phân trang
-       
-           return view('pages.Product', compact('products'));
-       }
+    public function searchSuggestions(Request $request)
+    {
+        $query = $request->get('query');
+        
+        if (strlen($query) < 2) {
+            return response()->json([]);
+        }
 
+        $products = Products::where('name', 'like', "%{$query}%")
+            ->orWhere('description', 'like', "%{$query}%")
+            ->take(5)
+            ->get(['id', 'name', 'price', 'image']);
 
+        return response()->json($products);
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->get('search');
+        
+        $products = Products::where('name', 'like', "%{$query}%")
+            ->orWhere('description', 'like', "%{$query}%")
+            ->paginate(12);
+
+        return view('pages.Product', compact('products'));
+    }
 }

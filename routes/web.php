@@ -45,6 +45,7 @@ Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.u
 
 Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove'); // Xóa sản phẩm khỏi giỏ hàng
 
+Route::get('/cart/mini', [CartController::class, 'getMiniCart'])->name('cart.mini');
 
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout')->middleware('auth');
 

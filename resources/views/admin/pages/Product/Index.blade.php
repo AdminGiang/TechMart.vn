@@ -4,7 +4,7 @@
 
 <div class="content" id="content">
     <h1>Danh Sách Sản Phẩm</h1>
-    <a href="{{ route('admin.Product.Add') }}"><button class="addbtn">Thêm Sản Phẩm</button></a>
+    <a href="#"><button class="addbtn">Thêm Sản Phẩm</button></a>
     <div class="table-container">
         <table class="product-table">
             <thead>
@@ -20,15 +20,16 @@
                     <th>Thao tác</th>
                 </tr>
             </thead>
-            <tbody>
+            {{-- <tbody>
+                @foreach ($products as $product)
                 <tr>
-                    <td>1</td>
-                    <td>Iphone16 Pro Max Giá rị hiện tại</td>
-                    <td><img src="{{ asset('assets/images/img-iphone-banner.png') }}" alt="Sản phẩm"></td>
-                    <td>SmartPhone</td>
-                    <td>28,000000₫</td>
-                    <td>15</td>
-                    <td>24/03/2025</td>
+                    <td>{{ $product->id }}</td>
+                    <td>{{ $product->name }}</td>
+                    <td><img src="{{$product->image}}" ></td>
+                    <td> Danh muc</td>
+                    <td>{{ number_format($product->price) }}VND</td>
+                    <td>{{ $product->quantity }}</td>
+                    <td>Ngày tạo </td>
                     <td>Hiển thị</td>
                     <td>
                         <a href="{{ route('admin.Product.Edit') }}"><button class="edit-btn">Sửa</button></a>
@@ -36,6 +37,32 @@
                         <a href="{{ route('admin.Product.Detail') }}"><button class="detail-btn">Chi Tiết</button></a>
                     </td>
                 </tr>
+                @endforeach 
+            </tbody> --}}
+            <tbody>
+                @if(isset($products) && count($products) > 0)
+                    @foreach ($products as $product)
+                        <tr>
+                            <td>{{ $product->id }}</td>
+                            <td>{{ $product->name }}</td>
+                            <td><img src="{{ $product->image }}" width="100"></td>
+                            <td>Danh mục</td>
+                            <td>{{ number_format($product->price) }} VND</td>
+                            <td>{{ $product->quantity }}</td>
+                            <td>Ngày tạo</td>
+                            <td>Hiển thị</td>
+                            <td>
+                                <a href=""><button class="edit-btn">Sửa</button></a>
+                                <a href="#"><button class="delete-btn">Xóa</button></a>
+                                <a href="#"><button class="detail-btn">Chi Tiết</button></a>
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
+                    <tr>
+                        <td colspan="9">Không có sản phẩm nào.</td>
+                    </tr>
+                @endif
             </tbody>
         </table>
     </div>

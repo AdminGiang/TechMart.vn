@@ -10,7 +10,6 @@ use App\Http\Controllers\AdminController;
 
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'home'])->name('admin.dashboard');
-
     Route::get('/product', function () { return view('admin.pages.Product.Index'); })->name('admin.Product');
     Route::get('/product/edit', function () { return view('admin.pages.Product.Edit'); })->name('admin.Product.Edit');
     Route::get('/product/detail', function () { return view('admin.pages.Product.Detail'); })->name('admin.Product.Detail');

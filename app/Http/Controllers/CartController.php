@@ -149,4 +149,51 @@ class CartController extends Controller
             'message' => 'Không tìm thấy sản phẩm trong giỏ hàng'
         ]);
     }
+
+    public function getMiniCart()
+    {
+        if (!Auth::check()) {
+            return response()->json([
+                'items' => [],
+                'total_items' => 0,
+                'total_price' => 0
+            ]);
+        }
+
+        try {
+            // Lấy giỏ hàng từ database với eager loading product
+            $cartItems = CartItem::with('product')
+                ->where('user_id', Auth::id())
+                ->get();
+
+            // Chuyển đổi dữ liệu để trả về
+            $items = $cartItems->map(function($item) {
+                return [
+                    'id' => $item->product_id,
+                    'name' => $item->product->name,
+                    'price' => $item->price,
+                    'quantity' => $item->quantity,
+                    'image' => $item->product->image
+                ];
+            });
+
+            // Tính tổng tiền
+            $totalPrice = $cartItems->sum(function($item) {
+                return $item->price * $item->quantity;
+            });
+
+            return response()->json([
+                'items' => $items,
+                'total_items' => $cartItems->sum('quantity'),
+                'total_price' => $totalPrice
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'items' => [],
+                'total_items' => 0,
+                'total_price' => 0,
+                'error' => $e->getMessage()
+            ]);
+        }
+    }
 }

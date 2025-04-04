@@ -10,8 +10,8 @@ use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CheckoutController;
-<<<<<<< HEAD
-=======
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\VnPay_paymentController;
 use App\Http\Controllers\CouponsController;
 
 

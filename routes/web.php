@@ -10,7 +10,6 @@ use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\CouponsController;
 
 
 Route::get('/home', [HomeController::class, 'home'])->name('home')->middleware('auth'); // Trang chủ
@@ -45,6 +44,7 @@ Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.u
 
 Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove'); // Xóa sản phẩm khỏi giỏ hàng
 
+Route::get('/cart/mini', [CartController::class, 'getMiniCart'])->name('cart.mini');
 
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout')->middleware('auth');
 
@@ -70,6 +70,13 @@ Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('
 Route::post('/register', [RegisterController::class, 'register']); // Xử lý đăng ký
 
 Route::get('/', [LoginController::class, 'showloginForm'])->name('login');
+
+
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/admin/dashboard', [DashboardController::class, 'home'])->name('admin.dashboard')->middleware('admin');
+// });
+
+
 Route::post('/', [LoginController::class, 'login']); // Xử lý đăng nhập
 
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');

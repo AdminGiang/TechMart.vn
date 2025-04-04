@@ -22,8 +22,8 @@
 
                 <!-- Nút hành động -->
                 <div class="action-buttons">
-                    <a href="{{ route('admin.Category.Edit') }}" class="btn btn-edit">Chỉnh sửa Danh Mục</a>
-                    <a href="{{ route('admin.Category') }}" class="btn btn-back">Quay lại danh sách</a>
+                    <a href="{{ route('categories.edit') }}" class="btn btn-edit">Chỉnh sửa Danh Mục</a>
+                    <a href="{{ route('categories.index') }}" class="btn btn-back">Quay lại danh sách</a>
                 </div>
             </div>
         </div>

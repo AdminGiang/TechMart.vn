@@ -61,6 +61,7 @@
         }
     },
     "config": {
+         "memory_limit": "1024M",
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true,

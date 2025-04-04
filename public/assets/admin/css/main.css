@@ -1,4 +1,4 @@
-body{
+body {
     justify-content: center;
     align-items: center;
     display: block;
@@ -58,7 +58,7 @@ h1 {
     justify-content: space-between;
 }
 
-.addbtn{
+.addbtn {
     color: white;
     font-size: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -70,7 +70,8 @@ h1 {
     margin-bottom: 10px;
     margin-left: 80px;
 }
-.addbtn:hover{
+
+.addbtn:hover {
     background-color: #447db9;
     border: none;
 }
@@ -100,9 +101,11 @@ h1 {
 .btn-back {
     background-color: #f44336;
 }
+
 .btn-edit {
     background-color: #4CAF50;
 }
+
 .action-buttons .btn {
     padding: 10px 20px;
     border: none;
@@ -123,9 +126,15 @@ h1 {
     margin: 0 auto;
 }
 
-.hyliketh{
+.descrip-p{
+    margin-left: 50%;
+    margin-top: 10px;
+}
+
+.hyliketh {
     background-color: #26d8df;
 }
+
 .product-image img {
     width: 300px;
     height: auto;
@@ -135,6 +144,7 @@ h1 {
 
 .product-info {
     flex: 1;
+    width: 50%;
 }
 
 .product-info h2 {
@@ -180,7 +190,7 @@ h1 {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 800px;
 }
 
@@ -223,7 +233,8 @@ input:focus {
     border-radius: 5px;
     cursor: pointer;
 }
- .submit-button-destroy {
+
+.submit-button-destroy {
     text-align: center;
     text-decoration: none;
     display: block;
@@ -242,3 +253,5 @@ input:focus {
 .submit-button:hover {
     background-color: #0056b3;
 }
+
+

@@ -2,24 +2,36 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\AdminController;
 
 
+
+
 Route::prefix('admin')->group(function () {
+
     Route::get('/dashboard', [DashboardController::class, 'home'])->name('admin.dashboard');
+
     Route::get('/product', function () { return view('admin.pages.Product.Index'); })->name('admin.Product');
+    Route::get('/product', [ProductController::class, 'index'])->name('admin.products.index');
     Route::get('/product/edit', function () { return view('admin.pages.Product.Edit'); })->name('admin.Product.Edit');
     Route::get('/product/detail', function () { return view('admin.pages.Product.Detail'); })->name('admin.Product.Detail');
     Route::get('/product/add', function () { return view('admin.pages.Product.Add'); })->name('admin.Product.Add');
 
 
-    Route::get('/category', function () { return view('admin.pages.Category.Index'); })->name('admin.Category');
-    Route::get('/category/edit', function () { return view('admin.pages.Category.Edit'); })->name('admin.Category.Edit');
-    Route::get('/category/detail', function () { return view('admin.pages.Category.Detail'); })->name('admin.Category.Detail');
-    Route::get('/category/add', function () { return view('admin.pages.Category.Add'); })->name('admin.Category.Add');
+    // Route::get('/category', function () { return view('admin.pages.Category.Index'); })->name('admin.Category');
+    // Route::get('/category/edit', function () { return view('admin.pages.Category.Edit'); })->name('admin.Category.Edit');
+    // Route::get('/category/detail', function () { return view('admin.pages.Category.Detail'); })->name('admin.Category.Detail');
+    // Route::get('/category/add', function () { return view('admin.pages.Category.Add'); })->name('admin.Category.Add');
+    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+    Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+    Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+    Route::get('/categories/{id}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+    Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('categories.update');
+    Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
 
     Route::get('/brand', function () { return view('admin.pages.Brand.Index'); })->name('admin.Brand');

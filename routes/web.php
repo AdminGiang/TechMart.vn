@@ -11,6 +11,11 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\VnPay_paymentController;
+use App\Http\Controllers\CouponsController;
+>>>>>>> f9a37456ef1f959bcfec76ee97792e81974099d1
 
 
 Route::get('/home', [HomeController::class, 'home'])->name('home')->middleware('auth'); // Trang chủ
@@ -104,4 +109,5 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('/search-suggestions', [ProductController::class, 'searchSuggestions'])->name('search.suggestions');
 Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
 
-
+//Cổng Thanh Toán
+Route::get('/vnpay_payment', [VnPay_paymentController::class, 'vnpay_payment'])->name('vnpay_payment'); // Trang thanh toán

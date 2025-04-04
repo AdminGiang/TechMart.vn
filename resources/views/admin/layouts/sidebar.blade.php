@@ -32,19 +32,19 @@
             {{-- SẢN PHẨM - DANH MỤC --}}
             <li class="nav-item dropdown-container">
                 <a href="" class="nav-link dropdown-toggle">
-                    <span class="material-symbols-rounded">calendar_today</span>
+                    <span class="material-symbols-rounded">list_alt</span>
                     <span class="nav-label">Sản Phẩm</span>
                     <span class="dropdown-icon material-symbols-rounded">keyboard_arrow_down</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li class="nav-item"><a href="{{ route('admin.Category') }}" class="nav-link dropdown-link">Danh
+                    <li class="nav-item"><a href="{{ route('categories.index') }}" class="nav-link dropdown-link">Danh
                             Mục</a></li>
                     <li class="nav-item"><a href="{{ route('admin.Product') }}" class="nav-link dropdown-link">Sản
                             Phẩm</a></li>
                     <li class="nav-item"><a href="{{ route('admin.Brand') }}" class="nav-link dropdown-link">Thuơng
                             Hiệu</a></li>
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link"></a></li>
-                    <li class="nav-item"><a href="" class="nav-link dropdown-link"></a></li>
+                    <li class="nav-item"><a href="{{ route('admin.Coupon') }}" class="nav-link dropdown-link">Mã Giảm
+                            Giá</a></li>
                 </ul>
             </li>
 
@@ -59,7 +59,6 @@
                     <li class="nav-item"><a href="" class="nav-link dropdown-link">Bài Viết</a></li>
                     <li class="nav-item"><a href="" class="nav-link dropdown-link">Banner</a></li>
                     <li class="nav-item"><a href="" class="nav-link dropdown-link">Quảng Báo</a></li>
-                    <li class="nav-item"><a href="{{ route('admin.Coupon') }}" class="nav-link dropdown-link">Mã Giảm Giá</a></li>
                 </ul>
             </li>
 
@@ -71,9 +70,12 @@
                     <span class="dropdown-icon material-symbols-rounded">keyboard_arrow_down</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li class="nav-item"><a href="{{ route('admin.Role') }}" class="nav-link dropdown-link">Vai trò</a></li>
-                    <li class="nav-item"><a href="{{ route('admin.Staff') }}" class="nav-link dropdown-link">Nhân Viên</a></li>
-                    <li class="nav-item"><a href="{{ route('admin.User') }}" class="nav-link dropdown-link">Khách Hàng</a></li>
+                    <li class="nav-item"><a href="{{ route('admin.Role') }}" class="nav-link dropdown-link">Vai trò</a>
+                    </li>
+                    <li class="nav-item"><a href="{{ route('admin.Staff') }}" class="nav-link dropdown-link">Nhân
+                            Viên</a></li>
+                    <li class="nav-item"><a href="{{ route('admin.User') }}" class="nav-link dropdown-link">Khách
+                            Hàng</a></li>
                 </ul>
             </li>
 
@@ -127,7 +129,7 @@
             {{-- EXTENSION --}}
             <li class="nav-item">
                 <a href="" class="nav-link">
-                    <span class="material-symbols-rounded">extension</span>
+                    <span class="material-symbols-rounded">passkey</span>
                     <span class="nav-label">Extension</span>
                 </a>
             </li>

@@ -14,6 +14,11 @@
                 </div>
             </div>
             <!-- LOGIN FORM -->
+                @if ($errors->has('login'))
+                <div class="alert alert-danger">
+                     {{ $errors->first('login') }}
+                </div>
+             @endif
             <form action="{{ route('login') }}" method="POST" class="login-form" autocomplete="off" id="loginForm">
                 @csrf
                 <div class="input-box">

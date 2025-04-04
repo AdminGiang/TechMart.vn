@@ -20,7 +20,7 @@
                     <th>Thao tác</th>
                 </tr>
             </thead>
-            {{-- <tbody>
+            <tbody>
                 @foreach ($products as $product)
                 <tr>
                     <td>{{ $product->id }}</td>
@@ -38,7 +38,7 @@
                     </td>
                 </tr>
                 @endforeach 
-            </tbody> --}}
+            </tbody>
             <tbody>
                 @if(isset($products) && count($products) > 0)
                     @foreach ($products as $product)

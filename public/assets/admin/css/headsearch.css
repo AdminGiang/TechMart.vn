@@ -10,17 +10,20 @@
     transition: margin-left 0.4s ease, ;
     padding: 20px;
 
-    z-index: 1; /* Nằm dưới sidebar khi mở */
+    z-index: 1;
+    /* Nằm dưới sidebar khi mở */
 }
 
 /* Khi sidebar mở rộng, nội dung vẫn ở vị trí mặc định */
-.sidebar:not(.collapsed) + .content {
-    margin-left: 85px; /* Không thay đổi, nhưng đảm bảo nằm cạnh sidebar */
-  }
+.sidebar:not(.collapsed)+.content {
+    margin-left: 85px;
+    /* Không thay đổi, nhưng đảm bảo nằm cạnh sidebar */
+}
 
-  .sidebar:not(.collapsed).overlay + .content {
-    margin-left: 0; /* Nội dung không dịch chuyển vì bị sidebar đè */
-  }
+.sidebar:not(.collapsed).overlay+.content {
+    margin-left: 0;
+    /* Nội dung không dịch chuyển vì bị sidebar đè */
+}
 
 
 .sidebar.collapsed+.content {
@@ -68,7 +71,8 @@
 }
 
 .edit-btn,
-.delete-btn,.detail-btn {
+.delete-btn,
+.detail-btn {
     padding: 5px 10px;
     color: #fff;
     border: none;
@@ -85,7 +89,25 @@
     background: #F44336;
     /* Màu đỏ */
 }
+
 .detail-btn {
     background: #1b5ce7;
     /* Màu đỏ */
+}
+
+.descrip-foarall {
+    display: inline-block;
+    width: 110px;
+    /* Độ rộng của khối văn bản */
+    white-space: nowrap;
+    /* Không xuống dòng */
+    overflow: hidden;
+    /*  Ẩn phần nội dung vượt quá độ rộng */
+    text-overflow: ellipsis;
+    /* Hiển thị dấu ba chấm */
+
+}
+.noidung-descrip{
+    height: 150px;
+    width: 700px;
 }

@@ -22,11 +22,17 @@ class LoginController extends Controller
 
         $remember = $request->has('remember'); // Kiểm tra checkbox Remember Me
 
-        if (Auth::attempt($credentials, $remember)) { // Kiểm tra mật khẩu có khớp với mật khẩu đã hash trong database không
-            return redirect()->route('home'); // Nếu khớp thì chuyển hướng về trang chủ
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user(); 
+            // dd($user->role);
+            if ($user->role === 'admin') {
+                return redirect()->route('admin.dashboard'); // Chuyển hướng admin đến dashboard
+            }
+    
+            return redirect()->route('/home'); // Người dùng bình thường về trang chủ
         }
-
-        return redirect()->route('error')->with('error'); /// Nếu không khớp thì hiển thị thông báo lỗi
+    
+        return back()->withErrors(['login' => 'Bạn đã nhập tài khoản hoặc mật khẩu không đúng!']);
     }
     
 }

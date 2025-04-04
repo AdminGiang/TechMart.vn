@@ -29,7 +29,7 @@ class LoginController extends Controller
                 return redirect()->route('admin.dashboard'); // Chuyển hướng admin đến dashboard
             }
     
-            return redirect()->route('/home'); // Người dùng bình thường về trang chủ
+            return redirect()->route('home'); // Người dùng bình thường về trang chủ
         }
     
         return back()->withErrors(['login' => 'Bạn đã nhập tài khoản hoặc mật khẩu không đúng!']);

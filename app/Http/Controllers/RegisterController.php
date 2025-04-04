@@ -47,9 +47,13 @@ class RegisterController extends Controller
             ]);
 
             // Lưu email vào session để hiển thị ở trang login
-            session(['registered_email' => $request->email]);
+            session(['registered_email' => $user->email]);
+            session(['registered_name' => $user->name]);
+            session(['registered_phone' => $user->phone]);
+            session(['registered_address' => $user->address]);
+            // Đăng nhập người dùng
 
-            return redirect()->route('login')->with('success', 'Đăng ký thành công! Vui lòng đăng nhập.');
+            return redirect()->route('login', 'contact.form')->with('success', 'Đăng ký thành công! Vui lòng đăng nhập.');
 
         } catch (\Illuminate\Validation\ValidationException $e) {
             return back()->withErrors($e->validator)->withInput();

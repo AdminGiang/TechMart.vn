@@ -10,6 +10,11 @@ use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CheckoutController;
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\CouponsController;
+use App\Http\Controllers\ContactController;
+>>>>>>> ff624b65eff8114708f9b636f0f60024f5ca273e
 
 
 Route::get('/home', [HomeController::class, 'home'])->name('home')->middleware('auth'); // Trang chủ
@@ -17,6 +22,25 @@ Route::get('/home', [HomeController::class, 'home'])->name('home')->middleware('
 Route::get('/contact', function () { // Trang liên hệ
     return view('pages.contact');
 })->name('contact');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/contact/form', [ContactController::class, 'AutoFill'])->name('contact.form');
+    Route::post('/contact/submit', [ContactController::class, 'sentContact'])->name('contact.submit');
+});
+Route::get('/contact', function () {
+    if (Auth::check()) {
+        $user = Auth::user();
+
+        return view('pages.contact', [
+            'username' => $user->username,
+            'email' => $user->email,
+            'phone' => $user->phone,
+        ]);
+    }
+
+    return redirect()->route('login')->with('error', 'Vui lòng đăng nhập để liên hệ!');
+})->name('contact');
+
+
 
 Route::get('/blog', function () { // Trang blog
     return view('pages.blog');
@@ -26,7 +50,7 @@ Route::get('/product', [ProductController::class, 'product'])->name('product');
   // Trang sản phẩm
 Route::get('/section-products', [ProductController::class, 'getProducts'])->name('products.section');
  // Lấy sản phẩm theo danh mục
-Route::get('/products/filter', [ProductController::class, 'filter'])->name('products.filter'); 
+Route::get('/products/filter', [ProductController::class, 'filter'])->name('products.filter');
 // Lọc sản phẩm
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
 

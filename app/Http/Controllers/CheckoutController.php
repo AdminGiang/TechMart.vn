@@ -61,14 +61,27 @@ class CheckoutController extends Controller
             Log::info('Bắt đầu xử lý đơn hàng');
             
             $request->validate([
+                'payment_method' => 'required', // Trường payment_method là bắt buộc
                 'first_name' => 'required|string|max:255',
                 'last_name' => 'required|string|max:255',
                 'email' => 'required|email|max:255',
                 'phone' => 'required|string|max:20',
                 'address' => 'required|string|max:255',
                 'city' => 'required|string|max:255',
-                'payment_method' => 'required|in:vnpay,momo,paypal',
+                // 'payment_method' => 'required|in:momo,paypal',
             ]);
+
+            // // Lấy phương thức thanh toán
+            // $paymentMethod = $request->input('payment_method');
+
+            // // Xử lý logic thanh toán dựa trên phương thức
+            // if ($paymentMethod === 'vnpay') {
+            //     // Gọi hàm xử lý VNPay
+            //     return redirect()->route('vnpay_payment');
+            // } elseif ($paymentMethod === 'momo') {
+            //     // Gọi hàm xử lý Momo
+            //     return redirect()->route('momo_payment');
+            // }
 
             Log::info('Validation thành công');
 
@@ -155,4 +168,7 @@ class CheckoutController extends Controller
         Log::info('Hiển thị trang thành công');
         return view('pages.checkout-success');
     }
+
+   
+
 } 

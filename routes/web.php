@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CouponsController;
-
+use App\Http\Controllers\VnPay_paymentController;
 
 Route::get('/home', [HomeController::class, 'home'])->name('home')->middleware('auth'); // Trang chủ
 
@@ -77,4 +77,5 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('/search-suggestions', [ProductController::class, 'searchSuggestions'])->name('search.suggestions');
 Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
 
-
+//Cổng Thanh Toán
+Route::get('/vnpay_payment', [VnPay_paymentController::class, 'vnpay_payment'])->name('vnpay_payment'); // Trang thanh toán

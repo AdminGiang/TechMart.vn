@@ -58,7 +58,7 @@
         <hr>
         <div class="button-container">
             <button class="submit-button-add" type="submit">THÊM</button>
-            <a href="{{ route('admin.Product') }}" class="submit-button-destroy">HỦY</a>
+            <a href="{{ route('admin.products.index') }}" class="submit-button-destroy">HỦY</a>
         </div>
 
     </form>

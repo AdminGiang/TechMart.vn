@@ -9,15 +9,22 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\AdminController;
 
 
-Route::prefix('admin')->group(function () {
-    //Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'home'])->name('admin.dashboard');
 
-     Route::get('/product', function () { return view('admin.pages.Product.Index'); })->name('admin.Product');
-    //Route::get('/product', [ProductController::class, 'index'])->name('admin.products.index');
-    Route::get('/product/edit', function () { return view('admin.pages.Product.Edit'); })->name('admin.Product.Edit');
+
+Route::prefix('admin')->group(function () {
+
+    Route::get('/dashboard', [DashboardController::class, 'home'])->name('admin.pages.dashboard.index');
+
+   // Route::get('/product', function () { return view('admin.pages.Product.Index'); })->name('admin.Product.index');
+    Route::get('/product', [ProductController::class, 'index'])->name('admin.products.index');
+    Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
+    // Route để hiển thị form thêm sản phẩm
+    Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+    // Route để xử lý việc lưu sản phẩm mới (sẽ được tạo ở bước sau)
+    Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+    //Route::get('/product/edit', function () { return view('admin.pages.Product.Edit'); })->name('admin.Product.Edit');
     Route::get('/product/detail', function () { return view('admin.pages.Product.Detail'); })->name('admin.Product.Detail');
-    Route::get('/product/add', function () { return view('admin.pages.Product.Add'); })->name('admin.Product.Add');
+    //Route::get('/product/add', function () { return view('admin.pages.Product.Add'); })->name('admin.Product.Add');
 
 
     // Route::get('/category', function () { return view('admin.pages.Category.Index'); })->name('admin.Category');
@@ -70,9 +77,3 @@ Route::prefix('admin')->group(function () {
     //Route::get('/banner/add', function () { return view('admin.pages.Banner.create'); })->name('admin.banners.create');
 
 });
-
-
-
-
-
-

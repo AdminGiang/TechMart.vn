@@ -20,7 +20,7 @@
                     <th>Thao tác</th>
                 </tr>
             </thead>
-            {{-- <tbody>
+            <tbody>
                 @foreach ($products as $product)
                 <tr>
                     <td>{{ $product->id }}</td>
@@ -37,8 +37,8 @@
                         <a href="{{ route('admin.Product.Detail') }}"><button class="detail-btn">Chi Tiết</button></a>
                     </td>
                 </tr>
-                @endforeach 
-            </tbody> --}}
+                @endforeach
+            </tbody>
             <tbody>
                 @if(isset($products) && count($products) > 0)
                     @foreach ($products as $product)

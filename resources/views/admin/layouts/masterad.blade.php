@@ -10,16 +10,17 @@
     <meta name="description" content="" />
     <meta name="keywords" content="bootstrap, bootstrap4" />
 
-    {{-- CSS HEADERSEARCH --}}
-    <link rel="stylesheet" href="{{ asset('assets/admin/css/headsearch.css') }}">
-    {{-- CSS HEADERSEARCH --}}
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/sb-admin-2.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/morris.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/metisMenu.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/headsearch.css') }}"> <!-- CSS HEADER -->
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/sidebar.css') }}"> <!-- Sidebar -->
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/dashboard.css') }}"> <!-- Dashboard -->
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/main.css') }}"> <!-- Main -->
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/font-awesome.min.css') }}"> <!-- Font Awesome -->
 
-    {{-- CSS SIDEBAR --}}
-    <link rel="stylesheet" href="{{ asset('assets/admin/css/sidebar.css') }}">
-
-    {{-- CSS MAIN --}}
-    <link rel="stylesheet" href="{{ asset('assets/admin/css/main.css') }}">
-    {{-- CSS MAIN --}}
+    {{-- CSS-DASHBOARD --}}
 
     {{-- icon --}}
     <link rel="stylesheet"
@@ -38,10 +39,21 @@
         @yield('content')
     </div>
 
-    <!--   Core JS Files   -->
 
-    <script src="{{ asset('assets/admin/js/siderbar.js') }} " defer></script>
+
+    {{-- JS FOR DASHBOARD --}}
+    <script src="{{ asset('assets/admin/js/dash/jquery.min.js') }}" defer></script>
+    <script src="{{ asset('assets/admin/js/dash/bootstrap.min.js') }}" defer></script>
+    <script src="{{ asset('assets/admin/js/dash/metisMenu.min.js') }}" defer></script>
+    <script src="{{ asset('assets/admin/js/dash/raphael.min.js') }}" defer></script>
+    <script src="{{ asset('assets/admin/js/dash/morris.min.js') }}" defer></script>
+    <script src="{{ asset('assets/admin/js/dash/morris-data.js') }}" defer></script>
+    <script src="{{ asset('assets/admin/js/dash/sb-admin-2.min.js') }}" defer></script>
+
+      {{-- JS SIDEBAR--}}
+    <script src="{{ asset('assets/admin/js/siderbar.js') }}" defer></script>
     <script src="{{ asset('assets/admin/js/headsearch.js') }}" defer></script>
+
 </body>
 
 </html>

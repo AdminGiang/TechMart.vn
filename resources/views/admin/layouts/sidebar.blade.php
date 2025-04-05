@@ -39,7 +39,7 @@
                 <ul class="dropdown-menu">
                     <li class="nav-item"><a href="{{ route('categories.index') }}" class="nav-link dropdown-link">Danh
                             Mục</a></li>
-                    <li class="nav-item"><a href="{{ route('admin.Product') }}" class="nav-link dropdown-link">Sản
+                    <li class="nav-item"><a href="{{ route('admin.products.index') }}" class="nav-link dropdown-link">Sản
                             Phẩm</a></li>
                     <li class="nav-item"><a href="{{ route('admin.Brand') }}" class="nav-link dropdown-link">Thuơng
                             Hiệu</a></li>

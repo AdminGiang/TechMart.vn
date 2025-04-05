@@ -2,17 +2,19 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\CartController;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\CouponsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\VnPay_paymentController;
+use App\Http\Controllers\CouponsController;
 
+require __DIR__.'/admin.php';
 
 Route::get('/home', [HomeController::class, 'home'])->name('home')->middleware('auth'); // Trang chủ
 
@@ -91,6 +93,13 @@ Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('
 Route::post('/register', [RegisterController::class, 'register']); // Xử lý đăng ký
 
 Route::get('/', [LoginController::class, 'showloginForm'])->name('login');
+
+
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/admin/dashboard', [DashboardController::class, 'home'])->name('admin.dashboard')->middleware('admin');
+// });
+
+
 Route::post('/', [LoginController::class, 'login']); // Xử lý đăng nhập
 
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
@@ -98,4 +107,5 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('/search-suggestions', [ProductController::class, 'searchSuggestions'])->name('search.suggestions');
 Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
 
-
+//Cổng Thanh Toán
+Route::get('/vnpay_payment', [VnPay_paymentController::class, 'vnpay_payment'])->name('vnpay_payment'); // Trang thanh toán

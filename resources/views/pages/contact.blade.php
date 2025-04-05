@@ -80,23 +80,23 @@
                                     <div class="form-group">
                                         <label class="text-black" for="name">Họ Và Tên</label>
                                         <input type="text" class="form-control" id="name"
-                                            value="{{ $name ?? 'Tên không tồn tại' }}" readonly>
+                                            value="{{ session('registered_name', '') }}" required>
                                     </div>
 
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label class="text-black" for="phone">Số Điện Thoại </label>
-                                        <input type="number" class="form-control" id="phone"
-                                            value="{{ $phone }}" readonly>
+                                        <input type="tel" class="form-control" id="phone"
+                                            value="{{ session('registered_phone', '') }}" required>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="text-black" for="email">Địa chỉ email</label>
-                                <input type="email" class="form-control" id="email" value="{{ $email }}"
-                                    readonly>
+                                <input type="email" class="form-control" id="email" value="{{ session('registered_email', '') }}"
+                                required>
                             </div>
 
                             <div class="form-group mb-5">

@@ -63,36 +63,17 @@ class ProductController extends Controller
     return redirect()->route('admin.products.index')->with('success', 'Thêm sản phẩm thành công!');
 }
 
-<<<<<<< HEAD
-    
     public function show(Products $product)
-=======
-
-    public function show(string $id)
->>>>>>> 937056a821d75fb9b8463e1ccf24e25f54a4ab03
     {
         return view('admin.pages.product.detail', compact('product'));
     }
 
-<<<<<<< HEAD
-   
     public function edit(Products $product)
-=======
-
-    public function edit(string $id)
->>>>>>> 937056a821d75fb9b8463e1ccf24e25f54a4ab03
     {
-       
         return view('admin.pages.Product.edit', compact('product'));
     }
 
-<<<<<<< HEAD
-    
     public function update(Request $request, Products $product)
-=======
-
-    public function update(Request $request, string $id)
->>>>>>> 937056a821d75fb9b8463e1ccf24e25f54a4ab03
     {
         // Validate dữ liệu đầu vào
         $request->validate([

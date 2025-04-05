@@ -1,39 +1,27 @@
 @extends('admin.layouts.masterad')
-@section('title', 'Thương Hiệu')
+@section('title', 'Chi tiết sản phẩm')
 @section('content')
 
-    <div class="content" id="content">
-        <h1>Chi Tiết Sản Phẩm</h1>
-
-        <div class="product-detail-container">
-            <!-- Hình ảnh sản phẩm -->
-            <div class="product-image">
-                <img src="{{ asset('assets/images/img-iphone-banner.png') }}" alt="">
-            </div>
-
-            <div class="product-info">
-                <h2>ID</h2>
-                <h2>Iphoen 14 Promax Giá trị SIêu Cao</h2>
-                <h2>Thương Hiệu : Apple</h2>
-                <h2>Danh Mục : SmartPhone</h2>
-                <p class="price">Giá : 28,000,000 </p>
-                <p class="quantity">Ngày Tạo :  21/12/2121 </p>
-                <p class="quantity">Ngày Cập Nhật : 12/21/1212 </p>
-                <p class="quantity">Số lượng trong kho : 18</p>
-                <p class="status">
-                    Trạng thái: Hiển thị
-                    <span class="">
-
-                    </span>
-                </p>
-                <p class="description"> Mô tả :  ádfddđâsdhjọadoiạdoiạdi ádfddđâsdhjọadoiạdoiạdi ádfddđâsdhjọadoiạdoiạdi ádfddđâsdhjọadoiạdoiạdiádfddđâsdhjọadoiạdoiạdiọadio</p>
-
-                <!-- Nút hành động -->
-                <div class="action-buttons">
-                    <a href="{{ route('admin.Product.Edit') }}" class="btn btn-edit">Chỉnh sửa sản phẩm</a>
-                    <a href="{{ route('admin.Product') }}" class="btn btn-back">Quay lại danh sách</a>
-                </div>
-            </div>
+<div class="content" id="content">
+    <h1 class="mt-4 mb-4">Chi tiết sản phẩm</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ $product->name }}</h5>
+            @if ($product->image)
+                <img src="{{ asset('products/images/' . $product->image) }}" alt="{{ $product->name }}" class="img-fluid mb-3">
+            @else
+                <p class="mb-3">Không có hình ảnh</p>
+            @endif
+            <p class="card-text"><strong>Mô tả:</strong> {{ $product->description ?? 'Không có mô tả' }}</p>
+            <p class="card-text"><strong>Danh mục:</strong> {{ $product->category->name ?? 'N/A' }}</p>
+            <p class="card-text"><strong>Thương hiệu:</strong> {{ $product->brand->name ?? 'N/A' }}</p>
+            <p class="card-text"><strong>Giá:</strong> {{ number_format($product->price) }} VND</p>
+            <p class="card-text"><strong>Số lượng:</strong> {{ $product->stock }}</p>
+            <p class="card-text"><strong>Trạng thái:</strong> {{ $product->stock_status }}</p>
+            <p class="card-text"><strong>Ngày tạo:</strong> {{ $product->created_at->format('Y-m-d H:i:s') }}</p>
+            <p class="card-text"><strong>Ngày cập nhật:</strong> {{ $product->updated_at->format('Y-m-d H:i:s') }}</p>
+            <a href="{{ route('admin.products.index') }}" class="btn btn-secondary">Quay lại</a>
         </div>
     </div>
-    @endsection
+</div>
+@endsection

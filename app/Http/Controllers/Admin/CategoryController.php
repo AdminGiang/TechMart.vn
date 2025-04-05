@@ -12,81 +12,47 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('admin.pages.category.index', compact('categories'));
+        return view('admin.pages.Category.index', compact('categories'));
     }
 
     public function create()
     {
-        return view('admin.pages.category.add');
+        return view('admin.pages.Category.create');
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255|unique:categories,slug',
-            'image' => 'nullable|image|max:2048',
-            'description' => 'nullable|string',
-            'status' => 'required|boolean',
+            'name' => 'required|unique:categories|max:255',
         ]);
 
-        $slug = $request->slug ?? Str::slug($request->name);
+        Category::create($request->all());
 
-        $imagePath = $request->file('image') ? $request->file('image')->store('categories', 'public') : null;
-
-        Category::create([
-            'name' => $request->name,
-            'slug' => $slug,
-            'image' => $imagePath,
-            'description' => $request->description,
-            'status' => $request->status,
-        ]);
-
-        return redirect()->route('categories.index')->with('message', 'Danh mục đã được thêm thành công!');
+        return redirect()->route('admin.pages.Category.index')->with('success', 'Thêm danh mục thành công!');
     }
 
-    public function edit($id)
+    public function edit(Category $category)
     {
-        $category = Category::findOrFail($id);
-        return view('admin.pages.category.edit', compact('category'));
+        return view('admin.pages.Category.edit', compact('category'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255|unique:categories,slug,' . $id,
-            'image' => 'nullable|image|max:2048',
-            'description' => 'nullable|string',
-            'status' => 'required|boolean',
+            'name' => 'required|unique:categories,name,' . $category->id . '|max:255',
         ]);
 
-        $category = Category::findOrFail($id);
+        $category->update($request->all());
 
-        $slug = $request->slug ?? Str::slug($request->name);
-
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('categories', 'public');
-            $category->update(['image' => $imagePath]);
-        }
-
-        $category->update([
-            'name' => $request->name,
-            'slug' => $slug,
-            'description' => $request->description,
-            'status' => $request->status,
-        ]);
-
-        return redirect()->route('categories.index')->with('message', 'Danh mục đã được cập nhật!');
+        return redirect()->route('admin.pages.Category.index')->with('success', 'Cập nhật danh mục thành công!');
     }
 
 
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        $category = Category::findOrFail($id);
         $category->delete();
 
-        return redirect()->route('categories.index')->with('message', 'Danh mục đã được xóa!');
+        return redirect()->route('admin.pages.Category.index')->with('success', 'Xóa danh mục thành công!');
     }
 
 }

@@ -37,7 +37,7 @@
                     <span class="dropdown-icon material-symbols-rounded">keyboard_arrow_down</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li class="nav-item"><a href="{{ route('categories.index') }}" class="nav-link dropdown-link">Danh
+                    <li class="nav-item"><a  href="{{ route('admin.pages.Category.index') }}" class="nav-link dropdown-link">Danh
                             Mục</a></li>
                     <li class="nav-item"><a href="{{ route('admin.products.index') }}" class="nav-link dropdown-link">Sản
                             Phẩm</a></li>

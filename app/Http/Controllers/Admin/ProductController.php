@@ -60,28 +60,58 @@ class ProductController extends Controller
 
     Products::create($data);
 
-    return redirect()->back()->with('success', 'Thêm sản phẩm thành công!');
+    return redirect()->route('admin.products.index')->with('success', 'Thêm sản phẩm thành công!');
 }
 
     
-    public function show(string $id)
+    public function show(Products $product)
     {
-        //
+        return view('admin.pages.product.detail', compact('product'));
     }
 
    
-    public function edit(string $id)
+    public function edit(Products $product)
     {
-        $product = Products::findOrFail($id);
+       
         return view('admin.pages.Product.edit', compact('product'));
     }
 
     
-    public function update(Request $request, string $id)
+    public function update(Request $request, Products $product)
     {
-        $product = Products::findOrFail($id);
-        $product->update($request->all());
-        return redirect()->route('product.index')->with('success', 'Cập nhật thành công!');
+        // Validate dữ liệu đầu vào
+        $request->validate([
+            'name' => 'required',
+            'description' => 'nullable',
+            'category_id' => 'required|exists:categories,id',
+            'brand_id' => 'required|exists:brands,id',
+            'price' => 'required|numeric',
+            'discount' => 'nullable|integer',
+            'image' => 'nullable|image|mimes:jpeg,jpg,png', // Chú ý: cần xử lý file upload
+            'stock' => 'required|integer',
+            'warranty_period' => 'nullable|string',
+            'stock_status' => 'required|string',
+            // ... các trường khác
+        ]);
+
+        $data = $request->except('image'); // Lấy tất cả dữ liệu trừ trường image
+
+        // Xử lý tải lên hình ảnh nếu có
+        if ($request->hasFile('image')) {
+            // Xóa hình ảnh cũ (nếu có)
+            if ($product->image && file_exists(public_path('products/images/' . $product->image))) {
+                unlink(public_path('products/images/' . $product->image));
+            }
+
+            $image = $request->file('image');
+            $filename = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path('products/images'), $filename);
+            $data['image'] = $filename;
+        }
+
+        $product->update($data);
+
+        return redirect()->route('admin.products.index')->with('success', 'Cập nhật sản phẩm thành công!');
     }
 
    

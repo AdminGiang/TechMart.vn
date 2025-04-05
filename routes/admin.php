@@ -14,29 +14,31 @@ use App\Http\Controllers\AdminController;
 Route::prefix('admin')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'home'])->name('admin.pages.dashboard.index');
-
-   // Route::get('/product', function () { return view('admin.pages.Product.Index'); })->name('admin.Product.index');
+   // Route để hiển thị danh sách sản phẩm
     Route::get('/product', [ProductController::class, 'index'])->name('admin.products.index');
+    // Route để xử lý việc xóa sản phẩm
     Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
     // Route để hiển thị form thêm sản phẩm
     Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
-    // Route để xử lý việc lưu sản phẩm mới (sẽ được tạo ở bước sau)
+    // Route để xử lý việc lưu sản phẩm mới 
     Route::post('/products', [ProductController::class, 'store'])->name('products.store');
-    //Route::get('/product/edit', function () { return view('admin.pages.Product.Edit'); })->name('admin.Product.Edit');
-    Route::get('/product/detail', function () { return view('admin.pages.Product.Detail'); })->name('admin.Product.Detail');
-    //Route::get('/product/add', function () { return view('admin.pages.Product.Add'); })->name('admin.Product.Add');
+    // Route cho xem chi tiết sản phẩm
+    Route::get('/admin/products/{product}', [ProductController::class, 'show'])->name('products.show');
+    // Route cho hiển thị form sửa sản phẩm 
+    Route::get('/admin/products/{product}/edit', [ProductController::class, 'edit'])->name('admin.products.edit');
+    // Route cho xử lý việc cập nhật sản phẩm (method POST hoặc PUT/PATCH)
+    Route::match(['put', 'patch'], '/admin/products/{product}', [ProductController::class, 'update'])->name('admin.products.update');
 
 
-    // Route::get('/category', function () { return view('admin.pages.Category.Index'); })->name('admin.Category');
-    // Route::get('/category/edit', function () { return view('admin.pages.Category.Edit'); })->name('admin.Category.Edit');
-    // Route::get('/category/detail', function () { return view('admin.pages.Category.Detail'); })->name('admin.Category.Detail');
-    // Route::get('/category/add', function () { return view('admin.pages.Category.Add'); })->name('admin.Category.Add');
-    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
-    Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
-    Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
-    Route::get('/categories/{id}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
-    Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('categories.update');
-    Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+
+    Route::prefix('admin/categories')->name('admin.pages.Category.')->group(function () {
+        Route::get('/', [CategoryController::class, 'index'])->name('index');
+        Route::get('/create', [CategoryController::class, 'create'])->name('create');
+        Route::post('/', [CategoryController::class, 'store'])->name('store');
+        Route::get('/{category}/edit', [CategoryController::class, 'edit'])->name('edit');
+        Route::match(['put', 'patch'], '/{category}', [CategoryController::class, 'update'])->name('update');
+        Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('destroy');
+    });
 
 
     Route::get('/brand', function () { return view('admin.pages.Brand.Index'); })->name('admin.Brand');

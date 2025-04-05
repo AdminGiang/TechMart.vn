@@ -79,9 +79,3 @@ Route::prefix('admin')->group(function () {
     //Route::get('/banner/add', function () { return view('admin.pages.Banner.create'); })->name('admin.banners.create');
 
 });
-
-
-
-
-
-

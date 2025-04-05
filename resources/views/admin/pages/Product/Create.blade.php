@@ -4,7 +4,7 @@
 <div class="content" id="content">
     <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data" class="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md space-y-4">
         @csrf
-    
+
         {{-- Tên sản phẩm --}}
         <div>
             <label class="block font-medium">Tên sản phẩm:</label>
@@ -13,8 +13,12 @@
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
+<<<<<<< HEAD
     
     
+=======
+
+>>>>>>> 937056a821d75fb9b8463e1ccf24e25f54a4ab03
         {{-- Mô tả --}}
         <div>
             <label class="block font-medium">Mô tả:</label>
@@ -23,7 +27,7 @@
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
-    
+
         {{-- Danh mục --}}
         <div>
             <label class="block font-medium">Danh mục:</label>
@@ -39,7 +43,7 @@
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
-    
+
         {{-- Thương hiệu --}}
         <div>
             <label class="block font-medium">Thương hiệu:</label>
@@ -55,7 +59,7 @@
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
-    
+
         {{-- Giá --}}
         <div>
             <label class="block font-medium">Giá (VNĐ):</label>
@@ -64,7 +68,7 @@
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
-    
+
         {{-- Giảm giá --}}
         <div>
             <label class="block font-medium">Giảm giá (%):</label>
@@ -73,7 +77,7 @@
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
-    
+
         {{-- Hình ảnh + Preview --}}
         <div>
             <label class="block font-medium">Hình ảnh:</label>
@@ -83,7 +87,7 @@
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
-    
+
         {{-- Số lượng --}}
         <div>
             <label class="block font-medium">Số lượng trong kho:</label>
@@ -92,7 +96,7 @@
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
-    
+
         {{-- Bảo hành --}}
         <div>
             <label class="block font-medium">Thời hạn bảo hành:</label>
@@ -101,7 +105,7 @@
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
-    
+
         {{-- Trạng thái --}}
         <div>
             <label class="block font-medium">Trạng thái:</label>
@@ -113,7 +117,7 @@
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
-    
+
         {{-- Nút submit --}}
         <div>
             <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Thêm sản phẩm</button>
@@ -121,7 +125,7 @@
     </form>
 </div>
 
-    
+
     @endsection
 
     @section('scripts')
@@ -133,7 +137,7 @@
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    
+
     {{-- Preview ảnh script --}}
     <script>
     function previewImage(event) {
@@ -146,6 +150,6 @@
         reader.readAsDataURL(event.target.files[0]);
     }
     </script>
-    
+
 
 @endsection

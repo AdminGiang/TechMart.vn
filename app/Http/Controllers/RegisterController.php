@@ -61,5 +61,5 @@ class RegisterController extends Controller
             return back()->with('error', 'Có lỗi xảy ra. Vui lòng thử lại sau.')->withInput();
         }
     }
-    
+
 }

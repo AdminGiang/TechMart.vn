@@ -21,7 +21,7 @@
                     <th>Thao tác</th>
                 </tr>
             </thead>
-            
+
             <tbody>
                 {{-- @if (session('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>

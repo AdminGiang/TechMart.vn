@@ -12,28 +12,28 @@ use Illuminate\Support\Facades\Log;
 
 class ProductController extends Controller
 {
-    
+
     public function index()
     {
         $products = Products::all();
         return view('admin.pages.Product.index', compact('products'));
     }
 
-    
+
     public function create()
     {
-        
+
         $categories = Category::all();
         $brands = Brand::all();
         return view('admin.pages.product.create', compact('categories', 'brands'));
     }
 
-   
+
     public function store(Request $request)
 {
     if ($request->hasFile('hinh_anh')) {
         $path = $request->file('hinh_anh')->store('products', 'public');
-        
+
     }
 
     $request->validate([
@@ -63,21 +63,36 @@ class ProductController extends Controller
     return redirect()->route('admin.products.index')->with('success', 'Thêm sản phẩm thành công!');
 }
 
+<<<<<<< HEAD
     
     public function show(Products $product)
+=======
+
+    public function show(string $id)
+>>>>>>> 937056a821d75fb9b8463e1ccf24e25f54a4ab03
     {
         return view('admin.pages.product.detail', compact('product'));
     }
 
+<<<<<<< HEAD
    
     public function edit(Products $product)
+=======
+
+    public function edit(string $id)
+>>>>>>> 937056a821d75fb9b8463e1ccf24e25f54a4ab03
     {
        
         return view('admin.pages.Product.edit', compact('product'));
     }
 
+<<<<<<< HEAD
     
     public function update(Request $request, Products $product)
+=======
+
+    public function update(Request $request, string $id)
+>>>>>>> 937056a821d75fb9b8463e1ccf24e25f54a4ab03
     {
         // Validate dữ liệu đầu vào
         $request->validate([
@@ -114,7 +129,7 @@ class ProductController extends Controller
         return redirect()->route('admin.products.index')->with('success', 'Cập nhật sản phẩm thành công!');
     }
 
-   
+
     public function destroy(string $id)
     {
         // 1. Xác thực và ủy quyền (ví dụ sử dụng Gate)

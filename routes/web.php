@@ -14,6 +14,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\VnPay_paymentController;
 use App\Http\Controllers\CouponsController;
 
+require __DIR__.'/admin.php';
 
 Route::get('/home', [HomeController::class, 'home'])->name('home')->middleware('auth'); // Trang chủ
 

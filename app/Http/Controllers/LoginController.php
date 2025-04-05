@@ -26,7 +26,7 @@ class LoginController extends Controller
             $user = Auth::user(); 
             // dd($user->role);
             if ($user->role === 'admin') {
-                return redirect()->route('admin.dashboard'); // Chuyển hướng admin đến dashboard
+                return redirect()->route('admin.pages.dashboard.index'); // Chuyển hướng admin đến dashboard
             }
     
             return redirect()->route('home'); // Người dùng bình thường về trang chủ

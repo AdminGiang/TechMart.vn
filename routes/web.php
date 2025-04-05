@@ -107,5 +107,4 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('/search-suggestions', [ProductController::class, 'searchSuggestions'])->name('search.suggestions');
 Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
 
-//Cổng Thanh Toán
-Route::get('/vnpay_payment', [VnPay_paymentController::class, 'vnpay_payment'])->name('vnpay_payment'); // Trang thanh toán
+

@@ -22,9 +22,9 @@
                     <td>24/03/2025</td>
                     <td>24/03/2025</td>
                     <td>
-                        <a href="{{ route('admin.Product.edit') }}"><button class="edit-btn">Sửa</button></a>
-                        <a href="{{ route('admin.Product.edit') }}"><button class="delete-btn">Xóa</button></a>
-                        <a href="{{ route('admin.Product.edit') }}"><button class="detail-btn">Chi Tiết</button></a>
+                        <a href=""><button class="edit-btn">Sửa</button></a>
+                        <a href=""><button class="delete-btn">Xóa</button></a>
+                        <a href=""><button class="detail-btn">Chi Tiết</button></a>
                     </td>
                 </tr>
             </tbody>

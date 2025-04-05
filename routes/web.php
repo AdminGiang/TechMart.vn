@@ -11,11 +11,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
-<<<<<<< HEAD
-=======
 use App\Http\Controllers\VnPay_paymentController;
 use App\Http\Controllers\CouponsController;
->>>>>>> f9a37456ef1f959bcfec76ee97792e81974099d1
 
 
 Route::get('/home', [HomeController::class, 'home'])->name('home')->middleware('auth'); // Trang chủ

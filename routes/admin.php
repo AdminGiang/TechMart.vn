@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\AdminController;
 
@@ -20,11 +21,11 @@ Route::prefix('admin')->group(function () {
     Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
     // Route để hiển thị form thêm sản phẩm
     Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
-    // Route để xử lý việc lưu sản phẩm mới 
+    // Route để xử lý việc lưu sản phẩm mới
     Route::post('/products', [ProductController::class, 'store'])->name('products.store');
     // Route cho xem chi tiết sản phẩm
     Route::get('/admin/products/{product}', [ProductController::class, 'show'])->name('products.show');
-    // Route cho hiển thị form sửa sản phẩm 
+    // Route cho hiển thị form sửa sản phẩm
     Route::get('/admin/products/{product}/edit', [ProductController::class, 'edit'])->name('admin.products.edit');
     // Route cho xử lý việc cập nhật sản phẩm (method POST hoặc PUT/PATCH)
     Route::match(['put', 'patch'], '/admin/products/{product}', [ProductController::class, 'update'])->name('admin.products.update');
@@ -40,11 +41,15 @@ Route::prefix('admin')->group(function () {
         Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('destroy');
     });
 
+    Route::prefix('admin/brands')->name('admin.pages.Brand.')->group(function () {
+        Route::get('/', [BrandController::class, 'index'])->name('index');
+        Route::get('/create', [BrandController::class, 'create'])->name('create');
+        Route::post('/', [BrandController::class, 'store'])->name('store');
+        Route::get('/{brand}/edit', [BrandController::class, 'edit'])->name('edit');
+        Route::match(['put', 'patch'], '/{brand}', [BrandController::class, 'update'])->name('update');
+        Route::delete('/{brand}', [BrandController::class, 'destroy'])->name('destroy');
+    });
 
-    Route::get('/brand', function () { return view('admin.pages.Brand.Index'); })->name('admin.Brand');
-    Route::get('/brand/detail', function () { return view('admin.pages.Brand.Detail'); })->name('admin.Brand.Detail');
-    Route::get('/brand/edit', function () { return view('admin.pages.Brand.Edit'); })->name('admin.Brand.Edit');
-    Route::get('/brand/add', function () { return view('admin.pages.Brand.Add'); })->name('admin.Brand.Add');
 
 
     Route::get('/Coupon', function () { return view('admin.pages.Coupon.Index'); })->name('admin.Coupon');

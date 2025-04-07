@@ -41,7 +41,7 @@
                             Mục</a></li>
                     <li class="nav-item"><a href="{{ route('admin.products.index') }}" class="nav-link dropdown-link">Sản
                             Phẩm</a></li>
-                    <li class="nav-item"><a href="{{ route('admin.Brand') }}" class="nav-link dropdown-link">Thuơng
+                    <li class="nav-item"><a href="{{ route('admin.pages.Brand.index') }}" class="nav-link dropdown-link">Thuơng
                             Hiệu</a></li>
                     <li class="nav-item"><a href="{{ route('admin.Coupon') }}" class="nav-link dropdown-link">Mã Giảm
                             Giá</a></li>

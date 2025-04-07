@@ -1,4 +1,4 @@
-@extends('admin.layouts.masterad')
+{{-- @extends('admin.layouts.masterad')
 @section('title', 'Thương Hiệu')
 @section('content')
 
@@ -33,4 +33,4 @@
             </div>
         </div>
     </div>
-    @endsection
+    @endsection --}}

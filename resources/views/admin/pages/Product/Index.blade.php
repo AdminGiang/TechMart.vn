@@ -4,7 +4,7 @@
 
 <div class="content" id="content">
     <h1>Danh Sách Sản Phẩm</h1>
-    <a href="{{route('admin.products.create')}}"><button class="addbtn">Thêm Sản Phẩm</button></a>
+    <a href="{{route('products.create')}}"><button class="addbtn">Thêm Sản Phẩm</button></a>
     <div class="table-container">
         <table class="product-table">
             <thead>
@@ -54,7 +54,7 @@
                                     @method('DELETE')
                                     <button type="submit" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')" class="delete-btn">Xóa</button>
                                 </form>
-                                <a href="{{ route('admin.products.show', $product->id) }}"><button class="detail-btn">Chi Tiết</button></a>
+                                <a href="{{ route('products.show', $product->id) }}"><button class="detail-btn">Chi Tiết</button></a>
                             </td>
                         </tr>
                     @endforeach

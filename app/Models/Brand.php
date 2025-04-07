@@ -9,12 +9,12 @@ class Brand extends Model
 {
     use HasFactory;
 
-    protected $table = 'brands'; // Tên bảng trong database
-    protected $fillable = ['name', 'slug', 'logo', 'description', 'status'];
+    protected $fillable = ['name'];
 
-    // Quan hệ với sản phẩm: Một thương hiệu có nhiều sản phẩm
+    // Một thương hiệu có nhiều sản phẩm
     public function products()
     {
-        return $this->hasMany(Products::class, 'brand_id'); // Một thương hiệu có nhiều sản phẩm
+        return $this->hasMany(Products::class);
     }
 }
+

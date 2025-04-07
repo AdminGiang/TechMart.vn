@@ -1,34 +1,22 @@
 @extends('admin.layouts.masterad')
-@section('title', 'Thương Hiệu')
+@section('title', 'Thêm Thương Hiệu')
 @section('content')
 
-<div class="content" id="content">
-    <h1>Thêm Thương Hiệu</h1>
-    <form class="form-container">
-        <div class="form-group">
-            <label for="">Hình ảnh Thương Hiệu</label>
-            <input type="file" id="" name="">
-            <img src=" " alt="Hình ảnh Thương Hiệu" class="preview-image">
-
+<div class="content">
+    <h1 class="text-center">Quản lý Thương Hiệu</h1>
+    <form action="{{ route('admin.pages.Brand.store') }}" method="POST">
+        @csrf
+        <div class="mb-3">
+            <label for="name" class="form-label">Tên Thương Hiệu</label>
+            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required>
+            @error('name')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
-        <div class="form-group">
-            <label for="name">Tên Thương Hiệu :</label>
-            <input type="text" id="" name="" placeholder="Iphone" required>
-        </div>
-        <div class="form-group">
-            <label for="">Ngày Tạo:</label>
-            <input type="date" id="" name="" required>
-        </div>
-        <div class="form-group">
-            <label for="">Ngày Cập Nhật:</label>
-            <input type="date" id="" name="" required>
-        </div>
-        <hr>
-        <div class="button-container">
-            <button class="submit-button-add" type="submit">THÊM</button>
-            <a href="{{ route('admin.Brand') }}" class="submit-button-destroy">HỦY</a>
-        </div>
-
+        <button type="submit" class="edit-btn" href="{{ route('admin.pages.Brand.index') }}">Lưu</button>
+        <a href="{{ route('admin.pages.Brand.index') }}" class="delete-btn">Hủy</a>
     </form>
 </div>
+
+
 @endsection

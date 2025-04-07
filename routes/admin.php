@@ -19,7 +19,7 @@ Route::prefix('admin')->group(function () {
     // Route để xử lý việc xóa sản phẩm
     Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
     // Route để hiển thị form thêm sản phẩm
-    Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+    Route::get('/products/create', [ProductController::class, 'create'])->name('admin.products.create');
     // Route để xử lý việc lưu sản phẩm mới 
     Route::post('/products', [ProductController::class, 'store'])->name('products.store');
     // Route cho xem chi tiết sản phẩm

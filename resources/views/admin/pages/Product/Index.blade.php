@@ -4,7 +4,7 @@
 
 <div class="content" id="content">
     <h1>Danh Sách Sản Phẩm</h1>
-    <a href="{{route('admin.products.create')}}"><button class="addbtn">Thêm Sản Phẩm</button></a>
+    <a href="{{route('admin.products.create')}}"> <button class="addbtn">Thêm Sản Phẩm</button> </a>
     <div class="table-container">
         <table class="product-table">
             <thead>

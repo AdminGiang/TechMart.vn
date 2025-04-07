@@ -4,7 +4,6 @@
 <div class="content" id="content">
     <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data" class="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md space-y-4">
         @csrf
-
         {{-- Tên sản phẩm --}}
         <div>
             <label class="block font-medium">Tên sản phẩm:</label>
@@ -13,12 +12,6 @@
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
-<<<<<<< HEAD
-    
-    
-=======
-
->>>>>>> 937056a821d75fb9b8463e1ccf24e25f54a4ab03
         {{-- Mô tả --}}
         <div>
             <label class="block font-medium">Mô tả:</label>

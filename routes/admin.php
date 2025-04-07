@@ -5,8 +5,8 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BannerController;
-use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\AdminController;
 
 
@@ -20,7 +20,7 @@ Route::prefix('admin')->group(function () {
     // Route để xử lý việc xóa sản phẩm
     Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
     // Route để hiển thị form thêm sản phẩm
-    Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+    Route::get('/products/create', [ProductController::class, 'create'])->name('admin.products.create');
     // Route để xử lý việc lưu sản phẩm mới
     Route::post('/products', [ProductController::class, 'store'])->name('products.store');
     // Route cho xem chi tiết sản phẩm
@@ -41,6 +41,7 @@ Route::prefix('admin')->group(function () {
         Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('destroy');
     });
 
+
     Route::prefix('admin/brands')->name('admin.pages.Brand.')->group(function () {
         Route::get('/', [BrandController::class, 'index'])->name('index');
         Route::get('/create', [BrandController::class, 'create'])->name('create');
@@ -49,8 +50,6 @@ Route::prefix('admin')->group(function () {
         Route::match(['put', 'patch'], '/{brand}', [BrandController::class, 'update'])->name('update');
         Route::delete('/{brand}', [BrandController::class, 'destroy'])->name('destroy');
     });
-
-
 
     Route::get('/Coupon', function () { return view('admin.pages.Coupon.Index'); })->name('admin.Coupon');
     Route::get('/Coupon/edit', function () { return view('admin.pages.Coupon.Edit'); })->name('admin.Coupon.Edit');

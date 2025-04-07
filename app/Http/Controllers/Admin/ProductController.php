@@ -63,10 +63,12 @@ class ProductController extends Controller
     return redirect()->route('admin.products.index')->with('success', 'Thêm sản phẩm thành công!');
 }
 
+
     public function show(Products $product)
     {
         return view('admin.pages.product.detail', compact('product'));
     }
+
 
     public function edit(Products $product)
     {
@@ -114,7 +116,7 @@ class ProductController extends Controller
     public function destroy(string $id)
     {
         // 1. Xác thực và ủy quyền (ví dụ sử dụng Gate)
-        if (!Gate::allows('delete-product')) { // Hoặc một logic kiểm tra quyền khác
+        if (!Gate::allows('delete-product')) {
             abort(403, 'Bạn không có quyền xóa sản phẩm này.');
         }
 
@@ -130,7 +132,7 @@ class ProductController extends Controller
             $product->delete(); // Hoặc Product::destroy($id);
             return redirect()->route('admin.products.index')->with('success', 'Xóa sản phẩm thành công!');
         } catch (\Exception $e) {
-            // Ghi log lỗi (khuyến nghị)
+            // Ghi log lỗi
             Log::error('Lỗi xóa sản phẩm ID ' . $id . ': ' . $e->getMessage());
             return redirect()->route('admin.products.index')->with('error', 'Đã xảy ra lỗi khi xóa sản phẩm. Vui lòng thử lại sau.');
         }

@@ -4,6 +4,12 @@
 
 <div class="content" id="content">
     <h1>Danh Sách Sản Phẩm</h1>
+    <div class="search-bar">
+        <form method="GET" action="{{ route('admin.pages.Banners.index') }}">
+            <input type="text" name="search" placeholder="Tìm kiếm..." value="{{ request('search') }}">
+            <button type="submit">Tìm kiếm</button>
+        </form>
+    </div>
     <a href="{{route('admin.products.create')}}"> <button class="addbtn">Thêm Sản Phẩm</button> </a>
     <div class="table-container">
         <table class="product-table">

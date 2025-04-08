@@ -11,12 +11,15 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ChatbotController;
 use App\Http\Controllers\VnPay_paymentController;
 use App\Http\Controllers\CouponsController;
 
 require __DIR__.'/admin.php';
 
-Route::get('/home', [HomeController::class, 'home'])->name('home')->middleware('auth'); // Trang chủ
+Route::get('/', [HomeController::class, 'home'])->name('home'); // Trang chủ
+
+
 
 Route::get('/contact', function () { // Trang liên hệ
     return view('pages.contact');
@@ -92,15 +95,11 @@ Route::get('/profile', function () {
 Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register'); // Trang đăng ký
 Route::post('/register', [RegisterController::class, 'register']); // Xử lý đăng ký
 
-Route::get('/', [LoginController::class, 'showloginForm'])->name('login');
 
 
-// Route::middleware(['auth'])->group(function () {
-//     Route::get('/admin/dashboard', [DashboardController::class, 'home'])->name('admin.dashboard')->middleware('admin');
-// });
+Route::get('/login', [LoginController::class, 'showloginForm'])->name('login');
 
-
-Route::post('/', [LoginController::class, 'login']); // Xử lý đăng nhập
+Route::post('/login', [LoginController::class, 'login']); // Xử lý đăng nhập
 
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 

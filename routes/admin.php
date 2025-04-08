@@ -51,6 +51,19 @@ Route::prefix('admin')->group(function () {
         Route::delete('/{brand}', [BrandController::class, 'destroy'])->name('destroy');
     });
 
+    
+    Route::prefix('admin/banners')->name('admin.pages.Banners.')->group(function () {
+        Route::get('/', [BannerController::class, 'index'])->name('index');
+        Route::get('/create', [BannerController::class, 'create'])->name('create');
+        Route::post('/', [BannerController::class, 'store'])->name('store');
+        Route::get('/{banner}/edit', [BannerController::class, 'edit'])->name('edit');
+        Route::match(['put', 'patch'], '/{banner}', [BannerController::class, 'update'])->name('update');
+        Route::delete('/{banner}', [BannerController::class, 'destroy'])->name('destroy');
+        Route::post('/{banner}/toggle-status', [BannerController::class, 'toggleStatus'])->name('toggle-status');
+        Route::get('/admin/banners/{id}/toggle-status', [BannerController::class, 'toggleStatus']);
+    });
+ 
+
     Route::get('/Coupon', function () { return view('admin.pages.Coupon.Index'); })->name('admin.Coupon');
     Route::get('/Coupon/edit', function () { return view('admin.pages.Coupon.Edit'); })->name('admin.Coupon.Edit');
     Route::get('/Coupon/detail', function () { return view('admin.pages.Coupon.Detail'); })->name('admin.Coupon.Detail');
@@ -77,9 +90,5 @@ Route::prefix('admin')->group(function () {
     Route::get('/User/detail', function () { return view('admin.pages.User.DetailUser'); })->name('admin.User.Detail');
 
 
-    // Route::get('/banner', function () { return view('admin.pages.Banner.index'); })->name('admin.Banner');
-    //  Route::get('/banner/detail', function () { return view('admin.pages.Banner'); })->name('admin.Banner.Detail');
-    // Route::get('/banner/edit', function () { return view('admin.pages.Banner.EditRole'); })->name('admin.Banner.Edit');
-    //Route::get('/banner/add', function () { return view('admin.pages.Banner.create'); })->name('admin.banners.create');
-
+   
 });

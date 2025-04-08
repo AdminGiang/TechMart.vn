@@ -10,6 +10,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="bootstrap, bootstrap4" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    
 
 
     <!-- Bootstrap CSS -->
@@ -37,8 +38,10 @@
 
     @include('layouts.header')
 
+    @if (Request::is('/'))
+    @include('layouts.banners')
+    @endif
     
-
     <div class="container">
         @yield('content')
     </div>

@@ -3,16 +3,28 @@
 @section('title', 'Trang chủ')
 @section('content')	
 
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+	
+<div id="chatbot-container">
+    <button id="chatbot-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path fill-rule="evenodd" d="M4.804 21.607A6.75 6.75 0 0 0 10.5 22.5v-3.75a2.25 2.25 0 0 1 2.25-2.25h2.5a2.25 2.25 0 0 1 2.25 2.25V22.5a6.75 6.75 0 0 0 5.7-1.893.75.75 0 0 1 .631.844l-1.5 3A.75.75 0 0 1 18 21.75h-2.553a9.75 9.75 0 0 0-3.255.544.75.75 0 0 1-.944 0a9.75 9.75 0 0 0-3.255-.544H6a.75.75 0 0 1-.631-.844l-1.5-3a.75.75 0 0 1 .124-.887ZM9 14.25a3 3 0 0 1-3 3H4.5a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6a3 3 0 0 1 3 3v6.75ZM16.5 14.25a3 3 0 0 1-3 3H12a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3h1.5a3 3 0 0 1 3 3v6.75Z" clip-rule="evenodd" />
+        </svg>
+    </button>
+    <div id="chatbot-window" style="display: none;">
+        <div id="chatbot-messages">
+            <div class="chatbot-message bot-message">Chào bạn! Tôi có thể giúp gì cho bạn về điện thoại?</div>
+        </div>
+        <div id="chatbot-input-area">
+            <input type="text" id="chatbot-input" placeholder="Nhập câu hỏi của bạn...">
+            <button id="chatbot-send">Gửi</button>
+        </div>
+    </div>
+</div>
+
 		<!-- Start Hero Section -->
-		<div class="owl-carousel owl-theme">
-			@foreach($banners as $banner)
-				<div class="item">
-					<a href="{{ $banner->link }}">
-						<img src="{{ asset($banner->image) }}" alt="{{ $banner->title }}" class="banner-img">
-					</a>
-				</div>
-			@endforeach
-		</div>		
+
 		<!-- End Hero Section -->
 
 		<!-- Start Product Section -->
@@ -305,11 +317,12 @@
 		</div>
 		<!-- End We Help Section -->
 
-		
-		<!-- End Popular Product -->
+		<script src="{{ asset('assets/js/chatbot.js') }}"></script>
+		<link rel="stylesheet" href="{{ asset('assets/css/chatbot.css') }}">
 @endsection
 		
 @section('script')
+
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -395,9 +408,12 @@
 		$(".owl-carousel").css("height", "auto");
     });
 
+
+
 </script>
 
 <style>
+
 	.product-card {
 		border: 1px solid #ddd;
 		border-radius: 10px;

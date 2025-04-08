@@ -14,7 +14,8 @@ class HomeController extends Controller
     public function home(Request $request)
     {
         // Tối ưu truy vấn banners với eager loading
-        $banners = Banner::orderBy('created_at', 'desc')->get();
+        $banners = Banner::where('status', 'active')->get(); // chỉ banner đang active
+
 
         // Tối ưu truy vấn sản phẩm mới với eager loading và random
         $products = Products::with(['brand', 'category'])

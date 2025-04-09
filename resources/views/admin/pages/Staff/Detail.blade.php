@@ -1,4 +1,4 @@
-@extends('admin.layouts.masterad')
+{{-- @extends('admin.layouts.masterad')
 @section('title', 'Chi Tiết Role')
 @section('content')
 
@@ -24,10 +24,10 @@
 
                 <!-- Nút hành động -->
                 <div class="action-buttons">
-                    <a href="{{ route('admin.Staff.Edit') }}" class="btn btn-edit">Chỉnh sửa Nhân Viên</a>
-                    <a href="{{ route('admin.Staff') }}" class="btn btn-back">Quay lại danh sách</a>
+                    <a href="{{ route('admin.staff.edit') }}" class="btn btn-edit">Chỉnh sửa Nhân Viên</a>
+                    <a href="{{ route('admin.staff') }}" class="btn btn-back">Quay lại danh sách</a>
                 </div>
             </div>
         </div>
     </div>
-    @endsection
+    @endsection --}}

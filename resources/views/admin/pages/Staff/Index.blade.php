@@ -1,10 +1,10 @@
-@extends('admin.layouts.masterad')
+{{-- @extends('admin.layouts.masterad')
 @section('title', 'Nhân Viên')
 @section('content')
 
 <div class="content" id="content">
     <h1>Nhân Viên</h1>
-    <a href="{{ route('admin.Staff.Add') }}"><button class="addbtn">Thêm Nhân Viên</button></a>
+    <a href="{{ route('admin.staff.add') }}"><button class="addbtn">Thêm Nhân Viên</button></a>
     <div class="table-container">
         <table class="product-table">
             <thead>
@@ -27,13 +27,13 @@
                     <td>24/03/2025</td>
                     <td>24/03/2025</td>
                     <td>
-                        <a href="{{ route('admin.Staff.Edit') }}"><button class="edit-btn">Sửa</button></a>
+                        <a href="{{ route('admin.staff.edit') }}"><button class="edit-btn">Sửa</button></a>
                         <a href=""><button class="delete-btn">Xóa</button></a>
-                        <a href="{{ route('admin.Staff.Detail') }}"><button class="detail-btn">Chi Tiết</button></a>
+                        <a href="{{ route('admin.staff.detail') }}"><button class="detail-btn">Chi Tiết</button></a>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
-@endsection
+@endsection --}}

@@ -7,12 +7,14 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\BrandController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\AdminController;
 
 
 
 
 Route::prefix('admin')->group(function () {
+
+    route::get('/login' , [AdminController::class ,'login'])->name('admin.login');
 
     Route::get('/dashboard', [DashboardController::class, 'home'])->name('admin.pages.dashboard.index');
    // Route để hiển thị danh sách sản phẩm
@@ -67,11 +69,14 @@ Route::prefix('admin')->group(function () {
     Route::get('/role/add', function () { return view('admin.pages.Role.Add'); })->name('admin.Role.Add');
 
 
-    Route::get('/Staff', function () { return view('admin.pages.Staff.Index'); })->name('admin.Staff');
-    Route::get('/Staff/edit', function () { return view('admin.pages.Staff.Edit'); })->name('admin.Staff.Edit');
-    Route::get('/Staff/detail', function () { return view('admin.pages.Staff.Detail'); })->name('admin.Staff.Detail');
-    Route::get('/Staff/add', function () { return view('admin.pages.Staff.Add'); })->name('admin.Staff.Add');
-
+    Route::prefix('admin/admins')->name('admin.pages.Admin.')->group(function () {
+        Route::get('/', [AdminController::class, 'index'])->name('index');
+        Route::get('/create', [AdminController::class, 'create'])->name('create');
+        Route::post('/', [AdminController::class, 'store'])->name('store');
+        Route::get('/{admin}/edit', [AdminController::class, 'edit'])->name('edit');
+        Route::match(['put', 'patch'], '/{admin}', [AdminController::class, 'update'])->name('update');
+        Route::delete('/{admin}', [AdminController::class, 'destroy'])->name('destroy');
+    });
 
     Route::get('/User', function () { return view('admin.pages.User.User'); })->name('admin.User');
     Route::get('/User/detail', function () { return view('admin.pages.User.DetailUser'); })->name('admin.User.Detail');

@@ -1,4 +1,4 @@
-@extends('admin.layouts.masterad')
+{{-- @extends('admin.layouts.masterad')
 @section('title', 'Chỉnh Sửa Role')
 @section('content')
 
@@ -48,9 +48,9 @@
 
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
-                    <a href="{{ route('admin.Staff') }}" class="btn btn-secondary">Hủy</a>
+                    <a href="{{ route('admin.staff') }}" class="btn btn-secondary">Hủy</a>
                 </div>
             </form>
         </div>
     </div>
-    @endsection
+    @endsection --}}

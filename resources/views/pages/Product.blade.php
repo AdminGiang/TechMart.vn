@@ -2,148 +2,182 @@
 @section('title', 'Sản phẩm')
 @section('content')
 
+@if(request()->get('page') <= 1 || !request()->has('page'))
 <!-- Start Hero Section -->
 <div class="hero">
     <div class="container">
         <div class="row justify-content-between">
             <div class="col-lg-5">
                 <div class="intro-excerpt">
-                    <h1>Modern Interior <span clsas="d-block">Design Studio</span></h1>
-                    <p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-                    <p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+                    <h1>Trải nghiệm<br> <span clsas="d-block">Iphone </span></h1>
+                    <p class="mb-4">Khám phá bộ sưu tập sản phẩm công nghệ mới nhất với thiết kế hiện đại,
+                         hiệu suất mạnh mẽ và tính năng đột phá.<br>
+                          Từ điện thoại thông minh, laptop đến thiết bị thông minh, 
+                          chúng tôi mang đến cho bạn những giải pháp công nghệ tối ưu nhất.</p>
+                    <p><a href="" class="btn btn-secondary me-2">Mua ngay</a><a href="#" class="btn btn-white-outline">Khám phá</a></p>
                 </div>
             </div>
             <div class="col-lg-7">
                 <div class="hero-img-wrap">
-                    <img src="{{asset('assets/images/couch.png')}}" class="img-fluid">
+                    <img src="{{ asset('assets/images/img-iphone-banner.png') }}" class="img-fluid">
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- End Hero Section -->
+@endif
 
-<div class="untree_co-section product-section before-footer-section">
+<!-- Start Filter Section -->
+<div class="filter-section py-5">
     <div class="container">
-          <div class="row">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="filter-box p-4 rounded" style="background-color: #f8f9fa; border: 1px solid #e9ecef;">
+                    <h4 class="mb-4" style="color: #2f2f2f;">Bộ lọc sản phẩm</h4>
+                    <form action="{{ route('products.filter') }}" method="GET">
+                        <style>
+                            .form-check-input:checked {
+                                background-color: #3B5D50 !important;
+                                border-color: #3B5D50 !important;
+                            }
+                            .form-check-input:focus {
+                                border-color: #3B5D50;
+                                box-shadow: 0 0 0 0.25rem rgba(59, 93, 80, 0.25);
+                            }
+                        </style>
+                        <!-- Danh mục -->
+                        <div class="mb-4">
+                            <h5 class="mb-3" style="color: #2f2f2f;">Danh mục</h5>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="category[]" value="iphone" id="iphone"
+                                    {{ in_array('iphone', request()->get('category', [])) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="iphone" style="color: #6c757d;">
+                                    iPhone
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="category[]" value="macbook" id="macbook"
+                                    {{ in_array('macbook', request()->get('category', [])) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="macbook" style="color: #6c757d;">
+                                    MacBook
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="category[]" value="tai_nghe" id="tai_nghe"
+                                    {{ in_array('tai_nghe', request()->get('category', [])) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="tai_nghe" style="color: #6c757d;">
+                                    Tai nghe
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="category[]" value="dong_ho" id="dong_ho"
+                                    {{ in_array('dong_ho', request()->get('category', [])) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="dong_ho" style="color: #6c757d;">
+                                    Đồng hồ
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="category[]" value="phu_kien" id="phu_kien"
+                                    {{ in_array('phu_kien', request()->get('category', [])) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="phu_kien" style="color: #6c757d;">
+                                    Phụ kiện
+                                </label>
+                            </div>
+                        </div>
 
-              <!-- Start Column 1 -->
-            <div class="col-12 col-md-4 col-lg-3 mb-5">
-                <a class="product-item" href="{{ route('productdetail')}}">
-                    <img src="{{asset('assets/images/product-3.png')}}" class="img-fluid product-thumbnail">
-                    <h3 class="product-title">Nordic Chair</h3>
-                    <strong class="product-price">$50.00</strong>
+                        <!-- Khoảng giá -->
+                        <div class="mb-4">
+                            <h5 class="mb-3" style="color: #2f2f2f;">Khoảng giá</h5>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="price_range" value="0-10000000" id="price1"
+                                    {{ request()->get('price_range') == '0-10000000' ? 'checked' : '' }}>
+                                <label class="form-check-label" for="price1" style="color: #6c757d;">
+                                    Dưới 10 triệu
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="price_range" value="10000000-20000000" id="price2"
+                                    {{ request()->get('price_range') == '10000000-20000000' ? 'checked' : '' }}>
+                                <label class="form-check-label" for="price2" style="color: #6c757d;">
+                                    10 - 20 triệu
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="price_range" value="20000000-30000000" id="price3"
+                                    {{ request()->get('price_range') == '20000000-30000000' ? 'checked' : '' }}>
+                                <label class="form-check-label" for="price3" style="color: #6c757d;">
+                                    20 - 30 triệu
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="price_range" value="30000000-999999999" id="price4"
+                                    {{ request()->get('price_range') == '30000000-999999999' ? 'checked' : '' }}>
+                                <label class="form-check-label" for="price4" style="color: #6c757d;">
+                                    Trên 30 triệu
+                                </label>
+                            </div>
+                        </div>
 
-                    <span class="icon-cross">
-                        <img src="{{asset('assets/images/cross.svg')}}" class="img-fluid">
-                    </span>
-                </a>
-            </div> 
-            <!-- End Column 1 -->
-                
-            <!-- Start Column 2 -->
-            <div class="col-12 col-md-4 col-lg-3 mb-5">
-                <a class="product-item" href="#">
-                    <img src="{{asset('assets/images/product-1.png')}}" class="img-fluid product-thumbnail">
-                    <h3 class="product-title">Nordic Chair</h3>
-                    <strong class="product-price">$50.00</strong>
-
-                    <span class="icon-cross">
-                        <img src="images/cross.svg" class="img-fluid">
-                    </span>
-                </a>
-            </div> 
-            <!-- End Column 2 -->
-
-            <!-- Start Column 3 -->
-            <div class="col-12 col-md-4 col-lg-3 mb-5">
-                <a class="product-item" href="#">
-                    <img src="images/product-2.png" class="img-fluid product-thumbnail">
-                    <h3 class="product-title">Kruzo Aero Chair</h3>
-                    <strong class="product-price">$78.00</strong>
-
-                    <span class="icon-cross">
-                        <img src="images/cross.svg" class="img-fluid">
-                    </span>
-                </a>
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-dark flex-grow-1">Áp dụng</button>
+                            <a href="{{ route('product') }}" class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-counterclockwise"></i> Reset
+                            </a>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <!-- End Column 3 -->
-
-            <!-- Start Column 4 -->
-            <div class="col-12 col-md-4 col-lg-3 mb-5">
-                <a class="product-item" href="#">
-                    <img src="images/product-3.png" class="img-fluid product-thumbnail">
-                    <h3 class="product-title">Ergonomic Chair</h3>
-                    <strong class="product-price">$43.00</strong>
-
-                    <span class="icon-cross">
-                        <img src="images/cross.svg" class="img-fluid">
-                    </span>
-                </a>
+            <div class="col-md-9">
+                <form action="#" method="GET">
+                    <input type="text" name="search" value="#" placeholder="Tìm kiếm sản phẩm...">
+                    <button type="submit">Tìm kiếm</button>
+                </form>
+                <div class="row">
+                    @foreach($products as $product)
+                    <!-- Start Column 1 -->
+                    <div class="col-12 col-md-4 col-lg-4 mb-5">
+                        <a class="product-item" href="{{ route('product.show', $product->id) }}">
+                            <img src="{{$product->image}}" class="img-fluid product-thumbnail">
+                            <h3 class="product-title">{{ $product->name }}</h3>
+                            <strong class="product-price">{{ number_format($product->price) }} VND</strong>
+                            <span class="icon-cross">
+                                <img src="{{asset('assets/images/cross.svg')}}" class="img-fluid">
+                            </span>
+                        </a>
+                    </div> 
+                    <!-- End Column 1 -->
+                    @endforeach		
+                </div>
+                {{-- start phan trang --}}
+                <div class="d-flex justify-content-center">
+                    {{ $products->links('pagination::bootstrap-5') }}
+                </div>
+                {{-- End phân trang --}}
             </div>
-            <!-- End Column 4 -->
+        </div>
+    </div>
+    
+</div>
+<!-- End Filter Section -->
 
-
-            <!-- Start Column 1 -->
-            <div class="col-12 col-md-4 col-lg-3 mb-5">
-                <a class="product-item" href="#">
-                    <img src="images/product-3.png" class="img-fluid product-thumbnail">
-                    <h3 class="product-title">Nordic Chair</h3>
-                    <strong class="product-price">$50.00</strong>
-
-                    <span class="icon-cross">
-                        <img src="images/cross.svg" class="img-fluid">
-                    </span>
-                </a>
-            </div> 
-            <!-- End Column 1 -->
-                
-            <!-- Start Column 2 -->
-            <div class="col-12 col-md-4 col-lg-3 mb-5">
-                <a class="product-item" href="#">
-                    <img src="images/product-1.png" class="img-fluid product-thumbnail">
-                    <h3 class="product-title">Nordic Chair</h3>
-                    <strong class="product-price">$50.00</strong>
-
-                    <span class="icon-cross">
-                        <img src="images/cross.svg" class="img-fluid">
-                    </span>
-                </a>
-            </div> 
-            <!-- End Column 2 -->
-
-            <!-- Start Column 3 -->
-            <div class="col-12 col-md-4 col-lg-3 mb-5">
-                <a class="product-item" href="#">
-                    <img src="images/product-2.png" class="img-fluid product-thumbnail">
-                    <h3 class="product-title">Kruzo Aero Chair</h3>
-                    <strong class="product-price">$78.00</strong>
-
-                    <span class="icon-cross">
-                        <img src="images/cross.svg" class="img-fluid">
-                    </span>
-                </a>
+<!-- Start Comments Section -->
+<div class="container mt-5">
+    <h2>Bình luận</h2>
+    <div class="mb-3">
+        <div class="d-flex mb-2">
+            <div class="flex-shrink-0">
+                <img src="{{asset('assets/images/person_3.jpg')}}" alt="User" class="rounded-circle" width="40" height="40">
             </div>
-            <!-- End Column 3 -->
-
-            <!-- Start Column 4 -->
-            <div class="col-12 col-md-4 col-lg-3 mb-5">
-                <a class="product-item" href="#">
-                    <img src="images/product-3.png" class="img-fluid product-thumbnail">
-                    <h3 class="product-title">Ergonomic Chair</h3>
-                    <strong class="product-price">$43.00</strong>
-
-                    <span class="icon-cross">
-                        <img src="images/cross.svg" class="img-fluid">
-                    </span>
-                </a>
+            <div class="flex-grow-1 ms-3">
+                <h6 class="mb-0">John Doe</h6>
+                <small class="text-muted">2 ngày trước</small>
+                <p class="mt-2">Sản phẩm tuyệt vời! Rất đáng mua.</p>
             </div>
-            <!-- End Column 4 -->
-
-          </div>
+        </div>
     </div>
 </div>
-
+<!-- End Comments Section -->
 
 
 @endsection

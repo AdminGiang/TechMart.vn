@@ -60,6 +60,13 @@ return [
             'report' => false,
         ],
 
+            'public' => [
+            'driver' => 'local',
+            'root' => public_path('products'), // Thay đổi đường dẫn này
+            'url' => env('APP_URL').'/products', // Cập nhật URL
+            'visibility' => 'public',
+        ],
+
     ],
 
     /*

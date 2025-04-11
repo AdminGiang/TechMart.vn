@@ -23,6 +23,17 @@
 	};
 	tinyslider();
 
+	document.addEventListener("DOMContentLoaded", function() {
+		let links = document.querySelectorAll(".custom-navbar .custom-navbar-nav li a");
+		let currentUrl = window.location.href;
+		
+		links.forEach(link => {
+			if (link.href === currentUrl) {
+				link.classList.add("active");
+			}
+		});
+	});
+
 	
 
 

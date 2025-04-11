@@ -1,0 +1,131 @@
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f9fc;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.stat-box {
+    background-color: #e3f2fd;
+    padding: 20px;
+    border-radius: 5px;
+    flex: 1;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.user-stats, .sales-data, .geolocation, .new-customers, .transaction-history {
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.chart-placeholder, .map-placeholder {
+    background-color: #e3f2fd;
+    height: 200px;
+    text-align: center;
+    line-height: 200px;
+    font-size: 16px;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.geo-stats {
+    list-style-type: none;
+    padding: 0;
+}
+
+.geo-stats li {
+    background: #f0f4ff;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #4b79a1;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+} */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 80%;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card .icon {
+    font-size: 36px;
+    margin-right: 20px;
+}
+
+.card .info h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.card .info p {
+    margin: 5px 0 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Specific card colors */
+.card.blue {
+    background-color: #3498db;
+}
+
+.card.light-blue {
+    background-color: #5dade2;
+}
+
+.card.green {
+    background-color: #28a745;
+}
+
+.card.purple {
+    background-color: #8e44ad;
+}

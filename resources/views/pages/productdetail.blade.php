@@ -7,110 +7,87 @@
       <div class="row gx-5">
         <aside class="col-lg-6">
           <div class="border rounded-4 mb-3 d-flex justify-content-center">
-            <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image" href="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big.webp">
-              <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big.webp" />
+            <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image" >
+              <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src="{{ $product->image }}" />
             </a>
           </div>
-          <div class="d-flex justify-content-center mb-3">
-            <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" href="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big1.webp" class="item-thumb">
-              <img width="60" height="60" class="rounded-2" src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big1.webp" />
-            </a>
-            <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" href="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big2.webp" class="item-thumb">
-              <img width="60" height="60" class="rounded-2" src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big2.webp" />
-            </a>
-            <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" href="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big3.webp" class="item-thumb">
-              <img width="60" height="60" class="rounded-2" src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big3.webp" />
-            </a>
-            <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" href="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big4.webp" class="item-thumb">
-              <img width="60" height="60" class="rounded-2" src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big4.webp" />
-            </a>
-            <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" href="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big.webp" class="item-thumb">
-              <img width="60" height="60" class="rounded-2" src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big.webp" />
-            </a>
-          </div>
-          <!-- thumbs-wrap.// -->
-          <!-- gallery-wrap .end// -->
         </aside>
         <main class="col-lg-6">
           <div class="ps-lg-3">
-            <h4 class="title text-dark">
-              Quality Men's Hoodie for Winter, Men's Fashion <br />
-              Casual Hoodie
+            <h4 class="title text-dark" href="#" >
+              {{ $product->name }} <a href="#"><i class="fa-solid fa-heart fa-lg" style="color: #f03838;"></i></i></a>
+
             </h4>
             <div class="d-flex flex-row my-3">
               <div class="text-warning mb-1 me-2">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
+                @for($i = 1; $i <= 5; $i++)
+                  @if($i <= $averageRating)
+                    <i class="fa fa-star"></i>
+                  @elseif($i - 0.5 <= $averageRating)
+                    <i class="fas fa-star-half-alt"></i>
+                  @else
+                    <i class="far fa-star"></i>
+                  @endif
+                @endfor
                 <span class="ms-1">
-                  4.5
+                  {{ number_format($averageRating, 1) }}  
                 </span>
               </div>
-              <span class="text-muted"><i class="fas fa-shopping-basket fa-sm mx-1"></i>154 orders</span>
-              <span class="text-success ms-2">In stock</span>
+              <span class="text-muted"> |<i class="fas fa-comment fa-sm mx-1"></i> {{ $totalReviews }} đánh giá</span>
+              <span class="text-muted ms-2"><i class="fas fa-shopping-basket fa-sm mx-1"></i>| Đã bán: 0</span>
             </div>
   
             <div class="mb-3">
-              <span class="h5">$75.00</span>
-              <span class="text-muted">/per box</span>
+              <span class="h5">{{ number_format($product->price) }}</span>
+              <span class="text-muted"></span>
             </div>
   
-            <p>
-              Modern look and quality demo item is a streetwear-inspired collection that continues to break away from the conventions of mainstream fashion. Made in Italy, these black and brown clothing low-top shirts for
-              men.
-            </p>
-  
-            <div class="row">
-              <dt class="col-3">Type:</dt>
-              <dd class="col-9">Regular</dd>
-  
-              <dt class="col-3">Color</dt>
-              <dd class="col-9">Brown</dd>
-  
-              <dt class="col-3">Material</dt>
-              <dd class="col-9">Cotton, Jeans</dd>
-  
-              <dt class="col-3">Brand</dt>
-              <dd class="col-9">Reebook</dd>
-            </div>
-  
+            <h5>
+              {{ $product->brand->name ?? 'Không xác định' }} 
+            </h5>
+            <span class="text-success ms-2">Kho còn : {{ $product->stock }} Sản phẩm  </br></span>
+            <span class="text-success ms-2">Khuyến mãi: {{ $product->discount }} </span>
             <hr />
   
             <div class="row mb-4">
               <div class="col-md-4 col-6">
-                <label class="mb-2">Size</label>
+                <label class="mb-2">Dung lượng</label>
+                @if ($product->details->storage_capacity)
                 <select class="form-select border border-secondary" style="height: 35px;">
-                  <option>Small</option>
-                  <option>Medium</option>
-                  <option>Large</option>
+                  @foreach (explode(',', $product->details->storage_capacity) as $storage_capacity)
+                  <option>{{ $storage_capacity }}</option>
+                  @endforeach
+                  @else
+                  <select class="form-select border border-secondary" style="height: 35px;">
+                    <option>Không có</option> 
+                  @endif
                 </select>
               </div>
-              <!-- col.// -->
-              <div class="col-md-4 col-6 mb-3">
-                <label class="mb-2 d-block">Quantity</label>
-                <div class="input-group mb-3" style="width: 170px;">
-                  <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon1" data-mdb-ripple-color="dark">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <input type="text" class="form-control text-center border border-secondary" placeholder="14" aria-label="Example text with button addon" aria-describedby="button-addon1" />
-                  <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon2" data-mdb-ripple-color="dark">
-                    <i class="fas fa-plus"></i>
-                  </button>
-                </div>
+              
+            <div class="container mt-3">
+              <label class="fw-bold">Màu Sắc</label>
+              <div class="d-flex">
+                  <div class="color-option active">{{ $product->details->color }}</div>
               </div>
+          </div>
+              
             </div>
-            <a href="#" class="btn btn-warning shadow-0"> Buy now </a>
-            <a href="#" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Add to cart </a>
-            <a href="#" class="btn btn-light border border-secondary py-2 icon-hover px-3"> <i class="me-1 fa fa-heart fa-lg"></i> Save </a>
+            <a href="#" class="btn btn-warning shadow-0">Mua ngay {{ number_format($product->price, 0, ',', '.') }} VNĐ </a>
+            <a href="#" 
+              id="addToCartButton" 
+              class="btn btn-primary shadow-0 add-to-cart" 
+              data-id="{{ $product->id }}" 
+              data-name="{{ $product->name }}" 
+              data-price="{{ $product->price }}" 
+              data-image="{{ $product->image }}">
+              <i class="fa-solid fa-cart-plus fa-2xl" style="color: #ffffff;"></i>
+            </a>          
           </div>
         </main>
       </div>
     </div>
   </section>
   <!-- content -->
-  
   <section class="bg-light border-top py-4">
     <div class="container">
       <div class="row gx-4">
@@ -119,7 +96,7 @@
             <!-- Pills navs -->
             <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
               <li class="nav-item d-flex" role="presentation">
-                <a class="nav-link d-flex align-items-center justify-content-center w-100 active" id="ex1-tab-1" data-mdb-toggle="pill" href="#ex1-pills-1" role="tab" aria-controls="ex1-pills-1" aria-selected="true">Specification</a>
+                <a class="nav-link d-flex align-items-center justify-content-center w-100 active" id="ex1-tab-1" data-mdb-toggle="pill" href="#ex1-pills-1" role="tab" aria-controls="ex1-pills-1" aria-selected="true">Mô tả</a>
               </li>
             </ul>
             <!-- Pills navs -->
@@ -127,129 +104,226 @@
             <!-- Pills content -->
             <div class="tab-content" id="ex1-content">
               <div class="tab-pane fade show active" id="ex1-pills-1" role="tabpanel" aria-labelledby="ex1-tab-1">
-                <p>
-                  With supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                  enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                  pariatur.
-                </p>
-                <div class="row mb-2">
-                  <div class="col-12 col-md-6">
-                    <ul class="list-unstyled mb-0">
-                      <li><i class="fas fa-check text-success me-2"></i>Some great feature name here</li>
-                      <li><i class="fas fa-check text-success me-2"></i>Lorem ipsum dolor sit amet, consectetur</li>
-                      <li><i class="fas fa-check text-success me-2"></i>Duis aute irure dolor in reprehenderit</li>
-                      <li><i class="fas fa-check text-success me-2"></i>Optical heart sensor</li>
-                    </ul>
-                  </div>
-                  <div class="col-12 col-md-6 mb-0">
-                    <ul class="list-unstyled">
-                      <li><i class="fas fa-check text-success me-2"></i>Easy fast and ver good</li>
-                      <li><i class="fas fa-check text-success me-2"></i>Some great feature name here</li>
-                      <li><i class="fas fa-check text-success me-2"></i>Modern style and design</li>
-                    </ul>
-                  </div>
-                </div>
+                <p> {{ $product->description }} </p>
                 <table class="table border mt-3 mb-2">
                   <tr>
-                    <th class="py-2">Display:</th>
-                    <td class="py-2">13.3-inch LED-backlit display with IPS</td>
+                    <th class="py-2">Màn hình:</th>
+                    <td class="py-2">{{ $product->details->screen_size }}</td>
                   </tr>
                   <tr>
-                    <th class="py-2">Processor capacity:</th>
-                    <td class="py-2">2.3GHz dual-core Intel Core i5</td>
+                    <th class="py-2">Camera:</th>
+                    <td class="py-2">{{ $product->details->camera }}</td>
                   </tr>
                   <tr>
-                    <th class="py-2">Camera quality:</th>
-                    <td class="py-2">720p FaceTime HD camera</td>
+                    <th class="py-2">Bộ nhớ:</th>
+                    <td class="py-2">{{ $product->details->storage_capacity }}</td>
                   </tr>
                   <tr>
-                    <th class="py-2">Memory</th>
-                    <td class="py-2">8 GB RAM or 16 GB RAM</td>
+                    <th class="py-2">Tính năng</th>
+                    <td class="py-2">{{ $product->details->extra_features }}</td>
                   </tr>
                   <tr>
-                    <th class="py-2">Graphics</th>
-                    <td class="py-2">Intel Iris Plus Graphics 640</td>
+                    <th class="py-2">Color</th>
+                    <td class="py-2">{{ $product->details->color }}</td>
                   </tr>
                 </table>
-              </div>
-              <div class="tab-pane fade mb-2" id="ex1-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
-                Tab content or sample information now <br />
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              </div>
-              <div class="tab-pane fade mb-2" id="ex1-pills-3" role="tabpanel" aria-labelledby="ex1-tab-3">
-                Another tab content or sample information now <br />
-                Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum.
-              </div>
-              <div class="tab-pane fade mb-2" id="ex1-pills-4" role="tabpanel" aria-labelledby="ex1-tab-4">
-                Some other tab content or sample information now <br />
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                officia deserunt mollit anim id est laborum.
-              </div>
             </div>
             <!-- Pills content -->
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="px-0 border rounded-2 shadow-0">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Similar items</h5>
-                <div class="d-flex mb-3">
-                  <a href="#" class="me-3">
-                    <img src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/8.webp" style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />
-                  </a>
-                  <div class="info">
-                    <a href="#" class="nav-link mb-1">
-                      Rucksack Backpack Large <br />
-                      Line Mounts
-                    </a>
-                    <strong class="text-dark"> $38.90</strong>
-                  </div>
-                </div>
-  
-                <div class="d-flex mb-3">
-                  <a href="#" class="me-3">
-                    <img src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/9.webp" style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />
-                  </a>
-                  <div class="info">
-                    <a href="#" class="nav-link mb-1">
-                      Summer New Men's Denim <br />
-                      Jeans Shorts
-                    </a>
-                    <strong class="text-dark"> $29.50</strong>
-                  </div>
-                </div>
-  
-                <div class="d-flex mb-3">
-                  <a href="#" class="me-3">
-                    <img src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/10.webp" style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />
-                  </a>
-                  <div class="info">
-                    <a href="#" class="nav-link mb-1"> T-shirts with multiple colors, for men and lady </a>
-                    <strong class="text-dark"> $120.00</strong>
-                  </div>
-                </div>
-  
-                <div class="d-flex">
-                  <a href="#" class="me-3">
-                    <img src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/11.webp" style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />
-                  </a>
-                  <div class="info">
-                    <a href="#" class="nav-link mb-1"> Blazer Suit Dress Jacket for Men, Blue color </a>
-                    <strong class="text-dark"> $339.90</strong>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+  <!-- Start Blog Section -->
+  <div class="blog-section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-6">
+          <h2 class="section-title">Gợi ý</h2>
+        </div>
+        <div class="col-md-6 text-start text-md-end">
+          <a href="{{ route('product') }}" class="more">Xem thêm</a>
+        </div>
+      </div>
+
+      <div class="row">
+        @foreach ($relatedProducts as $related)
+        <div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
+          <div class="post-entry">
+            <a href="#" class="post-thumbnail"><img src="{{ $related->image }}" alt="Image" class="img-fluid" style="height: 100px; width: 100px"></a>
+            <div class="post-content-entry">
+              <h3><a href="#">{{ $related->name }}</a></h3>
+              <div class="meta">
+                <span>của <a href="#">{{ $product->brand->name ?? 'Không xác định' }}</a></span> <span>{{ number_format($related->price, 0, ',', '.') }} VNĐ</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        @endforeach
+      </div>
+    </div>
+  </div>
+  <!-- End Blog Section -->	
+
+  <div id="reviews">
+    <h3>Đánh giá</h3>
+    <div id="review-list"></div>
+     <!-- Review List -->
+     <div class="review-list">
+      @foreach($reviews->where('status', 'approved') as $review)
+      <div class="review-item">
+        <div class="d-flex align-items-center">
+          <span class="user-name">{{ $review->user->name }}</span>
+          <div class="rating">
+            @for($i = 1; $i <= 5; $i++)
+              @if($i <= $review->rating)
+                <i class="fa fa-star"></i>
+              @else
+                <i class="far fa-star"></i>
+              @endif
+            @endfor
+          </div>
+          <span class="date">{{ $review->created_at->format('d/m/Y') }}</span>
+        </div>
+        <p class="comment">{{ $review->comment }}</p>
+      </div>
+      @endforeach
+
+      <!-- Pagination -->
+      @if($reviews->hasPages())
+      <div class="mt-4">
+          {{ $reviews->links('vendor.pagination.custom') }}
+      </div>
+      @endif
+</div>
+
+  <!-- Start Review Section -->
+  <div class="review-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="review-title">Đánh giá sản phẩm</h2>
+          
+          <!-- Review Form -->
+          <div class="review-form">
+            <form action="{{ route('review.store') }}" method="POST">
+              @csrf
+              <input type="hidden" name="product_id" value="{{ $product->id }}">
+              <div class="mb-4">
+                <div class="rating-label">Đánh giá của bạn</div>
+                <div class="rating-stars">
+                  <input type="radio" id="star5" name="rating" value="5" />
+                  <label for="star5" title="5 sao"><i class="fa fa-star"></i></label>
+                  <input type="radio" id="star4" name="rating" value="4" />
+                  <label for="star4" title="4 sao"><i class="fa fa-star"></i></label>
+                  <input type="radio" id="star3" name="rating" value="3" />
+                  <label for="star3" title="3 sao"><i class="fa fa-star"></i></label>
+                  <input type="radio" id="star2" name="rating" value="2" />
+                  <label for="star2" title="2 sao"><i class="fa fa-star"></i></label>
+                  <input type="radio" id="star1" name="rating" value="1" />
+                  <label for="star1" title="1 sao"><i class="fa fa-star"></i></label>
+                </div>
+              </div>
+              <div class="mb-4">
+                <label for="comment" class="form-label">Nhận xét của bạn</label>
+                <textarea class="form-control" id="comment" name="comment" rows="4" placeholder="Chia sẻ trải nghiệm của bạn về sản phẩm..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Gửi đánh giá</button>
+            </form>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Review Section -->
+
+  @push('styles')
+  <link rel="stylesheet" href="{{ asset('assets/css/review.css') }}">
+  @endpush
 @endsection
+                
+@section('scripts')
+<script>  
+let currentPage = 1;
+    let productId = "{{ $product->Id }}"; // Lấy ID sản phẩm từ backend
+
+    function loadReviews(page = 1) {
+        fetch(`/reviews/${c}?page=${page}`)
+        .then(response => response.json())
+        .then(data => {
+            let reviewList = document.getElementById("review-list");
+            reviewList.innerHTML = ""; // Xóa dữ liệu cũ
+
+            data.data.forEach(review => {
+                reviewList.innerHTML += `
+                    <div class="review">
+                        <strong>${review.user.name}</strong> - ${new Date(review.created_at).toLocaleDateString()}
+                        <p>⭐ ${review.rating}/5</p>
+                        <p>${review.comment}</p>
+                        <hr>
+                    </div>`;
+            });
+
+            // Xử lý phân trang
+            currentPage = data.current_page;
+            document.getElementById("currentPage").textContent = currentPage;
+            document.getElementById("prevPage").disabled = data.prev_page_url === null;
+            document.getElementById("nextPage").disabled = data.next_page_url === null;
+        })
+        .catch(error => console.error("Lỗi khi tải review:", error));
+    }
+
+    document.getElementById("prevPage").addEventListener("click", () => loadReviews(currentPage - 1));
+    document.getElementById("nextPage").addEventListener("click", () => loadReviews(currentPage + 1));
+
+    loadReviews();
+    
+    document.getElementById('addToCartButton').addEventListener('click', function (e) {
+        e.preventDefault();
+
+        // Lấy dữ liệu từ data-* attributes
+        let productId = this.dataset.id;
+
+        // Gửi yêu cầu AJAX để thêm sản phẩm vào giỏ hàng
+        $.ajax({
+            url: "{{ route('cart.add') }}", // Route xử lý thêm vào giỏ hàng
+            method: "POST",
+            data: {
+                _token: "{{ csrf_token() }}", // CSRF token để bảo mật
+                id: productId
+            },
+            success: function (response) {
+                alert(response.message); // Hiển thị thông báo thành công
+            },
+            error: function (xhr, status, error) {
+                console.error(xhr.responseText); // Debug lỗi nếu có
+                alert('Đã xảy ra lỗi, vui lòng thử lại!');
+            }
+        });
+    });
+</script>  
+  
+  <style>
+         /* ProductDetail */
+         .color-container {
+            display: flex;
+            gap: 10px; /* Khoảng cách giữa các màu */
+            margin-top: 5px;
+        }
+        .color-option {
+            padding: 5px 10px;
+            border: 1px solid #ccc; /* Viền bao bọc */
+            border-radius: 5px; /* Bo góc nhẹ */
+            cursor: pointer; /* Con trỏ chuột */
+            transition: all 0.3s ease; /* Hiệu ứng mượt */
+        }
+        .color-option:hover {
+            border-color: #007bff; /* Đổi màu viền khi hover */
+            background-color: #f8f9fa; /* Đổi màu nền khi hover */
+        }
+        .label {
+            font-weight: bold;
+        }
+  </style>
+  @endsection

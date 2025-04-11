@@ -21,13 +21,13 @@
     <link rel="stylesheet" href="{{ asset('assets/admin/css/font-awesome.min.css') }}"> <!-- Font Awesome -->
 
     {{-- CSS-DASHBOARD --}}
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
 
     {{-- icon --}}
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
     {{-- CSS SIDEBAR --}}
     <title> TechMart.vn </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>

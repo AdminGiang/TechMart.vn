@@ -178,14 +178,6 @@
             <div class="payment-methods">
                 <h2>Phương thức thanh toán</h2>
                 <div class="payment-options">
-                    <!-- <div class="payment-option">
-                        <input type="radio" name="total_vn" id="vnpay" value="$total" required
-                            class="@error('payment_method') is-invalid @enderror">
-                        <label for="vnpay">
-                            <img src="/images/vnpay-logo.png" alt="">
-                            <span>VNPay</span>
-                        </label>
-                    </div> -->
                     <div class="payment-option">
                         <input type="radio" name="payment_method" id="momo" value="momo"
                             class="@error('payment_method') is-invalid @enderror">
@@ -203,26 +195,6 @@
             <button type="submit" class="btn-place-order">
                 Đặt Hàng
             </button>
-
-            <!-- <form action="{{ route('vnpay_payment') }}" method="GET">
-    <input type="hidden" name="total_vnpay" value="{{ $total }}">
-
-    <div class="payment-methods">
-        <h2>Phương thức thanh toán</h2>
-        <div class="payment-options">
-            <div class="payment-option">
-                <input type="radio" name="payment_method" id="vnpay" value="vnpay" required>
-                <label for="vnpay">
-                    <img src="/images/vnpay-logo.png" alt="">
-                    <span>VNPay</span>
-                </label>
-            </div>
-        </div>
-    </div> -->
-
-    <button type="submit" class="btn-place-order">
-        Thanh Toán
-    </button>
 </form>
         </form>
 

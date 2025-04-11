@@ -71,18 +71,6 @@ class CheckoutController extends Controller
                 // 'payment_method' => 'required|in:momo,paypal',
             ]);
 
-            // // Lấy phương thức thanh toán
-            // $paymentMethod = $request->input('payment_method');
-
-            // // Xử lý logic thanh toán dựa trên phương thức
-            // if ($paymentMethod === 'vnpay') {
-            //     // Gọi hàm xử lý VNPay
-            //     return redirect()->route('vnpay_payment');
-            // } elseif ($paymentMethod === 'momo') {
-            //     // Gọi hàm xử lý Momo
-            //     return redirect()->route('momo_payment');
-            // }
-
             Log::info('Validation thành công');
 
             // Lấy giỏ hàng từ database

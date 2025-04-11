@@ -95,7 +95,7 @@
 
             {{-- ĐƠN HÀNG --}}
             <li class="nav-item">
-                <a href="{{ route('admin.Order') }}" class="nav-link">
+                <a href="{{ route('admin.orders.index') }}" class="nav-link">
                     <span class="material-symbols-rounded">shopping_cart_checkout</span>
                     <span class="nav-label">Đơn Hàng</span>
                 </a>

@@ -3,12 +3,8 @@
 @section('content')
 
     <div class="wrapper-for-indexdashboard" id="wrapper">
+
         <div class="content" id="content">
-            <div class="mb-3">
-                <a href="{{ url()->previous() }}" class="btn btn-secondary">
-                    <i class="fas fa-arrow-left"></i> Quay lại
-                </a>
-            </div>
 
             <div id="page-wrapper">
                 <div class="row">

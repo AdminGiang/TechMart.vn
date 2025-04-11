@@ -2,6 +2,22 @@
 @section('title', 'DASH BOARD')
 @section('content')
 
+<div class="content">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul class="mb-0">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
     <div class="wrapper-for-indexdashboard" id="wrapper">
 
         <div class="content" id="content">
@@ -314,5 +330,5 @@
             </div>
         </div>
     </div>
-
+</div>
 @endsection

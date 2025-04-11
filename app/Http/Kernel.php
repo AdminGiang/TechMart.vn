@@ -53,6 +53,9 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'admin' => \App\Http\Middleware\AdminMiddleware::class,
         'role' => \App\Http\Middleware\Role::class,
+        'admin.active' => \App\Http\Middleware\CheckAdminActive::class,
+        'admin.supper' => \App\Http\Middleware\CheckSupperAdmin::class,
+        'auth.admin' => \App\Http\Middleware\AdminAuthMiddleware::class,
     ];
 
 }

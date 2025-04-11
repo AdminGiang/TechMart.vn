@@ -1,18 +1,24 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController as AdminAdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\BrandController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\Auth\RegisterController;
+use App\Http\Controllers\Admin\AccountController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\StaffController;
 
 
 
 
 Route::prefix('admin')->group(function () {
+
 
     Route::get('/dashboard', [DashboardController::class, 'home'])->name('admin.pages.dashboard.index');
    // Route để hiển thị danh sách sản phẩm
@@ -32,6 +38,21 @@ Route::prefix('admin')->group(function () {
 
 
 
+   Route::name('admin.pages.auth.')->group(function () {
+    // Đăng nhập
+    Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
+
+    // Đăng ký
+    Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
+    Route::post('/register', [RegisterController::class, 'register'])->name('register.submit');
+
+    // Đăng xuất
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    });
+
+    
+
     Route::prefix('admin/categories')->name('admin.pages.Category.')->group(function () {
         Route::get('/', [CategoryController::class, 'index'])->name('index');
         Route::get('/create', [CategoryController::class, 'create'])->name('create');
@@ -39,6 +60,22 @@ Route::prefix('admin')->group(function () {
         Route::get('/{category}/edit', [CategoryController::class, 'edit'])->name('edit');
         Route::match(['put', 'patch'], '/{category}', [CategoryController::class, 'update'])->name('update');
         Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('destroy');
+    });
+
+
+
+    Route::prefix('admin')->group(function () {
+        Route::get('/accounts', [AccountController::class, 'index'])->name('admin.pages.accounts.index');
+        Route::get('/accounts/inactive', [AccountController::class, 'inactive'])->name('admin.accounts.inactive');
+        Route::put('/accounts/{admin}/activate', [AccountController::class, 'activate'])->name('admin.accounts.activate');
+        Route::put('/accounts/{admin}/deactivate', [AccountController::class, 'deactivate'])->name('admin.accounts.deactivate');
+        Route::get('/accounts/{admin}/edit-role', [AccountController::class, 'editRole'])->name('admin.accounts.edit_role');
+        Route::put('/accounts/{admin}/update-role', [AccountController::class, 'updateRole'])->name('admin.accounts.update_role');
+        Route::get('/accounts/create', [AccountController::class, 'create'])->name('admin.accounts.create');
+        Route::post('/accounts', [AccountController::class, 'store'])->name('admin.accounts.store');
+        Route::get('/accounts/{admin}/edit', [AccountController::class, 'edit'])->name('admin.accounts.edit');
+        Route::put('/accounts/{admin}', [AccountController::class, 'update'])->name('admin.accounts.update');
+        Route::delete('/accounts/{admin}', [AccountController::class, 'destroy'])->name('admin.accounts.destroy');
     });
 
 
@@ -74,18 +111,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/oder/detail', function () { return view('admin.pages.Order.OrderItem'); })->name('admin.Order.Detail');
 
 
-    Route::get('/role', function () { return view('admin.pages.Role.Index'); })->name('admin.Role');
-    Route::get('/role/detail', function () { return view('admin.pages.Role.Detail'); })->name('admin.Role.Detail');
-    Route::get('/role/edit', function () { return view('admin.pages.Role.Edit'); })->name('admin.Role.Edit');
-    Route::get('/role/add', function () { return view('admin.pages.Role.Add'); })->name('admin.Role.Add');
-
-
-    Route::get('/Staff', function () { return view('admin.pages.Staff.Index'); })->name('admin.Staff');
-    Route::get('/Staff/edit', function () { return view('admin.pages.Staff.Edit'); })->name('admin.Staff.Edit');
-    Route::get('/Staff/detail', function () { return view('admin.pages.Staff.Detail'); })->name('admin.Staff.Detail');
-    Route::get('/Staff/add', function () { return view('admin.pages.Staff.Add'); })->name('admin.Staff.Add');
-
-
+    
     Route::get('/User', function () { return view('admin.pages.User.User'); })->name('admin.User');
     Route::get('/User/detail', function () { return view('admin.pages.User.DetailUser'); })->name('admin.User.Detail');
 

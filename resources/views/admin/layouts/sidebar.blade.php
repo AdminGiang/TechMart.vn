@@ -70,11 +70,11 @@
                     <span class="dropdown-icon material-symbols-rounded">keyboard_arrow_down</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li class="nav-item"><a href="{{ route('admin.Role') }}" class="nav-link dropdown-link">Vai trò</a>
+                    <li class="nav-item"><a href="{{ route('admin.pages.accounts.index') }}" class="nav-link dropdown-link">Vai trò</a>
                     </li>
-                    <li class="nav-item"><a href="{{ route('admin.Staff') }}" class="nav-link dropdown-link">Nhân
+                    <li class="nav-item"><a href="#" class="nav-link dropdown-link">Nhân
                             Viên</a></li>
-                    <li class="nav-item"><a href="{{ route('admin.User') }}" class="nav-link dropdown-link">Khách
+                    <li class="nav-item"><a href="#" class="nav-link dropdown-link">Khách
                             Hàng</a></li>
                 </ul>
             </li>

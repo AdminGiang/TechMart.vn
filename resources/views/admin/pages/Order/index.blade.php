@@ -41,9 +41,13 @@
                         </td>
                         <td>{{ $order->created_at->format('d/m/Y') }}</td>
                         <td>
-                            <a href=""><button class="detail-btn">Chi Tiết</button></a>
+                            <a href="{{ route('admin.order.show', $order->id) }}"><button class="detail-btn">Chi Tiết</button></a>
                             <a href=""><button class="edit-btn">Sửa</button></a>
-                            <a href="" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"><button class="delete-btn">Xóa</button></a>
+                            <form action="{{ route('admin.order.destroy', $order->id) }}" method="POST" onsubmit="return confirm('Bạn có chắc chắn muốn xóa đơn hàng này không?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Xóa</button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach

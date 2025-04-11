@@ -92,6 +92,9 @@ Route::prefix('admin')->group(function () {
 
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+        Route::get('/order/{id}', [OrderController::class, 'show'])->name('order.show');
+        Route::delete('/orders/{id}', [OrderController::class, 'destroy'])->name('order.destroy');
+
     });
 
 

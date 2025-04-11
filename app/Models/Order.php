@@ -31,6 +31,12 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
+    // Mối quan hệ với OrderItem
+    public function orderitems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }   
+
     // Mối quan hệ với Shipping
     public function shipping()
     {

@@ -13,6 +13,8 @@ use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\StaffController;
+use App\Http\Controllers\Admin\OrderController;
+
 
 
 
@@ -107,14 +109,24 @@ Route::prefix('admin')->group(function () {
     Route::get('/Coupon/add', function () { return view('admin.pages.Coupon.Add'); })->name('admin.Coupon.Add');
 
 
-    Route::get('/order', function () { return view('admin.pages.Order.Order'); })->name('admin.Order');
-    Route::get('/oder/detail', function () { return view('admin.pages.Order.OrderItem'); })->name('admin.Order.Detail');
+    //Route::get('/order', function () { return view('admin.pages.Order.index'); })->name('admin.index');
+    //Route::get('/oder/detail', function () { return view('admin.pages.Order.OrderItem'); })->name('admin.Order.Detail');
 
 
     
     Route::get('/User', function () { return view('admin.pages.User.User'); })->name('admin.User');
     Route::get('/User/detail', function () { return view('admin.pages.User.DetailUser'); })->name('admin.User.Detail');
 
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+    });
 
+
+    //Route::prefix('admin/order')->name('admin.pages.Orders')->middleware('auth:admin')->group(function () {
+      //  Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+    //     Route::get('/orders/{id}', [OrderController::class, 'show'])->name('order.show');
+    //     Route::get('/orders/{id}/edit', [OrderController::class, 'edit'])->name('orders.edit');
+    //     Route::get('/orders/{id}/delete', [OrderController::class, 'delete'])->name('orders.delete');
+   // });
    
 });

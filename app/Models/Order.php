@@ -40,7 +40,7 @@ class Order extends Model
     // Mối quan hệ với Coupon
     public function coupon()
     {
-        return $this->belongsTo(Coupon::class);
+        return $this->belongsTo(Coupons::class);
     }
 
     // Mối quan hệ với OrderItems

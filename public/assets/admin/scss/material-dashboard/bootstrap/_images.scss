@@ -5,9 +5,14 @@
 // and abandoned it in Bootstrap v3 because it breaks lots of third-party widgets (including Google Maps)
 // which weren't expecting the images within themselves to be involuntarily resized.
 // See also https://github.com/twbs/bootstrap/issues/18178
-.img-fluid {
-  @include img-fluid();
+.banner-home {
+  width: 100px; /* Full width của cửa sổ trình duyệt */
+  height: 180px; /* Chiều cao cố định */
+    margin-left: calc(-50vw + 50%); // Căn giữa hình ảnh
+    object-fit: cover;
+    display: block; /* Loại bỏ phần padding/margin container nếu có */
 }
+
 
 
 // Image thumbnails

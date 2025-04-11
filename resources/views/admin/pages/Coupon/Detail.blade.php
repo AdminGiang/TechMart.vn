@@ -30,8 +30,8 @@
 
                 <!-- Nút hành động -->
                 <div class="action-buttons">
-                    <a href="{{ route('admin.Coupon.Edit') }}" class="btn btn-edit">Chỉnh sửa Danh Mục</a>
-                    <a href="{{ route('admin.Coupon') }}" class="btn btn-back">Quay lại danh sách</a>
+                    <a href="{{ route('admin.pages.Coupons.edit') }}" class="btn btn-edit">Chỉnh sửa Danh Mục</a>
+                    <a href="{{ route('admin.pages.Coupons.index') }}" class="btn btn-back">Quay lại danh sách</a>
                 </div>
             </div>
         </div>

@@ -5,6 +5,12 @@
 
 <div class="content" id="content">
     <h1> Quản lý Sản Phẩm</h1>
+    <div class="search-bar">
+        <form method="GET" action="{{ route('admin.pages.Banners.index') }}">
+            <input type="text" name="search" placeholder="Tìm kiếm..." value="{{ request('search') }}">
+            <button type="submit">Tìm kiếm</button>
+        </form>
+    </div>
     <a href="{{route('admin.pages.Category.create')}}"><button class="addbtn">Thêm danh mục</button></a>
     @if (session('success'))
     <div class="alert alert-success">{{ session('success') }}</div>

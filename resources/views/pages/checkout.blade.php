@@ -168,7 +168,7 @@
 
             <div class="form-group">
                 <label for="order_notes">Ghi chú đơn hàng</label>
-                <textarea id="order_notes" name="order_notes" rows="3" 
+                <textarea id="order_notes" name="order_notes" rows="3"
                     class="form-control @error('order_notes') is-invalid @enderror"></textarea>
                 @error('order_notes')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -204,8 +204,8 @@
                 Đặt Hàng
             </button>
 
-            <!-- <form action="{{ route('vnpay_payment') }}" method="GET">
-    <input type="hidden" name="total_vnpay" value="{{ $total }}">
+            <!-- <form action="" method="GET">
+    <input type="hidden" name="total_vnpay" value="">
 
     <div class="payment-methods">
         <h2>Phương thức thanh toán</h2>
@@ -245,15 +245,32 @@
 
                 <div class="order-totals">
                     <div class="total-row">
-                        <span>Tạm tính</span>
+                        <span>Tạm tính:</span>
                         <span>{{ number_format($totalPrice) }}đ</span>
                     </div>
                     <div class="total-row">
-                        <span>Phí vận chuyển</span>
+                        <label for="voucher_code">Mã giảm giá:</label>
+                        <input type="text" name="voucher_code" id="voucher_code" value="{{ old('voucher_code') }}" class="form-control" placeholder="Nhập mã giảm giá">
+                        @if(session('error'))
+                            <div class="text-danger">{{ session('error') }}</div>
+                        @endif
+                    </div>
+                    <div class="total-row discount-row">
+                        <span>Giảm giá:</span>
+                        <span>
+                            @if(!empty($discount) && $discount > 0)
+                                -{{ number_format($discount) }}đ
+                            @else
+                                Không áp dụng
+                            @endif
+                        </span>
+                    </div>
+                    <div class="total-row">
+                        <span>Phí vận chuyển:</span>
                         <span>{{ number_format($shipping) }}đ</span>
                     </div>
                     <div class="total-row grand-total">
-                        <span>Tổng cộng</span>
+                        <span>Tổng cộng:</span>
                         <span>{{ number_format($total) }}đ</span>
                     </div>
                 </div>
@@ -266,3 +283,47 @@
 @push('styles')
 <link rel="stylesheet" href="{{ asset('assets/css/checkout.css') }}">
 @endpush
+{{-- <script>
+    const totalPrice = @json($totalPrice); // Truyền giá trị từ Blade vào JavaScript
+    const shipping = @json($shipping);    // Tương tự cho phí vận chuyển
+</script>
+<script src="/assets/js/checkout.js"></script> --}}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const voucherInput = document.querySelector('#voucher_code');
+    if (voucherInput) {
+        voucherInput.addEventListener('change', function () {
+            const voucherCode = this.value;
+            const totalPrice = {{ $totalPrice }};
+            const shipping = {{ $shipping }};
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
+
+            fetch('/apply-coupon', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken,
+                },
+                body: JSON.stringify({
+                    voucher_code: voucherCode,
+                    total_price: totalPrice,
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.querySelector('.discount-row span:last-child').textContent = `-${data.discount.toLocaleString()}đ`;
+                    const newTotal = totalPrice - data.discount + shipping;
+                    document.querySelector('.grand-total span:last-child').textContent = `${newTotal.toLocaleString()}đ`;
+                } else if (data.error) {
+                    alert(data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Có lỗi xảy ra:', error);
+                alert('Không thể áp dụng mã giảm giá!');
+            });
+        });
+    }
+});
+</script>

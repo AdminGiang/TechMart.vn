@@ -29,34 +29,64 @@ class Coupons extends Model
         return $this->belongsToMany(User::class, 'user_vouchers')->withTimestamps();
     }
 
-    public function isValid($orderAmount = null, $userId = null)
-    {
-        if (!$this->is_active || ($this->start_date && now()->lt($this->start_date)) || ($this->end_date && now()->gt($this->end_date))) {
-            return false;
-        }
+//     public function isValid($orderAmount = null, $userId = null)
+//     {
+//         if (!$this->is_active || ($this->start_date && now()->lt($this->start_date)) || ($this->end_date && now()->gt($this->end_date))) {
+//             return false;
+//         }
 
-        if ($this->min_order_amount && $orderAmount < $this->min_order_amount) {
-            return false;
-        }
+//         if ($this->min_order_amount && $orderAmount < $this->min_order_amount) {
+//             return false;
+//         }
 
-        if ($this->quantity !== null && $this->users()->count() >= $this->quantity) {
-            return false;
-        }
+//         if ($this->quantity !== null && $this->users()->count() >= $this->quantity) {
+//             return false;
+//         }
 
-        if ($userId && $this->usage_limit_per_user !== null && $this->users()->where('user_id', $userId)->count() >= $this->usage_limit_per_user) {
-            return false;
-        }
+//         if ($userId && $this->usage_limit_per_user !== null && $this->users()->where('user_id', $userId)->count() >= $this->usage_limit_per_user) {
+//             return false;
+//         }
 
-        return true;
+//         return true;
+//     }
+
+//     public function apply($orderAmount)
+//     {
+//         if ($this->type === 'fixed') {
+//             return min($this->value, $orderAmount); // Giảm tối đa bằng giá trị đơn hàng
+//         } elseif ($this->type === 'percentage') {
+//             return round($orderAmount * ($this->value / 100), 2);
+//         }
+//         return 0;
+//     }
+// }
+public function isValid($orderAmount = null, $userId = null)
+{
+    if (!$this->is_active || ($this->start_date && now()->lt($this->start_date)) || ($this->end_date && now()->gt($this->end_date))) {
+        return false; // Mã không hoạt động hoặc hết hạn
     }
 
-    public function apply($orderAmount)
-    {
-        if ($this->type === 'fixed') {
-            return min($this->value, $orderAmount); // Giảm tối đa bằng giá trị đơn hàng
-        } elseif ($this->type === 'percentage') {
-            return round($orderAmount * ($this->value / 100), 2);
-        }
-        return 0;
+    if ($this->min_order_amount && $orderAmount < $this->min_order_amount) {
+        return false; // Giá trị đơn hàng không đạt yêu cầu tối thiểu
     }
+
+    if ($this->quantity !== null && $this->users()->count() >= $this->quantity) {
+        return false; // Số lượng mã đã hết
+    }
+
+    if ($userId && $this->usage_limit_per_user !== null && $this->users()->where('user_id', $userId)->count() >= $this->usage_limit_per_user) {
+        return false; // Người dùng đã sử dụng mã
+    }
+
+    return true;
+}public function apply($orderAmount)
+{
+    if ($this->type === 'fixed') {
+        return min($this->value, $orderAmount); // Giảm giá cố định
+    } elseif ($this->type === 'percentage') {
+        return round($orderAmount * ($this->value / 100), 2); // Giảm giá theo phần trăm
+    }
+
+    return 0;
+}
 }

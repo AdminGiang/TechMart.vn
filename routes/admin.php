@@ -7,14 +7,13 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\BrandController;
-use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CouponController;
+use App\Http\Controllers\AdminController;
 
 
 
 
 Route::prefix('admin')->group(function () {
-
-    route::get('/login' , [AdminController::class ,'login'])->name('admin.login');
 
     Route::get('/dashboard', [DashboardController::class, 'home'])->name('admin.pages.dashboard.index');
    // Route để hiển thị danh sách sản phẩm
@@ -53,10 +52,27 @@ Route::prefix('admin')->group(function () {
         Route::delete('/{brand}', [BrandController::class, 'destroy'])->name('destroy');
     });
 
-    Route::get('/Coupon', function () { return view('admin.pages.Coupon.Index'); })->name('admin.Coupon');
-    Route::get('/Coupon/edit', function () { return view('admin.pages.Coupon.Edit'); })->name('admin.Coupon.Edit');
-    Route::get('/Coupon/detail', function () { return view('admin.pages.Coupon.Detail'); })->name('admin.Coupon.Detail');
-    Route::get('/Coupon/add', function () { return view('admin.pages.Coupon.Add'); })->name('admin.Coupon.Add');
+
+    Route::prefix('admin/banners')->name('admin.pages.Banners.')->group(function () {
+        Route::get('/', [BannerController::class, 'index'])->name('index');
+        Route::get('/create', [BannerController::class, 'create'])->name('create');
+        Route::post('/', [BannerController::class, 'store'])->name('store');
+        Route::get('/{banner}/edit', [BannerController::class, 'edit'])->name('edit');
+        Route::match(['put', 'patch'], '/{banner}', [BannerController::class, 'update'])->name('update');
+        Route::delete('/{banner}', [BannerController::class, 'destroy'])->name('destroy');
+        Route::post('/{banner}/toggle-status', [BannerController::class, 'toggleStatus'])->name('toggle-status');
+        Route::get('/admin/banners/{id}/toggle-status', [BannerController::class, 'toggleStatus']);
+    });
+
+
+    Route::prefix('admin/coupons')->name('admin.pages.Coupon.')->group(function () {
+        Route::get('/', [CouponController::class, 'index'])->name('index');
+        Route::get('/create', [CouponController::class, 'create'])->name('add');
+        Route::post('/', [CouponController::class, 'store'])->name('store');
+        Route::get('/{coupon}/edit', [CouponController::class, 'edit'])->name('edit');
+        Route::match(['put', 'patch'], '/{coupon}', [CouponController::class, 'update'])->name('update');
+        Route::delete('/{coupon}', [CouponController::class, 'destroy'])->name('destroy');
+    });
 
 
     Route::get('/order', function () { return view('admin.pages.Order.Order'); })->name('admin.Order');
@@ -69,22 +85,15 @@ Route::prefix('admin')->group(function () {
     Route::get('/role/add', function () { return view('admin.pages.Role.Add'); })->name('admin.Role.Add');
 
 
-    Route::prefix('admin/admins')->name('admin.pages.Admin.')->group(function () {
-        Route::get('/', [AdminController::class, 'index'])->name('index');
-        Route::get('/create', [AdminController::class, 'create'])->name('create');
-        Route::post('/', [AdminController::class, 'store'])->name('store');
-        Route::get('/{admin}/edit', [AdminController::class, 'edit'])->name('edit');
-        Route::match(['put', 'patch'], '/{admin}', [AdminController::class, 'update'])->name('update');
-        Route::delete('/{admin}', [AdminController::class, 'destroy'])->name('destroy');
-    });
+    Route::get('/Staff', function () { return view('admin.pages.Staff.Index'); })->name('admin.Staff');
+    Route::get('/Staff/edit', function () { return view('admin.pages.Staff.Edit'); })->name('admin.Staff.Edit');
+    Route::get('/Staff/detail', function () { return view('admin.pages.Staff.Detail'); })->name('admin.Staff.Detail');
+    Route::get('/Staff/add', function () { return view('admin.pages.Staff.Add'); })->name('admin.Staff.Add');
+
 
     Route::get('/User', function () { return view('admin.pages.User.User'); })->name('admin.User');
     Route::get('/User/detail', function () { return view('admin.pages.User.DetailUser'); })->name('admin.User.Detail');
 
 
-    // Route::get('/banner', function () { return view('admin.pages.Banner.index'); })->name('admin.Banner');
-    //  Route::get('/banner/detail', function () { return view('admin.pages.Banner'); })->name('admin.Banner.Detail');
-    // Route::get('/banner/edit', function () { return view('admin.pages.Banner.EditRole'); })->name('admin.Banner.Edit');
-    //Route::get('/banner/add', function () { return view('admin.pages.Banner.create'); })->name('admin.banners.create');
 
 });

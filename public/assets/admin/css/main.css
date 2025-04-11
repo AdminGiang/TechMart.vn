@@ -99,7 +99,27 @@ h1 {
 }
 
 .btn-back {
-    background-color: #f44336;
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.btn-back i {
+    margin-right: 8px;
+}
+
+.btn-back:hover {
+    background-color: #45a049;
+    color: white;
+    text-decoration: none;
+    transform: translateX(-2px);
 }
 
 .btn-edit {

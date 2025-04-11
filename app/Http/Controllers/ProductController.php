@@ -24,17 +24,22 @@ class ProductController extends Controller
             ->take(3)
             ->get();
         
-        // Lấy tổng số đánh giá
-        $totalReviews = Review::where('product_id', $id)->count();
+        // Lấy tổng số đánh giá đã được duyệt
+        $totalReviews = Review::where('product_id', $id)
+            ->where('status', 'approved')
+            ->count();
         
-        // Lấy đánh giá của sản phẩm với phân trang
+        // Lấy đánh giá đã được duyệt của sản phẩm với phân trang
         $reviews = Review::with('user')
             ->where('product_id', $id)
+            ->where('status', 'approved')
             ->orderBy('created_at', 'desc')
             ->paginate(4);
         
-        // Tính điểm đánh giá trung bình từ tất cả đánh giá
-        $averageRating = Review::where('product_id', $id)->avg('rating') ?? 0;
+        // Tính điểm đánh giá trung bình từ các đánh giá đã được duyệt
+        $averageRating = Review::where('product_id', $id)
+            ->where('status', 'approved')
+            ->avg('rating') ?? 0;
         
         return view('pages.productdetail', compact('product', 'relatedProducts', 'reviews', 'averageRating', 'totalReviews'));
     }

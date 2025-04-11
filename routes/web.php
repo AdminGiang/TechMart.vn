@@ -12,7 +12,6 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ChatbotController;
-use App\Http\Controllers\VnPay_paymentController;
 use App\Http\Controllers\CouponsController;
 
 require __DIR__.'/admin.php';

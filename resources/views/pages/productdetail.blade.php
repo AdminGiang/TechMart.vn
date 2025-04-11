@@ -170,7 +170,7 @@
     <div id="review-list"></div>
      <!-- Review List -->
      <div class="review-list">
-      @foreach($reviews as $review)
+      @foreach($reviews->where('status', 'approved') as $review)
       <div class="review-item">
         <div class="d-flex align-items-center">
           <span class="user-name">{{ $review->user->name }}</span>

@@ -746,6 +746,50 @@ textarea {
     border-radius: 50%;
     background: rgba(59, 93, 80, 0.2); }
 
+    .table-container {
+      margin: 20px 0;
+  }
+  
+  .product-table {
+      width: 100%;
+      border-collapse: collapse;
+  }
+  
+  .product-table th, .product-table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+  }
+  
+  .product-table th {
+      background-color: #f4f4f4;
+      font-weight: bold;
+  }
+  
+  .edit-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+  }
+  
+  .delete-btn {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+  }
+  
+  .detail-btn {
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+  }
+
 
 
 

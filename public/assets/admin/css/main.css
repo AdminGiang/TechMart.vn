@@ -254,4 +254,60 @@ input:focus {
     background-color: #0056b3;
 }
 
+/*chi tiết đơn hàng*/
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
 
+.order-details, .order-items {
+    margin-bottom: 30px;
+}
+
+.details-table, .product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.details-table th, .details-table td, .product-table th, .product-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.details-table th {
+    width: 30%;
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.product-table th {
+    background-color: #03080e;
+    font-weight: bold;
+    text-align: center;
+}
+
+.product-table td {
+    text-align: center;
+}
+
+.badge {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.badge-warning {
+    background-color: #ffc107;
+}
+
+.badge-success {
+    background-color: #28a745;
+}
+
+.badge-danger {
+    background-color: #dc3545;
+}

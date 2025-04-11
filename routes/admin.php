@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\ReviewController;
 
 
 
@@ -75,8 +77,8 @@ Route::prefix('admin')->group(function () {
     });
 
 
-    Route::get('/order', function () { return view('admin.pages.Order.Order'); })->name('admin.Order');
-    Route::get('/oder/detail', function () { return view('admin.pages.Order.OrderItem'); })->name('admin.Order.Detail');
+    //Route::get('/order', function () { return view('admin.pages.Order.index'); })->name('admin.index');
+    //Route::get('/oder/detail', function () { return view('admin.pages.Order.OrderItem'); })->name('admin.Order.Detail');
 
 
     Route::get('/role', function () { return view('admin.pages.Role.Index'); })->name('admin.Role');
@@ -94,6 +96,14 @@ Route::prefix('admin')->group(function () {
     Route::get('/User', function () { return view('admin.pages.User.User'); })->name('admin.User');
     Route::get('/User/detail', function () { return view('admin.pages.User.DetailUser'); })->name('admin.User.Detail');
 
+    Route::get('/reviews', [ReviewController::class, 'index'])->name('admin.reviews.index');
+    Route::post('/reviews/{review}/approve', [ReviewController::class, 'approve'])->name('admin.reviews.approve');
+    Route::post('/reviews/{review}/reject', [ReviewController::class, 'reject'])->name('admin.reviews.reject');
 
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+        Route::get('/order/{id}', [OrderController::class, 'show'])->name('order.show');
+        Route::delete('/orders/{id}', [OrderController::class, 'destroy'])->name('order.destroy');
 
+    });
 });

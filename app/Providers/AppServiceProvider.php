@@ -19,12 +19,12 @@ class AppServiceProvider extends ServiceProvider
     }
 
     public function boot()
-{
-    // Các logic boot khác của bạn có thể ở đây
+    {
+        // Các logic boot khác của bạn có thể ở đây
 
-    Gate::define('delete-product', function (User $user, Products $product = null) {
-        // Kiểm tra nếu trường 'role' của người dùng là 'admin'
-        return $user->role === 'admin';
-    });
-}
+        Gate::define('delete-product', function (User $user, Products $product = null) {
+            // Kiểm tra nếu trường 'role' của người dùng là 'admin'
+            return $user->role === 'admin';
+        });
+    }
 }
